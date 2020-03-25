@@ -6,7 +6,7 @@ contributors:
   - dotnetkow
 ---
 
-# Community Guides
+# コミュニティガイド
 
 ## General
 

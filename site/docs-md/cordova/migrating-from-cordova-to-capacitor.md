@@ -6,53 +6,53 @@ contributors:
   - dotnetkow
 ---
 
-# Migrating a Web App Using Cordova to Capacitor
+# WebアプリのCordovaからCapacitorへのマイグレーション
 
-<p class="intro">There are several steps required to fully migrate a web app using Cordova over to Capacitor.</p>
+<p class="intro">Cordovaを使用してWebアプリケーションを完全にCapacitorに移行するには、いくつかの手順が必要です。</p>
 
 <blockquote>
-Note that it's recommended to work in a separate code branch when applying these changes.
+これらの変更を適用する場合は、別のコードブランチで作業することをお勧めします。
 </blockquote>
 
-## Add Capacitor
+## Capacitorを追加する
 
-Begin by opening your project in a Terminal, then add Capacitor to [a web app](/docs/getting-started) or [an Ionic app](/docs/getting-started/with-ionic). 
+まず、プロジェクトをターミナルで開き、[Webアプリ](/docs/getting-started) か [Ionicアプリ](/docs/getting-started/with-ionic) の方法でCapacitorを追加します。
 
-Next, open `config.xml` and find the `id` field in the widget element. In this example, it's `io.ionic.myapp`.
+次に、`config.xml`を開いて、widgetエレメントにある`id`を見つけます。例えば、 `io.ionic.myapp` です。
 
 ```xml
 <widget id="io.ionic.myapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 ```
 
-Also find the `Name` of your app:
+またあなたのアプリの `Name` を見つけます:
 
 ```xml
 <name>MyApp</name>
 ```
 
-Now, initialize Capacitor with this app information:
+Capacitorのインストールの時に、あなたのアプリの情報を入力します:
 
 ```bash
 npx cap init [appName] [appId]
 ```
 
-In this example, it would be `npx cap init MyApp io.ionic.myapp`. These values can be found in the newly created `capacitor.config.json` file.
+例えば、これは `npx cap init MyApp io.ionic.myapp` のようになります。これらの値は新しく作成される `capacitor.config.json` に反映されます。
 
-### Build your Web App
-You must build your web project at least once before adding any native platforms.
+### アプリをビルドする
+ネイティブプラットフォームを追加する前に、Webプロジェクトを少なくとも1回構築する必要があります。
 
-This ensures that the `www` folder that Capacitor has been [automatically configured](/docs/basics/configuring-your-app/) to use as the `webDir` in `capacitor.config.json` actually exists.
+これにより、Capacitorが、`capacitor.config.json`の`webDir`において使用するように[自動的に設定された](/docs/basics/configuring-your-app/)wwwフォルダーが実際に存在するようになります。
 
-### Add Platforms
+### Platformsの追加
 
-Capacitor native platforms exist in their own top-level folders. Cordova's are located under `platforms/ios` or `platforms/android`.
+Capacitorのネイティブプラットフォームは、その最上位フォルダにあります。Cordovaの場合は、`platforms/ios` もしくは `platforms/android` でした。
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-Both android and ios folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your app (i.e., check them into source control, edit them in their own IDEs, etc.). Additionally, any Cordova plugins that were previously added to the project via `npm install` (located under `dependencies` in `package.json`) are automatically installed by Capacitor into each new native project (minus any [incompatible ones](/docs/cordova/known-incompatible-plugins)):
+プロジェクトのルートにあるandroidフォルダとiosフォルダの両方が作成されます。これらは完全に独立したネイティブプロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自のIDEで編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加されたCordovaプラグインは、Capacitorによってそれぞれの新しいネイティブプロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
 
 ```json
 "dependencies": {
@@ -66,25 +66,25 @@ Both android and ios folders at the root of the project are created. These are e
 }
 ```
 
-## Splash Screens and Icons
+## スプラッシュ画像とアイコン
 
-If you've previously created icon and splash screen images, they can be found in the top-level `resources` folder of your project. [Follow this guide](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/) to move them over to each native project.
+アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。[このガイドに従って](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)に従って、これらを各ネイティブプロジェクトに移動します。
 
-## Migrate Plugins
+## Pluginsのマイグレート
 
-Begin by auditing your existing Cordova plugins - it's possible that you may be able to remove ones that are no longer needed. 
+既存のCordovaプラグインを監査することから始めます。不要になったプラグインを削除できる場合があります。
 
-Next, review all of Capacitor's [core plugins](/docs/apis) as well as [community plugins](/docs/community/plugins). You may be able to switch to the Capacitor-equivalent Cordova plugin. Also note that some Capacitor plugins extend beyond mobile, including [PWA](/docs/web) and [Desktop](/docs/electron/) functionality, which Cordova traditionally hasn't had support for. For example, compare the [Capacitor Camera](/docs/apis/camera) to the [Cordova Camera](https://github.com/apache/cordova-plugin-camera).
+次に、Capacitorのすべての [core plugins](/docs/apis) と [community plugins](/docs/community/plugins) を確認します。Capacitorに相当するCordovaプラグインに切り替えることができます。また、Cordovaがこれまでサポートしていなかった [PWA](/docs/web) や [Desktop](/docs/electron/) 機能など、一部のCapacitorプラグインはモバイル以外にも拡張されています。たとえば、 [Capacitor Camera](/docs/apis/camera) と [Cordova Camera](https://github.com/apache/cordova-plugin-camera) を比較します。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+プラグインによっては機能が完全に一致しない場合がありますが、必要な機能によっては問題にならない場合があります。
 
-Note that any plugins that are [incompatible or cause build issues](/docs/cordova/known-incompatible-plugins) are automatically skipped.
+[incompatible or cause build issues](/docs/cordova/known-incompatible-plugins) のプラグインは自動的にスキップされることに注意ください。
 
-## Set Permissions
+## Permissionの設定
 
-By default, the entire initial permissions requested for the latest version of Capacitor are set for you in the default native projects for both iOS and Android. However, you may need to apply additional permissions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
+デフォルトでは、最新バージョンのCapacitorに必要な初期パーミッションは、iOSとAndroidの両方のデフォルトネイティブプロジェクトに設定されます。ただし、`plugin.xml` のマッピングによって、追加のアクセス権を手動で適用しなければならない場合もあります。これは、iOSとAndroidで必要な設定です。各プラットフォームの構成方法については、[iOS](/docs/ios/configuration)および[アンドロイド](/docs/android/設定)の構成ガイドを参照してください。
 
-## Cordova Plugin preferences
+## Config.xml フィールドの追加
 
 When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and port them to `capacitor.config.json` file. You can manually add more preferences to the `cordova.preferences` object too.
 
@@ -101,16 +101,17 @@ When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` 
 
 
 ## Additional Config.xml Fields
+>>>>>>> d67d460127fb285810ad4aa7850381caea5e8499
 
-You may be curious about how other elements from `config.xml` work in Capacitor apps.
+あなたは `config.xml` の他の要素がCapacitorアプリではどのように動作するか気になるかもしれません。
 
-The Author element can be configured in `package.json`, but is not used by Capacitor or within your app:
+Author要素は`package.json` で設定できます。ただし、Capacitorやアプリケーション内では使用されません:
 
 ```xml
 <author email="email@test.com" href="http://ionicframework.com/">Ionic Framework Team</author>
 ```
 
-Most of the `allow-intent` values are either not used or there are [configurable alternatives](/docs/basics/configuring-your-app/) in `capacitor.config.json`.
+`allow-intent`値のほとんどは使用されませんが、Capacitorに[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。
 
 ```xml
 <allow-intent href="http://*/*" />
@@ -121,7 +122,7 @@ Most of the `allow-intent` values are either not used or there are [configurable
 <allow-intent href="geo:*" />
 ```
 
-iOS `edit-config` elements need to be [configured in Info.plist](/docs/ios/configuration).
+iOS の`edit-config` 要素は [configured in Info.plist](/docs/ios/configuration) を必要とします。
 
 ```xml
 <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
@@ -129,7 +130,7 @@ iOS `edit-config` elements need to be [configured in Info.plist](/docs/ios/confi
 </edit-config>
 ```
 
-It's impossible to cover every `config.xml` element available. However, most questions relating to "How do I configure X in Capacitor?" should be thought of as "How do I configure X in [platform] (iOS/Android)?" when searching online for answers.
+すべての`config.xml`の要素をカバーするのは不可能です。しかし、"CapacitorでXを設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム](iOS/Android)でXを設定するには?」と考えるべきです。
 
 ## Setting Scheme
 
@@ -143,10 +144,10 @@ When using Ionic with Cordova, your app uses `cordova-plugin-ionic-webview` by d
 }
 ```
 
-## Removing Cordova
+## Cordova の削除
 
-Once you've tested that all migration changes have been applied and the app is working well, Cordova can be removed from the project. Delete `config.xml` as well as the `platforms` and `plugins` folders. Note that you don't technically have to remove Cordova, since Capacitor works alongside it. In fact, if you plan to continue using Cordova plugins or think you may in the future, you can leave the Cordova assets where they are.
+すべてのマイグレーション変更が適用され、アプリケーションが正常に動作することをテストしたら、Cordovaをプロジェクトから削除できます。`config.xml`を削除します。`platforms` フォルダと `plugins` フォルダも同様です。CordovaはCapacitorと一緒に動作するので、技術的に取り外す必要はないことに注意してください。実際、Cordovaプラグインの使用を継続する予定がある場合、または将来的に使用する可能性がある場合は、Cordovaアセットをそのまま使用できます。
 
-## Next Steps
+## 次のステップ
 
-This is just the beginning of your Capacitor journey. Learn more about [using Cordova plugins](/docs/cordova/using-cordova-plugins) in a Capacitor project or more details on the Capacitor [development workflow](/docs/basics/workflow).
+これは、Capacitorの旅の始まりにすぎません。より学ぶには、Capacitorプロジェクトでの [using Cordova plugins](/docs/cordova/using-cordova-plugins)か、より詳しくは [development workflow](/docs/basics/workflow) をご覧ください。

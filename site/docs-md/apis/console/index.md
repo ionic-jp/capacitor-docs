@@ -11,10 +11,10 @@ contributors:
 
 # Console
 
-The Console API automatically sends `console.debug`, `console.error`, `console.info`, `console.log`, `console.trace` and `console.warn` calls to the native log system on each respective platform. This enables, for example,
-`console.log` calls to be rendered in the Xcode and Android Studio log windows.
+Console APIでは自動的に `console.debug`, `console.error`, `console.info`, `console.log`, `console.trace` and `console.warn` からそれぞれのプラットフォームのネイティブログシステムを呼び出します。これによって、例えば
+`console.log` はXcode と Android Studio のログウィンドウに表示されます。
 
-Currently it's not possible to disable it, but that feature is coming.
+現時点では無効にすることはできないが、この機能は今後提供される予定です。
 
 ## Example
 

@@ -66,9 +66,9 @@ export class InPageNavigtion implements ComponentInterface {
   render() {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
     const submitEditLink = (
-       <a class="submit-edit-link" href={`https://github.com/ionic-team/capacitor/tree/master/site/${this.srcUrl}`}>
+       <a class="submit-edit-link" href={`https://github.com/ionic-jp/capacitor-docs/tree/master/site/${this.srcUrl}`}>
          {this.ghIcon()}
-         <span>Submit an edit</span>
+         <span>翻訳に協力</span>
        </a>
     );
 

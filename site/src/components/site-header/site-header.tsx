@@ -99,11 +99,17 @@ export class SiteHeader {
             }}
             onMouseEnter={this.handleDropdownEnter.bind(this)}
             onMouseLeave={this.handleDropdownLeave.bind(this)}>
-            <span class="dropdown__label">Community</span>
+            <span class="dropdown__label">コミュニティ</span>
             <ul class="dropdown__menu">
               <div class="dropdown__arrow"></div>
               <li class="dropdown__item">
-                <a href="/docs/community/plugins/">Plugins</a>
+                <a href="/docs/community/plugins/">プラグイン</a>
+              </li>
+              <li class="dropdown__item">
+                <a href="https://ionic-jp.herokuapp.com/" target="_blank">Slack（日本）</a>
+              </li>
+              <li class="dropdown__item">
+                <a href="https://twitter.com/ionic_japan" target="_blank">Twitter（日本）</a>
               </li>
               <li class="dropdown__item">
                 <a href="https://forum.ionicframework.com/" target="_blank">Forum</a>
@@ -116,6 +122,11 @@ export class SiteHeader {
               </li>
             </ul>
           </span>
+
+          <a class="link link--external" href="https://github.com/ionic-jp/capacitor-docs" target="_blank">
+            翻訳に協力
+            <app-icon name="targetblank"></app-icon>
+          </a>
 
           <a class="link link--external" href="https://github.com/ionic-team/capacitor" target="_blank">
             GitHub

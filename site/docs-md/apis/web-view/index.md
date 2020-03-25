@@ -11,7 +11,7 @@ contributors:
 
 # WebView
 
-The WebView API provides some configuration options for the embedded WebView on iOS and Android.
+WebView APIは、iOSとAndroidの組み込みWebViewにいくつかの設定オプションを提供します。
 
 <plugin-api index="true" name="web-view"></plugin-api>
 

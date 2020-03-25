@@ -6,21 +6,21 @@ contributors:
   - AntoninBeaufort
 ---
 
-# Capacitor Community Plugins
+# Capacitor コミュニティプラグイン
 
-The community has built a number of Capacitor plugins to add functionality to your app.
+コミュニティは、あなたのアプリに機能を追加できるいくつかのCapacitorプラグインを構築して公開しています。
 
-To install plugins, find the NPM package name, and then follow the [plugin usage guide](/docs/basics/using-plugins) for information
-on how to install and configure plugins for each platform.
+NPMパッケージ名を見つけてから各プラットフォーム用のプラグインをインストールして構成する方法については
+[plugin usage guide](/docs/basics/using-plugins)に従ってください。
 
-Building your own Capacitor plugins is easy! Check out the [Plugin Introduction](/docs/plugins/) to learn how to extend Capacitor
-and, optionally, share functionality with other Capacitor developers.
+あなた自身のCapacitorプラグインを作るのは簡単です！Capacitorを拡張する方法、およびオプションで他のCapacitor開発者と機能を共有する方法については、
+[Plugin Introduction](/docs/plugins/)を参照してください。
 
-The Ionic team also offers native plugin support for Enterprises. [Learn more](https://ionicframework.com/enterprise-engine)
+Ionic teamはEnterprises向けのネイティブプラグインサポートも提供しています。 [詳しくみる](https://ionicframework.com/enterprise-engine)
 
-Are we missing your awesome plugin? [Add it to this page](https://github.com/ionic-team/capacitor/edit/master/site/docs-md/community/plugins.md).
+私たちはあなたの素晴らしいプラグインを見逃していませんか？ [このページに追加してください。](https://github.com/ionic-team/capacitor/edit/master/site/docs-md/community/plugins.md).
 
-## Authentication
+## 認証
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -55,7 +55,7 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | Data Storage SQLite Plugin | `capacitor-data-storage-sqlite` | <https://github.com/jepiqueau/capacitor-data-storage-sqlite> | |
 | SQLite Database Plugin | `capacitor-sqlite` | <https://github.com/jepiqueau/capacitor-sqlite> | |
 
-## Video
+## ビデオ
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -72,7 +72,7 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | ----------------------- | ----------- | ------ | ------ |
 | Firebase Analytics | `capacitor-firebase-analytics` | <https://github.com/philmerrell/capacitor-firebase-analytics> | |
 
-## Messaging/SMS/Email
+## メッセージ/SMS/Eメール
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -82,7 +82,7 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | Intercom | `capacitor-intercom` | <https://github.com/stewwan/capacitor-intercom> | |
 
 
-## Payments/NFC
+## ペイメント/NFC
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -91,7 +91,7 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | Stripe Terminal | `capacitor-stripe-terminal` | <https://github.com/eventOneHQ/capacitor-stripe-terminal> | iOS only |
 
 
-## Location
+## ロケーション
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -120,14 +120,14 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | AdMob | `capacitor-admob` | <https://github.com/rahadur/capacitor-admob> | iOS, Android |
 | AdMob | `@rdlabo/capacitor-admob` | <https://github.com/rdlabo/capacitor-admob> | |
 
-## Notifications
+## 通知
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
 | Fancy Notifications | `fancy-notifications` | <https://github.com/triniwiz/fancy-notifications> | |
 | FCM | `capacitor-fcm` | <https://github.com/stewwan/capacitor-fcm> | |
 
-## Files/Networking
+## ファイル/ネットワーク
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
@@ -135,6 +135,7 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | Downloader | `capacitor-downloader` | <https://github.com/triniwiz/capacitor-downloader> | |
 | Zip | `capacitor-zip` | <https://github.com/triniwiz/capacitor-zip> | |
 | UDP | `@unitree-czk/capacitor-udp` | <https://github.com/unitree-czk/capacitor-udp> | |
+
 
 ## Bluetooth
 
@@ -149,31 +150,31 @@ Are we missing your awesome plugin? [Add it to this page](https://github.com/ion
 | SensingKit | `cap-sensing-kit` | <https://github.com/robmarti/cap-sensing-kit> | Web, Android|
 
 
-## Date/Calendar
+## 日付/カレンダー
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
 | DatePicker | `capacitor-datepicker` | <https://github.com/triniwiz/capacitor-datepicker> | |
 
-## Images
+## 画像
 
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
 | Image Cache | `capacitor-image-cache` | <https://github.com/triniwiz/capacitor-image-cache> | |
-| Image Crop | `capacitor-image-crop` | <https://github.com/triniwiz/capacitor-image-crop> | | 
+| Image Crop | `capacitor-image-crop` | <https://github.com/triniwiz/capacitor-image-crop> | |
 | Media Operations | `capacitor-media` | <https://github.com/stewwan/capacitor-media> | |
 | Code Scanner | `@rdlabo/capacitor-codescanner` | <https://github.com/rdlabo/capacitor-codescanner> | iOS only (currently) |
 
 
-## Printers
+## プリンター
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |
 | Zebra | `zebra-capacitor` | <https://github.com/cleversolutions/zebraCapacitor> | |
 
 
-## Misc
+## その他
 
 | Name                    | NPM package | GitHub | Notes |
 | ----------------------- | ----------- | ------ | ------ |

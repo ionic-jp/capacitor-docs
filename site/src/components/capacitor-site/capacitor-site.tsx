@@ -45,6 +45,7 @@ export class App {
     if (!this.history) {
       this.history = history;
       this.history.listen((location: LocationSegments) => {
+        (window as any).gtag('config', 'UA-73373181-14', { 'page_path': location.pathname + location.search });
         (window as any).gtag('config', 'UA-44023830-42', { 'page_path': location.pathname + location.search });
       });
     }

@@ -6,12 +6,12 @@ contributors:
   - dotnetkow
 ---
 
-# Building an Ionic Framework Camera App
+# Ionicでカメラアプリ
 
 **Web Framework**: Ionic 4 + Angular  
 **Platforms**: Web, iOS, Android
 
-Capacitor makes it easy to build web apps that run natively on iOS, Android, desktop, and the web. In this guide, we'll add Camera functionality to an Ionic Angular app that works on the web, iOS, and Android. Ready to capture photos using just one JavaScript method call?  Let's get started.
+Capacitorを使えば、iOS、Android、デスクトップ、ウェブ上でネイティブに動作するウェブアプリを簡単に作ることができる。このガイドでは、Web、iOS、Androidで動作するIonic Angularアプリにカメラ機能を追加します。1つのJavaScriptメソッド呼び出しだけで写真をキャプチャする用意はできていますか？始めましょう。
 
 ## Required Dependencies
 Building and deploying iOS and Android apps require additional dependencies, including an iOS and Android device. Please [follow the instructions here](../getting-started/dependencies) before continuing.

@@ -36,3 +36,24 @@ android-template/app/app.iml
 .gradle/
 .settings/
 .project
+
+# docs only
+android/*
+android-template/*
+app-template/*
+capacitor-cordova-android-plugins/*
+capacitor-cordova-ios-plugins/*
+cli/*
+e2e/*
+electron/*
+electron-template/*
+example/*
+ios/*
+ios-template/*
+plugin-template/*
+scripts/*
+.swift-version
+Capacitor.podspec
+lerna.json
+lerna-debug.log
+

@@ -11,7 +11,7 @@ contributors:
 
 # Push Notifications
 
-The Push Notifications API provides methods for registering a device to receive notifications from a server, along with processing received notifications and responding to them. In contrast, the [Local Notifications](../local-notifications) API provides means for offline, local notification scheduling and processing.
+Push Notifications APIは、サーバからの通知を受信するデバイスを登録し、受信した通知を処理して応答するためのメソッドを提供します。対照的に、[ローカル通知](../local-notifications)APIは、オフラインのローカル通知スケジューリングおよび処理のための手段を提供します。
 
 ## Enabling Push Notifications Capabilites
 

@@ -9,11 +9,11 @@ contributors:
 
 # Capacitor APIs
 
-Capacitor includes a number of Native APIs that are available to all Capacitor apps. These can be thought of as Capacitor "core plugins," and they make it easy to access commonly needed functionality on each platform.
+Capacitorには、すべてのCapacitor Appで使用できる多数のネイティブAPIが含まれています。これらはCapacitor "core plugins,"と考えることができ、各プラットフォームで一般的に必要とされる機能へのアクセスを容易にします。
 
-For those coming from Cordova, the core Capacitor APIs cover much of the core Cordova plugins, and also include some new ones.
+Cordovaから来た人のために、core Capacitor APIは、core Cordova pluginの大部分をカバーし、いくつかの新しいものも含んでいます。
 
-See the APIs list on the left menu for the full list of available APIs.
+使用可能なAPIの完全なリストについては、左側のメニューのAPIリストを参照してください。
 
 ## API Usage
 
@@ -42,7 +42,7 @@ A common mistake is to import a plugin directly, then use the plugin API immedia
 import { Browser } from '@capacitor/core';
 
 async openBrowser() {
-  // On iOS, for example, this will open the URL in Safari instead of 
+  // On iOS, for example, this will open the URL in Safari instead of
   // the SFSafariViewController (in-app browser)
   await Browser.open({ url: "https://ionicframework.com" });
 }
