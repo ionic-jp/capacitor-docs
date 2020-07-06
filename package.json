@@ -1,7 +1,7 @@
 {
 	"name": "@capacitor/core",
 	"scripts": {
-		"prod": "cd core && npm i && cd ../site && npm i && npm run build && echo '/* /index.html 200' >> www/_redirects"
+		"prod": "cd core && npm i && cd ../site && npm i && npm run build && echo '/* https://capacitorjs.jp/ 301' >> www/_redirects"
 	},
 	"devDependencies": {
 		"lerna": "^2.4.0"
