@@ -4,22 +4,22 @@ description: Native Project Configuration
 slug: /basics/configuring-your-app
 ---
 
-# Configuring Your App
+# アプリの設定
 
-Most of Capacitor is configured per-platform; meaning that you will make most configuration changes in the native project using native tooling.
+Capacitorのほとんどはプラットフォームごとに設定されています。つまり、ほとんどの設定変更はネイティブツールを使用してネイティブプロジェクトで行うことになります。
 
-## Native Project Management
+## ネイティブ・プロジェクト管理
 
-Configuring a Capacitor project is no different from configuring any iOS or Android project. Existing native developers  can easily work alongside web developers; with each side using the tools and SDKs they know best. While mobile application is a bit different than web development, we believe web developers can handle all the required native configuration on their own, and the Capacitor team provides documentation on things like how to deploy to [the Apple App Stores](/docs/ios/deploying-to-app-store) or [the Google Play Store](/docs/android/deploying-to-google-play) to help fill in knowledge gaps.
+Capacitorプロジェクトの設定は、iOSやAndroidプロジェクトの設定と何ら変わりません。既存のネイティブ開発者は、Web開発者と一緒に作業することができ、それぞれが得意とするツールやSDKを使用することができます。モバイルアプリケーションはWeb開発とは少し異なりますが、Web開発者は必要なすべてのネイティブ設定を自分で処理できると信じています。Capacitorチームは知識のギャップを埋めるために、[Apple App Stores](/docs/ios/deploying-to-app-store) や [Google Play Store](/docs/android/deploying-to-google-play) への配備方法などについてのドキュメントを提供しています。
 
-## Capacitor Configuration File
+## Capacitor 設定ファイル
 
-Capacitor specific configuration is handled in the [Capacitor Configuration File](/docs/config). These generally don't modify native functionality, but control Capacitor's tooling. This config file includes things such as, setting the web directory to copy on `npx cap sync`, specifying the Android or iOS project folder, or setting the App ID/Name in your native project.
+Capacitor固有の設定は [Capacitor Configuration File](/docs/config) で扱われます。これらは一般的にネイティブの機能を変更するものではなく、Capacitorのツール機能を制御するものです。この設定ファイルには、`npx cap sync`でコピーするWebディレクトリの設定、AndroidまたはiOSのプロジェクトフォルダの指定、ネイティブプロジェクトでのアプリID/名前の設定などが含まれます。
 
-## Native Configuration
+## ネイティブの設定
 
-iOS and Android each have configuration guides walking through making common changes to their behavior:
+iOS と Android にはそれぞれ設定ガイドがあり、一般的な動作の変更について説明しています。
 
-[Configuring iOS &#8250;](/docs/ios/configuration)
+[iOS の設定 &#8250;](/docs/ios/configuration)
 
-[Configuring Android &#8250;](/docs/android/configuration)
+[Android の設定 &#8250;](/docs/android/configuration)

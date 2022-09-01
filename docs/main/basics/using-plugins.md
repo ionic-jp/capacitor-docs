@@ -4,26 +4,26 @@ description: How to use plugins in Capacitor
 slug: /basics/using-plugins
 ---
 
-# Using Plugins
+# プラグインを使用する
 
-The WebView and the Capacitor runtime communicate through the use of **Capacitor Plugins**. Plugins provide access to native APIs such as camera, geolocation, and filesystem access in your web app.
+WebViewとCapacitorランタイムは、**Capacitor Plugins**の使用を通じて通信します。プラグインは、カメラ、ジオロケーション、ファイルシステムアクセスなどのネイティブAPIへのアクセスをWebアプリで提供します。
 
-## Capacitor Plugins
+## Capacitorプラグイン
 
-The Capacitor team maintains [a set of Capacitor plugins](/docs/apis) for commonly used APIs. There is also a large set of Capacitor plugins available from [the Capacitor Community](https://github.com/capacitor-community/). If you have a suggestion for a Capacitor plugin, you can use [the Capacitor Community proposals repo](https://github.com/capacitor-community/proposals/).
+Capacitorチームは、よく使われるAPIのための [Capacitorプラグインのセット](/docs/apis) を管理しています。また、[Capacitor Community](https://github.com/capacitor-community/) から利用可能なCapacitorプラグインの大規模なセットも存在します。Capacitorプラグインの提案がある場合は、[Capacitor Community proposals repo](https://github.com/capacitor-community/proposals/) を利用することができます。
 
-[Learn more about Capacitor plugins &#8250;](/docs/plugins)
+[Capacitorプラグインについての詳細はこちら &#8250;](/docs/plugins)
 
 :::info
-Do you want to **make** Capacitor plugins? Browse the same proposal repo and try to make one [following our plugin creation guides](/docs/plugins/creating-plugin)!
+Capacitorのプラグインを**作りたいですか？同じ提案レポを見て、[プラグイン作成ガイドに従って] (/docs/plugins/creating-plugin) 作ってみてください!
 :::
 
-## Cordova Plugins
+## Cordova プラグイン
 
-Can't find the exact Web API or Capacitor plugin for your project? Or maybe you're [migrating off of Cordova and onto Capacitor](/docs/cordova/migration-strategy)? Capacitor has a Cordova compatibility layer that attempts to mimic Cordova plugin functionality. Capacitor has compatibility with most Cordova plugins, but there may be additional steps when installing them.
+あなたのプロジェクトにぴったりの Web API や Capacitor プラグインが見つからない？もしくは、[CordovaからCapacitorに移行中](/docs/cordova/migration-strategy)でしょうか？CapacitorはCordovaプラグインの機能を模倣しようとするCordova互換性レイヤーを持っています。CapacitorはほとんどのCordovaプラグインと互換性がありますが、インストール時に追加の手順があるかもしれません。
 
-[Learn more about using Cordova plugins in Capacitor apps &#8250;](/docs/plugins/cordova)
+[CapacitorアプリでのCordovaプラグインの使用についての詳細はこちら &#8250;](/docs/plugins/cordova)
 
 :::info
-If you use a Cordova plugin because you weren't able to find a suitable Capacitor plugin, would you mind [creating a proposal for the Capacitor Community](https://github.com/capacitor-community/proposals/)?
+もし適切なCapacitorプラグインが見つからなかったためにCordovaプラグインを使用しているなら、 [Capacitorコミュニティへの提案](https://github.com/capacitor-community/proposals/) を作成していただけませんか?
 :::
