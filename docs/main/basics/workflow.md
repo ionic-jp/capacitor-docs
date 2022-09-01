@@ -4,88 +4,88 @@ description: Capacitor Workflow
 slug: /basics/workflow
 ---
 
-# Capacitor Workflow
+# Capacitorのワークフロー
 
-Working with Capacitor is slightly different than working with a traditional web app. To make your web native Capacitor application, you'll need to do the following steps.
+Capacitorでの作業は、従来のWebアプリでの作業とは少し異なります。WebネイティブのCapacitorアプリケーションを作るには、以下のステップを踏む必要があります。
 
-## Building your web code
+## ウェブコードの構築
 
-Once you are ready to test your web app on a mobile device, you'll need to build your web app for distribution. If you are using a tool like [Create React App](https://create-react-app.dev/) or [Vite](https://vitejs.dev/) that command will be `npm build`; while a tool like [Angular](https://angular.io/) uses the command `ng build`. Whatever your command is, you will need to build your web code for distribution in order to use it with Capacitor.
+モバイルデバイス上でWebアプリをテストする準備ができたら、配布用のWebアプリをビルドする必要があります。 [Create React App](https://create-react-app.dev/) や [Vite](https://vitejs.dev/) のようなツールを使用している場合、コマンドは `npm build` となります。一方 [Angular](https://angular.io/) のようなツールは `ng build` というコマンドを使用します。どのようなコマンドであれ、Capacitorで使用するためには、配布用のウェブコードをビルドする必要があります。
 
-## Syncing your web code to your Capacitor project
+## ウェブコードをCapacitorプロジェクトに同期させる
 
-Once your web code has been built for distribution, you will need to push your web code to the web native Capacitor application. To do this, you can use the [Capacitor CLI](/docs/cli) to "sync" your web code and install/update the required native dependencies.
+Web コードを配布用にビルドしたら、Web ネイティブの Capacitor アプリケーションに Web コードをプッシュする必要があります。これを行うには、[Capacitor CLI](/docs/cli) を使ってウェブコードを「同期」させ、必要なネイティブ依存関係をインストール/更新します。
 
-To sync your project, run:
+プロジェクトを同期させるには、以下を実行します。
 
 ```bash
 npx cap sync
 ```
 
-Running `npx cap sync` will **copy** over your already built web bundle to both your Android and iOS projects as well as **update** the native dependencies that Capacitor uses.
+npx cap sync`を実行すると、すでにビルドされているWebバンドルがAndroidとiOSの両方のプロジェクトに**コピー**され、Capacitorが使用するネイティブ依存関係も**更新**されます。
 
-You can [read our docs](/docs/cli/sync) on `sync` and more on the [Capacitor CLI reference](/docs/cli) documentation.
+sync` については [ドキュメント](/docs/cli/sync) を、その他については [Capacitor CLI reference](/docs/cli) のドキュメントを参照してください。
 
 :::info
-Did you get an error about "not being able to find the web assets directory?" Update your [Capacitor configuration](/docs/config) file to use the proper `webDir`.
+"not being able to find the web assets directory?" というエラーが発生しましたか？ [Capacitorの設定](/docs/config)ファイルを更新して、適切な `webDir` を使用するようにしてください。
 :::
 
 
-## Testing your Capacitor app
+## Capacitorアプリのテスト
 
-Once you've synced over your web bundle to your native project, it is time to test your application on a mobile device. There are a few different ways to do this, but the easiest way is to use the built in Capacitor CLI commands.
+Web バンドルとネイティブプロジェクトの同期が完了したら、今度はモバイルデバイス上でアプリケーションをテストしてみましょう。これを行うにはいくつかの方法がありますが、最も簡単な方法はCapacitorに組み込まれたCLIコマンドを使用することです。
 
-To run a debug build of your Capacitor app on an iOS device, you can run:
+iOS デバイスで Capacitor アプリのデバッグビルドを実行するには、次のようにします。
 ```bash
 npx cap run ios
 ```
 
-Similarly, to run a debug build of your Capacitor app on an Android device, you can run:
+同様に、Android デバイスで Capacitor アプリのデバッグビルドを実行するには、以下を実行します。
 ```bash
 npx cap run android
 ```
 
 
-Once you've iterated and tested your application, it is time to compile the final binary to distribute to other mobile devices.
+アプリケーションを繰り返しテストしたら、今度は他のモバイルデバイスに配布するための最終的なバイナリをコンパイルします。
 
 :::info
-You can also [run your app on iOS via Xcode](/docs/ios#running-in-xcode) or [run your app on Android via Android Studio](/docs/android#running-with-android-studio) as well. Both options are valid for development. Go ahead and try both to see which option you prefer!
+また、[iOS上でXcodeを使ってアプリを実行する](/docs/ios#running-in-xcode)、[Android上でAndroid Studioを使ってアプリを実行する](/docs/android#running-with-android-studio)ことも可能です。どちらの方法も開発には有効です。どちらのオプションを選ぶか、試してみてください。
 :::
 
-### Open your Native IDE
+### ネイティブIDEを開く
 
-If you'd like more control over your native project you can quickly open the native IDEs using the Capacitor CLI.
+ネイティブプロジェクトをもっとコントロールしたい場合は、Capacitor CLIを使用してネイティブIDEを素早く開くことができます。
 
-To [open the iOS Capacitor `.xcworkspace` project in Xcode](/docs/ios#opening-the-ios-project), you can run:
+iOS Capacitor `.xcworkspace` プロジェクトをXcodeで開く](/docs/ios#opening-the-ios-project)ためには、以下のコマンドを実行します。
 ```bash
 npx cap open ios
 ```
 
-Similarly, to [open the Android Capacitor project in Android Studio](/docs/android#opening-the-android-project), you can run:
+同様に、[Android Capacitor プロジェクトを Android Studio で開く](/docs/android#opening-the-android-project) には、以下のように実行します。
 ```bash
 npx cap open android
 ```
 
-Opening the native project can give you full control over the native runtime of your application. You can [create plugins](/docs/plugins), [add custom native code](/docs/ios/custom-code#custom-native-ios-code), or [compile your application](#compiling-your-native-binary) for releasing.
+ネイティブプロジェクトを開くと、アプリケーションのネイティブランタイムを完全に制御することができます。 [プラグインの作成](/docs/plugins)、 [カスタムネイティブコードの追加](/docs/ios/custom-code#custom-native-ios-code) 、[アプリケーションのコンパイル](#compiling-your-native-binary) でリリースすることが可能です。
 
-## Compiling your native binary
+## ネイティブバイナリのコンパイル
 
-Capacitor does not have a `build` or `compile` command, nor will there ever be one. After `sync`, you are encouraged to open your target platform's IDE: Xcode for iOS or Android Studio for Android, for compiling your native app.
+Capacitorには `build` や `compile` というコマンドはありませんし、今後もないでしょう。 `async` の後、ターゲットプラットフォームのIDEを開くことが推奨されます。iOSの場合はXcode、Androidの場合はAndroid Studioを開いて、ネイティブアプリをコンパイルすることをお勧めします。
 
-To compile your app in a terminal or in CI environments, you can use `gradle` or `xcodebuild` directly. We also  suggest using tools such as [Fastlane](https://fastlane.tools) or a cloud build tool [Appflow](https://useappflow.com) to automate these processes for you. While every application is different, we have an example of a general release process for Capacitor projects. Go and read our publishing guides for [iOS](/docs/ios/deploying-to-app-store) and [Android](/docs/android/deploying-to-google-play) for more info on how to deploy to the Apple App Store or the Google Play Store.
+ターミナルや CI 環境でアプリをコンパイルするには、`gradle` や `xcodebuild` を直接使用することができます。また、これらのプロセスを自動化するために、 [Fastlane](https://fastlane.tools) やクラウドビルドツール [Appflow](https://useappflow.com) などのツールを使用することをお勧めします。アプリケーションごとに異なりますが、Capacitorプロジェクトの一般的なリリースプロセスの例があります。Apple App StoreやGoogle Play Storeへのデプロイ方法の詳細については、 [iOS](/docs/ios/deploying-to-app-store) と [Android](/docs/android/deploying-to-google-play) の公開ガイドを読んでみて下さい。
 
-## Updating Capacitor
+## Capacitorのアップデート
 
-Updating your Capacitor runtime is as straightforward as runnin an `npm install`.
+Capacitorランタイムのアップデートは、`npm install`を実行するのと同じくらい簡単です。
 
 ```bash
 npm i @capacitor/core @capacitor/ios @capacitor/android
 npm i -D @capacitor/cli
 ```
 
-When updating Capacitor, you want to make sure your Core, Android, and iOS libraries are all the same version. Capacitor Core, Android, and iOS releases are all uploaded simultaneously, meaning that if you install all of the libraries at the same time, you'll be fine!
+Capacitorをアップデートする際、Core、Android、iOSのライブラリがすべて同じバージョンであることを確認したい。CapacitorのCore、Android、iOSのリリースはすべて同時にアップロードされます。つまり、すべてのライブラリを同時にインストールすれば問題ないのです。
 
-:::info
-You can subscribe to the [Capacitor repo](https://github.com/ionic-team/capacitor) to be notified of new releases. At the top of the repository index, click **Watch** -> **Releases only**.
+:::情報
+[Capacitor repo](https://github.com/ionic-team/capacitor) を購読することで、新しいリリースのお知らせを受け取ることができます。リポジトリインデックスの上部にある **Watch** -> **Releases only** をクリックしてください。
 :::
 
