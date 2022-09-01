@@ -8,7 +8,7 @@ sidebar_label: init
 
 # Capacitor CLI - cap init
 
-Initialize Capacitor configuration by providing an app name, app ID, and an optional web directory for the existing web app.
+アプリ名、アプリID、および既存のウェブアプリ用のオプションのウェブディレクトリを指定して、Capacitor構成を初期化します。
 
 ```bash
 npx cap init <appName> <appID>

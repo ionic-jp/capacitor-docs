@@ -8,7 +8,7 @@ sidebar_label: add
 
 # Capacitor CLI - cap add
 
-Add a native platform project to your app.
+あなたのプロジェクトに Native プラットフォームを追加します。
 
 ```bash
 npx cap add <platform>

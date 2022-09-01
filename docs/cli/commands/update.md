@@ -8,7 +8,7 @@ sidebar_label: update
 
 # Capacitor CLI - cap update
 
-Updates the native plugins and dependencies referenced in `package.json`.
+Native プラグインと依存関係を `package.json` を参照してアップデートします。
 
 ```bash
 npx cap update [<platform>]
