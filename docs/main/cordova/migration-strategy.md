@@ -6,40 +6,40 @@ contributors:
 slug: /cordova/migration-strategy
 ---
 
-# Migration Strategy
+# マイグレーション戦略
 
-Migrating from Cordova to Capacitor can occur over time or can be fully replaced in many cases. The effort involved will largely depend on the complexity of the app.
+Cordova から Capacitor への移行は、occur over time、もしくは多くの場合完全に置き換えることができます。この作業はアプリの複雑さに大きく依存します。
 
-## Why Migrate?
+## なぜマイグレーションしますか？
 
-Long-term stability and peace of mind.
+長期間に渡る安定性と安心感を得るためです。
 
-Capacitor is [backed by Ionic](https://ionicframework.com/), a long-term contributor to Cordova and the larger open source ecosystem. Ionic still uses Cordova heavily and will continue to invest in the platform for a long time to come.
+Capacitor は、[Ionic が支えており](https://ionicframework.com/), Ionic は長期に渡って、Cordova とより大きなオープンソースのエコシステムのコントリビューターです。Ionic はまだ Cordova を多用しており、今後も長い間プラットフォームに投資していきます。
 
-It's backward-compatible with Cordova, so you can comfortably switch your existing web apps to it whenever you're ready. Capacitor was designed from the start to support the rich Cordova plugin ecosystem out of the box. Thus, using Cordova plugins in Capacitor is easy.
+Cordova との下位互換性もあるので、既存のウェブアプリをいつでも簡単に切り替えることができます。Capacitor は Cordova プラグインのエコシステムをサポートできるように最初から設計されました。したがって、Cordova プラグインを Capacitor で使用するのは簡単です。
 
-## Why Use Ionic Framework with Capacitor?
+## なぜ Ionic で Capacitor を使いますか？
 
-Capacitor is the officially supported native runtime for Ionic Framework. Using Ionic and Capacitor together is the best way to build a great app experience, since Ionic Framework provides UI and UX enhancements that Capacitor does not have. Additionally, it works with your favorite web app framework, including Angular, React, and Vue.
+Ionic と Capacitor を一緒に使うことは、Ionic Framework が Capacitor にはない UI と UX の拡張を提供するので、最高のアプリ エクスペリエンスを構築する方法です。また、Angular、React、Vue など、お気に入りのウェブアプリのフレームワークでも動作します。
 
-With the release of Capacitor, Ionic now controls almost all of its technology stack. When you build an Ionic app today, we now control the native runtime layer (Capacitor), the UI controls ([Ionic Framework](https://ionicframework.com)), and the "framework" used to build the controls (web components powered by [Stencil](https://stenciljs.com/)). This is significant: If there's an issue in any part of the stack that we control, we can fix it right away. The only part we don't control is the frontend framework you use on top (Angular, React, Vue, or plain JavaScript).
+Capacitor のリリースにより、Ionic はそのスタックのほぼすべてをコントロールするようになった。今日 Ionic アプリを構築すると、Native ランタイムレイヤ(Capacitor)、UI コントロール([Ionic Framework](https://ionicframework.com))、コントロールの構築に使用する"Framework"([Stencil](https://stenciljs.com/)を利用した Web コンポーネント)をコントロールできるようになります。重要なのは、私たちが管理しているスタックのどこかに問題があれば、すぐに修正できるということです。私たちがコントロールできない唯一の部分は、あなたが一番上で使うフロントエンドフレームワークです(Angular、React、Vue、またはプレーンの JavaScript)。
 
-## Migration Process Overview
+## マイグレーションプロセスの概要
 
 ### Utilize the Ionic VS Code Extension
 
 The [Ionic VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) provides tools to help assist your migration from Cordova to Capacitor by installing Capacitor's dependencies, replacing equivalent plugins, and more. It is a helpful tool that will automate much of the process of moving to Capacitor.
 
-### Audit Then Migrate Existing Cordova Plugins
+### 既存の Cordova プラグインの監査と移行
 
-Begin by auditing your existing Cordova plugins. It's possible that you may be able to remove ones that are no longer needed.
+まず、既存の Cordova プラグインの監査を行います。不要になったプラグインは削除できる可能性があります。
 
-Next, review all of Capacitor's [official plugins](/docs/apis) as well as [community plugins](/docs/plugins/community). You may be able to switch to the Capacitor-equivalent Cordova plugin.
+次に、Capacitor の [official plugins](/docs/apis) と [community plugins](/docs/plugins/community) の全てを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+プラグインによっては機能が完全に一致しないものもありますが、必要な機能を考えれば問題ないでしょう。
 
-### Continue to Use Cordova if Needed
+### 必要に応じて Cordova や Ionic Native を使い続ける
 
-To leverage Cordova plugins in your Capacitor app, [see here](/docs/plugins/cordova). If a replacement plugin doesn't exist, continue to use the Cordova plugin as-is. If there's a plugin you'd like to see supported, open a [plugin proposal](https://github.com/capacitor-community/proposals)!
+Cordova や Ionic Native のプラグインを Capacitor アプリで活用するには、 [こちら](/docs/plugins/cordova) を参照してください。代替プラグインが存在しない場合は、Cordova プラグインをそのまま使用してください。もし、サポートしてほしいプラグインがあれば、 [plugin proposal](https://github.com/capacitor-community/proposals) を公開してください。
 
-Ready to [migrate to Capacitor](/docs/cordova/migrating-from-cordova-to-capacitor)?
+[Capacitor への移行](/docs/cordova/migrating-from-cordova-to-capacitor)の準備はできましたか？
