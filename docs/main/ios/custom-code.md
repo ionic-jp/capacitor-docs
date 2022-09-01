@@ -7,23 +7,23 @@ contributors:
 slug: /ios/custom-code
 ---
 
-# Custom Native iOS Code
+# カスタムネイティブiOSコード
 
-With Capacitor, you are encouraged to write Swift or Objective-C code to implement the native features your app needs.
+Capacitorでは、アプリに必要なネイティブ機能を実装するためにSwiftやObjective-Cのコードを書くことが推奨されています。
 
-There may not be [a Capacitor plugin](/docs/plugins) for everything--and that's okay! It is possible to write WebView-accessible native code right in your app.
+[Capacitorプラグイン](/docs/plugins)が全てに対応するわけではありませんが、それでも構いません! アプリの中で WebView にアクセス可能なネイティブコードを書くことができます。
 
-## WebView-Accessible Native Code
+## WebView にアクセス可能なネイティブコード
 
-The easiest way to communicate between JavaScript and native code is to build a custom Capacitor plugin that is local to your app.
+JavaScript とネイティブ コード間の通信を行う最も簡単な方法は、アプリにローカルなカスタム Capacitor プラグインを構築することです。
 
 ### `EchoPlugin.swift`
 
-First, create a `EchoPlugin.swift` file by [opening Xcode](/docs/ios#opening-the-ios-project), right-clicking on the **App** group (under the **App** target), selecting **New File...** from the context menu, choosing **Swift File** in the window, and creating the file.
+まず、`EchoPlugin.swift`ファイルを作成します。[Xcode](/docs/ios#opening-the-ios-project) を開き、**App** グループ (**App** ターゲットの下) を右クリックしてコンテキストメニューから **New File...** を選び、ウィンドウで **Swift File** を選択してファイルを作成します。
 
 ![New Swift File in Xcode](../../../static/img/v4/docs/ios/xcode-new-swift-file.png)
 
-Copy the following Swift code into `EchoPlugin.swift`:
+以下のSwiftコードを`EchoPlugin.swift`にコピーします。
 
 ```swift
 import Capacitor
@@ -37,21 +37,21 @@ public class EchoPlugin: CAPPlugin {
 }
 ```
 
-> The `@objc` decorators are required to make sure Capacitor's runtime (which must use Objective-C for dynamic plugin support) can see it.
+> `@objc` デコレーターは、Capacitorのランタイム(動的なプラグインサポートのためにObjective-Cを使用しなければなりません)がそれを見ることができることを確認するために必要です。
 
-### Register the Plugin
+### プラグインを登録する
 
-We must register custom plugins on both iOS and web so that Capacitor can bridge between Swift and JavaScript.
+CapacitorがSwiftとJavaScriptの間を橋渡しできるように、iOSとWebの両方でカスタムプラグインを登録する必要があります。
 
-#### `EchoPlugin.m`
+#### `EchoPlugin.m` を作成します。
 
-Next, create a `EchoPlugin.m` file with Xcode in the same way, but choose **Objective-C** in the window. Leave the **File Type** as **Empty File**. If prompted by Xcode to create a Bridging Header, click **Create Bridging Header**.
+次に、Xcodeで同じようにEchoPlugin.m`ファイルを作成しますが、ウィンドウで**Objective-C**を選択します。File Type** は **Empty File** のままにしておきます。XcodeからBridging Headerの作成を促されたら、**Create Bridging Header**をクリックします。
 
-> Using Xcode to create native files is recommended because it ensures the references are added to the project appropriately.
+> Xcodeを使用してネイティブファイルを作成することは、プロジェクトに適切にリファレンスが追加されるため、推奨されています。
 >
-> These changes to project files should be committed to your project along with the new files themselves.
+> プロジェクトファイルへのこれらの変更は、新しいファイル自体と共にプロジェクトにコミットされるべきです。
 
-Copy the following Swift code into `EchoPlugin.m`:
+以下の Swift コードを `EchoPlugin.m` にコピーしてください。
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -61,11 +61,11 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 )
 ```
 
-> These Objective-C macros register your plugin with Capacitor, making `EchoPlugin` and its `echo` method available to JavaScript. Whenever you add or remove methods in `EchoPlugin.swift`, this file must be updated.
+> これらの Objective-C マクロは、あなたのプラグインを Capacitor に登録し、`EchoPlugin` とその `echo` メソッドを JavaScript から利用できるようにします。EchoPlugin.swift` のメソッドを追加または削除するたびに、このファイルは更新されなければなりません。
 
 #### JavaScript
 
-In JS, we use `registerPlugin()` from `@capacitor/core` to create an object which is linked to our Swift plugin.
+JavaScript では、`@capacitor/core` の `registerPlugin()` を使って Swift プラグインにリンクされたオブジェクトを作成します。
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -75,11 +75,11 @@ const Echo = registerPlugin('Echo');
 export default Echo;
 ```
 
-> The first parameter to `registerPlugin()` is the plugin name, which must match the second parameter to the `CAP_PLUGIN` macro in `EchoPlugin.m`.
+> `registerPlugin()` の最初のパラメータはプラグイン名で、これは `EchoPlugin.m` の `CAP_PLUGIN` マクロの2番目のパラメータと一致していなければなりません。
 
 **TypeScript**
 
-We can define types on our linked object by defining an interface and using it in the call to `registerPlugin()`.
+インターフェースを定義して、それを `registerPlugin()` のコールで使用することで、リンク先のオブジェクトの型を定義することができます。
 
 ```diff-typescript
  import { registerPlugin } from '@capacitor/core';
@@ -94,11 +94,11 @@ We can define types on our linked object by defining an interface and using it i
  export default Echo;
 ```
 
-The generic parameter of `registerPlugin()` is what defines the structure of the linked object. You can use `registerPlugin<any>('Echo')` to ignore types if you need to. No judgment. ❤️
+`registerPlugin()` の generic パラメータは、リンク先のオブジェクトの構造を定義するものです。必要であれば、 `registerPlugin<any>('Echo')` を使って型を無視することができます。判定はしない。❤️
 
-### Use the Plugin
+### プラグインを使う
 
-Use the exported `Echo` object to call your plugin methods. The following snippet will call into Swift on iOS and print the result:
+エクスポートされた `Echo` オブジェクトを使用して、プラグインのメソッドを呼び出します。以下のスニペットは、iOS の Swift に呼び出され、結果を表示します。
 
 ```typescript
 import Echo from '../path/to/echo-plugin';
@@ -107,6 +107,6 @@ const { value } = await Echo.echo({ value: 'Hello World!' });
 console.log('Response from native:', value);
 ```
 
-### Next Steps
+### 次のステップ
 
-[Read the iOS Plugin Guide &#8250;](/docs/plugins/ios)
+[iOS Plugin Guide を読む &#8250;](/docs/plugins/ios)
