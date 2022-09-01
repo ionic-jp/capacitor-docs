@@ -9,23 +9,23 @@ contributors:
 slug: /android/custom-code
 ---
 
-# Custom Native Android Code
+# カスタム Native Android コード
 
-With Capacitor, you are encouraged to write Java or Kotlin code to implement the native features your app needs.
+Capacitorでは、アプリが必要とするネイティブ機能を実装するためにJavaやKotlinのコードを書くことが推奨されています。
 
-There may not be [a Capacitor plugin](/docs/plugins) for everything--and that's okay! It is possible to write WebView-accessible native code right in your app.
+[Capacitorプラグイン](/docs/plugins) が全てに対応するわけではないかもしれませんが、それはそれで構いません! アプリの中でWebViewにアクセスできるネイティブコードを書くことは可能です。
 
-## WebView-Accessible Native Code
+## WebView から Native コードにアクセス
 
-The easiest way to communicate between JavaScript and native code is to build a custom Capacitor plugin that is local to your app.
+JavaScriptとネイティブコード間の通信を行う最も簡単な方法は、アプリにローカルなカスタムCapacitorプラグインを構築することです。
 
 ### `EchoPlugin.java`
 
-First, create a `EchoPlugin.java` file by [opening Android Studio](/docs/android#opening-the-android-project), expanding the **app** module and the **java** folder, right-clicking on your app's Java package, selecting **New** -> **Java Class** from the context menu, and creating the file.
+まず、EchoPlugin.java`ファイルを作成します。Android Studioを開き(/docs/android#opening-the-android-project)、**app**モジュールと**java**フォルダを展開、アプリのJavaパッケージを右クリックして、コンテキストメニューから **New** -> **Java Class** を選択して、ファイルを作成してください。
 
 ![Android Studio app package](../../../static/img/v4/docs/android/studio-app-package.png)
 
-Copy the following Java code into `EchoPlugin.java`:
+以下のJavaコードを`EchoPlugin.java`にコピーします:
 
 ```java
 package com.example.myapp;
@@ -50,13 +50,13 @@ public class EchoPlugin extends Plugin {
 }
 ```
 
-### Register the Plugin
+### プラグインを登録する
 
-We must register custom plugins on both Android and web so that Capacitor can bridge between Java and JavaScript.
+CapacitorがJavaとJavaScriptの橋渡しをするために、AndroidとWebの両方でカスタムプラグインを登録する必要があります。
 
-#### `MainActivity.java`
+#### `MainActivity.java` の登録
 
-In your app's `MainActivity.java`, use `registerPlugin()` or `registerPlugins()` to register your custom plugin(s).
+アプリの `MainActivity.java` で、 `registerPlugin()` または `registerPlugins()` を使用して、カスタムプラグインを登録します。
 
 ```diff-java
  public class MainActivity extends BridgeActivity {
@@ -70,7 +70,7 @@ In your app's `MainActivity.java`, use `registerPlugin()` or `registerPlugins()`
 
 #### JavaScript
 
-In JS, we use `registerPlugin()` from `@capacitor/core` to create an object which is linked to our Java plugin.
+JSでは、`@capacitor/core`の `registerPlugin()` を使って、Javaプラグインにリンクされたオブジェクトを作成します。
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -80,11 +80,11 @@ const Echo = registerPlugin('Echo');
 export default Echo;
 ```
 
-> The first parameter to `registerPlugin()` is the plugin name, which must match the `name` attribute of our `@CapacitorPlugin` annotation in `EchoPlugin.java`.
+> これは `EchoPlugin.java` にある `@CapacitorPlugin` アノテーションの `name` 属性と一致する必要があります。
 
 **TypeScript**
 
-We can define types on our linked object by defining an interface and using it in the call to `registerPlugin()`.
+インターフェースを定義して、それを `registerPlugin()` のコールで使用することで、リンク先のオブジェクトの型を定義することができます。
 
 ```diff-typescript
  import { registerPlugin } from '@capacitor/core';
@@ -99,11 +99,11 @@ We can define types on our linked object by defining an interface and using it i
  export default Echo;
 ```
 
-The generic parameter of `registerPlugin()` is what defines the structure of the linked object. You can use `registerPlugin<any>('Echo')` to ignore types if you need to. No judgment. ❤️
+`registerPlugin()` の generic パラメータは、リンク先のオブジェクトの構造を定義するものです。必要なら `registerPlugin<any>('Echo')` を使って型を無視することができます。判定はしません。❤️
 
-### Use the Plugin
+### プラグインを使う
 
-Use the exported `Echo` object to call your plugin methods. The following snippet will call into Java on Android and print the result:
+エクスポートされた `Echo` オブジェクトを使用して、プラグインのメソッドを呼び出します。以下のスニペットは、Android 上の Java に呼び出され、結果を表示します。
 
 ```typescript
 import Echo from '../path/to/echo-plugin';
@@ -112,6 +112,6 @@ const { value } = await Echo.echo({ value: 'Hello World!' });
 console.log('Response from native:', value);
 ```
 
-### Next Steps
+### 次のステップ
 
-[Read the Android Plugin Guide &#8250;](/docs/plugins/android)
+[Androidプラグインガイドを読む &#8250;](/docs/plugins/android)

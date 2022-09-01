@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI Hooks
 
-Starting in Capacitor 3.1, the following events can be used to hook into Capacitor commands:
+Capacitor 3.1からは、以下のイベントを使用してCapacitorコマンドにフックすることができます。
 
 - `capacitor:copy:before`
 - `capacitor:copy:after`

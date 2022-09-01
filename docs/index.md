@@ -1,28 +1,31 @@
 ---
-title: Capacitor - Cross-platform Native Runtime for Web Apps
-sidebar_label: Introduction
-description: A cross-platform native runtime for building Native Progressive Web Apps for iOS, Android, and beyond
+title: Capacitor - Web アプリをクロスプラットフォーム化する Native ライブラリ
+sidebar_label: 紹介
+description: iOS、Android、およびそれ以降向けのNative Progressive Web Appsを構築するためのクロスプラットフォーム・ネイティブ・ランタイム
 slug: /
 hide_table_of_contents: true
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Capacitor: Cross-platform Native Runtime for Web Apps
+# Capacitor: Web アプリをクロスプラットフォーム化する Native ライブラリ
 
-Capacitor is a cross-platform native runtime that makes it easy to build performant mobile applications that run natively on iOS, Android, and more using modern web tooling. You can think of it like [Electron](https://www.electronjs.org/) or [Tauri](https://tauri.studio/), but for mobile apps. Representing the next evolution of Hybrid apps, Capacitor creates **Web Native apps**, providing a modern native container approach for teams who want to build web-first without sacrificing full access to native SDKs when they need it.
+Capacitor は、iOS、Android、Web 上でネイティブに動作する最新の Web アプリケーションを簡単に構築することができるクロスプラットフォームのネイティブライブラリです。ハイブリッドアプリの次の進化を象徴する Capacitor は、**Web Native apps**を作成し、必要に応じてネイティブ SDK への完全なアクセスを犠牲にすることなく、Web ファーストで構築したいチームに、最新のネイティブコンテナアプローチを提供します。
 
 <img
-  src={require('/img/v4/docs/capacitor-index.png').default}
+  src="/assets/img/docs/capacitor-index.png"
+  width="752" height="410"
   loading="eager"
 />
 
-## Introduction
+## 紹介
 
-Capacitor provides a consistent, web-focused set of APIs that enable an app to stay as close to web standards as possible, while accessing rich native device features on platforms that support them. If it works in the browser, it probably works in a mobile app when using Capacitor. Adding native functionality is straightforward with a Plugin API for Swift on iOS, Java on Android, and JavaScript for the web.
+Capacitor は、Web に焦点を合わせた一貫した API のセットを提供します。これにより、アプリが Web 標準にできるだけ近づきながら、それらをサポートするプラットフォーム上の豊富な Native デバイス機能にアクセスできます。Native 機能の追加は、iOS の Swift、Android の Java、Web の JavaScript のシンプルなプラグイン API で簡単に行えます。
 
-## Get Started
+Capacitor は、 [Apache Cordova](https://cordova.apache.org/) と [Adobe PhoneGap](https://phonegap.com/) のコンセプトを継いでおり、 [React Native](http://facebook.github.io/react-native/) や [Turbolinks](https://github.com/turbolinks/turbolinks) などの他の人気のあるクロスプラットフォームツールからインスピレーションを得ていますが、最新のウェブアプリをすべての主要なプラットフォームで簡単に実行できるようにすることに完全に焦点を当てています。Capacitorは多くの既存の [Cordova プラグイン](https://cordova.apache.org/plugins/) と下位互換性があります。
 
-Getting started with Capacitor is easy! Capacitor can be dropped into any existing modern JavaScript project, or a fresh Capacitor project can be created from scratch.
+## はじめ方
 
-Follow the [Installation guide](/docs/getting-started) to get started building your app.
+Capacitor を使い始めるのは簡単です！Capacitor は、既存の最新の JavaScript プロジェクトに組み込むことも、新しい Capacitor プロジェクトをゼロから作成することもできます。
+
+[インストールガイド](/docs/getting-started)に従って、アプリの構築を開始してください。
