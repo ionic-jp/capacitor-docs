@@ -1,6 +1,6 @@
 ---
-title: Using Plugins
-description: How to use plugins in Capacitor
+title: プラグインの使い方
+description: プラグインの使い方
 slug: /basics/using-plugins
 ---
 

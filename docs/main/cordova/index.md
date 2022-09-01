@@ -1,6 +1,6 @@
 ---
-title: Overview
-description: Cordova and PhoneGap
+title: 概要
+description: CordovaとPhoneGap
 slug: /cordova
 ---
 

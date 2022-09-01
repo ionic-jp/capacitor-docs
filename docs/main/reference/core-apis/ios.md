@@ -1,6 +1,6 @@
 ---
 title: Capacitor iOS API
-description: The API for Capacitor on iOS
+description: iOSにおけるCapacitorのAPIについて
 slug: /core-apis/ios
 ---
 

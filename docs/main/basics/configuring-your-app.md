@@ -1,6 +1,6 @@
 ---
-title: Configuring Your App
-description: Native Project Configuration
+title: アプリの構成
+description: ネイティブプロジェクトの構成
 slug: /basics/configuring-your-app
 ---
 

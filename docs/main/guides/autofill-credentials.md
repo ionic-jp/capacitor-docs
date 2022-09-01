@@ -1,6 +1,6 @@
 ---
-title: Autofill Credentials
-description: Automatically fill credentials
+title: 認証情報の自動入力
+description: 認証情報の自動入力
 contributors:
   - dtarnawsky
 slug: /guides/autofill-credentials

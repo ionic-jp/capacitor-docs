@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築
 contributors:
   - eric-horodyski
-sidebar_label: Getting Started
+sidebar_label: はじめ方
 slug: /plugins/tutorial/introduction
 ---
 

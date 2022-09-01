@@ -1,6 +1,6 @@
 ---
-title: Custom Native iOS Code
-description: Custom Native iOS Code
+title: iOSのカスタムネイティブコード
+description: iOSのカスタムネイティブコード
 contributors:
   - dotNetkow
   - mlynch

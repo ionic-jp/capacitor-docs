@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Communicate between JavaScript and Native Swift or Objective-C code
+title: はじめ方
+description: JavaScriptとSwiftまたはObjective-Cのネイティブコード間のコミュニケーション
 slug: /ios
 contributors:
   - dotNetkow

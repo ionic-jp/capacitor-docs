@@ -1,6 +1,6 @@
 ---
-title: Storage
-description: Storing small to large amounts of data in Capacitor
+title: ストレージ
+description: 小容量から大容量のデータをCapacitorに格納する。
 contributors:
   - mlynch
 slug: /guides/storage

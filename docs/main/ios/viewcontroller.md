@@ -1,7 +1,7 @@
 ---
-title: Subclassing CAPBridgeViewController
-sidebar_label: Custom ViewController
-description: How to subclass CAPBridgeViewController
+title: CAPBridgeViewController のサブクラス化
+sidebar_label: カスタムViewController
+description: CAPBridgeViewController のサブクラス化の方法
 contributors:
   - ikeith
 slug: /ios/viewcontroller

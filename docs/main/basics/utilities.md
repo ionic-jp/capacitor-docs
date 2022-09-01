@@ -1,6 +1,6 @@
 ---
-title: Capacitor's JavaScript API
-description: Capacitor's JavaScript API
+title: Capacitor JavaScript API
+description: Capacitor JavaScript API
 slug: /basics/utilities
 sidebar_label: JavaScript API
 ---

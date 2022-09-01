@@ -1,7 +1,7 @@
 ---
-title: Capacitor APIs
-description: The APIs of Capacitor core
-sidebar_label: Core APIs
+title: Capacitor API
+description: Capacitor core API
+sidebar_label: Core API
 slug: /core-apis
 ---
 

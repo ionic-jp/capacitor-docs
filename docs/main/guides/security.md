@@ -1,6 +1,6 @@
 ---
-title: Security
-description: Security best practices for your Capacitor apps
+title: セキュリティ
+description: Capacitorアプリのためのセキュリティベストプラクティス
 contributors:
   - mlynch
 slug: /guides/security

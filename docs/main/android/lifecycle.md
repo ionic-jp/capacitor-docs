@@ -1,6 +1,6 @@
 ---
-title: Android Lifecycle
-description: Android Lifecycle
+title: Androidライフサイクル
+description: Androidライフサイクル
 contributors:
   - mlynch
   - jcesarmobile

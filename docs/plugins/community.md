@@ -1,7 +1,7 @@
 ---
-title: Capacitor Community Plugins
-description: Capacitor Community Plugins
-sidebar_label: Community Plugins
+title: Capacitor Communityプラグイン
+description: Capacitor Communityプラグイン
+sidebar_label: Communityプラグイン
 slug: /plugins/community
 ---
 

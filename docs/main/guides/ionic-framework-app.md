@@ -1,6 +1,6 @@
 ---
-title: Building an Ionic Framework Photo Gallery App
-description: Learn how to add Camera functionality to an Ionic app that works on the web, iOS, and Android
+title: Ionic Frameworkでフォトギャラリーアプリを作る
+description: Web、iOS、Androidで動作するIonicアプリにCamera機能を追加する方法について説明します。
 contributors:
   - dotNetkow
 slug: /guides/ionic-framework-app

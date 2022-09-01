@@ -1,6 +1,6 @@
 ---
-title: Environment Specific Configurations
-description: Creating environment specific configurations
+title: 環境に応じた構成
+description: 環境に応じた構成を作成する
 contributors:
   - eric-horodyski
 slug: /guides/environment-specific-configurations

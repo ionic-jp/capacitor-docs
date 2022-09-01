@@ -1,7 +1,7 @@
 ---
-title: Capacitor Plugins
-description: Capacitor Plugins
-sidebar_label: Official Plugins
+title: Capacitorプラグイン
+description: Capacitorプラグイン
+sidebar_label: Officialプラグイン
 contributors:
   - mlynch
   - jcesarmobile

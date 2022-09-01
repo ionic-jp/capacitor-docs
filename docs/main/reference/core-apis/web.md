@@ -1,6 +1,6 @@
 ---
 title: Capacitor Web API
-description: The API for Capacitor on web
+description: WebでのCapacitor API
 slug: /core-apis/web
 ---
 

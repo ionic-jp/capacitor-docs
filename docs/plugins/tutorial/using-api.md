@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Using the Plugin API
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - プラグイン API の使用
 contributors:
   - eric-horodyski
-sidebar_label: Using the Plugin API
+sidebar_label: プラグイン API の使用
 slug: /plugins/tutorial/using-the-plugin-api
 ---
 

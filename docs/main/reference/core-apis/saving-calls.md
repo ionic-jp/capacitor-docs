@@ -1,6 +1,6 @@
 ---
-title: Persisting Plugin Calls
-description: How to save plugin calls in Capacitor
+title: プラグイン呼び出しの永続化
+description: Capacitorでプラグイン呼び出しを保存する方法
 slug: /core-apis/saving-calls
 ---
 

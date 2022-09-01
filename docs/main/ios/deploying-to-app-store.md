@@ -1,6 +1,6 @@
 ---
-title: Deploying to App Store
-description: How to deploy iOS Capacitor apps to the Apple App Store
+title: App Storeへのデプロイ
+description: iOS CapacitorアプリをApple App Storeに配備する方法
 contributors:
   - mlynch
 slug: /ios/deploying-to-app-store

@@ -1,6 +1,6 @@
 ---
-title: Screen Orientation
-description: Manage screen orientation settings in your Capacitor app
+title: 画面の向き
+description: Capacitorアプリで画面の向き設定を管理する
 contributors:
   - mlynch
 slug: /guides/screen-orientation

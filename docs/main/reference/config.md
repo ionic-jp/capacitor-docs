@@ -1,7 +1,7 @@
 ---
-title: Capacitor Configuration
-description: Configuring Capacitor
-sidebar_label: Config
+title: Capacitorの構成
+description: Capacitorの構成
+sidebar_label: 構成
 slug: /config
 ---
 

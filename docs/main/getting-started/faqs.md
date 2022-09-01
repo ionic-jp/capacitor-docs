@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions
-description: Common Capacitor questions
+title: よくある質問
+description: Capacitorのよくある質問
 slug: /getting-started/faqs
 sidebar_label: FAQs
 ---

@@ -1,6 +1,6 @@
 ---
-title: Ads
-description: Adding Advertisements to your Capacitor app
+title: 広告
+description: Capacitorアプリに広告を追加する
 contributors:
   - mlynch
 slug: /guides/ads

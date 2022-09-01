@@ -1,6 +1,6 @@
 ---
-title: Push Notifications - Firebase
-description: Learn how to get Firebase Cloud Messaging working on iOS and Android in an Ionic app
+title: プッシュ通知 - Firebase
+description: IonicアプリでFirebase Cloud MessagingをiOSとAndroidで動作させる方法について説明します。
 contributors:
   - bryplano
   - javebratt

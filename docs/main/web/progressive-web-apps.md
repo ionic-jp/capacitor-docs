@@ -1,6 +1,6 @@
 ---
-title: Building Progressive Web Apps
-description: How to build Progressive Web Apps with Capacitor
+title: Progressive Web Appsをビルド
+description: CapacitorでProgressive Web Appsをビルドする方法
 contributors:
   - jcesarmobile
   - dotNetkow

@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Packaging the Plugin
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - プラグインのパッケージ化
 contributors:
   - eric-horodyski
-sidebar_label: Packaging the Plugin
+sidebar_label: プラグインのパッケージ化
 slug: /plugins/tutorial/packaging-the-plugin
 ---
 

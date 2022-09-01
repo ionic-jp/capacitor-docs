@@ -1,6 +1,6 @@
 ---
-title: Deploying and Updating
-description: Update your Capacitor app remotely in realtime even through the app stores
+title: デプロイとアップデート
+description: アプリストア経由でもCapacitorアプリをリアルタイムでリモートアップデートする方法
 contributors:
   - mlynch
 slug: /guides/deploying-updates

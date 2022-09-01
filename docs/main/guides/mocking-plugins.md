@@ -1,6 +1,6 @@
 ---
-title: Mocking Plugins
-description: How to create mock objects for Capacitor plugins
+title: プラグインのモック
+description: Capacitorプラグインのモックの作り方
 contributors:
   - kensodemann
 slug: /guides/mocking-plugins

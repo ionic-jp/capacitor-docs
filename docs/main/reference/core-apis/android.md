@@ -1,6 +1,6 @@
 ---
 title: Capacitor Android API
-description: The API for Capacitor on Android
+description: AndroidにおけるCapacitorのAPIについて
 slug: /core-apis/android
 ---
 

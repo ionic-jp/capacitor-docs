@@ -1,7 +1,7 @@
 ---
-title: Capacitor Web Documentation
-description: Web Getting Started
-sidebar_label: Getting Started
+title: Capacitor Web ドキュメンテーション
+description: Webのはじめ方
+sidebar_label: はじめ方
 slug: /web
 contributors:
   - mlynch

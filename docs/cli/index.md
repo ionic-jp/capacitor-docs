@@ -3,7 +3,7 @@ title: CLI Reference
 description: Reference documentation for the Capacitor CLI
 contributors:
   - dotNetkow
-sidebar_label: Overview
+sidebar_label: 概要
 slug: /cli
 ---
 

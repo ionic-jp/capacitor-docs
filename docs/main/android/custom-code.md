@@ -1,7 +1,7 @@
 ---
-title: Custom Native Android Code
-sidebar_label: Custom Native Code
-description: Custom Native Android Code
+title: Androidでのカスタムネイティブコード
+sidebar_label: カスタムネイティブコード
+description: Androidでのカスタムネイティブコード
 contributors:
   - mlynch
   - jcesarmobile

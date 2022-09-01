@@ -1,6 +1,6 @@
 ---
-title: Ionic VS Code Extension
-description: Using the Ionic VS Code Extension with Capacitor
+title: Ionic VS Codeエクステンション
+description: Ionic VS CodeエクステンションをCapacitorで使用する。
 slug: /getting-started/vscode-extension
 ---
 

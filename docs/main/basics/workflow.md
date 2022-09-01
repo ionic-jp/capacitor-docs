@@ -1,6 +1,6 @@
 ---
-title: Development Workflow
-description: Capacitor Workflow
+title: 開発ワークフロー
+description: Capacitorのワークフロー
 slug: /basics/workflow
 ---
 

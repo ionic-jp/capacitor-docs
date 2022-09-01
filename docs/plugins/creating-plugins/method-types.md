@@ -1,9 +1,9 @@
 ---
-title: Method Types
-description: Capacitor Plugin Method Types
+title: メソッドタイプ
+description: Capacitorプラグインのメソッドタイプ
 contributors:
   - ikeith
-sidebar_label: Method Types
+sidebar_label: メソッドタイプ
 slug: /plugins/method-types
 ---
 

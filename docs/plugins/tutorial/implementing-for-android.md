@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for Android
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - Android のための実装
 contributors:
   - eric-horodyski
-sidebar_label: Implementing for Android
+sidebar_label: Android のための実装
 slug: /plugins/tutorial/android-implementation
 ---
 

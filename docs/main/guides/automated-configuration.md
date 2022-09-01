@@ -1,14 +1,14 @@
 ---
-title: Automated Configuration
-description: Automating the configuration and management of Capacitor projects for plugins, whitelabling, CI/CD, and more.
+title: 構成の自動化
+description: プラグイン、whitelabling、CI/CDなど、Capacitorプロジェクトの構成と管理を自動化します。
 contributors:
   - mlynch
 slug: /guides/automated-configuration
 ---
 
-# Capacitorプロジェクトの設定の自動化
+# Capacitorプロジェクトの構成の自動化
 
-多くの大規模アプリは、Capacitorプロジェクトの設定を自動化する必要があります。これは、iOSやAndroidのビルド番号の増加、マニフェストやplistファイルの設定、Gradleファイルでのビルド依存性の追加、リソースの修正などを意味します。
+多くの大規模アプリは、Capacitorプロジェクトの構成を自動化する必要があります。これは、iOSやAndroidのビルド番号の増加、マニフェストやplistファイルの設定、Gradleファイルでのビルド依存性の追加、リソースの修正などを意味します。
 
 Capacitorには、プロジェクト管理に使える便利なパッケージが2つ付属しています。capacitor には、プロジェクト管理に使える便利なパッケージが2つあります： `@capacitor/project` と `@capacitor/configure` です。 `capacitor/project` は低レベルのプロジェクト管理ライブラリで、 `@capacitor/configure` は自動化されたツールで、ライブラリはそのまま使用できますが、特定のユースケースに対してより便利な設定オプションを提供します。
 

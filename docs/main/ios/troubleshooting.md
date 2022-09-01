@@ -1,7 +1,7 @@
 ---
-title: iOS Troubleshooting Guide
-sidebar_label: Troubleshooting
-description: iOS Troubleshooting Guide
+title: iOSのトラブルシューティング
+sidebar_label: トラブルシューティング
+description: iOSのトラブルシューティング
 contributors:
   - dotNetkow
   - mlynch

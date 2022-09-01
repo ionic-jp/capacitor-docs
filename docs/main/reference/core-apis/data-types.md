@@ -1,6 +1,6 @@
 ---
-title: Capacitor Data Types
-description: Data types in Capacitor
+title: Capacitorのデータ型
+description: Capacitorのデータ型
 slug: /core-apis/data-types
 ---
 

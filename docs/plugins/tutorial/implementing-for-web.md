@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for Web/PWA
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - Web/PWAs のために実装する
 contributors:
   - eric-horodyski
-sidebar_label: Implementing for Web/PWA
+sidebar_label: Web/PWAs のために実装する
 slug: /plugins/tutorial/web
 ---
 

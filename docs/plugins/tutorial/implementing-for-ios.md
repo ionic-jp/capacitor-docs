@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for iOS
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - iOS のための実装
 contributors:
   - eric-horodyski
-sidebar_label: Implementing for iOS
+sidebar_label: iOS のための実装
 slug: /plugins/tutorial/ios-implementation
 ---
 

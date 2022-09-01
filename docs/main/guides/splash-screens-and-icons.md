@@ -1,6 +1,6 @@
 ---
-title: Splash Screens and Icons
-description: Use cordova-res to generate resource images for native projects
+title: スプラッシュ画面とアイコン
+description: cordova-res を使ってネイティブプロジェクトのリソースイメージを生成する
 contributors:
   - dotNetkow
 slug: /guides/splash-screens-and-icons

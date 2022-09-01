@@ -1,10 +1,10 @@
 ---
-title: Capacitor iOS Plugin Guide
-description: Capacitor iOS Plugin Guide
+title: Capacitor iOS プラグインガイド
+description: Capacitor iOS プラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
-sidebar_label: iOS Guide
+sidebar_label: iOSガイド
 slug: /plugins/ios
 ---
 

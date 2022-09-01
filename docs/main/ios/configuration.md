@@ -1,6 +1,6 @@
 ---
-title: Configuring iOS
-description: Configuring iOS
+title: iOSの構成
+description: iOSの構成
 contributors:
   - dotNetkow
   - mlynch

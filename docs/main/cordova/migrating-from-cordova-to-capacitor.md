@@ -1,6 +1,6 @@
 ---
-title: Cordova to Capacitor Migration
-description: Migrating from Cordova to Capacitor
+title: CordovaからCapacitorへの移行
+description: CordovaからCapacitorへの移行
 contributors:
   - dotNetkow
 slug: /cordova/migrating-from-cordova-to-capacitor

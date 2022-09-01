@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting Android Issues
-sidebar_label: Troubleshooting
-description: Troubleshooting Android Issues
+title: Androidのトラブルシューティング
+sidebar_label: トラブルシューティング
+description: Androidのトラブルシューティング
 contributors:
   - mlynch
   - jcesarmobile

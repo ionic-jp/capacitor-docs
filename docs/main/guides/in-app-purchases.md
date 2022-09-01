@@ -1,6 +1,6 @@
 ---
 title: In App Purchases
-description: How to register and consume In App Purchases in your Capacitor app or game
+description: CapacitorのアプリやゲームでIn App Purchasesを登録・利用する方法
 contributors:
   - mlynch
 slug: /guides/in-app-purchases

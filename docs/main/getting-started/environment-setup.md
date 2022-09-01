@@ -1,6 +1,6 @@
 ---
-title: Environment Setup
-description: Setting up a development environment for Capacitor
+title: 環境設定
+description: Capacitorの開発環境の構築
 slug: /getting-started/environment-setup
 ---
 

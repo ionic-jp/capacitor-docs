@@ -1,7 +1,7 @@
 ---
-title: Configuring Android
-sidebar_label: Configuration
-description: Configuring Android
+title: Androidの構成
+sidebar_label: 構成
+description: Androidの構成
 contributors:
   - mlynch
   - jcesarmobile

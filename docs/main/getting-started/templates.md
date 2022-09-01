@@ -1,6 +1,6 @@
 ---
-title: Capacitor Templates
-description: Capacitor templates to get you started with your favorite library or framework
+title: Capacitorテンプレート
+description: お気に入りのライブラリやフレームワークですぐに始められるCapacitorテンプレート
 slug: /getting-started/templates
 ---
 

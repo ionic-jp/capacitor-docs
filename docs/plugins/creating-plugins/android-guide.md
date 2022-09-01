@@ -1,10 +1,10 @@
 ---
-title: Capacitor Android Plugin Guide
-description: Capacitor Android Plugin Guide
+title: Capacitor Android プラグインガイド
+description: Capacitor Android プラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
-sidebar_label: Android Guide
+sidebar_label: Androidガイド
 slug: /plugins/android
 ---
 

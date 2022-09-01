@@ -1,9 +1,9 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Code Abstraction Patterns
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築 - コード抽象化パターン
 contributors:
   - eric-horodyski
-sidebar_label: Code Abstraction Patterns
+sidebar_label: コード抽象化パターン
 slug: /plugins/tutorial/code-abstraction-patterns
 ---
 

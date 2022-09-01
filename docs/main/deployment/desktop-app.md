@@ -1,5 +1,5 @@
 ---
-title: Deploying a Desktop App
+title: デスクトップアプリのデプロイ
 sidebar_label: Electron Desktop App
 ---
 

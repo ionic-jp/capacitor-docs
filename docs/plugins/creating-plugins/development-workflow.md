@@ -1,9 +1,9 @@
 ---
-title: Plugin Development Workflow
-description: Capacitor Plugin Development Workflow
+title: プラグイン開発ワークフロー
+description: プラグイン開発ワークフロー
 contributors:
   - dotNetkow
-sidebar_label: Development Workflow
+sidebar_label: 開発ワークフロー
 slug: /plugins/workflow
 ---
 

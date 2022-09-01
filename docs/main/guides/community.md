@@ -1,6 +1,6 @@
 ---
-title: Community Guides
-description: Community Guides
+title: コミュニティガイド
+description: コミュニティガイド
 contributors:
   - dotNetkow
 slug: /guides/community

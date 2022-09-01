@@ -1,6 +1,6 @@
 ---
-title: Configuration Values
-description: Capacitor Plugin Configuration Values
+title: 設定値
+description: Capacitorプラグインの設定値
 contributors:
   - eric-horodyski
 sidebar_label: Configuration Values

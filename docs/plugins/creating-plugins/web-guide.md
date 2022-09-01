@@ -1,11 +1,11 @@
 ---
-title: Capacitor Web/PWA Plugin Guide
-description: Capacitor Web/PWA Plugin Guide
+title: Capacitor Web/PWA プラグインガイド
+description: Capacitor Web/PWA プラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
-sidebar_label: Web/PWA Guide
+sidebar_label: Web/PWAガイド
 slug: /plugins/web
 ---
 

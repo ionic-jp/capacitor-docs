@@ -1,6 +1,6 @@
 ---
-title: Migrating Strategy
-description: Migration Strategy
+title: マイグレーション戦略
+description: マイグレーション戦略
 contributors:
   - dotNetkow
 slug: /cordova/migration-strategy

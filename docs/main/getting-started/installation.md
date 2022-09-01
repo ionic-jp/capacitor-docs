@@ -1,6 +1,6 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: Capacitorのインストール
+description: Capacitorのインストール
 slug: /getting-started
 ---
 

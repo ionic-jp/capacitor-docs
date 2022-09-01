@@ -1,6 +1,6 @@
 ---
-title: Using with Ionic Framework
-description: Using Capacitor with Ionic Framework
+title: Ionic Frameworkを使う
+description: Capacitor と Ionic Framework の使い方
 slug: /getting-started/with-ionic
 ---
 

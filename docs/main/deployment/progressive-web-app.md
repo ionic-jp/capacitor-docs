@@ -1,5 +1,5 @@
 ---
-title: Deploying a Progressive Web App
+title: Progressive Web Appのデプロイ
 sidebar_label: Progressive Web App (PWA)
 ---
 

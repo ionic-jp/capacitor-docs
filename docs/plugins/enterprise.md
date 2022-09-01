@@ -1,7 +1,7 @@
 ---
-title: Capacitor for Enterprise
-description: Capacitor offers powerful native features and support for enterprise
-sidebar_label: Enterprise Plugins
+title: エンタープライズ版 Capacitor
+description: Capacitorは、強力なネイティブ機能とエンタープライズ向けサポートを提供します。
+sidebar_label: エンタープライズプラグイン
 slug: /plugins/enterprise
 ---
 

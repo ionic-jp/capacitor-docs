@@ -1,8 +1,8 @@
 ---
-title: Capacitor Android Documentation
-sidebar_label: Getting Started
+title: Capacitor Android ドキュメンテーション
+sidebar_label: はじめ方
 slug: /android
-description: Capacitor Android Documentation
+description: Capacitor Android ドキュメンテーション
 contributors:
   - mlynch
   - jcesarmobile

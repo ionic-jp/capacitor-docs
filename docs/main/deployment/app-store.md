@@ -1,5 +1,5 @@
 ---
-title: iOS App Store Deployment
+title: iOS App Storeへのデプロイ
 sidebar_label: iOS App Store
 ---
 
