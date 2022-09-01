@@ -7,11 +7,11 @@ slug: /core-apis
 
 # Capacitor APIs
 
-Whether developing apps or plugins, the Capacitor API is an important addition to your toolbelt.
+アプリやプラグインの開発において、Capacitor API は重要なツールベルトとなります。
 
-## Overview
+## 概要
 
-These docs are organized by platform.
+このドキュメントは、プラットフォーム別に構成されています。
 
 - [iOS](/docs/core-apis/ios)
 - [Android](/docs/core-apis/android)
