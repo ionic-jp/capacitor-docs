@@ -6,15 +6,15 @@ contributors:
 slug: /guides/mocking-plugins
 ---
 
-# Mocking Capacitor Plugins
+# Capacitor プラグインをモックする
 
-When creating unit tests within your application, it is a best practice to create mocks for any external dependency to the unit that is under test. This includes Capacitor plugins that your component or service is using.
+アプリケーション内でユニットテストを作成する場合、 テスト対象のユニットに対する外部依存関係のモックを作成するのがベストプラクティスです。これには、コンポーネントやサービスが使用している Capacitor プラグインも含まれます。
 
-Most mocking libraries create mocks by taking an object and wrapping it in a JavaScript proxy so calls to the methods on that object can be examined and the return values of the methods can be controlled. Capacitor plugins, however, are implemented within the JavaScript layer as proxies. Creating a proxy of a proxy is not supported and fails. Manual mocks can be used to circumvent this issue.
+ほとんどのモッキングライブラリは、オブジェクトを取得して JavaScript プロキシでラップすることでモックを作成し、そのオブジェクト上のメソッドの呼び出しを調べたりメソッドの戻り値を制御したりします。しかし、CapacitorプラグインはJavaScriptレイヤーの中でプロキシとして実装されています。プロキシのプロキシを作成することはサポートされておらず、失敗します。この問題を回避するために、手動モックを使用することができます。
 
-## Manual Mocks
+## 手動モック
 
-Manual mocks allow the user to easily stub the functionality of an entire JavaScript module. As a result, when the tests do an `import { Storage } from '@capacitor/storage'`, instead of loading the real `Storage` JavaScript proxy object, the tests would load something like this:
+手動モックを使用すると、JavaScript モジュール全体の機能を簡単にスタブ化することができます。その結果、テストが `import { Storage } from '@capacitor/storage'` を実行すると、本当の `Storage` JavaScript proxy object をロードする代わりに、以下のようなものをロードすることになります。
 
 ```TypeScript
 export const Storage = {

@@ -6,31 +6,31 @@ contributors:
 slug: /guides/environment-specific-configurations
 ---
 
-# Creating Environment Specific Configurations
+# 環境固有の設定の作成
 
-**Platforms:** iOS, Android
+**プラットフォーム:** iOS, Android
 
-Many software development teams utilize different environments during the software development lifecycle. Configuration may differ between environments, such as bundle IDs, deep-link schemes, or icons and splash screens.
+多くのソフトウェア開発チームは、ソフトウェア開発のライフサイクルの中で、異なる環境を利用しています。バンドルID、ディープリンクスキーム、アイコンやスプラッシュスクリーンなど、環境間で設定が異なる場合があります。
 
-The Capacitor configuration file handles high-level options for Capacitor tooling and plugin configuration. iOS schemes and Android product flavors allow developers to provide differing app values for different environments. By combining the two, developers can use the Capacitor CLI to build apps for different environments.
+Capacitorの設定ファイルは、Capacitorツールおよびプラグイン設定のための高レベルのオプションを処理します。iOSスキームとAndroidプロダクトフレーバーにより、開発者は異なる環境に対して異なるアプリの値を提供することができます。この2つを組み合わせることで、開発者はCapacitor CLIを使用して異なる環境用のアプリを構築することができます。
 
-This guide will walk you through setting up a QA environment configuration alongside the default environment configuration provided out-of-the-box. To demonstrate differences between each environment, the app name and bundle ID will differ between the two.
+このガイドでは、箱から出してすぐに提供されるデフォルトの環境設定と一緒に、QA環境設定を行う方法を説明します。各環境の違いを示すために、アプリ名とバンドルIDは両者で異なります。
 
-## Prepare a Capacitor App
+## Capacitorアプリを用意する
 
-You will need a Capacitor app with both iOS and Android platforms added. If you have an existing Capacitor app with both platforms added, skip this section.
+iOSとAndroidの両方のプラットフォームが追加されたCapacitorアプリが必要です。両方のプラットフォームが追加された既存のCapacitorアプリをお持ちの場合は、このセクションをスキップしてください。
 
-Depending on your preference, you can either [add Capacitor to an existing web application](/docs/getting-started) or [create a new Capacitor application with the Ionic Framework](/docs/getting-started/with-ionic).
+お好みに応じて、[既存のWebアプリケーションにCapacitorを追加する](/docs/getting-started)か、[Ionic Frameworkで新しいCapacitorアプリケーションを作成する](/docs/getting-started/with-ionic)かのどちらかを選択できます。
 
-The Capacitor app must use TypeScript for configuration. This guide uses `capacitor.config.ts` to dynamically export different configurations.
+Capacitorアプリは、設定にTypeScriptを使用する必要があります。このガイドでは、`capacitor.config.ts`を使用して、さまざまな設定を動的にエクスポートします。
 
-Before adding any native platforms to the project, you must build the Capacitor App at least once.
+プロジェクトにネイティブ・プラットフォームを追加する前に、少なくとも一度はCapacitorアプリをビルドする必要があります。
 
 ```bash
 npm run build
 ```
 
-Once built, you can add the platforms.
+ビルドが完了したら、プラットフォームを追加することができます。
 
 ```bash
 npm install @capacitor/ios @capacitor/android
@@ -38,41 +38,41 @@ npx cap add ios
 npx cap add android
 ```
 
-## Setup a new iOS scheme
+## 新しいiOSスキームをセットアップする
 
-### Create a new Xcode target
+### 新しい Xcode ターゲットを作成する
 
-Start by opening the native iOS project in Xcode: `npx cap open ios`.
+まず、Xcode でネイティブの iOS プロジェクトを開きます。 `npx cap open ios`.
 
-1. Go to the project's settings in the Project Navigator panel. Under the _Targets_ section, right-click the "App" target and select **Duplicate** to copy the existing target.
-2. Click the new "App copy" target and press the `Enter` key to rename it. Set the target's name to "App QA".
+1. プロジェクトナビゲータパネルで、プロジェクトの設定に移動します。ターゲット(_Targets_)セクションで、"App "ターゲットを右クリックし、**Duplicate**を選択して、既存のターゲットをコピーします。
+2. 2. 新しい "App copy "ターゲットをクリックし、`Enter`キーを押して名前を変更します。ターゲットの名前を "App QA "に設定してください。
 
-This process created an additional "App copy" scheme and added a new file called `App copy-Info.plist`.
+この処理により、追加の "App copy" スキームが作成され、`App copy-Info.plist` という新しいファイルが追加されます。
 
-You can find additional information on iOS targets [at this link](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/WorkingwithTargets.html).
+iOS のターゲットに関する追加情報は、[このリンク](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/WorkingwithTargets.html) で確認できます。
 
-### Rename the new scheme and Plist file
+### 新しいスキームと Plist ファイルをリネームします。
 
-1. Select **Manage Schemes...** from the Scheme menu.
-2. Find the "App copy" scheme and press the `Enter` key to rename it. Set the name to "App QA" and close the dialog.
-3. Find the "App copy-Info" file in the Project Navigator panel and press the `Enter` key to rename it. Set the file's name to "App QA-Info.plist".
-4. Return to the project's settings. Ensuring that the "App QA" target is selected, open the _Build Settings_ section. Scroll down to Packaging and change the **Info.plist File** entry to "App QA-Info.plist".
+1. Schemeメニューから、**Manage Schemes...**を選択します。
+2. "App copy "スキームを見つけ、`Enter`キーを押して名前を変更します。App QA "という名前に設定し、ダイアログを閉じます。
+3. プロジェクトナビゲータパネルで "App copy-Info "ファイルを見つけ、`Enter`キーを押してファイル名を変更します。ファイル名を "App QA-Info.plist "に設定します。
+4. プロジェクトの設定に戻ります。App QA "ターゲットが選択されていることを確認し、_Build Settings_セクションを開いてください。パッケージングまでスクロールダウンし、**Info.plist File** のエントリを "App QA-Info.plist" に変更します。
 
-The iOS project now has two runnable schemes: "App" and "App QA". Capacitor's configuration file allows you to supply which scheme to build during the `run` command.
+iOSプロジェクトは、2つの実行可能なスキーマを持つようになりました。"App "と "App QA "です。Capacitorの設定ファイルでは、`run`コマンドの際にどちらのスキームをビルドするかを指定することができます。
 
-You can find additional information on iOS schemes [at this link](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/ManagingSchemes.html).
+iOSのスキームに関する追加情報は[こちらのリンク](https://developer.apple.com/library/archive/documentation/ToolsLanguages/Conceptual/Xcode_Overview/ManagingSchemes.html)にあります。
 
-### Set environment-specific values
+### 環境固有の値を設定する
 
-Return to the _General_ portion of the project's settings. Ensure you have the "App QA" target selected and change the **Display Name** and **Bundle Identifier**.
+プロジェクトの設定の _General_ の部分に戻ります。App QA」ターゲットが選択されていることを確認し、**Display Name** と **Bundle Identifier** を変更します。
 
-Make sure these values are different than what exists for the default "App" target. Target-specific values get stored in the target's associated `Info.plist` file. Following this guide, that file is `App QA-Info.plist`.
+これらの値が、デフォルトの「App」ターゲットに存在する値とは異なることを確認します。ターゲット固有の値は、ターゲットに関連付けられた `Info.plist` ファイルに保存されます。このガイドに従うと、そのファイルは`App QA-Info.plist`です。
 
-### Update the Podfile and sync the App
+### Podfileを更新してアプリを同期する
 
-Exit Xcode; you can use your preferred IDE going forward.
+Xcodeを終了します。この先、お好みのIDEを使用することができます。
 
-Open `/ios/App/Podfile` and duplicate the code block for the "App" target, replacing "App" with "App QA" for the duplicate entry like so:
+ios/App/Podfile`を開き、"App "ターゲットのコードブロックを複製します。
 
 ```ruby
 ...snip...
@@ -87,13 +87,13 @@ target 'App QA' do
 end
 ```
 
-Run `npx cap sync` to sync plugins with the "App QA" target.
+`npx cap sync` を実行して、プラグインを "App QA" ターゲットに同期させます。
 
-### Add iOS-specific Capacitor configuration
+### iOS固有のCapacitor設定を追加する
 
-With the target and scheme for the QA environment created, the Capacitor configuration needs to be updated to use them.
+QA環境のターゲットとスキームが作成されたので、それらを使用するためにCapacitorの設定を更新する必要があります。
 
-Add the property below to the configuration object in `capacitor.config.ts`:
+以下のプロパティを `capacitor.config.ts` の設定オブジェクトに追加してください。
 
 ```typescript
 ios: {
@@ -101,15 +101,15 @@ ios: {
 }
 ```
 
-The `scheme` property tells Capacitor which iOS scheme to use for the `run` command. Test this out; run `npx cap run ios` and you'll see that the app name is different.
+`scheme` プロパティは `run` コマンドに使用する iOS スキームを Capacitor に伝えます。試しに `npx cap run ios` を実行してみると、アプリの名前が変わっていることがわかります。
 
-## Setup Android product flavors
+## セットアップ Android 製品フレーバー
 
-### Modify the App's Gradle file
+### アプリの Gradle ファイルを修正する
 
-Android projects contain multiple `build.gradle` files; the one to modify to set up product flavors resides in the `/android/app` folder.
+Android プロジェクトには複数の `build.gradle` ファイルがありますが、プロダクトフレーバーを設定するために修正するファイルは `/android/app` フォルダに存在します。
 
-Open `/android/app/build.gradle` and add the following code within the `android` block:
+Android/app/build.gradle` を開き、`android` ブロック内に以下のコードを追加します。
 
 ```groovy
 flavorDimensions "environment"
@@ -126,19 +126,19 @@ productFlavors {
 }
 ```
 
-This code requires some explanation:
+このコードには若干の説明が必要です。
 
-1. Android does not provide a "default" flavor. In this guide, the non-QA environment is called "dev".
-2. `applicationIdSuffix` will append `.qa` to the end of the bundle ID.
-3. `manifestPlaceholders` are values that are usable in `AndroidManifest.xml`.
+1. Androidには、「デフォルト」のフレーバーがありません。このガイドでは、非QA環境を "dev "と呼びます。
+2. `applicationIdSuffix` は、バンドルIDの末尾に `.qa` を追加します。
+3. `manifestPlaceholders` は `AndroidManifest.xml` で使用可能な値です。
 
-> **Note:** You are free to modify the bundle ID and display name values to your liking.
+> **Note:** バンドル ID と表示名の値は、お好みで自由に変更してください。
 
-You can find additional information on Android product flavors [at this link](https://developer.android.com/studio/build/build-variants).
+Android のプロダクトフレーバーに関するその他の情報は、[こちらのリンク](https://developer.android.com/studio/build/build-variants) でご覧いただけます。
 
-### Update the Android manifest
+### Android マニフェストの更新
 
-In the last section, you created a placeholder, `displayName`. Open `AndroidManifest.xml` and change the value of `android:label` to `${displayName}` within the `application` and `activity` nodes.
+前節で、プレースホルダー `displayName` を作成しました。AndroidManifest.xml` を開き、`application` と `activity` ノード内の `android:label` の値を `${displayName}` に変更します。
 
 ```xml
 <application
@@ -150,11 +150,11 @@ In the last section, you created a placeholder, `displayName`. Open `AndroidMani
     android:label="${displayName}">
 ```
 
-### Add Android-specific Capacitor configuration
+### Android固有のCapacitor設定を追加する
 
-Like iOS, you must update the Capacitor configuration to use the QA product flavor.
+iOSと同様に、QAプロダクトのフレーバーを使用するために、Capacitorの設定を更新する必要があります。
 
-Add the property below to the configuration object in `capacitor.config.ts`:
+以下のプロパティを `capacitor.config.ts` の設定オブジェクトに追加してください。
 
 ```typescript
 android: {
@@ -162,15 +162,15 @@ android: {
  },
 ```
 
-Test this out; run `npx cap run android` and you'll see that the app name is different.
+試しに、`npx cap run android`を実行してみると、アプリ名が変わっていることがわかります。
 
-## Dynamically build for different environments
+## 異なる環境に対応した動的ビルド
 
-### Export environment-specific Capacitor configuration
+### 環境固有の Capacitor 設定をエクスポートする
 
-All the pieces in place, now `capacitor.config.ts` can be written such that it exports a different configuration object based on a particular value.
+これで、`capacitor.config.ts`は、特定の値に基づいて異なる設定オブジェクトをエクスポートするように書くことができます。
 
-Open `capacitor.config.ts` and modify the code like so:
+`capacitor.config.ts` を開いて、以下のようにコードを修正してください。
 
 ```typescript
 import { CapacitorConfig } from '@capacitor/cli';
@@ -212,26 +212,26 @@ switch (process.env.NODE_ENV) {
 export default config;
 ```
 
-When `NODE_ENV` equals `qa`, Capacitor will use configuration pointing to the "App QA" scheme and "qa" product flavor. Otherwise, Capacitor uses configuration pointing to the "App" scheme and the "dev" product flavor.
+`NODE_ENV` が `qa` と等しい場合、Capacitor は "App QA" スキームと "qa" プロダクトフレーバーを指す設定を使用します。それ以外の場合、Capacitor は "App" スキームと "dev" 製品フレーバーを指し示す設定を使用します。
 
-### Run the App for different environments
+### 異なる環境でのアプリの実行
 
-You can run a build using the QA environment-specific configuration by prepending `NODE_ENV=qa` to the `npx cap copy` and `npx cap run` commands.
+`NODE_ENV=qa` を `npx cap copy` と `npx cap run` コマンドの前に付けると、QA環境固有の設定を使用してビルドを実行できます。
 
 ```bash
 NODE_ENV=qa npx cap copy
 NODE_ENV=qa npx cap run ios 	#NODE_ENV=qa npx cap run android
 ```
 
-To run a build using the “default” environment-specific configuration, use the Capacitor commands as you would normally.
+「デフォルト」の環境固有の設定を使用してビルドを実行するには、通常と同じようにCapacitorコマンドを使用します。
 
 ```bash
 npx cap copy
 npx cap run ios 	#npx cap run android
 ```
 
-Go ahead and test it out! If you’ve followed the guide correctly, you'll be able to run builds for both environments and see that the app name differs depending on the environment-specific configuration used.
+さあ、テストしてみましょう! ガイドに正しく従えば、両方の環境でビルドを実行し、使用した環境固有の設定によってアプリ名が異なることが確認できます。
 
-## Additional environments and configuration options
+## その他の環境と設定オプション
 
-Use the information provided in this guide as a foundation to build upon. The Capacitor CLI has no limitation on how many schemes or product flavors can be used, and you can configure each one as deep as iOS and Android allow you to. You can also provide different environment-specific configuration values for Capacitor plugins! The sky’s the limit.
+このガイドで提供された情報を基礎として、構築してください。Capacitor CLIは、使用できるスキームや製品フレーバーの数に制限はなく、iOSとAndroidが許す限り、それぞれを深く設定することができます。また、Capacitorプラグインに異なる環境固有の設定値を提供することも可能です! 

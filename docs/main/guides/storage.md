@@ -8,21 +8,21 @@ slug: /guides/storage
 
 # Data Storage in Capacitor
 
-Most apps need to persist and read local data. Depending on the specific use case, there are a few approaches one can take.
+ほとんどのアプリは、ローカルデータの永続化と読み込みが必要です。特定のユースケースに応じて、いくつかのアプローチを取ることができます。
 
-> Need your local data encrypted? Ionic provides an out of the box security suite for Capacitor apps that includes Authentication, Biometrics, and Secure Storage. [Learn more](https://ionic.io/secure).
+> ローカルデータの暗号化が必要ですか？IonicはCapacitorアプリのために、認証、生体認証、セキュアストレージを含む箱入りのセキュリティスイートを提供します。 [詳しくはこちら](https://ionic.io/secure) 。
 
-## Why can't I just use LocalStorage or IndexedDB?
+## なぜLocalStorageやIndexedDBを使うことができないのでしょうか？
 
-Since Capacitor apps run primarily in a web view or browser, Web APIs for storage are available to Capacitor developers. However, there are some major caveats to keep in mind with these APIs.
+Capacitorアプリは主にWebビューまたはブラウザで実行されるため、Capacitor開発者はストレージ用のWeb APIを使用できます。ただし、これらのAPIには留意すべき大きな注意点があります。
 
-Local Storage can be used for small amounts of temporary data, such as a user id, but _must be considered transient_, meaning your app needs to expect that the data will be lost eventually. This is because the OS will reclaim local storage from Web Views if a device is running low on space. The same can be said for IndexedDB at least on iOS (on Android, the [persisted storage API](https://web.dev/persistent-storage/) is available to mark IndexedDB as persisted). Read more on [data storage eviction policies](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria) in the browser.
+ローカルストレージは、ユーザーIDのような少量の一時的なデータに使用できますが、「transient_」と見なされる必要があります。つまり、アプリはデータが最終的に失われることを予期する必要があるのです。これは、デバイスの空き容量が少なくなると、OS が Web View からローカル ストレージを再要求するためです。同じことが少なくとも iOS の IndexedDB にも言えます（Android では、IndexedDB を persisted としてマークするために [persisted storage API](https://web.dev/persistent-storage/) が利用可能です）。ブラウザで [データストレージの退避ポリシー](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria) の詳細を読む。
 
-## Capacitor Preferences API
+## Capacitor プリファレンス API
 
-Capacitor comes with a native [Preferences API](/docs/apis/preferences) that avoids the eviction issues above, but is meant for small amounts of data.
+Capacitorにはネイティブの [Preferences API](/docs/apis/preferences) があり、上記の立ち退き問題を回避できますが、これは少量のデータ向けのものです。
 
-The Preferences API provides a simple key/value API with no advanced query support:
+Preferences APIはシンプルなキー/バリューAPIを提供し、高度なクエリサポートはありません。
 
 ```typescript
 import { Preferences } from '@capacitor/preferences';
@@ -45,10 +45,10 @@ async getObject() {
 }
 ```
 
-## Large data or high performance storage options
+## 大容量データまたは高性能ストレージの選択肢
 
-For storing large amounts of data and accessing it in a high performance way, there are a few options.
+大量のデータを保存し、高いパフォーマンスでアクセスするためには、いくつかのオプションがあります。
 
-The most widely supported option is SQLite. There are a number of community-maintained SQLite plugins that should work in Capacitor, including [capacitor-sqlite](https://github.com/jepiqueau/capacitor-sqlite) and [cordova-plugin-sqlite](https://github.com/xpbrew/cordova-sqlite-storage).
+最も広くサポートされているオプションは SQLite です。Capacitor で動作するコミュニティ製の SQLite プラグインが多数あり、 [capacitor-sqlite](https://github.com/jepiqueau/capacitor-sqlite) や [cordova-plugin-sqlite](https://github.com/xpbrew/cordova-sqlite-storage) などがあります。
 
-The Capacitor team also offers an [enterprise SQLite storage solution](https://ionicframework.com/enterprise/offline-storage) with encryption support and integration with [secure key management APIs](https://ionicframework.com/enterprise/identity-vault) on device.
+Capacitor チームは、暗号化をサポートし、デバイス上の [安全な鍵管理 API](https://ionicframework.com/enterprise/identity-vault) と統合した [エンタープライズ SQLite ストレージソリューション](https://ionicframework.com/enterprise/offline-storage) も提供しています。

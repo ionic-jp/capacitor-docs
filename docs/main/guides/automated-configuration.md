@@ -6,19 +6,19 @@ contributors:
 slug: /guides/automated-configuration
 ---
 
-# Automated Capacitor Project Configuration
+# Capacitorプロジェクトの設定の自動化
 
-Many large-scale apps need to automate the configuration of their Capacitor project. This could mean incrementing iOS and Android build numbers, configuring manifest and plist files, adding build dependencies in Gradle files, modifying resources, and more.
+多くの大規模アプリは、Capacitorプロジェクトの設定を自動化する必要があります。これは、iOSやAndroidのビルド番号の増加、マニフェストやplistファイルの設定、Gradleファイルでのビルド依存性の追加、リソースの修正などを意味します。
 
-Capacitor comes with a two useful packages that can be used for managing projects: `@capacitor/project` and `@capacitor/configure`. `@capacitor/project` is a lower-level project management library and `@capacitor/configure` is an automated tool that uses the library under the hood but presents a more convenient configuration option for certain use cases.
+Capacitorには、プロジェクト管理に使える便利なパッケージが2つ付属しています。capacitor には、プロジェクト管理に使える便利なパッケージが2つあります： `@capacitor/project` と `@capacitor/configure` です。 `capacitor/project` は低レベルのプロジェクト管理ライブラリで、 `@capacitor/configure` は自動化されたツールで、ライブラリはそのまま使用できますが、特定のユースケースに対してより便利な設定オプションを提供します。
 
-Both projects and their documentation are available in the [Capacitor Configure repo](https://github.com/ionic-team/capacitor-configure).
+両方のプロジェクトとそのドキュメントは [Capacitor Configure repo](https://github.com/ionic-team/capacitor-configure) で利用可能です。
 
-## Project API
+## プロジェクトAPI
 
-The `@capacitor/project` library provides a typed JavaScript interface for Capacitor projects and the native iOS and Android projects that they contain.
+capacitor/project` ライブラリは Capacitor プロジェクトと、それに含まれる iOS や Android のネイティブプロジェクトに対して型付き JavaScript インターフェイスを提供します。
 
-Basic usage includes passing in an existing `CapacitorConfig` and initializing the project:
+基本的な使い方は、既存の `CapacitorConfig` を渡して、プロジェクトを初期化することです。
 
 ```typescript
 import { CapacitorProject } from '@capacitor/project';
@@ -39,7 +39,7 @@ const project = new CapacitorProject(config);
 await project.load();
 ```
 
-Once the project is loaded, operations can be performed against it. For example, here is how versions and build numbers can be managed:
+プロジェクトを読み込むと、そのプロジェクトに対して操作を行うことができます。例えば、バージョンやビルド番号の管理は以下のようになります。
 
 ```typescript
 await project.ios?.setVersion('App', 'Debug', '1.4.5');
@@ -53,21 +53,22 @@ await project.android?.getVersionCode();
 await project.android?.incrementVersionCode();
 ```
 
-The API works on a virtual filesystem to buffer changes without modifying files on the filesystem. When finished, to make sure changes are reflected in your files, run:
+このAPIは仮想ファイルシステム上で動作し、ファイルシステム上のファイルを変更することなく変更をバッファリングします。終了後、変更がファイルに反映されていることを確認するために、実行します。
 
 ```typescript
 await project.commit();
 ```
 
-There are many other options this library can perform. To see the full list, consult the [project documentation](https://github.com/ionic-team/capacitor-configure).
+このライブラリで実行できるオプションは他にもたくさんあります。完全なリストを見るには、[プロジェクトドキュメント](https://github.com/ionic-team/capacitor-configure) を参照してください。
 
-## Configuration Tool
+## コンフィギュレーションツール
 
-Along with the project API, `@capacitor/configure` provides an automated, configuration-driven experience for applying the underlying operations in `@capacitor/project`, but from a convenient yaml configuration file format. There are some additional features as well, such as the ability to require and supply variables to populate values in the final configuration, and a way to test and see changes before they are applied against your project source files.
+プロジェクト API と共に、`@capacitor/configure` は、便利な yaml 設定ファイルフォーマットから、 `@capacitor/project` の基本操作を適用するための自動化された設定駆動型のエクスペリエンスを提供します。例えば、最終的な設定値を生成するために変数を要求したり供給したりする機能や、プロジェクトのソースファイルに対して変更を適用する前にテストして確認する方法などがあります。
 
-This tool is likely going to be most useful for Capacitor plugin authors that wish to publish a set of configuration changes their plugin requires, to avoid users having to manually configure their projects.
+このツールは、Capacitorプラグインの作者が、プラグインが必要とする設定変更のセットを公開し、ユーザーがプロジェクトを手動で設定する必要がないようにするために、最も有用である可能性が高いです。
 
-This tool is meant to be used as an npm script that is then supplied with a yaml format that follows the [example configuration](https://github.com/ionic-team/capacitor-configure/blob/main/examples/basic.yml):
+このツールは、npmスクリプトとして使用され、[example configuration](https://github.com/ionic-team/capacitor-configure/blob/main/examples/basic.yml) に従ったyamlフォーマットで提供されることを想定しています。
+
 
 ```json
 "scripts": {
@@ -79,4 +80,4 @@ This tool is meant to be used as an npm script that is then supplied with a yaml
 npx cap-config run config.yaml
 ```
 
-Consult the [project documentation](https://github.com/ionic-team/capacitor-configure) for more information on using this tool.
+このツールの使用方法については、[プロジェクトドキュメント](https://github.com/ionic-team/capacitor-configure) を参照してください。

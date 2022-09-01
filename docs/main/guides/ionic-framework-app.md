@@ -6,10 +6,11 @@ contributors:
 slug: /guides/ionic-framework-app
 ---
 
-# Building an Ionic Photo Gallery App
+# Ionicフォトギャラリーアプリの構築
 
-**Platforms**: Web, iOS, Android
+**プラットフォーム**: ウェブ、iOS、Android
 
-Capacitor makes it easy to build web apps that run natively on iOS, Android, desktop, and the web. In this guide, we'll build a complete Photo Gallery app that works on all platforms.
+Capacitorは、iOS、Android、デスクトップ、ウェブでネイティブに動作するウェブアプリを簡単に構築できます。このガイドでは、すべてのプラットフォームで動作する完全なフォトギャラリーアプリを構築します。
 
-> This guide is now maintained over in the Ionic docs. The [latest version](https://ionicframework.com/docs/intro/next) contains tutorials for Angular, React, and Vue.
+> このガイドは、現在Ionicのドキュメントでメンテナンスされています。 [最新版](https://ionicframework.com/docs/intro/next) には、Angular、React、Vueのチュートリアルが含まれています。
+

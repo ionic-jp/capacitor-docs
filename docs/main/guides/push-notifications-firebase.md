@@ -7,24 +7,24 @@ contributors:
 slug: /guides/push-notifications-firebase
 ---
 
-# Using Push Notifications with Firebase in an Ionic + Angular App
+# Push通知をIonic + Angularアプリ上でFirebaseとともに使う
 
 **Web Framework**: Angular
 **Platforms**: iOS, Android
 
-One of the most common features provided by application developers to their users is push notifications. In this tutorial, we'll walk through all the steps needed to get [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) working on iOS and Android.
+アプリケーション開発者がユーザーに提供する最も一般的な機能の 1 つは、プッシュ通知です。このチュートリアルでは、 [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) を iOS と Android で動作させるために必要なすべての手順について説明します。
 
-For the purposes of registering and monitoring for push notifications from Firebase, we'll make use of the [Push Notification API for Capacitor](https://capacitorjs.com/docs/apis/push-notifications) in an Ionic + Angular application.
+Firebase からのプッシュ通知の登録とモニタリングを行うために、Ionic+Angular アプリケーションで [Push Notification API for Capacitor](https://capacitorjs.jp/docs/apis/push-notifications) を利用します。
 
-## Required Dependencies
+## 要件
 
-Building and deploying iOS and Android applications using Capacitor requires a bit of setup. Please [follow the instructions to install the necessary Capacitor dependencies here](/docs/getting-started/environment-setup) before continuing.
+Capacitor を使用して iOS および Android アプリケーションを構築およびデプロイするには、少しばかりのセットアップが必要です。先に進む前に、 [指示に従って必要な Capacitor の依存関係をここにインストールしてください](/docs/getting-started/environment-setup) 。
 
-To test push notifications on iOS, Apple requires that you have [a paid Apple Developer account](https://developer.apple.com/) and a _physical_ iOS device.
+iOS でプッシュ通知をテストするためには、Apple は、 [有料の Apple Developer Account](https://developer.apple.com/) と、_physical_ iOS デバイスを持っていることを要求しています。
 
-If you are running into issues or your console throws warnings about outdated or deprecated packages, make sure that you're on the latest stable versions of Node, Android Studio, and Xcode.
+問題が発生したり、古いパッケージや非推奨パッケージに関する警告がコンソールに表示されたりする場合は、Node、Android Studio、Xcode の最新の安定版を使用していることを確認してください。
 
-Also, we're using Firebase for push notifications, so if you're using other Cordova plugins that use the Firebase SDK make sure they're using the latest versions.
+また、プッシュ通知には Firebase を使用していますので、Firebase SDK を使用している他の Cordova プラグインを使用している場合は、それらが最新バージョンであることを確認してください。
 
 ## Prepare an Ionic Capacitor App
 

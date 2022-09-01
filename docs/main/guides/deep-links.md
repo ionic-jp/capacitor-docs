@@ -7,38 +7,38 @@ contributors:
 slug: /guides/deep-links
 ---
 
-# Deep Linking with Universal and App Links
+# ユニバーサルリンクとアプリリンクによるディープリンク
 
-**Platforms**: iOS, Android
+**プラットフォーム**: iOS, Android
 
-Universal links (iOS) and App Links (Android) offer the ability to take users directly to specific content within a native app (commonly known as deep linking).
+ユニバーサルリンク（iOS）とアプリリンク（Android）は、ユーザーをネイティブアプリ内の特定のコンテンツに直接誘導する機能を提供します（一般的にはディープリンクとして知られています）。
 
-When users tap or click on a deep link, the user is sent directly into your app without routing through the device's web browser or website first. If the app isn't installed, then the user is directed to the website. If the user navigates directly to the website, they remain on the website. This makes deep links an excellent feature for cross-platform apps built for the web, iOS, and Android: a seamless mobile experience, with graceful fallback to the website.
+ユーザーがディープリンクをタップまたはクリックすると、デバイスの Web ブラウザや Web サイトを経由せずに、ユーザーは直接アプリに移動します。アプリがインストールされていない場合は、ユーザーはウェブサイトに誘導されます。ユーザーが Web サイトに直接移動した場合、ユーザーは Web サイトに留まります。このように、ディープリンクは、ウェブ、iOS、Android 向けに構築されたクロスプラットフォームのアプリにとって、優れた機能となっています。
 
-Benefits:
+メリット
 
-- Secure: Universal/App Links use HTTPS URLs that link to a website domain that you own, ensuring that no other app can use your links.
-- Seamless experience: One URL works for both your website and app, ensuring that users can successfully access the content they're looking for without errors.
-- Increase Engagement: Links can be opened from email clients, search engine results, and more.
+- 安全。ユニバーサル/アプリリンクでは、HTTPS URL を使用してお客様が所有するウェブサイトのドメインにリンクするため、他のアプリがお客様のリンクを使用できないことが保証されます。
+- シームレスな体験。1 つの URL がウェブサイトとアプリの両方で機能するため、ユーザーはエラーなく目的のコンテンツに正常にアクセスできます。
+- エンゲージメントの向上。リンクは、メールクライアントや検索エンジンの検索結果などから開くことができます。
 
-## Demo Video
+## デモビデオ
 
-Here's what it looks like in practice. In this example, the user has the native app installed. They tap on app links from an email and are brought directly into the app itself. First, the root link is tapped (https://beerswift.app), which directs the user to the main app page. Next, a deep link is tapped (https://beerswift.app/tabs/tab3) bringing the user to the Tab3 page.
+ここでは、実際にどのように見えるかを説明します。この例では、ユーザーはネイティブアプリをインストールしています。メールに記載されたアプリのリンクをタップすると、アプリ自体に直接アクセスできます。まず、ルートリンクをタップすると（https://beerswift.app）、アプリのメインページに移動します。次に、ディープリンクをタップすると（https://beerswift.app/tabs/tab3）、Tab3のページが表示されます。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vadlZ-d8wAI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Prerequisites
+## 前提条件
 
-- A pre-configured [Capacitor app](/docs/getting-started).
-- For iOS, enrollment in the Apple Developer Program.
+- 設定済みの [Capacitor app](/docs/getting-started) があること。
+- iOS の場合、Apple Developer Program に登録していること。
 
-For illustrative purposes, https://beerswift.app will be used as the web app link.
+例示のため、ウェブアプリのリンクとして https://beerswift.app を使用します。
 
-## Deep Link Routing using the Capacitor App API
+## Capacitor App API によるディープリンクルーティング
 
-When the native app is opened after a deep link is clicked, the mobile OS doesn't automatically know where to route the user. This must be implemented within the app itself using the Capacitor [App API](/docs/apis/app) on app startup.
+ディープリンクがクリックされた後にネイティブアプリが開かれた場合、モバイル OS は自動的にユーザーをどこに誘導すればよいかを知りません。これは、アプリの起動時に Capacitor [App API](/docs/apis/app) を使用して、アプリ自体に実装する必要があります。
 
-If your website and app paths don't match, you will need to implement more advanced url pattern matching (see [this guide](https://devdactic.com/universal-links-ionic/) for examples). If your mobile app and web app use the same codebase though, this is very straightforward - just redirect to the same URL. The following examples assume this.
+Web サイトとアプリのパスが一致しない場合は、より高度な URL パターンマッチングを実装する必要があります（例は [本ガイド](https://devdactic.com/universal-links-ionic/) を参照）。モバイルアプリとウェブアプリが同じコードベースを使用している場合は、同じ URL にリダイレクトするだけなので、非常に簡単です。以下の例はこれを前提としています。
 
 ### Angular
 
@@ -182,29 +182,29 @@ App.addListener('appUrlOpen', function (event: URLOpenListenerEvent) {
 });
 ```
 
-## Creating Site Association Files
+## サイトアソシエーションファイルの作成
 
-In order for Apple and Google to permit deep links to open your app, a two-way association between your website and app must be created. One file for each must be created and placed within a `.well-known` folder on your website, like so: https://beerswift.app/.well-known/.
+AppleとGoogleがディープリンクでアプリを開くことを許可するためには、Webサイトとアプリの間に双方向の関連付けを作成する必要があります。それぞれ1つのファイルを作成し、ウェブサイトの `.well-known` フォルダ内に、https://beerswift.app/.well-known/ のように配置する必要があります。
 
-Continue on for iOS and Android configuration details.
+iOSとAndroidの設定の詳細については、こちらをご覧ください。
 
-## iOS Configuration
+## iOSの設定
 
-iOS configuration involves creating a site association file and configuring the native app to recognize the app domain.
+iOS の設定には、サイトアソシエーションファイルの作成と、ネイティブアプリがアプリドメインを認識するための設定が含まれます。
 
-> You must be enrolled in the Apple Developer Program.
+> Apple Developer Program に登録されている必要があります。
 
-### Create Site Association File
+### サイトアソシエーションファイルの作成
 
-First, log into the [Apple Developer site](https://developer.apple.com). Navigate to the "Certificates, Identifiers, & Profiles" section and select your app's identifier. Note the Team ID and Bundle ID, and under Capabilities, toggle "Associated Domains" then save:
+まず、[Apple Developer site](https://developer.apple.com)にログインします。Certificates, Identifiers, & Profiles」セクションに移動し、アプリの識別子を選択します。Team IDとBundle IDをメモし、Capabilitiesで "Associated Domains "をトグルし、保存します。
 
 ![iOS Identifier Config](../../../static/img/v4/docs/guides/deep-links/ios-config.png)
 
-Next, create the site association file (`apple-app-site-association`).
+次に、サイトアソシエーションファイル（`apple-app-site-association`）を作成します。
 
-> Note: Despite being a JSON file, do not save it with a file extension.
+> 注意: JSONファイルであるにもかかわらず、拡張子を付けて保存しないでください。
 
-An example of the `apple-app-site-association` file is below. Be sure to replace `TEAMID.BUNDLEID` with your own IDs (example: `8L65AZE66A.com.netkosoft.beerswift`).
+以下に、`apple-app-site-association`ファイルの例を示します。TEAMID.BUNDLEID` は必ず自分の ID に置き換えてください（例: `8L65AZE66A.com.netkosoft.beerswift` ）。
 
 ```json
 {
@@ -219,43 +219,43 @@ An example of the `apple-app-site-association` file is below. Be sure to replace
 }
 ```
 
-Next, upload the file to your web site (hosted on HTTPS), then validate that it's configured correctly using Apple's tool [here](https://search.developer.apple.com/appsearch-validation-tool/). The URL should follow this format: https://beerswift.app/.well-known/apple-app-site-association
+次に、ファイルをあなたのウェブサイト（HTTPSでホストされている）にアップロードし、Appleのツール[こちら](https://search.developer.apple.com/appsearch-validation-tool/)を使って正しく設定されていることを確認します。URLは次のような形式である必要があります: https://beerswift.app/.well-known/apple-app-site-association
 
-### Add Associated Domain
+### 関連するドメインの追加
 
-The final step is to configure the iOS app to recognize incoming links. Open Xcode, then navigate to Signing & Capabilities. Click "+ Capability", then choose Associated Domains. In the Domains entry that appears, edit it using the format `applinks:yourdomain.com`:
+最後のステップは、iOSアプリが着信リンクを認識できるように設定することです。Xcodeを開き、[Signing & Capabilities]に移動します。+ Capability "をクリックし、"Associated Domains "を選択します。表示されたDomainsのエントリで、`applinks:yourdomain.com`のフォーマットで編集します。
 
-![Xcode Associated Domain](../../../static/img/v4/docs/guides/deep-links/xcode-associated-domain.png)
+Xcode Associated Domain](../../../static/img/v4/docs/guides/deep-links/xcode-associated-domain.png) というフォーマットで編集します。
 
-## Android Configuration
+## Androidの設定
 
-Android configuration involves creating a site association file and configuring the native app to recognize app links using an intent filter.
+Android では、サイトアソシエーションファイルの作成と、ネイティブアプリがインテント フィルタを使用してアプリリンクを認識するように設定します。
 
-### Create Site Association File
+### サイトアソシエーションファイルの作成
 
-The Site Association file requires the SHA256 fingerprint of your Android certificate.
+サイトアソシエーションファイルには、Android の証明書の SHA256 フィンガープリントが必要です。
 
-If you don’t have one, create a certificate:
+持っていない場合は、証明書を作成します:
 
 ```shell
 keytool -genkey -v -keystore KEY-NAME.keystore -alias ALIAS -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-Using your existing (or newly created) Keystore certificate, use the keytool command to list the keystore's details:
+既存の（または新しく作成した）鍵ストア証明書を使用して、keytoolコマンドを使用して鍵ストアの詳細を一覧表示します。
 
 ```shell
 keytool -list -v -keystore my-release-key.keystore
 ```
 
-The printed output will include the SHA256 fingerprint:
+SHA256フィンガープリントが出力されます。
 
 ![Keytool output](../../../static/img/v4/docs/guides/deep-links/keystore-sha256.png)
 
-Next, use Google's [Asset Links tool](https://developers.google.com/digital-asset-links/tools/generator) to create the Site Association file. Fill in the website domain, app package name, and SHA256 fingerprint, then click "Generate statement":
+次に、Googleの [Asset Links tool](https://developers.google.com/digital-asset-links/tools/generator) を使用して、Site Associationファイルを作成します。ウェブサイトのドメイン、アプリのパッケージ名、SHA256フィンガープリントを記入し、[Generate statement]をクリックします。
 
 ![Android Identifier Config](../../../static/img/v4/docs/guides/deep-links/android-config.png)
 
-Copy the JSON output into a new local file under `.well-known/assetlinks.json`.
+JSON出力を `.well-known/assetlinks.json` の下にある新しいローカルファイルにコピーします。
 
 ```json
 // assetlinks.json
@@ -271,13 +271,13 @@ Copy the JSON output into a new local file under `.well-known/assetlinks.json`.
 ]
 ```
 
-Deploy the file to your website (hosted on HTTPS), then verify it by clicking the "Test statement" button in the Asset Link tool. If it's configured correctly, a Success message will appear:
+ファイルをウェブサイト（HTTPSでホストされている）にデプロイし、Asset Linkツールの "Test statement "ボタンをクリックして検証します。正しく設定されていれば、Successメッセージが表示されます。
 
 > Success! Host [website] grants app deep linking to [app package].
 
-### Add Intent Filter
+### インテント・フィルタの追加
 
-The final step is to configure the Android app to recognize incoming links. To do so, [add a new Intent Filter](https://developer.android.com/training/app-links/deep-linking#adding-filters) to `AndroidManifest.xml` within the `<activity>` element:
+最後のステップは、着信リンクを認識するようにAndroidアプリを設定することです。そのためには、`AndroidManifest.xml` の `<activity>` 要素内に [add a new Intent Filter](https://developer.android.com/training/app-links/deep-linking#adding-filters) を追加します。
 
 ```xml
 <intent-filter android:autoVerify="true">
@@ -288,7 +288,7 @@ The final step is to configure the Android app to recognize incoming links. To d
 </intent-filter>
 ```
 
-The complete Activity should look similar to this:
+Activityの完成形は以下のような感じです。
 
 ```xml
 <activity
@@ -312,13 +312,13 @@ The complete Activity should look similar to this:
 </activity>
 ```
 
-## Website Configuration
+## ウェブサイトの構成
 
-Website configuration will vary based on the tools and backend used. A few suggestions are below.
+ウェブサイトの構成は、使用するツールやバックエンドによって異なります。いくつかの提案は以下の通りです。
 
 ### Angular
 
-Place the association files under `src/.well-known`. Next, configure the build process to deploy these files exactly as-is (ensuring that Apple/Google can read them correctly). Open `angular.json` and under `architect => assets`, add a new entry to the array:
+関連ファイルを `src/.well-known` の下に配置します。次に、これらのファイルをそのままデプロイするようにビルドプロセスを設定します（Apple/Googleが正しく読めることを保証します）。`angular.json` を開き、`architect => assets` の下に、新しいエントリーを配列に追加する。
 
 ```json
 {
@@ -328,25 +328,25 @@ Place the association files under `src/.well-known`. Next, configure the build p
 }
 ```
 
-Build then deploy the site.
+サイトをビルドしてデプロイします。
 
 ### NuxtJS
 
-Place the association files under `static/.well-known`. No additional steps are necessary; simply build then deploy the site.
+関連ファイルを `static/.well-known` 配下に配置します。追加手順は必要なく、サイトをビルドしてデプロイするだけです。
 
 ### React
 
-Place the association files under `public/.well-known`. No additional steps are necessary; simply build then deploy the site.
+関連ファイルを `public/.well-known` 配下に配置します。追加の手順は必要なく、単にサイトをビルドしてデプロイするだけです。
 
 ### WordPress
 
-See [here](https://devdactic.com/universal-links-ionic/) for WordPress instructions.
+WordPressの手順については、[こちら](https://devdactic.com/universal-links-ionic/)を参照してください。
 
-## Verification
+## 検証
 
-To verify that the websites and the native apps are configured correctly, the website needs to host the Site Association files but the apps do not need to be in the app stores.
+ウェブサイトとネイティブアプリが正しく設定されていることを確認するために、ウェブサイトはサイトアソシエーションファイルをホストする必要がありますが、アプリはアプリストアに存在する必要はありません。
 
-Connect a device to your computer, build and deploy the native apps, then test by tapping on website links. If the native app opens, all steps have been implemented correctly.
+デバイスをコンピューターに接続し、ネイティブアプリをビルドしてデプロイし、Webサイトのリンクをタップしてテストします。ネイティブアプリが開けば、すべての手順が正しく実装されています。
 
 ## Resources
 

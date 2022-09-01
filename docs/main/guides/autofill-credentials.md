@@ -8,14 +8,14 @@ slug: /guides/autofill-credentials
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Auto Filling Credentials
-Android, iOS and the Web have built in password managers that will automatically detect username and password fields and securely store and recall these credentials.
+# 自動入力される認証情報
+Android、iOS、Webには、ユーザー名とパスワードのフィールドを自動的に検出し、これらの認証情報を安全に保存、呼び出しするパスワードマネージャーが組み込まれています。
 
-In order for Apple and Google to autofill and save credentials, a two-way association between your website and app must be configured. In the guide we'll follow the same steps used for [Deep Linking](deep-links#create-site-association-file-1) but we'll add steps for [Capacitor Configuration](#set-capacitor-server-hostname) and use of the `autocomplete` attribute.
+AppleとGoogleが認証情報を自動入力して保存するためには、Webサイトとアプリの間に双方向の関連付けを設定する必要があります。このガイドでは、[Deep Linking](deep-links#create-site-association-file-1) で使用したのと同じステップに従いますが、ここでは [Capacitor Configuration](#set-capacitor-server-hostname) と `autocomplete` 属性の使用に関するステップを追加しています。
 
-## Code Your App
+## アプリのコード化
 
-Your application will need an `ion-input` for the username and password which must use the attribute [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete). An example is shown below:
+アプリケーションには、ユーザー名とパスワードを入力するための `ion-input` が必要です。この入力には [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) 属性を使用しなければなりません。以下に例を示します。
 
 <Tabs groupId="framework" defaultValue="angular" values={[{ value: 'angular', label: 'Angular' }, { value: 'javascript', label: 'Javascript' }]}>
 <TabItem value="angular">
@@ -36,9 +36,9 @@ Your application will need an `ion-input` for the username and password which mu
 </form>
 ```
 
-Due to a [webkit bug](https://bugs.webkit.org/show_bug.cgi?id=226023) related to `ion-input` with automatic filling of fields you will need a workaround by copying this [this directive](https://gist.github.com/dtarnawsky/fc92869c1c67b9c74c66de8af3e081b2) into your code.
+[webkit のバグ](https://bugs.webkit.org/show_bug.cgi?id=226023) により、フィールドの自動入力に関連する `ion-input` を回避するために、この [this directive](https://gist.github.com/dtarnawsky/fc92869c1c67b9c74c66de8af3e081b2) をコードにコピーする必要があります。
 
-This [sample application](https://github.com/ionic-enterprise/cs-autofill-credendials) uses the techniques in this guide to allow auto filling of credentials on iOS, Android and the Web.
+この [サンプルアプリケーション](https://github.com/ionic-enterprise/cs-autofill-credendials) は、このガイドのテクニックを使って、iOS、Android、Web上で資格情報の自動入力を可能にしています。
 </TabItem>
 
 <TabItem value="javascript">
@@ -59,7 +59,7 @@ This [sample application](https://github.com/ionic-enterprise/cs-autofill-creden
 </form>
 ```
 
-Due to a [webkit bug](https://bugs.webkit.org/show_bug.cgi?id=226023) related to `ion-input` with automatic filling of fields you will need this workaround code:
+[webkit のバグ](https://bugs.webkit.org/show_bug.cgi?id=226023) により、`ion-input` のフィールドへの自動入力に関連するため、この回避コードが必要になります。
 ```javascript
     document.getElementById('pwd').children[0].addEventListener('change', (e) => {
       this.password = (e.target as any).value;      
@@ -71,14 +71,14 @@ Due to a [webkit bug](https://bugs.webkit.org/show_bug.cgi?id=226023) related to
 </Tabs>
 
 :::note
- The `autocomplete` attribute allows auto filling of credential types like `username`, `current-pasword`, `new-password`. It can also be used without this additional configuration for phone numbers, one time codes, credit card information and [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete). 
+`autocomplete` 属性は、 `username`, `current-pasword`, `new-password` のようなクレデンシャルタイプを自動入力できるようにします。また、電話番号、ワンタイムコード、クレジットカード情報、[more](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)などには、この追加設定なしで使用することができます。
 :::
 
-## Set Capacitor Server Hostname
+## Capacitorサーバーのホスト名を設定する
 
-By default Capacitor will serve using the domain `localhost` (`capacitor://localhost` on iOS and `http://localhost` on Android). As you will want the password manager to suggest the stored credentials for your app you will need to change the configuration from `localhost` to `my-app.com` (the domain you associated to your app).
+デフォルトではCapacitorはドメイン `localhost` (iOSでは `capacitor://localhost` 、Androidでは `http://localhost`) を使用してサービスを提供します。アプリに保存された認証情報をパスワードマネージャーに表示させたい場合は、設定を `localhost` から `my-app.com` (アプリに関連付けたドメイン) に変更する必要があります。
 
-You can do this in your  `capacitor.config.ts` or `capacitor.config.json` file:
+これは `capacitor.config.ts` または `capacitor.config.json` ファイルで行うことができます。
 ```typescript
 const config: CapacitorConfig = {
 ...
@@ -89,24 +89,24 @@ const config: CapacitorConfig = {
 ```
 
 :::warning
-Changing the `hostname` from the default of `localhost` affects the use of Web APIs that would otherwise require a [secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) such as [`navigator.geolocation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation) and [`MediaDevices.getUserMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia). Be sure to test this type of functionality after making the change.    
+`ホスト名`をデフォルトの `localhost` から変更すると、 [`navigator.geolocation`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation) や [`MediaDevices.getUserMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) などの [secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) を必要とする Web API の使用に影響を及ぼします。この種の機能は、変更後に必ずテストしてください。   
 :::
 
-## Configuration for iOS
+## iOSのための設定
 
-### Configuration in XCode
+### XCode での設定
 
-Open your project in XCode and navigate to `Signing & Capabilities`.
+XCodeでプロジェクトを開き、`Signing & Capabilities` に移動します。
 
 ![XCode capabilities](../../../static/img/v4/docs/guides/autofill-credentials/xcode-capabilities.png)
 
-- Click the `+` and add the capability of `Associated Domains`.
-- In the Domains section click the `+` and provide an entry `applinks:my-app.com` where `my-app.com` is the domain name you own and will create an App Association File for.
-- Make sure `Automatically manage signing` is enabled (otherwise you will need to configure App Ids, Capabilities and Profiles in the [Apple Developer Portal](https://developer.apple.com/account/resources/identifiers/list)).
+- `+` をクリックし、"Associated Domains "のケイパビリティを追加します。
+- Domainsセクションで、`+`をクリックし、`applinks:my-app.com` というエントリーを指定します。ここで、`my-app.com`はあなたが所有し、App Association Fileを作成するドメイン名です。
+- `Automatically manage signing`  が有効になっていることを確認します（有効になっていない場合は、 [Apple Developer Portal](https://developer.apple.com/account/resources/identifiers/list) でApp Ids、Capabilities、Profilesを構成する必要があります）。
 
 ### Apple App Site Association File
 
-Create the site association file called `apple-app-site-association` similar to the one below replacing `TEAMID.BUNDLEID` with your own Apple Team ID and App Bundle ID (example: `8L65AZE66A.com.company.myapp`).
+以下のような `apple-app-site-association` というサイトアソシエーションファイルを作成します。`TEAMID.BUNDLEID` を自分の Apple Team ID と App Bundle ID (例: `8L65AZE66A.com.company.myapp`) に置き換えてください。
 
 
 ```json
@@ -120,36 +120,36 @@ Create the site association file called `apple-app-site-association` similar to 
 }
 ```
 
-> Note: Despite being a JSON file, do not save it with a file extension.
+> Note：JSONファイルであるにもかかわらず、ファイル拡張子を付けて保存しないでください。
 
 
-Upload the file into the `.well-known` folder on your web site (must be hosted on HTTPS).
-The URL should follow this format: `https://my-app.com/.well-known/apple-app-site-association`
+このファイルを、あなたのウェブサイトの `.well-known` フォルダーにアップロードしてください（HTTPSでホストされている必要があります）。
+URLは以下の形式である必要があります。 `https://my-app.com/.well-known/apple-app-site-association`
 
 
-### Validation
+### 検証
 
-Validating that your app site association file is correct can be done on your iOS device. 
+アプリのサイトの関連付けが正しいかどうかは、iOS デバイス上で確認することができます。
 
-Go to  `Settings` > `Developer` > `Universal Links` -> `Diagnostics`. Enter the url (eg `https://my-app.com`) and a validation result will show similar to:
+`Settings` > `Developer` > `Universal Links` -> `Diagnostics` に移動します。URL (例: `https://my-app.com`) を入力すると、以下のような検証結果が表示されます。
 
 ![Diagnostics](../../../static/img/v4/docs/guides/autofill-credentials/diagnostics.png)
 
-A green checkmark indicates a validation configuration whilst a yellow alert indicates a problem.
+緑色のチェックマークは検証の設定に問題がないことを示し、黄色の警告は問題があることを示します。
 
-#### Other Validation Tools 
-Apple provides a [tool](https://search.developer.apple.com/appsearch-validation-tool/) that should validate the association. Note: It does seem to fail on good configurations.
+#### その他の検証ツール
+Appleは、関連付けを検証するための [Tool](https://search.developer.apple.com/appsearch-validation-tool/) を提供しています。注意:これは良い設定でも失敗するようです。
 
-Branch provide a [tool](https://branch.io/resources/aasa-validator) that validates the link, content-type and JSON structure. It will show a false positive on an invalid JSON schema however.
+Branchは、リンク、content-type、JSON構造を検証する[ツール](https://branch.io/resources/aasa-validator)を提供しています。ただし、無効なJSONスキーマの場合は誤検出されます。
 
-### Save Credentials
+### クレデンシャルの保存
 
-To control the saving of username and password credentials with the native iOS Password Manager you will need to use the [capacitor-ios-autofill-save-password](https://github.com/cuongpl/capacitor-ios-autofill-save-password) plugin:
+ユーザ名とパスワードの保存をネイティブのiOSパスワードマネージャで制御するには、 [capacitor-ios-autofill-save-password](https://github.com/cuongpl/capacitor-ios-autofill-save-password) プラグインを使用する必要があります。
 ```bash
 npm install capacitor-ios-autofill-save-password
 ```
 
-Your code will need to save credentials after successful login if it targets iOS (other platforms do not require this):
+iOSをターゲットにしている場合、ログインに成功した後に認証情報を保存する必要があります（他のプラットフォームでは必要ありません）。
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
     await SavePassword.promptDialog({
@@ -159,61 +159,61 @@ if (Capacitor.getPlatform() === 'ios') {
 }
 ```
 
-When the above code is called you will see the below dialog if saving new credentials or when your password is different to what was saved on the device. You will not see this dialog if your saved credentials did not change.
+上記のコードが呼び出されると、新しい認証情報を保存する場合、またはパスワードがデバイスに保存されたものと異なる場合に、以下のダイアログが表示されます。保存した認証情報が変更されていない場合は、このダイアログは表示されません。
 
 ![Save Credentials](../../../static/img/v4/docs/guides/autofill-credentials/save-password.png)
 
-### Autofill in Action
-When configured correctly your application will display the below accessory bar displaying the name of the domain and username. Tapping this will autofill the credentials in the form.
+### 自動入力の動作
+正しく設定された場合、アプリケーションには、ドメイン名とユーザー名が表示された以下のようなアクセサリバーが表示されます。これをタップすると、フォームに認証情報が自動入力されます。
 
-If you only see a key icon and "Passwords" text then you may need to save your first credentials or your application may be misconfigured.
+もし、鍵のアイコンと「パスワード」のテキストしか表示されない場合は、最初の認証情報を保存する必要があるか、アプリケーションが誤って設定されている可能性があります。
 
 ![Autofill Credentials](../../../static/img/v4/docs/guides/autofill-credentials/auto-fill.png)
 
 
-## Configuration for Android
-Follow the [Deep Links Guide](deep-links#android-configuration) if you are targeting Android.
+## Android向けの設定
+Androidを対象とする場合は、[ディープリンクガイド](deep-links#android-configuration)に従ってください。
 
-## Configuration for Web
-Follow the [Deep Links Guide](deep-links#details-website-configuration) if you are targeting the web.
+## Web向けの設定
+Webを対象とする場合は、[ディープリンクスガイド](deep-links#details-website-configuration)に従ってください。
 
-If you have your app installed on a device, when you visit your website in iOS Safari you will see a banner at the top giving the option to open the app. Consider having a separate subdomain for your application if you want to avoid this behavior.
+デバイスにアプリをインストールしている場合、iOSのSafariでWebサイトにアクセスすると、上部にアプリを開くためのオプションが表示されます。この動作を回避したい場合は、アプリケーション用に別のサブドメインを用意することを検討してください。
 
 ![iOS Safari](../../../static/img/v4/docs/guides/autofill-credentials/ios-safari.png)
 
-## iOS Troubleshooting
-There are many ways to misconfigure an application that will cause it to not be able to save or recall credentials on iOS.
+## iOS トラブルシューティング
+アプリケーションの設定を誤ると、iOS 上で認証情報を保存したり呼び出したりできなくなることがあります。
 
-#### The autofill option for passwords does not appear. What should I check?
+#### パスワードの自動入力のオプションが表示されません。何を確認すればよいですか？
 
-- The Capacitor Server Hostname must match the domain name of your website
-- The Bundle Identifier in XCode must match the Bundle Identifier in `apple-app-site-association` file
-- The Team Identifier that prefixes `AppID` in `apple-app-site-association` file must match the Team Identifier from your Apple Developer Account
-- The Associated Domains has a prefix of `applinks:` in XCode
-- The Associated Domains in XCode must match the domain name of your website
-- The `apple-app-site-association` file is being served via `https` with a trusted certificate and not `http` or a self signed certificate
-- The url `https://my-app.com/.well-known/apple-app-site-association` can be displayed in a browser
-- The response to a request for `apple-app-site-association` is returned with a `content-type` of `application/json`
-- There is **no** file extension used with your `apple-app-site-association` file
-- The `apple-app-site-association` file was uploaded to a folder called `.well-known`
-- A redirect is **not** being used for `apple-app-site-association`
-- You have saved at least one set of credentials (it cant autofill if you have never provided a username or password)
+- Capacitor Server Hostnameは、ウェブサイトのドメイン名と一致している必要があります。
+- XCodeのBundle Identifierは、`apple-app-site-association`ファイルのBundle Identifierと一致しなければなりません。
+- apple-app-site-association` ファイルの `AppID` をプレフィックスとする Team Identifier は、あなたの Apple Developer Account の Team Identifier と一致しなければなりません。
+- 関連付けられたドメインは、XCodeでは `applinks:` という接頭辞を持っています。
+- XCodeのAssociated Domainsは、あなたのウェブサイトのドメイン名と一致しなければなりません。
+- apple-app-site-association` ファイルは `http` や自己署名証明書ではなく、信頼できる証明書による `https` 経由で提供されています。
+- URL `https://my-app.com/.well-known/apple-app-site-association` がブラウザで表示可能である。
+- apple-app-site-association` へのリクエストに対するレスポンスは `content-type` が `application/json` で返されます。
+- apple-app-site-association` ファイルには **No** ファイル拡張子が使用されています。
+- apple-app-site-association` ファイルは `.well-known` という名前のフォルダーにアップロードされました。
+- リダイレクトは `apple-app-site-association` に **not** 使用されています。
+- 少なくとも一組の認証情報を保存している（ユーザー名やパスワードを一度も入力していない場合、自動入力はできません）。
 
 :::warning
-The `apple-app-site-association` file is checked by Apple via its CDN which will be cached for up to one week. This means that if it was misconfigured at initial check even if you correct the problem it may not work. It also means that if you change a good configuration to a misconfigured file that your app may still appear to be functional because the device has cached the association of your domain to your app.
+`Apple-app-site-association` ファイルは Apple の CDN 経由でチェックされ、最大で 1 週間キャッシュされます。このため、初期チェック時に誤った設定をしていた場合、問題を修正しても動作しない可能性があります。また、適切な設定を誤ったファイルに変更しても、デバイスがあなたのドメインとアプリの関連付けをキャッシュしているため、あなたのアプリが機能しているように見える可能性があることを意味します。
 :::
 
-#### Do I need the `AutoFill Credential Provider` capability?
-No, this capability is not required.
+#### `AutoFill Credential Provider` capability は必要ですか？
+いいえ、この capability は必要ありません。
 
-#### Do I need the `webcredentials:domain` in Associated Domains?
-No, you only need the `applinks:domain` in the Associated Domains.
+#### Associated Domains に `webcredentials:domain` が必要ですか？
+いいえ、関連付けられたドメインにある `applinks:domain` だけが必要です。
 
-#### Do I need the `webcredentials` in `apple-app-site-association`?
-No, you only need the `applinks` and `appID` properties.
+#### `apple-app-site-association` に `webcredentials` は必要ですか？
+いいえ、`applinks`と`appID`プロパティだけが必要です。
 
-#### The Apple Validation Tool reports `Error cannot parse app site association`
-Apple's tool will report an error even though your application will autofill and save credentials. Use the [alternate tool](https://branch.io/resources/aasa-validator/) by Branch to validate your Apple App Site Association file.
+#### Appleの検証ツールは、`Error cannot parse app site association`と報告します。
+Appleのツールは、アプリケーションが認証情報を自動入力して保存しているにもかかわらず、エラーを報告します。Apple App Site Associationファイルを検証するには、Branchの [代替ツール](https://branch.io/resources/aasa-validator/) を使用してください。
 
-#### Apples Documentation is different from these Instructions
-The documentation by Apple for [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains#Add-the-Associated-Domain-File-to-Your-Website) shows a JSON example that includes a property called `appIDs` (and `components`) which is an array while these instructions include the property `appID` (and `paths`). At the time of this article (August 2022) and testing with iOS 15.6 this document is correct and Apple's documentation of the JSON example appears to be incorrect. This may be a bug in iOS or the documentation. Apple does have some working examples [here](https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW1).
+#### Appleのドキュメントは、この説明書とは異なります。
+Apple による [associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains#Add-the-Associated-Domain-File-to-Your-Website) のドキュメントでは、配列である `appIDs` (と `components`) というプロパティを含む JSON の例が示されていますが、この手順では `appID` (と `paths`) というプロパティが含まれています。この記事の時点（2022年8月）とiOS 15.6でのテストでは、このドキュメントが正しく、AppleのJSON例のドキュメントが誤っているように見えます。これはiOSまたはドキュメントのバグである可能性があります。Appleはいくつかの実用的な例を持っています[ここ](https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html#//apple_ref/doc/uid/TP40016308-CH12-SW1) 。
