@@ -12,7 +12,7 @@ Capacitor の開発者は、アプリがセキュリティのベストプラク�
 
 セキュリティのテーマは多岐にわたりますが、Capacitor の開発者がセキュリティ遵守のために監査すべき領域は、データ、認証/ディープリンク、ネットワーク、Web View のセキュリティなど、いくつかあります。
 
-> Ionic provides an out of the box security suite for Capacitor apps that includes Authentication, Biometrics, and Encryption. [Learn more](https://ionic.io/secure).
+> Ionic は、認証、生体認証、および暗号化を含む、Capacitor アプリ用のすぐに使えるセキュリティ スイートを提供します。 [詳細](https://ionic.io/secure) はこちらをご覧ください。
 
 ## データ・セキュリティ
 
@@ -46,7 +46,7 @@ OAuth2 フローを安全にするために、プラグインが PKCE をサポ�
 
 詳しくは、 [oAuth2 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/) をご覧ください。
 
-##ネットワークセキュリティ
+## ネットワークセキュリティ
 
 ネットワークセキュリティでは、ネットワークのリクエストが信頼できるエンドポイントに送られていることを確認し、パスワードなどの機密データを平文で送信しないように暗号化することを行います。
 
