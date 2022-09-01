@@ -1,6 +1,6 @@
 ---
 title: App Launcher Capacitor Plugin API
-description: The AppLauncher API allows to open other apps
+description: AppLauncher APIで他のアプリを開くことができます
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/src/definitions.ts
 sidebar_label: App Launcher
@@ -8,13 +8,13 @@ sidebar_label: App Launcher
 
 # @capacitor/app-launcher
 
-The AppLauncher API allows your app to check if an app can be opened and open it.
+AppLauncher APIを使うと、アプリが開けるかどうかをチェックして、アプリを開くことができます。
 
-On iOS you can only open apps if you know their url scheme.
+iOSでは、アプリのURLスキームを知っている場合のみ、アプリを開くことができます。
 
-On Android you can open apps if you know their url scheme or use their public package name.
+Androidでは、アプリのURLスキームがわかっているか、公開されているパッケージ名を使用すれば、アプリを開くことができます。
 
-**Note:** On [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) and newer you have to add the app package names you want to query in the `AndroidManifest.xml` inside the `queries` tag.
+**注意:** [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 以降では、`AndroidManifest.xml` の `queries` タグ内に、照会したいアプリのパッケージ名を追加する必要があります。
 
 Example:
 ```xml

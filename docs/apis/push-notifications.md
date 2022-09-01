@@ -1,6 +1,6 @@
 ---
 title: Push Notifications Capacitor Plugin API
-description: The Push Notifications API provides access to native push notifications.
+description: プッシュ通知APIは、ネイティブなプッシュ通知へのアクセスを提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/src/definitions.ts
 sidebar_label: Push Notifications
@@ -8,7 +8,7 @@ sidebar_label: Push Notifications
 
 # @capacitor/push-notifications
 
-The Push Notifications API provides access to native push notifications.
+プッシュ通知APIは、ネイティブなプッシュ通知へのアクセスを提供します。
 
 ## Install
 

@@ -1,6 +1,6 @@
 ---
 title: Status Bar Capacitor Plugin API
-description: The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+description: ステータスバーAPI ステータスバーのスタイルや表示・非表示を設定するメソッドを提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/status-bar/src/definitions.ts
 sidebar_label: Status Bar
@@ -8,7 +8,7 @@ sidebar_label: Status Bar
 
 # @capacitor/status-bar
 
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+ステータスバーAPI ステータスバーのスタイルや表示・非表示を設定するメソッドを提供します。
 
 ## Install
 

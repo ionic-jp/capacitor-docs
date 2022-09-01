@@ -1,6 +1,6 @@
 ---
 title: Text Zoom Capacitor Plugin API
-description: The Text Zoom API provides the ability to change Web View text size for visual accessibility.
+description: テキストズームAPIは、視覚的なアクセシビリティのためにWeb Viewのテキストサイズを変更する機能を提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/text-zoom/src/definitions.ts
 sidebar_label: Text Zoom
@@ -8,9 +8,9 @@ sidebar_label: Text Zoom
 
 # @capacitor/text-zoom
 
-The Text Zoom API provides the ability to change Web View text size for visual accessibility.
+テキストズームAPIは、視覚的なアクセシビリティのためにWeb Viewのテキストサイズを変更する機能を提供します。
 
-**Note:** text-zoom plugin won't work on iPads unless `preferredContentMode` configuration is set to `mobile` in your [Capacitor configuration file](https://capacitorjs.com/docs/config).
+**注意:** テキストズームプラグインは、[Capacitor設定ファイル](https://capacitorjs.com/docs/config) で `preferredContentMode` 設定が `mobile` になっていないとiPadでは動作しません。
 
 ```json
 {

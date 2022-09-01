@@ -1,6 +1,6 @@
 ---
 title: Google Maps Capacitor Plugin API
-description: Google maps on Capacitor
+description: CapacitorでGoogle mapsを使うためのプラグインです。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/google-maps/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/google-maps/src/definitions.ts
 sidebar_label: Google Maps
@@ -8,7 +8,7 @@ sidebar_label: Google Maps
 
 # @capacitor/google-maps
 
-Google maps on Capacitor
+CapacitorでGoogle mapsを使うためのプラグインです。
 
 ## Install
 

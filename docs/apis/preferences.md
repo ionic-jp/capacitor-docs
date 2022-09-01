@@ -8,21 +8,21 @@ sidebar_label: Preferences
 
 # @capacitor/preferences
 
-The Preferences API provides a simple key/value persistent store for lightweight data.
+Preferences APIは、軽量なデータのためのシンプルなキー/バリューの永続ストアを提供します。
 
-Mobile OSs may periodically clear data set in `window.localStorage`, so this
-API should be used instead. This API will fall back to using `localStorage`
-when running as a Progressive Web App.
+モバイル OS は定期的に `window.localStorage` に保存されたデータを消去することがあるので、
+代わりにこの API を使用する必要があります。
+この API は Progressive Web App として動作している場合、`localStorage` を使用するようにフォールバックします。
 
-This plugin will use
-[`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults)
-on iOS and
-[`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences)
-on Android. Stored data is cleared if the app is uninstalled.
+このプラグインは、iOS では [`UserDefaults`](https://developer.apple.com/documentation/foundation/userdefaults) を、
+Windows では [`SharedPreferences`](https://developer.apple.com/documentation/foundation/userdefaults) を使用します。
+Android では [`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences) を
+使用します。
+保存されたデータは、アプリがアンインストールされると消去されます。
 
-**Note**: This API is _not_ meant to be used as a local database. If your app
-stores a lot of data, has high read/write load, or requires complex querying,
-we recommend taking a look at a SQLite-based solution. One such solution is [Ionic Secure Storage](https://ionic.io/docs/secure-storage), a SQLite-based engine with full encryption support. The [Capacitor Community](https://github.com/capacitor-community/) has also built a number of other storage engines.
+**注意**: このAPIは、ローカルデータベースとして使用することは想定していません。アプリが多くのデータを
+アプリが大量のデータを保存する場合、読み取り/書き込みの負荷が高い場合、または複雑なクエリを必要とする場合。
+SQLiteベースのソリューションを検討することをお勧めします。そのようなソリューションの1つが、完全な暗号化をサポートするSQLiteベースのエンジンである[Ionic Secure Storage](https://ionic.io/docs/secure-storage)です。Capacitor Community](https://github.com/capacitor-community/) は、他にも多くのストレージエンジンを構築しています。
 
 ## Install
 

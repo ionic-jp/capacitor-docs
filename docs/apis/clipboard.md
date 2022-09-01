@@ -1,6 +1,6 @@
 ---
 title: Clipboard Capacitor Plugin API
-description: The Clipboard API enables copy and pasting to/from the system clipboard.
+description: クリップボードAPIは、システムのクリップボードとの間でコピー＆ペーストを可能にします。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/clipboard/src/definitions.ts
 sidebar_label: Clipboard
@@ -8,7 +8,7 @@ sidebar_label: Clipboard
 
 # @capacitor/clipboard
 
-The Clipboard API enables copy and pasting to/from the system clipboard.
+クリップボードAPIは、システムのクリップボードとの間でコピー＆ペーストを可能にします。
 
 ## Install
 

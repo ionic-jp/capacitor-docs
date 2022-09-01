@@ -1,6 +1,6 @@
 ---
 title: Filesystem Capacitor Plugin API
-description: The Filesystem API provides a NodeJS-like API for working with files on the device.
+description: ファイルシステムAPIは、デバイス上のファイルを操作するためのNodeJSライクなAPIを提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/src/definitions.ts
 sidebar_label: Filesystem
@@ -8,7 +8,7 @@ sidebar_label: Filesystem
 
 # @capacitor/filesystem
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+ファイルシステムAPIは、デバイス上のファイルを操作するためのNodeJSライクなAPIを提供します。
 
 ## Install
 

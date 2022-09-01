@@ -1,6 +1,6 @@
 ---
 title: Share Capacitor Plugin API
-description: The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+description: Share APIは、ユーザーがインストールしている共有可能なアプリでコンテンツを共有するためのメソッドを提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/share/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/share/src/definitions.ts
 sidebar_label: Share
@@ -8,10 +8,10 @@ sidebar_label: Share
 
 # @capacitor/share
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+Share APIは、ユーザーがインストールしている共有可能なアプリでコンテンツを共有するためのメソッドを提供します。
 
-The Share API works on iOS, Android, and the Web (using the new [Web Share
-API](https://web.dev/web-share/)), though web support is currently spotty.
+Share APIは、iOS、Android、およびWeb（新しい[Web Share API](https://web.dev/web-share/)を使用）で動作しますが、
+ウェブでのサポートは現時点では不十分です。
 
 ## Install
 

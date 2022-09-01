@@ -1,6 +1,6 @@
 ---
 title: Splash Screen Capacitor Plugin API
-description: The Splash Screen API provides methods for showing or hiding a Splash image.
+description: スプラッシュスクリーンAPIでは、Splash画像の表示/非表示を切り替えることができます。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
 sidebar_label: Splash Screen
@@ -8,7 +8,7 @@ sidebar_label: Splash Screen
 
 # @capacitor/splash-screen
 
-The Splash Screen API provides methods for showing or hiding a Splash image.
+スプラッシュスクリーンAPIでは、Splash画像の表示/非表示を切り替えることができます。
 
 ## Install
 

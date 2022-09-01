@@ -1,6 +1,6 @@
 ---
 title: App Capacitor Plugin API
-description: The App API handles high level App state and events.For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+description: アプリAPIは、ハイレベルなアプリの状態とイベントを処理します。例えば、このAPIは、アプリがフォアグラウンドに入ったり出たりしたときにイベントを発行したり、ディープリンクを処理したり、他のアプリを開いたり、永続化されたプラグインの状態を管理したりします。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/src/definitions.ts
 sidebar_label: App
@@ -8,7 +8,7 @@ sidebar_label: App
 
 # @capacitor/app
 
-The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+アプリAPIは、ハイレベルなアプリの状態とイベントを処理します。例えば、このAPIは、アプリがフォアグラウンドに入ったり出たりしたときにイベントを発行したり、ディープリンクを処理したり、他のアプリを開いたり、永続化されたプラグインの状態を管理したりします。
 
 ## Install
 
