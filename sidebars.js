@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'はじめ方',
       collapsed: false,
       items: [
         'index',
@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Basics',
+      label: '基本的な使い方',
       collapsed: false,
       items: [
         'main/basics/workflow',
@@ -27,7 +27,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Upgrade Guides',
+      label: 'アップグレードガイド',
       collapsed: false,
       items: [
         'main/updating/4-0',
@@ -49,7 +49,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Concepts',
+      label: 'コンセプト',
       collapsed: false,
       items: [
         'main/guides/ads',
@@ -105,7 +105,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Deployment',
+      label: 'デプロイ',
       collapsed: false,
       items: [
         'main/deployment/app-store',
@@ -116,7 +116,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Reference',
+      label: '資料',
       collapsed: false,
       items: [
         'main/reference/config',
@@ -142,13 +142,13 @@ module.exports = {
   api: [
     {
       type: 'category',
-      label: 'Overview',
+      label: '概要',
       collapsed: false,
       items: ['plugins', 'plugins/official', 'plugins/community', 'plugins/cordova', 'plugins/enterprise'],
     },
     {
       type: 'category',
-      label: 'APIs',
+      label: 'API',
       collapsed: false,
       items: [
         {
@@ -159,7 +159,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Creating Plugins',
+      label: 'プラグイン開発',
       collapsed: false,
       items: [
         'plugins/creating-plugins/overview',
@@ -173,7 +173,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Plugin Tutorial',
+      label: 'プラグインチュートリアル',
       collapsed: false,
       items: [
         'plugins/tutorial/getting-started',
@@ -191,13 +191,13 @@ module.exports = {
   cli: [
     {
       type: 'category',
-      label: 'CLI Documentation',
+      label: 'CLIドキュメンテーション',
       collapsed: false,
       items: ['cli/index', 'cli/hooks'],
     },
     {
       type: 'category',
-      label: 'Command Reference',
+      label: 'コマンド',
       collapsed: false,
       items: [
         {

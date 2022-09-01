@@ -5,7 +5,7 @@ contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
-sidebar_label: Overview
+sidebar_label: 概要
 slug: /plugins/creating-plugins
 ---
 

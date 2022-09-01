@@ -2,7 +2,7 @@
 title: よくある質問
 description: Capacitorのよくある質問
 slug: /getting-started/faqs
-sidebar_label: FAQs
+sidebar_label: よくある質問
 ---
 
 # よくある質問
