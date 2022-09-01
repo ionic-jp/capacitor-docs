@@ -3,7 +3,7 @@ title: 設定値
 description: Capacitorプラグインの設定値
 contributors:
   - eric-horodyski
-sidebar_label: Configuration Values
+sidebar_label: 設定値
 slug: /plugins/configuration-values
 ---
 
