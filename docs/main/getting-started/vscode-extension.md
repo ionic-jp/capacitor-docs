@@ -4,48 +4,48 @@ description: Using the Ionic VS Code Extension with Capacitor
 slug: /getting-started/vscode-extension
 ---
 
-## Using the Ionic VS Code Extension
+## Ionic VS Codeエクステンションを使用する
 
-The Ionic Visual Studio Code extension helps you perform various functions that are common to developing a Capacitor app, all without leaving your VS Code window. You can install the [extension on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic). Once you have the extension installed, you'll see the Ionic logo in the activity bar.
+Ionic Visual Studio Code 拡張を使用すると、Capacitorアプリの開発に共通するさまざまな機能を、VS Code ウィンドウから離れることなく実行することができます。 [Visual Studio Marketplace上の拡張機能](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) をインストールすることができます。エクステンションをインストールすると、アクティビティバーにIonicのロゴが表示されるようになります。
 
-## Integrating Capacitor
+## Capacitorの統合
 
-You can add [Capacitor](https://capacitorjs.com/) to your existing application by choosing "Integrate Capacitor".
+既存のアプリケーションに [Capacitor](https://capacitorjs.com/) を追加するには、「Integrate Capacitor」を選択します。
 
 ![Video of adding Capacitor](../../../static/img/v4/docs/getting-started/integrate-capacitor.gif)
 
-With Capacitor integrated, you can now run your app on web, Android, and iOS with the "Run On Web", "Run On Android", and "Run On iOS" options.
+Capacitorが統合されたことで、「Run On Web」「Run On Android」「Run On iOS」オプションで、Web、Android、iOSでアプリを実行できるようになりました。
 
-## Migrating from Cordova
+## Cordova からの移行
 
-If you are [migrating from Cordova to Capacitor](https://capacitorjs.com/docs/cordova/migrating-from-cordova-to-capacitor), the Ionic VS Code extension can speed up that process.
+[CordovaからCapacitorへの移行](https://capacitorjs.com/docs/cordova/migrating-from-cordova-to-capacitor) を行う場合、Ionic VS Code拡張を使用すると、そのプロセスをスピードアップすることができます。
 
-The extension:
+このエクステンションは
 
-- Adds Capacitor's dependencies to your project.
-- Flags known, incompatible Cordova packages.
-- Removes unrequired Cordova plugins.
-- Replaces certain Cordova plugins with equivalent Capacitor plugins
-- And more!
+- Capacitorの依存関係をプロジェクトに追加します。
+- 既知の、互換性のないCordovaパッケージのフラグを立てる。
+- 必要でない Cordova プラグインを削除します。
+- 特定のCordovaプラグインを同等のCapacitorプラグインに置き換えます。
+- などなど。
 
-This extension will help you follow our guide to migrate off of Cordova and onto Capacitor more easily than before.
+この拡張機能は、CordovaからCapacitorへの移行を以前より簡単に行うためのガイドに従うことを支援します。
 
-## Configuring Native Project Settings
+## ネイティブプロジェクト設定の構成
 
-The Ionic VS Code extension can also help you easily configure Android and iOS variables related to your project.
+Ionic VS Code 拡張は、プロジェクトに関連する Android と iOS の変数を簡単に設定するのにも役立ちます。
 
 ![Capacitor Native Configuration Example Image](../../../static/img/v4/docs/getting-started/capacitor-vscode-config.gif)
 
-You can easily change the display name, version number, and build number of your application; as well as other configurable values in your project.
+アプリケーションの表示名、バージョン番号、ビルド番号、およびその他の設定値をプロジェクト内で簡単に変更することができます。
 
-## Debugging
+## デバッグ
 
-Usng the Ionic extension, you can run the VS Code debugger on Web, Android, and iOS (coming soon).
+Ionic 拡張を使用すると、Web、Android、iOS (近日公開) で VS Code デバッガを実行できます。
 
 ![Capacitor Debugging Example Image](../../../static/img/v4/docs/getting-started/ionic-vs-code-debugging.jpg)
 
-Using the options under the Debug folder, you can set breakpoints for both web and native code. Debugging for web will launch a seperate web browser instance that is debuggable (Google Chrome by Default). You can also choose Microsoft Edge from the settings option. On Android, the webview instances will be listed in the "Debug" folder and debuggable in a similar way to Web.
+Debug フォルダ下のオプションを使用すると、Web とネイティブの両方のコードにブレークポイントを設定することができます。Web用のデバッグは、デバッグ可能な別のWebブラウザインスタンスを起動します（デフォルトではGoogle Chrome）。また、設定オプションからMicrosoft Edgeを選択することもできます。Android では、Webview インスタンスは "Debug" フォルダーにリストされ、Web と同様にデバッグ可能です。
 
-## Doing More
+## もっとやること
 
-There is so much the Ionic VS Code extension can help with, including migrations, debugging, monorepo support, and more. For the full list of all of the extension's capabilities, checkout the [extension overview on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic).
+Ionic VS Code 拡張は、マイグレーション、デバッグ、モノレポサポートなど、役立つことがたくさんあります。拡張機能の全リストは、[extension overview on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) をご覧ください。

@@ -4,89 +4,90 @@ description: Installing Capacitor
 slug: /getting-started
 ---
 
-# Installing Capacitor
+# Capacitor のインストール
 
-There are two ways to create your Capacitor application. You can using the `@capacitor/create-app` package to create a Capacitor application from scratch, or you can add Capacitor to your already existing web project.
+Capacitor アプリケーションを作成するには 2 通りの方法があります。capacitor/create-app` パッケージを使ってゼロから Capacitor アプリケーションを作成する方法と、すでに存在する Web プロジェクトに Capacitor を追加する方法です。
 
-Remember to make sure your [environment is set up](/docs/getting-started/environment-setup) for the platforms you will be building for.
+ビルドするプラットフォームの[環境設定](/docs/getting-started/environment-setup)を確認するのを忘れないようにしましょう。
 
-## Creating a new Capacitor application
+## 新しいCapacitorアプリケーションを作成する
 
-The `@capacitor/create-app` package can be used to quickly create a Capacitor application. You can run the following command in an empty directory to scaffold a new Capacitor application.
+capacitor/create-app` パッケージを使うと、Capacitor アプリケーションを素早く作成することができます。空のディレクトリで以下のコマンドを実行すると、新しい Capacitor アプリケーションの足場ができます。
 
 ```bash
 npm init @capacitor/app
 ```
 
-## Adding Capacitor to your existing web application
+## 既存のウェブアプリケーションにCapacitorを追加する
 
-Capacitor was designed to drop into any modern JavaScript web app. However, your project needs to have the following three requirements in order to use Capacitor with your existing application.
+Capacitorは最新のJavaScriptウェブアプリケーションにドロップできるように設計されています。しかし、既存のアプリケーションでCapacitorを使用するには、プロジェクトに次の3つの要件が必要です。
 
-Your project must have...
+プロジェクトに必要なもの...
 
-- A `package.json` file
-- A separate directory for built web assets such as `dist` or `www`
-- An `index.html` file at the root of your web assets directory
+- `package.json` ファイル
+- `dist` や `www` などのビルドされたウェブ資産を格納する別のディレクトリ
+- ウェブアセットディレクトリのルートにある `index.html` ファイル
 
 :::info
-Your `index.html` file must have a `<head>` tag in order to properly inject Capacitor. If you do not have a
-`<head>` in your Html, Capacitor plugins will not work.
+Capacitorを正しくインジェクションするには、`index.html` ファイルに `<head>` タグが含まれている必要があります。もし
+がない場合、Capacitorプラグインは動作しません。
 :::
 
-### Install Capacitor
+### Capacitorのインストール
 
-In the root of your app, install Capacitor's main npm depdencies: the core JavaScript runtime and the command line interface (CLI).
+アプリのルートに、Capacitorの主なnpmディペンデンシーであるコアJavaScriptランタイムとコマンドラインインターフェース(CLI)をインストールします。
 
 ```bash
 npm i @capacitor/core
 npm i -D @capacitor/cli
 ```
 
-### Initialize your Capacitor config
+### Capacitorの設定を初期化する
 
-Then, initialize Capacitor using the CLI questionnaire:
+次に、CLIアンケートを使ってCapacitorを初期化します。
 
 ```bash
 npx cap init
 ```
 
-The CLI will ask you a few questions, starting with your app name, and the package ID you would like to use for your app.
+CLIは、アプリ名やアプリに使用するパッケージIDなどから、いくつかの質問をします。
 
-### Create your Android and iOS projects
+### AndroidとiOSのプロジェクトを作成する
 
-After the Capacitor core runtime is installed, you can install the Android and iOS platforms.
+Capacitorコアランタイムがインストールされたら、AndroidとiOSプラットフォームをインストールします。
 
 ```bash
 npm i @capacitor/android @capacitor/ios
 ```
 
-Once the platforms have been added to your `package.json`, you can run the following commands to create your Android and iOS projects for your native application.
+プラットフォームを `package.json` に追加したら、以下のコマンドを実行してネイティブアプリケーション用の Android と iOS プロジェクトを作成します。
 
 ```bash
 npx cap add android
 npx cap add ios
 ```
 
-### Sync your web code to your native project
+### ウェブコードをネイティブプロジェクトに同期させる
 
-Once you've created your native projects, you can sync your web application to your native project by running the following command.
+ネイティブプロジェクトを作成したら、以下のコマンドを実行して、Webアプリケーションをネイティブプロジェクトに同期させることができます。
 
 ```bash
 npx cap sync
 ```
 
-`npx cap sync` will copy your built web application, by default `www`, to your native project and install the native projects dependencies.
+npx cap sync` はビルドしたウェブアプリケーション(デフォルトは `www`) をネイティブプロジェクトにコピーし、ネイティブプロジェクトの依存関係をインストールします。
 
 :::info
-You can customize what folder is copied over by modifying the `webDir` variable in your [Capacitor Config](/docs/config) file that is created during `npx cap init`.
+どのフォルダをコピーするかは、`npx cap init`で作成される[Capacitor Config](/docs/config) ファイル内の `webDir` 変数を変更することでカスタマイズすることができます。
 :::
 
-## Where to go next
+## 次に進むべき道
 
-With your environment setup, and your project structure set up properly, you're ready to go! You can follow any of the links below if you need more specific documentation.
+環境が整い、プロジェクトの構成が適切に設定されれば、準備は完了です! より具体的なドキュメントが必要な場合は、以下のリンク先を参照してください。
 
-[Get started with iOS &#8250;](/docs/ios)
+[iOS を使い始める &#8250;](/docs/ios)
 
-[Get started with Android &#8250;](/docs/android)
+[Androidをはじめよう &#8250;](/docs/android)
 
-[Developer Workflow Guide &#8250;](/docs/basics/workflow)
+[開発者ワークフローガイド &#8250;](/docs/basics/workflow)
+

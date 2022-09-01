@@ -4,9 +4,9 @@ description: Capacitor templates to get you started with your favorite library o
 slug: /getting-started/templates
 ---
 
-# Capacitor Templates
+# Capacitor テンプレート
 
-The Ionic team has created various templates/proof of concept GitHub projects showcasing Capacitor working with popular web technologies. Below is a list of templates to help get you started. We're planning on adding more soon, so stay tuned!
+Ionicチームは、一般的なWeb技術で動作するCapacitorを紹介するさまざまなテンプレート/概念実証のGitHubプロジェクトを作成しました。以下は、テンプレート一覧です。近日中にさらに追加する予定ですので、ご期待ください。
 
 ## Templates
 
