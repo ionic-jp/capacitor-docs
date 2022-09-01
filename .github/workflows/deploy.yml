@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
+#          cache: 'npm'
+#          cache-dependency-path: package-lock.json
 
       - name: prepare code
         run: git clone --depth 1 https://github.com/ionic-jp/capacitor-site.git site
