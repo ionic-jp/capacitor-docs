@@ -1,14 +1,14 @@
 ---
-title: Capacitor Plugins
-description: Capacitor Plugins
+title: Capacitorプラグイン
+description: Capacitorプラグイン
 ---
 
 import DocsCard from '@components/global/DocsCard';
 import DocsCards from '@components/global/DocsCards';
 
-# Capacitor Plugins
+# Capacitorプラグイン
 
-Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
+Capacitorのプラグインは、JavaScriptがNative APIと直接インターフェースすることを可能にします。
 
 <DocsCards>
   <DocsCard 
@@ -33,8 +33,8 @@ Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
 
 <br/>
 
-Web apps can access the full power of Native APIs with plugins. Plugins wrap common native operations that might use very different APIs across platforms while exposing a consistent, cross-platform API to JavaScript.
+Web アプリはプラグインを使用して Native API の完全なパワーにアクセスできます。プラグインは、プラットフォーム間で非常に異なる API を使用する可能性のある共通のネイティブ操作をラップする一方で、一貫したクロスプラットフォーム API を JavaScript に公開します。
 
-Additionally, the plugin capability in Capacitor makes it possible for teams with a mix of traditional native developers and web developers to work together on different parts of the app.
+さらに、Capacitorのプラグイン機能により、従来のネイティブ開発者とWeb開発者が混在するチームが、アプリの異なる部分について共同で作業することが可能になります。
 
-Capacitor automatically generates JavaScript hooks on the client, so most plugins only need to use Swift/Obj-C for iOS and/or Java/Kotlin for Android. Of course, adding custom JavaScript for a plugin is also possible.
+Capacitorはクライアント上で自動的にJavaScriptフックを生成するため、ほとんどのプラグインは、iOSではSwift/Obj-C、AndroidではJava/Kotlinを使用するだけで済みます。もちろん、プラグイン用にカスタムJavaScriptを追加することも可能です。
