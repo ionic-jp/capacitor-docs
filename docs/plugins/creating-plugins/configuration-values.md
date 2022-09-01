@@ -7,15 +7,15 @@ sidebar_label: Configuration Values
 slug: /plugins/configuration-values
 ---
 
-# Configuration Values
+# 設定値
 
-When developing plugins, you can provide configuration values developers can set that impact how the plugin behaves at runtime. An example of a plugin configuration value is `launchShowDuration`, available through the `@capacitor/splash-screen` plugin, which sets how long to show the splash screen before hiding.
+プラグインを開発するとき、開発者が設定できる値を提供して、プラグインの実行時の動作に影響を与えることができます。プラグインの設定値の例としては、 `@capacitor/splash-screen` プラグインで利用できる `launchShowDuration` があります。これは、スプラッシュ画面を表示してから隠すまでの時間を設定します。
 
-Capacitor plugin configuration values get set as part of the `plugins` property of a Capacitor configuration file.
+Capacitor プラグインの設定値は、Capacitor 設定ファイルの `plugins` プロパティの一部として設定されます。
 
-## Defining Configuration Values
+## 設定値の定義
 
-A Capacitor plugin can access configuration values defined under the plugin's name in the `plugins` property of a Capacitor configuration file.
+Capacitor プラグインは、Capacitor 設定ファイルの `plugins` プロパティでプラグイン名で定義された設定値にアクセスすることができます。
 
 ```typescript
 {
@@ -30,11 +30,11 @@ A Capacitor plugin can access configuration values defined under the plugin's na
 }
 ```
 
-In the example above, the native implementation of the MyCoolPlugin plugin can access the configured values of `style` and `iconColor`.
+上記の例では、MyCoolPlugin プラグインのネイティブ実装は、`style` と `iconColor` の設定値にアクセスできます。
 
-Capacitor configuration files support TypeScript. While not required, providing typing information defining and documenting configuration values available for your plugin is recommended.
+Capacitorの設定ファイルはTypeScriptをサポートしています。必須ではありませんが、プラグインで利用可能な設定値を定義し、文書化した型付け情報を提供することが推奨されます。
 
-You can provide typing for your plugin's configuration values by extending the `PluginsConfig` interface provided by `@capacitor/cli`.
+`capacitor/cli` が提供する `PluginsConfig` インターフェースを拡張することで、プラグインの設定値に対するタイピング情報を提供することができます。
 
 ```typescript
 /// <reference types="@capacitor/cli" />
@@ -63,7 +63,7 @@ declare module '@capacitor/cli' {
 }
 ```
 
-We recommend placing this typing definition within your plugin's `definitions.ts` file. For your plugin consumers to access this typing information, they must be using TypeScript for their Capacitor configuration file and need to add a reference to the plugin's types in `capacitor.config.ts`:
+この型付け定義はプラグインの `definitions.ts` ファイル内に置くことを推奨します。プラグイン利用者がこの型付け情報にアクセスするには、Capacitorの設定ファイルにTypeScriptを使用している必要があり、 `capacitor.config.ts` にプラグインの型への参照を追加する必要があります:
 
 ```typescript
 /// <reference types="@capacitor-community/my-cool-plugin" />
@@ -82,11 +82,11 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-## Accessing Configuration Values
+## 設定値へのアクセス
 
-The Capacitor API contains utility methods to access plugin configuration values from the native implementation of your plugin.
+Capacitor APIには、プラグインのネイティブ実装からプラグインの設定値にアクセスするためのユーティリティメソッドが含まれています。
 
-For iOS, use the `getConfigValue()` method:
+iOS では、`getConfigValue()` メソッドを使用します。
 
 ```swift
 if let style = getConfigValue("style") as? String {
@@ -94,7 +94,7 @@ if let style = getConfigValue("style") as? String {
 }
 ```
 
-For Android, use the `getConfig()` method:
+Androidの場合は、`getConfig()` メソッドを使用します。
 
 ```Java
 String style = getConfig().getString("style");
@@ -103,6 +103,6 @@ if(style) {
 }
 ```
 
-Please note that you cannot enforce plugin consumers to provide configuration values, and plugin consumers can pass invalid data (especially if they use JSON-based Capacitor configuration).
+プラグインコンシューマーに設定値を強制することはできません。また、プラグインコンシューマーは無効なデータを渡すことができます (特にJSONベースのCapacitor設定を使用している場合)。
 
-As a plugin developer, it is up to you to provide adequate documentation surrounding your plugin’s configuration values and gracefully fall back if plugin consumers do not provide configuration values or provide them with invalid input.
+プラグイン開発者としては、プラグインの設定値に関する適切な文書を提供し、 プラグイン利用者が設定値を提供しない場合や無効な入力を提供した場合に 優雅にフォールバックできるようにする必要があります。
