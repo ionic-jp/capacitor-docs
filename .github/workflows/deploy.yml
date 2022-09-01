@@ -18,8 +18,8 @@ jobs:
       - name: prepare code
         run: git clone --depth 1 https://github.com/ionic-jp/capacitor-site.git site
 
-      # community-siteのビルド
-      - name: community-site build
+      # capacitor-siteのビルド
+      - name: capacitor-site build
         run: |
           npm install
           npm run build
@@ -28,7 +28,7 @@ jobs:
       # Docsのビルド
       - name: npm install, build
         run: |
-          npm ci --legacy-peer-deps
+          npm install
           npm run build:production
           mv build site/www/docs
 
