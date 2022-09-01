@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "npm run generate-plugin-docs; scripts/i18n.sh; if [ -n \"$CROWDIN_PERSONAL_TOKEN\" ]; then npm run crowdin:sync; fi",
     "build": "npm run build:${VERCEL_ENV:-preview}",
-    "build:preview": "docusaurus build --locale en",
+    "build:preview": "docusaurus build --locale ja",
     "build:production": "docusaurus build",
     "clear": "docusaurus clear",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",

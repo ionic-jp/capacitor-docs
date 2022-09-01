@@ -5,16 +5,16 @@ const fetch = require('node-fetch');
 const BASE_URL = '/docs';
 
 module.exports = {
-  title: 'Capacitor Documentation',
+  title: 'Capacitorドキュメンテーション',
   tagline:
-    'Capacitor is a cross-platform native runtime that makes it easy to build modern web apps that run natively on iOS, Android, and the Web.',
-  url: 'https://capacitorjs.com',
+    'Capacitorは、iOS、Android、およびWeb上でネイティブに動作するモダンなWebアプリケーションを簡単に構築できるクロスプラットフォームのネイティブランタイムです。',
+  url: 'https://capacitorjs.jp',
   baseUrl: `${BASE_URL}/`,
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ja',
+    locales: ['ja'],
     localeConfigs: {
-      en: { label: 'English' },
+      ja: { label: '日本語' },
     },
   },
   onBrokenLinks: 'warn',
@@ -32,7 +32,7 @@ module.exports = {
         alt: 'Site Logo',
         src: `/logos/capacitor-text-docs-light.svg`,
         srcDark: `/logos/capacitor-text-docs-dark.svg`,
-        href: 'https://capacitorjs.com',
+        href: 'https://capacitorjs.jp',
         target: '_self',
         width: 200,
         height: 24,
@@ -67,7 +67,7 @@ module.exports = {
           position: 'right',
         },
         {
-          label: 'Community',
+          label: 'コミュニティ',
           position: 'right',
           items: [
             {
@@ -98,7 +98,7 @@ module.exports = {
           className: 'navbar__link--community',
         },
         {
-          label: 'Support',
+          label: 'サポート',
           position: 'right',
           items: [
             {
@@ -161,8 +161,8 @@ module.exports = {
           position: 'right',
           dropdownItemsAfter: [
             {
-              to: 'https://capacitorjs.jp/',
-              label: '日本語',
+              to: 'https://capacitorjs.com/',
+              label: 'English',
               target: '_blank',
               rel: null,
             },
