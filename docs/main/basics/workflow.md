@@ -85,7 +85,7 @@ npm i -D @capacitor/cli
 
 Capacitorをアップデートする際、Core、Android、iOSのライブラリがすべて同じバージョンであることを確認したい。CapacitorのCore、Android、iOSのリリースはすべて同時にアップロードされます。つまり、すべてのライブラリを同時にインストールすれば問題ないのです。
 
-:::情報
+:::info
 [Capacitor repo](https://github.com/ionic-team/capacitor) を購読することで、新しいリリースのお知らせを受け取ることができます。リポジトリインデックスの上部にある **Watch** -> **Releases only** をクリックしてください。
 :::
 
