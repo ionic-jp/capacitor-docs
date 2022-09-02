@@ -49,7 +49,7 @@ Capacitorは、クロスプラットフォームのデスクトップフレー�
 
 ### Capacitor Community GitHub ⚡
 
-Capacitor Community GitHub organization](https://github.com/capacitor-community)は、私たちの優れた開発者コミュニティが作成したプラグインをリストアップしています。これらは活発に開発されているCapacitor初のプラグインで、Capacitor 3+のどのプロジェクトでも動作するはずです。もしプラグインが必要なら、ここはあなたが最初に見るべき場所の一つです。
+[Capacitor Community GitHub organization](https://github.com/capacitor-community) は、私たちの優れた開発者コミュニティが作成したプラグインをリストアップしています。これらは活発に開発されているCapacitor初のプラグインで、Capacitor 3+のどのプロジェクトでも動作するはずです。もしプラグインが必要なら、ここはあなたが最初に見るべき場所の一つです。
 
 ### Awesome Capacitor 😎
 
