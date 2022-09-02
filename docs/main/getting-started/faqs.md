@@ -59,15 +59,15 @@ Capacitorは、クロスプラットフォームのデスクトップフレー�
 
 [Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu/) は Chromium Team の [tracker](https://fugu-tracker.web.app/#shipped) で、Chromium ブラウザに追加された Web API を公開しています。Android と iOS の両方でサポートされていない機能もありますが、[Web Share](https://developer.mozilla.org/en-US/docs/Web/API/Web_Share_API) や [ContactsManager (Android Only)](https://developer.mozilla.org/en-US/docs/Web/API/ContactsManager) のような機能は、あなたのユースケースで `@capacitor/share` や `@capacitor-community/contacts` を置き換えるかもしれません。
 
-Can I Use...?](https://caniuse.com) で、AndroidやiOSでこれらの機能がネイティブプラグインなしで使えるかどうか確認することができます。
+[Can I Use...?](https://caniuse.com) で、AndroidやiOSでこれらの機能がネイティブプラグインなしで使えるかどうか確認することができます。
 
 ### Cordova Plugins 🔌
 
-CapacitorがCordovaプラグインをサポートしていることをご存知でしょうか？Cordovaから移行する場合、またはCapacitorに相当するものがないCordovaプラグインを持っている場合、ほとんどのCordovaプラグインをCapacitorで直接使用することができます。CapacitorでCordovaプラグインを使用する方法については[私たちのガイド](https://capacitorjs.com/docs/plugins/cordova)をご覧ください。
+CapacitorがCordovaプラグインをサポートしていることをご存知でしょうか？Cordovaから移行する場合、またはCapacitorに相当するものがないCordovaプラグインを持っている場合、ほとんどのCordovaプラグインをCapacitorで直接使用することができます。CapacitorでCordovaプラグインを使用する方法については [私たちのガイド](https://capacitorjs.com/docs/plugins/cordova) をご覧ください。
 
 ## CapacitorでMacを使わずにiOSアプリを作ることはできますか？
 
-短い答えは「いいえ」です。Ionic AppFlow](https://ionic.io/appflow)のようなクラウドサービスは利用できますが、デバイスやシミュレータでアプリケーションをテストすることはできません。あなたのCapacitorアプリケーションがApple製品を持つ人々に使用可能であることを確認するために、常に物理的なデバイスでアプリケーションをテストすることを確認する必要があります。
+短い答えは「いいえ」です。 [Ionic AppFlow](https://ionic.io/appflow) のようなクラウドサービスは利用できますが、デバイスやシミュレータでアプリケーションをテストすることはできません。あなたのCapacitorアプリケーションがApple製品を持つ人々に使用可能であることを確認するために、常に物理的なデバイスでアプリケーションをテストすることを確認する必要があります。
 
 ## Androidエミュレータで実行すると、なぜ空白の画面が表示されるのですか？
 
