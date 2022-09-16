@@ -110,13 +110,15 @@ XCodeでプロジェクトを開き、`Signing & Capabilities` に移動しま�
 
 
 ```json
-"applinks": {
+{
+  "applinks": {
     "details": [
       {
         "appID": "TEAMID.BUNDLEID",
         "paths": ["*"]
       }
     ]
+  }
 }
 ```
 
