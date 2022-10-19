@@ -10,32 +10,29 @@ slug: /guides/automated-configuration
 
 多くの大規模アプリは、Capacitorプロジェクトの構成を自動化する必要があります。これは、iOSやAndroidのビルド番号の増加、マニフェストやplistファイルの設定、Gradleファイルでのビルド依存性の追加、リソースの修正などを意味します。
 
-Capacitorには、プロジェクト管理に使える便利なパッケージが2つ付属しています。capacitor には、プロジェクト管理に使える便利なパッケージが2つあります： `@capacitor/project` と `@capacitor/configure` です。 `capacitor/project` は低レベルのプロジェクト管理ライブラリで、 `@capacitor/configure` は自動化されたツールで、ライブラリはそのまま使用できますが、特定のユースケースに対してより便利な設定オプションを提供します。
+Capacitor には、プロジェクト管理に使える便利なパッケージが 2 つ付属しています。それは `@trapezedev/project` と `@trapezedev/configure` です。 `trapezedev/project` は低レベルのプロジェクト管理ライブラリで、 `@trapezedev/configure` は自動化ツールです。このライブラリはフードの下で使用しますが、特定のユースケースに対してより便利な設定オプションを提供します。
 
-両方のプロジェクトとそのドキュメントは [Capacitor Configure repo](https://github.com/ionic-team/capacitor-configure) で利用可能です。
+両方のプロジェクトとそのドキュメントは [Trapeze repo](https://github.com/ionic-team/trapeze) で見ることができます。
 
 ## プロジェクトAPI
 
-capacitor/project` ライブラリは Capacitor プロジェクトと、それに含まれる iOS や Android のネイティブプロジェクトに対して型付き JavaScript インターフェイスを提供します。
-
-基本的な使い方は、既存の `CapacitorConfig` を渡して、プロジェクトを初期化することです。
+The `@trapezedev/project` library provides a typed JavaScript interface for Capacitor projects and the native iOS and Android projects that they contain.
 
 ```typescript
-import { CapacitorProject } from '@capacitor/project';
-import { CapacitorConfig } from '@capacitor/cli';
+import { MobileProject, MobileProjectConfig } from '@trapezedev/project';
 
-// This takes a CapacitorConfig, such as the one in capacitor.config.ts, but only needs a few properties
+// This takes a MobileProjectConfig
 // to know where the ios and android projects are
-const config: CapacitorConfig = {
+const config: MobileProjectConfig = {
   ios: {
-    path: 'ios',
+    path: 'ios/App',
   },
   android: {
     path: 'android',
   },
 };
 
-const project = new CapacitorProject(config);
+const project = new MobileProject(process.cwd(), config);
 await project.load();
 ```
 
@@ -59,25 +56,26 @@ await project.android?.incrementVersionCode();
 await project.commit();
 ```
 
-このライブラリで実行できるオプションは他にもたくさんあります。完全なリストを見るには、[プロジェクトドキュメント](https://github.com/ionic-team/capacitor-configure) を参照してください。
+このライブラリで実行できるオプションは他にもたくさんあります。完全なリストを見るには、[プロジェクトドキュメント](https://github.com/ionic-team/trapeze) を参照してください。
 
 ## コンフィギュレーションツール
 
-プロジェクト API と共に、`@capacitor/configure` は、便利な yaml 設定ファイルフォーマットから、 `@capacitor/project` の基本操作を適用するための自動化された設定駆動型のエクスペリエンスを提供します。例えば、最終的な設定値を生成するために変数を要求したり供給したりする機能や、プロジェクトのソースファイルに対して変更を適用する前にテストして確認する方法などがあります。
+プロジェクト API と共に、 `@trapezedev/configure` は `@trapezedev/project` の基本操作を、便利な yaml 設定ファイルフォーマットから適用する、自動化された設定駆動型の体験を提供します。例えば、最終的な設定に値を入れるために変数を要求・供給する機能や、プロジェクトのソースファイルに対して変更を適用する前にテストして確認する方法などがあります。
 
 このツールは、Capacitorプラグインの作者が、プラグインが必要とする設定変更のセットを公開し、ユーザーがプロジェクトを手動で設定する必要がないようにするために、最も有用である可能性が高いです。
 
 このツールは、npmスクリプトとして使用され、[example configuration](https://github.com/ionic-team/capacitor-configure/blob/main/examples/basic.yml) に従ったyamlフォーマットで提供されることを想定しています。
 
+このツールは、npmスクリプトとして使用され、その後、 [設定例](https://github.com/ionic-team/trapeze/blob/main/examples/basic.yml) に従ったyaml形式で提供されることを想定しています。
 
 ```json
 "scripts": {
-  "cap-config": "cap-config"
+  "cap-config": "trapeze run config.yaml"
 }
 ```
 
 ```bash
-npx cap-config run config.yaml
+npm run cap-config
 ```
 
-このツールの使用方法については、[プロジェクトドキュメント](https://github.com/ionic-team/capacitor-configure) を参照してください。
+このツールの使用方法については、 [プロジェクトドキュメント](https://github.com/ionic-team/trapeze) を参照してください。

@@ -15,7 +15,7 @@ Capacitorチームは、よく使われるAPIのための [Capacitorプラグイ
 [Capacitorプラグインについての詳細はこちら &#8250;](/docs/plugins)
 
 :::info
-Capacitorのプラグインを**作りたい**ですか？提案レポを見て、[プラグイン作成ガイドに従って](/docs/plugins/creating-plugin) 作ってみてください!
+Capacitorのプラグインを**作りたい**ですか？提案レポを見て、[プラグイン作成ガイドに従って](/docs/plugins/creating-plugins) 作ってみてください!
 :::
 
 ## Cordova プラグイン
