@@ -138,7 +138,7 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
 `checkPermissions()` と `requestPermissions()` メソッドをあなたの Swift のプラグインのクラスに追加します。
 
-```diff-swift
+```diff
  import Capacitor
 
  @objc(EchoPlugin)

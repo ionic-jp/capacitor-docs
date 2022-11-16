@@ -58,7 +58,7 @@ CapacitorがJavaとJavaScriptの橋渡しをするために、AndroidとWebの�
 
 アプリの `MainActivity.java` で、 `registerPlugin()` または `registerPlugins()` を使用して、カスタムプラグインを登録します。
 
-```diff-java
+```diff
  public class MainActivity extends BridgeActivity {
      @Override
      public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ export default Echo;
 
 インターフェースを定義して、それを `registerPlugin()` のコールで使用することで、リンク先のオブジェクトの型を定義することができます。
 
-```diff-typescript
+```diff
  import { registerPlugin } from '@capacitor/core';
 
 +export interface EchoPlugin {

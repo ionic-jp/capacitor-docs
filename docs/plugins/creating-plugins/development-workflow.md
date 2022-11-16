@@ -17,7 +17,7 @@ slug: /plugins/workflow
 
 以下の例では、 `latitude` と `longitude` を受け取る `openMap()` メソッドを追加しています。アプリにインポートして使用できるメソッドのパラメータのインターフェースを定義するのは重要な習慣です。
 
-```diff-typescript
+```diff
  export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 +  openMap(options: OpenMapOptions): Promise<void>;
@@ -31,7 +31,7 @@ slug: /plugins/workflow
 
 web の実装を `src/web.ts` で行います:
 
-```diff-typescript
+```diff
  import type {
    EchoPlugin,
 +  OpenMapOptions,
@@ -130,7 +130,7 @@ npm uninstall echo
 
 `openMap()` メソッドを例に、 `src/definitions.ts` を開いて、ドキュメントを書き始めてください。
 
-```diff-typescript
+```diff
  export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 

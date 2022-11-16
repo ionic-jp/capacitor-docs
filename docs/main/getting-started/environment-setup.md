@@ -27,7 +27,7 @@ Nodeをインストールしたら、CapacitorでProgressive Web Application (PW
 
 ## iOSの要件
 
-iOSアプリを構築するには、**macOS**が必要です。Macを持っていない場合、iOSクラウドビルドを実行するために使用する[Ionic Appflow](http://ionicframework.com/appflow) のようなソリューションがありますが、Capacitorアプリケーションを適切にテストするために、ローカルでツールを利用できるようにすることが強く推奨されます。
+iOSアプリをビルドするには、**macOS**が必要です。Macを持っていない場合、iOSクラウドビルドを実行するために使用できる [Ionic Appflow](http://ionicframework.com/appflow) のようなソリューションがありますが、Capacitorアプリケーションを適切にテストするために、ローカルでツールを利用できるようにすることを強く推奨します。
 
 Capacitorを使用してiOSアプリケーションを開発するには、さらに3つの依存関係が必要です。
 

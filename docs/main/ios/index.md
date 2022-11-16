@@ -57,7 +57,7 @@ open ios/App/App.xcworkspace
 npx cap run ios
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/docs/cli/run).
+コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/docs/cli/commands/run).
 
 ### Xcode での実行
 

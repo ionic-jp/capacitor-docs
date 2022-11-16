@@ -6,7 +6,7 @@ slug: /getting-started
 
 # Capacitor のインストール
 
-Capacitor アプリケーションを作成するには 2 通りの方法があります。capacitor/create-app` パッケージを使ってゼロから Capacitor アプリケーションを作成する方法と、すでに存在する Web プロジェクトに Capacitor を追加する方法です。
+Capacitor アプリケーションを作成するには 2 つの方法があります。 `@capacitor/create-app` パッケージを使ってゼロから Capacitor アプリケーションを作成する方法と、 すでに存在する Web プロジェクトに Capacitor を追加する方法です。
 
 ビルドするプラットフォームの[環境設定](/docs/getting-started/environment-setup)を確認するのを忘れないようにしましょう。
 

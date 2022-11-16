@@ -6,7 +6,7 @@ sidebar_label: run
 
 # Capacitor CLI - cap run
 
-このコマンドは、まず[`sync`](/docs/cli/sync)を実行し、その後、ネイティブアプリをビルドして、選択したターゲットデバイスにデプロイします。
+このコマンドは、まず[`sync`](/docs/cli/commands/sync)を実行し、その後、ネイティブアプリをビルドして、選択したターゲットデバイスにデプロイします。
 
 ```bash
 npx cap run [options] <platform>
@@ -18,5 +18,9 @@ npx cap run [options] <platform>
 
 <strong>Options:</strong>
 
+- `--flavor <flavorName>`: set the flavor of the Android project
 - `--list`: Print a list of target devices available to the given platform
+- `--no-sync`: do not run the sync command
+- `--scheme <schemeName>`: set the scheme of the iOS project
 - `--target <id>`: Run on a specific target device
+

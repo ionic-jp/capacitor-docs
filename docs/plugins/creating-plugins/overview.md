@@ -50,7 +50,7 @@ Capacitor プラグインは、JavaScript 開発者が慣れ親しんでいる�
 新しいターミナルで、以下を実行します:
 
 ```bash
-npm init @capacitor/plugin
+npm init @capacitor/plugin@latest
 ```
 
 ジェネレーターが入力を促します。コマンドラインオプションを指定することもできます（ [GitHub レポ](https://github.com/ionic-team/create-capacitor-plugin/) を参照してください）。

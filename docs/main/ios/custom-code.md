@@ -81,7 +81,7 @@ export default Echo;
 
 インターフェースを定義して、それを `registerPlugin()` のコールで使用することで、リンク先のオブジェクトの型を定義することができます。
 
-```diff-typescript
+```diff
  import { registerPlugin } from '@capacitor/core';
 
 +export interface EchoPlugin {

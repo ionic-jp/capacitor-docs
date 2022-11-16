@@ -56,7 +56,9 @@ npx cap open android
 npx cap run android
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [`run`](/docs/cli/run) をご覧ください。
+コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [`run`](/docs/cli/commands/run) をご覧ください。
+
+> `run` コマンドを使用するには、物理的なAndroidデバイスか、ダウンロードしたエミュレータのシステムイメージのどちらかが必要です。Android Studio でのエミュレータデバイスの作成とシステムイメージのダウンロードについては、 [こちらのドキュメント](https://developer.android.com/studio/run/managing-avds) を参照してください。
 
 ### Android Studio での実行
 

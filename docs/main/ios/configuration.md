@@ -49,7 +49,7 @@ App`ディレクトリの名前を変更することはできませんが、**Ap
 
 次に、`ios/App/Podfile`を開き、ファイルの一番下にある現在のターゲットの名前を変更します:
 
-```diff-ruby
+```diff
 -target 'App' do
 +target 'MyRenamedApp' do
    capacitor_pods

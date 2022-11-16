@@ -78,6 +78,22 @@ APK がエミュレータやデバイスにインストールできないのは�
 
 最後に、念のため、クリーンアップとリビルドを行います。
 
+## Error: "Unable to locate a Java Runtime"
+
+このエラーは、環境変数 `JAVA_HOME` が設定されていない場合に `run` コマンドを使用すると発生する可能性があります。
+
+解決するには、Android StudioのPreferences > Build, Execution, Deployment, Build Tools > Gradle > Gradle JDKにあるパスを用いて、環境変数またはシステム変数として `JAVA_HOME` を設定します。
+
+![JDK Path in Android Studio](../../../static/img/v4/docs/android/jdk-path.png)
+
+Macの場合は、`.zshrc` または `.bashrc` ファイルで更新するか、環境にエクスポートします。
+
+```bash
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+```
+
+Windowsの場合、環境変数の設定で、`JAVA_HOME` をシステム変数として設定することができます。
+
 ## プロジェクトの再構築
 
 Capacitor では、自分の Android プロジェクトを管理することができます。IDE で管理されているプロジェクトと同様に、時には同期が取れなくなることもあり、その場合はプロジェクトを再構築するしかありません。

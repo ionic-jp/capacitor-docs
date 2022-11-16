@@ -22,7 +22,7 @@ Android アプリは、パーミッションやデバイスの機能などの設
 
 アプリのパッケージ ID（Android では**アプリケーション ID**）を変更するには、`android/app/build.gradle`の先頭にある`applicationId`を編集します。
 
-```diff-groovy
+```diff
 defaultConfig {
 -       applicationId "com.capacitorjs.app"
 +       applicationId "com.mycompany.myapp"

@@ -140,7 +140,7 @@ public void load() {
 
 > まだ `@NativePlugin` をお使いですか？ [アップグレードガイド](/docs/updating/plugins/3-0#use-the-new-capacitorplugin-annotation) を参照して、`@CapacitorPlugin` に切り替えてください。
 
-```diff-java
+```diff
  @CapacitorPlugin(
      name = "FooBar",
 +    permissions = {
@@ -206,7 +206,7 @@ private void cameraPermsCallback(PluginCall call) {
 
 一つのエイリアスのために `requestPermissionForAlias` を使用することができます。複数のエイリアスを `requestPermissionForAliases` に指定することができる。プラグインアノテーションで定義されているすべてのパーミッションを要求する場合は、 `requestAllPermissions` を使用する。
 
-```diff-java
+```diff
  @PluginMethod()
  public void takePhoto(PluginCall call) {
    if (!hasRequiredPermissions()) {
@@ -226,7 +226,7 @@ private void cameraPermsCallback(PluginCall call) {
 
 プラグインの `AndroidManifest.xml` に、必要な [install-time](https://developer.android.com/guide/topics/permissions/overview#install-time) パーミッションを記述します。ランタイムパーミッション(ユーザーに承諾を求めるパーミッション)は追加しないでください。これらはアプリ開発者が Capacitor アプリのマニフェストに追加する必要があります。プラグインが、アプリに追加されるべき必要な実行時アクセス許可を文書化していることを確認してください。
 
-```diff-xml
+```diff
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.mycompany.plugins.network">
 +     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

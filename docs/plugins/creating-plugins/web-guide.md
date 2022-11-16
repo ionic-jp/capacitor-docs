@@ -74,7 +74,7 @@ export interface PermissionStatus {
 
 次に、プラグインインターフェースに `checkPermissions()` と `requestPermissions()` の定義を追加します。これらのメソッドは、 `PermissionStatus` で定義された、あなたのプラグインのパーミッションの現在の状態を返します。
 
-```diff-typescript
+```diff
  export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 +  checkPermissions(): Promise<PermissionStatus>;
@@ -88,7 +88,7 @@ export interface PermissionStatus {
 
 `src/web.ts` に `checkPermissions()` と `requestPermissions()` メソッドを追加し、Web の実装にします。
 
-```diff-typescript
+```diff
 +import { PermissionStatus } from './definitions';
 
  export class EchoWeb extends WebPlugin implements EchoPlugin {
@@ -112,7 +112,7 @@ export interface PermissionStatus {
 
 ブラウザの普及率が不安定なウェブ API (たとえば Permissions API) を扱うときは、機能検出機能を実装し、エンドユーザのブラウザが対応していないときは適切なエラーを投げるべきであることを覚えておいてください。
 
-```diff-typescript
+```diff
  async checkPermissions(): Promise<PermissionStatus> {
 +  if (typeof navigator === 'undefined' || !navigator.permissions) {
 +    throw this.unavailable('Permissions API not available in this browser.');

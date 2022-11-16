@@ -24,7 +24,7 @@ npx cap sync
 
 npx cap sync`を実行すると、すでにビルドされているWebバンドルがAndroidとiOSの両方のプロジェクトに**コピー**され、Capacitorが使用するネイティブ依存関係も**更新**されます。
 
-sync` については [ドキュメント](/docs/cli/sync) を、その他については [Capacitor CLI reference](/docs/cli) のドキュメントを参照してください。
+sync` については [ドキュメント](/docs/cli/commands/sync) を、その他については [Capacitor CLI reference](/docs/cli) のドキュメントを参照してください。
 
 :::info
 "not being able to find the web assets directory?" というエラーが発生しましたか？ [Capacitorの設定](/docs/config)ファイルを更新して、適切な `webDir` を使用するようにしてください。
