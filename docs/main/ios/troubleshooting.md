@@ -37,13 +37,13 @@ Xcode は古い、時代遅れのビルドアーティファクトに固執す�
 
 これを行うには、Xcode の環境設定を開き、Locations タブを選択して、Derived Data パスの横にある小さな矢印をクリックします:
 
-![Locations](../../../static/img/v4/docs/ios/location-prefs.png)
+![Locations](../../../static/img/v5/docs/ios/location-prefs.png)
 
 これにより、Xcode の一時的な Derived Data の場所に Finder ウィンドウが開きます。
 
 次に、そのディレクトリ内のすべてのアイテムを選択し、削除します:
 
-![Deleting Derived Data](../../../static/img/v4/docs/ios/deleting-derived-data.png)
+![Deleting Derived Data](../../../static/img/v5/docs/ios/deleting-derived-data.png)
 
 最後に、Xcode でリビルドを行います。
 
@@ -63,7 +63,7 @@ npx cap update ios
 
 Xcode は時々、永遠にインデックス作成に行き詰まることがあります。この不幸な状況は次のようなものです:
 
-![Xcode indexing](../../../static/img/v4/docs/ios/indexing.png)
+![Xcode indexing](../../../static/img/v5/docs/ios/indexing.png)
 
 唯一の解決策は、アクティビティモニタを使って Xcode を強制終了し、再度起動させることです。
 

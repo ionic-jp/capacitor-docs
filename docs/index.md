@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Capacitor: Web アプリをクロスプラットフォーム化する Native ライブラリ
 
-Capacitor は、iOS、Android、Web 上でネイティブに動作する最新の Web アプリケーションを簡単に構築することができるクロスプラットフォームのネイティブライブラリです。ハイブリッドアプリの次の進化を象徴する Capacitor は、**Web Native apps**を作成し、必要に応じてネイティブ SDK への完全なアクセスを犠牲にすることなく、Web ファーストで構築したいチームに、最新のネイティブコンテナアプローチを提供します。
+Capacitorはクロスプラットフォームのネイティブランタイムで、最新のWebツールを使用して、iOS、Androidなどでネイティブに動作するパフォーマンスの高いモバイルアプリケーションを簡単に構築することができます。ハイブリッドアプリの次の進化として、Capacitorは**Webネイティブアプリ**を作成し、必要なときにネイティブSDKへのフルアクセスを犠牲にすることなく、Webファーストで構築したいチームに最新のネイティブコンテナアプローチを提供します。
 
 <img
   src={require('/img/v4/docs/capacitor-index.png').default}

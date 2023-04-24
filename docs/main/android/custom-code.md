@@ -23,7 +23,7 @@ JavaScriptとネイティブコード間の通信を行う最も簡単な方法�
 
 まず、EchoPlugin.java`ファイルを作成します。Android Studioを開き(/docs/android#opening-the-android-project)、**app**モジュールと**java**フォルダを展開、アプリのJavaパッケージを右クリックして、コンテキストメニューから **New** -> **Java Class** を選択して、ファイルを作成してください。
 
-![Android Studio app package](../../../static/img/v4/docs/android/studio-app-package.png)
+![Android Studio app package](../../../static/img/v5/docs/android/studio-app-package.png)
 
 以下のJavaコードを`EchoPlugin.java`にコピーします:
 

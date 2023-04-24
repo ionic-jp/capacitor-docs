@@ -4,11 +4,14 @@ description: Capacitor と Ionic Framework の使い方
 slug: /getting-started/with-ionic
 ---
 
-# IonicフレームワークでCapacitorを使用する
-Capacitorは、[Ionic CLI](https://ionicframework.com/docs/cli)を使用して、新規または既存のIonicアプリに直接すばやくインストールできます。
+# Ionic FrameworkでCapacitorを使う
+
+Capacitorは、アプリを構築するためにIonic Frameworkを必要としません。しかし、開発者は、高品質のアプリを構築するために、Ionic UIコンポーネントの[大規模なコレクション](https://ionicframework.com/docs/components)を参考にすることができます。
+
+Capacitor は、[Ionic CLI](https://ionicframework.com/docs/cli) を使用して、新規または既存の Ionic アプリに直接すばやくインストールすることができます。
 
 ## 新しいIonicプロジェクトにCapacitorをインストールする
-新しいIonicプロジェクトでは、Capacitorはすでにデフォルトで新しいIonicアプリにインストールされています! 新しいプロジェクトを立ち上げるだけです。新しいIonicプロジェクトを作成するには、以下のコマンドを実行します。
+新しいIonicプロジェクトの場合、Capacitorはデフォルトで新しいIonicアプリにすでにインストールされています！あなたがしなければならないのは、新しいプロジェクトを開始することだけです。新しいIonicプロジェクトを作成するには、次のコマンドを実行します：
 
 ```bash
 ionic start

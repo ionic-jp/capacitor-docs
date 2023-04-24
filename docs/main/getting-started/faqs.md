@@ -24,11 +24,6 @@ Capacitorは以下のプラットフォームを公式にサポートしてい�
   - Firefox
   - Safari
   - Edge
-- Windows 10+
-
-:::info
-Windowsのサポートは、有料のサブスクリプションが必要です。アクセスするには、[弊社営業チーム](https://ionic.io/contact/sales)までご連絡ください。
-:::
 
 ### コミュニティプラットフォーム
 

@@ -14,7 +14,7 @@ Capacitorは3つのアプリケーションターゲットを公式にサポー�
 
 ## 要件
 
-Capacitorでアプリケーションを開発するには、NodeJS 14以降がインストールされている必要があります。Nodeは[the Node website](https://nodejs.org)のインストーラ、JavaScriptツールマネージャの[Volta](https://volta.sh/)、[homebrew](https://brew.sh/)、[Chocolatey](https://chocolatey.org/)などのパッケージマネージャでインストールすることが可能です。
+Capacitorでアプリケーションを開発するためには、NodeJS 16以上のインストールが必要です。Nodeのインストールは、[Nodeのウェブサイト](https://nodejs.org)のインストーラを使用するか、JavaScriptツールマネージャの[Volta](https://volta.sh/)を使用するか、[homebrew](https://brew.sh/)、[Chocolatey](https://chocolatey.org/)などのパッケージマネージャでインストールすることができます。
 
 Nodeをインストールしたら、ターミナルを開いて以下のコマンドを入力し、nodeが正しくインストールされていることを確認します。
 
@@ -29,7 +29,7 @@ Nodeをインストールしたら、CapacitorでProgressive Web Application (PW
 
 iOSアプリをビルドするには、**macOS**が必要です。Macを持っていない場合、iOSクラウドビルドを実行するために使用できる [Ionic Appflow](http://ionicframework.com/appflow) のようなソリューションがありますが、Capacitorアプリケーションを適切にテストするために、ローカルでツールを利用できるようにすることを強く推奨します。
 
-Capacitorを使用してiOSアプリケーションを開発するには、さらに3つの依存関係が必要です。
+Capacitorを使用してiOSアプリケーションを開発するには、さらに依存関係が必要です。
 
 - Xcode
 - Xcode Command Line Tools
@@ -40,7 +40,7 @@ Xcode、Xcode Command Line Tools、Cocoapodsをインストールすると、iOS
 
 ### Xcode
 
-Xcode は、macOS、iOS、および iPadOS のネイティブアプリケーションを作成するための Apple の IDE です。Xcodeは、Macで[Apple App Storeを使用](https://apps.apple.com/us/app/xcode/id497799835?mt=12)することでインストールできます。Capacitor 4は、最低でもXcode 13が必要です。
+Xcode is Apple's IDE for creating native macOS, iOS, and iPadOS applications. You can install Xcode by [using the Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) on your Mac. Capacitor 5 requires a minimum of Xcode 14.1.
 
 ### Xcodeのコマンドラインツール
 

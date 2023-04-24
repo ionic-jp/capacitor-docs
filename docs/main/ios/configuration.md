@@ -15,7 +15,7 @@ iOS 開発者は、自分のアプリの主な設定ファイルである `Info.
 
 これを修正するには、 [Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、**Info**タブをクリックします。
 
-![Xcode info editor](../../../static/img/v4/docs/ios/xcode-info-editor.png)
+![Xcode info editor](../../../static/img/v5/docs/ios/xcode-info-editor.png)
 
 > テーブル上で右クリックして、コンテキストメニューの**Raw Keys & Values**をチェックすると、真のキー名を表示することができます。
 >
@@ -37,7 +37,7 @@ Capabilities は、アプリが必要とする主要な機能を有効にする�
 
 新しいケイパビリティを追加するには、 [Xcode でアプリを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、タブバーの**Signing & Capabilities**をクリックして、**+ Capability**ボタンをクリックします。iOS の機能については、 [本記事](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) をご参照ください。
 
-![Xcode Capabilities](../../../static/img/v4/docs/ios/xcode-capabilities.png)
+![Xcode Capabilities](../../../static/img/v5/docs/ios/xcode-capabilities.png)
 
 ## アプリの名前の変更
 
@@ -45,7 +45,7 @@ App`ディレクトリの名前を変更することはできませんが、**Ap
 
 **App** ターゲットの名前を変更するには、[Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project)、**App**プロジェクトを選択して、**App\*\*ターゲットをダブルクリックします。
 
-![Xcode Target](../../../static/img/v4/docs/ios/xcode-target.png)
+![Xcode Target](../../../static/img/v5/docs/ios/xcode-target.png)
 
 次に、`ios/App/Podfile`を開き、ファイルの一番下にある現在のターゲットの名前を変更します:
 

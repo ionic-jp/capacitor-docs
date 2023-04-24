@@ -6,7 +6,7 @@ slug: /getting-started
 
 # Capacitor のインストール
 
-Capacitor アプリケーションを作成するには 2 つの方法があります。 `@capacitor/create-app` パッケージを使ってゼロから Capacitor アプリケーションを作成する方法と、 すでに存在する Web プロジェクトに Capacitor を追加する方法です。
+新しいCapacitorアプリケーションを作成したり、既存のWebプロジェクトにCapacitorを追加することができます。これはCLIまたは[VS Code extension](vscode/getting-started) を使用して行うことができます。
 
 ビルドするプラットフォームの[環境設定](/docs/getting-started/environment-setup)を確認するのを忘れないようにしましょう。
 
@@ -20,9 +20,7 @@ npm init @capacitor/app
 
 ## 既存のウェブアプリケーションにCapacitorを追加する
 
-Capacitorは最新のJavaScriptウェブアプリケーションにドロップできるように設計されています。しかし、既存のアプリケーションでCapacitorを使用するには、プロジェクトに次の3つの要件が必要です。
-
-プロジェクトに必要なもの...
+Capacitorは、最新のJavaScriptウェブアプリにドロップできるように設計されています。ただし、既存のアプリケーションでCapacitorを使用するためには、プロジェクトに次の3つの要件が必要です：
 
 - `package.json` ファイル
 - `dist` や `www` などのビルドされたウェブ資産を格納する別のディレクトリ
@@ -35,7 +33,7 @@ Capacitorを正しくインジェクションするには、`index.html` ファ�
 
 ### Capacitorのインストール
 
-アプリのルートに、Capacitorの主なnpmディペンデンシーであるコアJavaScriptランタイムとコマンドラインインターフェース(CLI)をインストールします。
+アプリのルートに、Capacitorの主なnpm依存関係（コアJavaScriptランタイムとコマンドラインインターフェース（CLI））をインストールします。
 
 ```bash
 npm i @capacitor/core
