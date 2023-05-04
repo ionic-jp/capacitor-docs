@@ -337,7 +337,7 @@ Capacitor の [`UIViewController`](/docs/core-apis/ios#viewcontroller) を使用
 Capacitor プラグインはウェブビューのナビゲーションをオーバーライドすることができます。そのために、プラグインは `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` メソッドをオーバーライドすることができます。
 `true` を返すと、WebView は URL の読み込みを中断します。
 `false` を返すと、WebView は URL の読み込みを継続します。
-`nil`を返すと、デフォルトのコンデンサーのポリシーに従います。
+`nil`を返すと、デフォルトのCapacitorーのポリシーに従います。
 
 ## 高度な設定
 

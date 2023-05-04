@@ -24,7 +24,7 @@ convertFileSrc: (filePath: string) => string;
 
 デバイスのファイルパスを Web View に適したパスに変換します。
 
-コンデンサアプリは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を避けるために、デバイスファイルのパスを書き換える必要があります。例えば、Android の場合、 `file:///path/to/device/file` は、Web View で使用する前に、 `http://localhost/_capacitor_file_/path/to/device/file` に書き換える必要があります。
+Capacitorアプリは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を避けるために、デバイスファイルのパスを書き換える必要があります。例えば、Android の場合、 `file:///path/to/device/file` は、Web View で使用する前に、 `http://localhost/_capacitor_file_/path/to/device/file` に書き換える必要があります。
 
 ```typescript
 // file:///path/to/device/photo.jpg

@@ -102,7 +102,7 @@ npx cap sync
 
 ## Cordova プラグインの環境設定
 
-コンデンサは、`npx cap init` の実行時に、 `config.xml` に記述されている全てのプリファレンスを読み込んで、 [Caoacutir 設定ファイル](/docs/config) に移植します。また、`cordova.preferences`オブジェクトに手動でプリファレンスを追加することもできます。
+Capacitorは、`npx cap init` の実行時に、 `config.xml` に記述されている全てのプリファレンスを読み込んで、 [Caoacutir 設定ファイル](/docs/config) に移植します。また、`cordova.preferences`オブジェクトに手動でプリファレンスを追加することもできます。
 
 ```json
 {
