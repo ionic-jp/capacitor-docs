@@ -85,7 +85,7 @@ brew install cocoapods
 
 ```bash
 pod --version
-# 1.11.3
+# 1.12.1
 ```
 
 #### Homebrewを使わないCocoaPodsのインストール
@@ -124,7 +124,7 @@ Android StudioでAndroid SDKをインストールし、コア要件を満たせ�
 
 ### Android Studio
 
-Android Studioは、Googleが提供するAndroidネイティブアプリケーションを作成するためのIDEです。Android Studioは、[Android Studioダウンロードページ](https://developer.android.com/studio)からインストールすることができます。Capacitor4では、最低でもAndroid Studio 2020.1が必要です。
+Android Studioは、Googleが提供するAndroidネイティブアプリケーションを作成するためのIDEです。Android Studioは、[Android Studioダウンロードページ](https://developer.android.com/studio)からインストールすることができます。Capacitor5では、最低でもAndroid Studio 2022.2.1が必要です。
 
 ### Android SDK
 
@@ -134,6 +134,6 @@ Androidアプリを開発するには、いくつかのAndroid SDKパッケー�
 
 Android Studioのメニューから **Tools -> SDK Manager** を開き、**SDK Platforms** タブにテストしたいプラットフォームのバージョンをインストールします。
 
-![SDK Platforms](/img/v4/docs/android/sdk-platforms.png)
+![SDK Platforms](/img/v5/docs/android/sdk-platforms.png)
 
-まずは、1つのAPIバージョンをインストールするだけです。上の画像では、Android 10 (API 30)とAndroid 11 (API 31)のSDKがインストールされています。最新の安定版は、Android 12（API 32）です。
+まずは、1つのAPIバージョンをインストールするだけです。上の画像では、Android 10 (API 30)とAndroid 11 (API 31)のSDKがインストールされています。最新の安定版は、Android 13（API 33）です。
