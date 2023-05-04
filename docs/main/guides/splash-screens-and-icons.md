@@ -1,6 +1,6 @@
 ---
 title: スプラッシュ画面とアイコン
-description: @capacitor/assets  を使ってネイティブプロジェクトのリソースイメージを生成する
+description: capacitor/assets を使ってネイティブプロジェクトのリソースイメージを生成する
 contributors:
   - dotNetkow
 slug: /guides/splash-screens-and-icons
