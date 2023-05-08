@@ -28,7 +28,7 @@ jobs:
       # Docsのビルド
       - name: npm install, build
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build:production
           mv build site/www/docs
 
