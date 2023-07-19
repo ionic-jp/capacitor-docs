@@ -16,7 +16,7 @@ Capacitor の Android アプリは、Android Studio で設定・管理されて�
 
 ## Androidサポート
 
-API 22+（Android 5.1 以降）に対応しており、 [Android 市場の 95%以上を占めています](https://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide) 。Capacitor は、Chrome バージョン 60 以降の Android WebView が必要です。Android 5 および 6 の場合、Capacitor は [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview) を使用します。Android 7 以上では、[Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) を使用します。
+API 22+（Android 5.1以降）がサポートされており、これは [Android市場の99%以上](https://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide) に相当します。Capacitorには、Chromeバージョン60以降のAndroid WebViewが必要です。Android 5～6、および10以上では、Capacitorは[Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview)を使用します。Android 7-9では、[Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome)がWebViewを提供します。
 
 ## Android プラットフォームの追加
 

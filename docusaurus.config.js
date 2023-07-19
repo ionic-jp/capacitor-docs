@@ -83,7 +83,7 @@ module.exports = {
               rel: null,
             },
             {
-              href: 'https://blog.ionicframework.com/',
+              href: 'https://ionic.io/blog/tag/capacitor',
               label: 'Blog',
               target: '_blank',
               rel: null,
@@ -177,7 +177,7 @@ module.exports = {
     prism: {
       theme: { plain: {}, styles: [] },
       // https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js
-      additionalLanguages: ['shell-session', 'http', 'swift'],
+      additionalLanguages: ['shell-session', 'http', 'swift', 'java', 'kotlin'],
     },
     algolia: {
       appId: '3IVALO5OU4',
