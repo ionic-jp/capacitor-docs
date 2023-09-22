@@ -1,39 +1,40 @@
 ---
-title: Support Policy
+title: サポートポリシー
 ---
 
 <head>
-  <title>App Development Support Policy - Capacitor</title>
+  <title>アプリ開発サポートポリシー - Capacitor</title>
   <meta
     name="description"
     content="Capacitor is 100% open-source (MIT), and always will be. Read our support policy to see why users know Capacitor is the right choice for app development."
   />
 </head>
 
-## Community Maintenance
+## コミュニティーのメンテナンス
 
-Capacitor has been 100% open source (MIT) since the very beginning, and always will be. Developers can ensure Capacitor is the right choice for their cross-platform apps through Capacitor's community maintenance strategy. The Capacitor team regularly ships new releases, bug fixes, and is very welcoming to community pull requests.
+Capacitorは当初から100%オープンソース（MIT）であり、今後もそうあり続けます。開発者は、Capacitorのコミュニティメンテナンス戦略を通じて、Capacitorがクロスプラットフォームアプリにとって正しい選択であることを確認できます。Capacitorチームは定期的に新しいリリース、バグフィックスを出荷し、コミュニティのプルリクエストを歓迎しています。
 
-## Capacitor Maintenance and Support Status
+## Capacitorのメンテナンスとサポート状況
 
-Given the reality of time and resource constraints as well as the need to support the ever-evolving landscape of mobile platforms, over time it becomes necessary for the Capacitor team to release new major versions. However, Capacitor will do everything it can to make the transition to newer versions as smooth as possible. The Capacitor team recommends updating to the newest version of Capacitor for the latest features, improvements and stability updates.
+時間やリソースの制約、また進化し続けるモバイルプラットフォームをサポートする必要性を考えると、Capacitorチームは新しいメジャーバージョンをリリースする必要があります。しかし、Capacitorは新しいバージョンへの移行をできるだけスムーズに行うために全力を尽くします。Capacitorチームは、最新の機能、改善、安定性のアップデートのためにCapacitorの最新バージョンに更新することをお勧めします。
 
-The current status of each Capacitor version is:
+Capacitorの各バージョンの現在の状況は以下の通りです：
 
-| Version |      Status      |   Released    | Maintenance Ends  | Ext. Support Ends |
+| バージョン | ステータス | リリース | メンテナンス終了 | 延長サポート終了 |
 | :-----: | :--------------: | :-----------: | :---------------: | :---------------: |
-|   V5    |    **Active**    |  May 3, 2023  |        TBD        |        TBD        |
-|   V4    |   Maintenance    | July 27, 2022 | November 3, 2023  |    May 3, 2024    |
-|   V3    | Extended Support | May 18, 2021  | January 27, 2023  |   July 27, 2023   |
-|   V2    |  End of Support  | April 3, 2020 | November 18, 2021 |   May 18, 2022    |
-|   V1    |  End of Support  | May 23, 2019  |  October 3, 2020  |   April 3, 2021   |
+| V5 | **アクティブ**｜2023年5月3日 | 未定 | 未定 | メンテナンス｜7月27日 |
+| V4 | メンテナンス | 2022年7月27日 | 2023年11月3日 | 2024年5月3日 |
+| V3 | 延長サポート | 2021年5月18日 | 2023年1月27日 | 2023年7月27日 |
+| V2 | サポート終了 | 2020年4月3日 | 2021年11月18日 | 2022年5月18日 |
+| V1 | サポート終了 | 2019年5月23日 | 2020年10月3日 | 2021年4月3日 |
+| V3 | 延長サポート | 2021年5月18日 | 2023年1月27日 | 2023年7月27日 |
 
-- **Maintenance**: Only critical bug and security fixes. No major feature improvements.
-- **Extended Support**: For teams and organizations that require additional long term support, Capacitor has extended support options available. To learn more, see our [Enterprise offerings](https://capacitorjs.com/enterprise).
+- **メンテナンス**： 重要なバグとセキュリティの修正のみ。大きな機能改善はありません。
+- **延長サポート**： 追加の長期サポートを必要とするチームや組織のために、Capacitorは延長サポートオプションを用意しています。詳しくは、[エンタープライズ向けサービス](https://capacitorjs.com/enterprise)をご覧ください。
 
-## Compatibility Recommendations
+## 互換性に関する推奨事項
 
-The Capacitor team has compiled a set of recommendations for using the Capacitor in conjunction with other contextually-relevant software. This is not meant to be a comprehensive list, but covers many common compatibility questions. The Capacitor team strongly recommends reviewing your project dependencies once each quarter to keep track of new releases, features and bug fixes.
+Capacitorチームは、Capacitorを他のコンテキストに関連するソフトウェアと組み合わせて使用するための推奨事項をまとめました。これは包括的なリストではありませんが、多くの一般的な互換性に関する質問をカバーしています。Capacitorチームは、新しいリリース、機能、バグフィックスを追跡するために、四半期ごとにプロジェクトの依存関係を確認することを強く推奨します。
 
 | Capacitor | Minimum Node Version | Minimum Xcode Version | Minimum Android Studio Version |
 | :-------: | :------------------: | :-------------------: | :----------------------------: |
@@ -41,9 +42,9 @@ The Capacitor team has compiled a set of recommendations for using the Capacitor
 |    v4     |          12          |          13           |             2020.1             |
 |    v3     |          12          |          12           |             2020.1             |
 
-## Minimum Supported Platforms
+## 最小対応プラットフォーム
 
-Each Capacitor version sets a minimum version for each of its supported platforms. The Capacitor team strives to support as wide a range of versions as possible. With each major release, the team evaluates the minimum versions for each platform and makes adjustments as needed, based on both usage and technical constraints.
+Capacitorの各バージョンでは、サポートするプラットフォームごとに最小バージョンを設定しています。Capacitorチームは可能な限り幅広いバージョンをサポートするよう努めています。メジャーリリースごとに、チームは各プラットフォームの最小バージョンを評価し、使用法と技術的制約の両方に基づいて、必要に応じて調整を行います。
 
 | Capacitor | Minimum iOS Version | Minimum Android Version |
 | :-------: | :-----------------: | :---------------------: |
