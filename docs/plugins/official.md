@@ -18,8 +18,9 @@ The API documentation for these plugins can be found below.
 ## List of Official Plugins
 
 - [Action Sheet](/docs/apis/action-sheet)
-- [App](/docs/apis/app)
 - [App Launcher](/docs/apis/app-launcher)
+- [App](/docs/apis/app)
+- [Background Runner](/docs/apis/background-runner)
 - [Browser](/docs/apis/browser)
 - [Camera](/docs/apis/camera)
 - [Clipboard](/docs/apis/clipboard)
@@ -37,12 +38,14 @@ The API documentation for these plugins can be found below.
 - [Network](/docs/apis/network)
 - [Preferences](/docs/apis/preferences)
 - [Push Notifications](/docs/apis/push-notifications)
+- [Screen Orientation](/docs/apis/screen-orientation)
 - [Screen Reader](/docs/apis/screen-reader)
 - [Share](/docs/apis/share)
 - [Splash Screen](/docs/apis/splash-screen)
 - [Status Bar](/docs/apis/status-bar)
 - [Text Zoom](/docs/apis/text-zoom)
 - [Toast](/docs/apis/toast)
+- [Watch 🧪](/docs/apis/watch)
 
 ## GitHub
 

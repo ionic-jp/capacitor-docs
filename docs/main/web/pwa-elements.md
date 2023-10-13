@@ -13,7 +13,7 @@ Capacitor のプラグインの中には、`Camera`や`Toast`のように、ネ�
 
 <img src={require('/img/v5/docs/pwa-elements.png').default} style={{height: "200px"}} />
 
-この UI は、Web コンポーネントを使って実装されています。Shadow DOM の魔法により、これらのコンポーネントは、あなた自身の UI と
+この UI は、Web コンポーネントを使って実装されています。[Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) の魔法により、これらのコンポーネントは、あなた自身の UI と
 あなた自身の UI と衝突しないようにします。
 
 ## Installation
@@ -30,42 +30,38 @@ npm install @ionic/pwa-elements
 
 Then, depending on your framework of choice, import the element loader and call it at the correct time:
 
-_React_
+##### React
 
-`index.tsx` or `index.js`:
+`main.tsx` or `index.tsx` or `index.js`:
 
 ```tsx
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// Call the element loader after the app has been rendered the first time
+// Call the element loader before the render call
 defineCustomElements(window);
 ```
 
-_Angular_
+##### Vue
 
 `main.ts`:
 
 ```typescript
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
+// Above the createApp() line
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+defineCustomElements(window);
+```
 
+##### Angular
+
+`main.ts`:
+
+```typescript
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+// Call the element loader before the bootstrapModule/bootstrapApplication call
+defineCustomElements(window);
 if (environment.production) {
   enableProdMode();
 }
-
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.log(err));
-
-// Call the element loader after the platform has been bootstrapped
-defineCustomElements(window);
 ```
 
 #### Including through script tag
