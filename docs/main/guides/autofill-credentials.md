@@ -95,7 +95,7 @@ const config: CapacitorConfig = {
 
 XCodeでプロジェクトを開き、`Signing & Capabilities` に移動します。
 
-![XCode capabilities](../../../static/img/v5/docs/guides/autofill-credentials/xcode-capabilities.png)
+![XCode capabilities](../../../static/img/v6/docs/guides/autofill-credentials/xcode-capabilities.png)
 
 - `+` をクリックし、"Associated Domains "のケイパビリティを追加します。
 - Domainsセクションで、`+`をクリックし、`applinks:my-app.com` というエントリーを指定します。ここで、`my-app.com`はあなたが所有し、App Association Fileを作成するドメイン名です。
@@ -132,7 +132,7 @@ URLは以下の形式である必要があります。 `https://my-app.com/.well
 
 `Settings` > `Developer` > `Universal Links` -> `Diagnostics` に移動します。URL (例: `https://my-app.com`) を入力すると、以下のような検証結果が表示されます。
 
-![Diagnostics](../../../static/img/v5/docs/guides/autofill-credentials/diagnostics.png)
+![Diagnostics](../../../static/img/v6/docs/guides/autofill-credentials/diagnostics.png)
 
 緑色のチェックマークは検証の設定に問題がないことを示し、黄色の警告は問題があることを示します。
 
@@ -160,14 +160,14 @@ if (Capacitor.getPlatform() === 'ios') {
 
 上記のコードが呼び出されると、新しい認証情報を保存する場合、またはパスワードがデバイスに保存されたものと異なる場合に、以下のダイアログが表示されます。保存した認証情報が変更されていない場合は、このダイアログは表示されません。
 
-![Save Credentials](../../../static/img/v5/docs/guides/autofill-credentials/save-password.png)
+![Save Credentials](../../../static/img/v6/docs/guides/autofill-credentials/save-password.png)
 
 ### 自動入力の動作
 正しく設定された場合、アプリケーションには、ドメイン名とユーザー名が表示された以下のようなアクセサリバーが表示されます。これをタップすると、フォームに認証情報が自動入力されます。
 
 もし、鍵のアイコンと「パスワード」のテキストしか表示されない場合は、最初の認証情報を保存する必要があるか、アプリケーションが誤って設定されている可能性があります。
 
-![Autofill Credentials](../../../static/img/v5/docs/guides/autofill-credentials/auto-fill.png)
+![Autofill Credentials](../../../static/img/v6/docs/guides/autofill-credentials/auto-fill.png)
 
 
 ## Android向け設定
@@ -186,7 +186,7 @@ Webを対象とする場合は、[ディープリンクスガイド](deep-links#
 
 デバイスにアプリをインストールしている場合、iOSのSafariでWebサイトにアクセスすると、上部にアプリを開くためのオプションが表示されます。この動作を回避したい場合は、アプリケーション用に別のサブドメインを用意することを検討してください。
 
-![iOS Safari](../../../static/img/v5/docs/guides/autofill-credentials/ios-safari.png)
+![iOS Safari](../../../static/img/v6/docs/guides/autofill-credentials/ios-safari.png)
 
 ## iOS トラブルシューティング
 アプリケーションの設定を誤ると、iOS 上で認証情報を保存したり呼び出したりできなくなることがあります。

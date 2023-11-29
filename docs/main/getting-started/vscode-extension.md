@@ -12,7 +12,7 @@ Ionic Visual Studio Code拡張は、Capacitorの公式拡張を兼ねており�
 
 既存のアプリケーションに [Capacitor](https://capacitorjs.com/) を追加するには、「Integrate Capacitor」を選択します。
 
-![Video of adding Capacitor](../../../static/img/v5/docs/getting-started/integrate-capacitor.gif)
+![Video of adding Capacitor](../../../static/img/v6/docs/getting-started/integrate-capacitor.gif)
 
 Capacitorが統合されたことで、「Run On Web」「Run On Android」「Run On iOS」オプションで、Web、Android、iOSでアプリを実行できるようになりました。
 
@@ -34,7 +34,7 @@ Capacitorが統合されたことで、「Run On Web」「Run On Android」「Ru
 
 Ionic VS Code 拡張は、プロジェクトに関連する Android と iOS の変数を簡単に設定するのにも役立ちます。
 
-![Capacitor Native Configuration Example Image](../../../static/img/v5/docs/getting-started/capacitor-vscode-config.gif)
+![Capacitor Native Configuration Example Image](../../../static/img/v6/docs/getting-started/capacitor-vscode-config.gif)
 
 アプリケーションの表示名、バージョン番号、ビルド番号、およびその他の設定値をプロジェクト内で簡単に変更することができます。
 
@@ -42,7 +42,7 @@ Ionic VS Code 拡張は、プロジェクトに関連する Android と iOS の�
 
 Ionicエクステンションを使用すると、Web、Android、iOS（近日公開予定）でVS Codeデバッガーを実行できます。
 
-![Capacitor Debugging Example Image](../../../static/img/v5/docs/getting-started/ionic-vs-code-debugging.jpg)
+![Capacitor Debugging Example Image](../../../static/img/v6/docs/getting-started/ionic-vs-code-debugging.jpg)
 
 Debug フォルダ下のオプションを使用すると、Web とネイティブの両方のコードにブレークポイントを設定することができます。Web用のデバッグは、デバッグ可能な別のWebブラウザインスタンスを起動します（デフォルトではGoogle Chrome）。また、設定オプションからMicrosoft Edgeを選択することもできます。Android では、Webview インスタンスは "Debug" フォルダーにリストされ、Web と同様にデバッグ可能です。
 

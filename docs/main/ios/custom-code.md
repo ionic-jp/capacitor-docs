@@ -21,7 +21,7 @@ JavaScript とネイティブ コード間の通信を行う最も簡単な方�
 
 まず、`EchoPlugin.swift`ファイルを作成します。[Xcode](/docs/ios#opening-the-ios-project) を開き、**App** グループ (**App** ターゲットの下) を右クリックしてコンテキストメニューから **New File...** を選び、ウィンドウで **Swift File** を選択してファイルを作成します。
 
-![New Swift File in Xcode](../../../static/img/v5/docs/ios/xcode-new-swift-file.png)
+![New Swift File in Xcode](../../../static/img/v6/docs/ios/xcode-new-swift-file.png)
 
 以下のSwiftコードを`EchoPlugin.swift`にコピーします。
 

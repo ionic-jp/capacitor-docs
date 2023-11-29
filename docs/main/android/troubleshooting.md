@@ -36,7 +36,7 @@ npm から新しいプラグインをインストールしたのに、Android �
 
 クリーンとリビルドを行うことで、多くのビルド問題を解決することができます。
 
-![Android Clean and Build](../../../static/img/v5/docs/android/clean-rebuild.png)
+![Android Clean and Build](../../../static/img/v6/docs/android/clean-rebuild.png)
 
 ### キャッシュの無効化/再起動
 
@@ -44,7 +44,7 @@ npm から新しいプラグインをインストールしたのに、Android �
 
 これは File メニューから簡単に行うことができます:
 
-![Android Invalidate Caches](../../../static/img/v5/docs/android/invalidate-caches.png)
+![Android Invalidate Caches](../../../static/img/v6/docs/android/invalidate-caches.png)
 
 ## Error: "package android.support.\* does not exist"
 
@@ -66,13 +66,13 @@ npx cap sync android
 
 Gradle を手動で同期するには、メインメニューバーから「File」→「Sync Project with Gradle Files」を開きます:
 
-![Sync Gradle](../../../static/img/v5/docs/android/sync-gradle.png)
+![Sync Gradle](../../../static/img/v6/docs/android/sync-gradle.png)
 
 ## Error: "APK Can't be installed"
 
 APK がエミュレータやデバイスにインストールできないのは、同じパッケージ名の既存のアプリがあることが原因の場合が多いです。アプリを実行しようとすると、次のようなエラーが表示されることがあります:
 
-![Android APK Failed](../../../static/img/v5/docs/android/apk-failed.png)
+![Android APK Failed](../../../static/img/v6/docs/android/apk-failed.png)
 
 解決策としては、古いアプリを削除し、パッケージ名が `AndroidManifest.xml` で最新のものになっていて、開発中の他のアプリと競合していないことを確認します。
 
@@ -84,7 +84,7 @@ APK がエミュレータやデバイスにインストールできないのは�
 
 解決するには、Android StudioのPreferences > Build, Execution, Deployment, Build Tools > Gradle > Gradle JDKにあるパスを用いて、環境変数またはシステム変数として `JAVA_HOME` を設定します。
 
-![JDK Path in Android Studio](../../../static/img/v5/docs/android/jdk-path.png)
+![JDK Path in Android Studio](../../../static/img/v6/docs/android/jdk-path.png)
 
 Macの場合は、`.zshrc` または `.bashrc` ファイルで更新するか、環境にエクスポートします。
 

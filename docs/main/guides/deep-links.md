@@ -198,7 +198,7 @@ iOS の設定には、サイトアソシエーションファイルの作成と�
 
 まず、[Apple Developer site](https://developer.apple.com)にログインします。Certificates, Identifiers, & Profiles」セクションに移動し、アプリの識別子を選択します。Team IDとBundle IDをメモし、Capabilitiesで "Associated Domains "をトグルし、保存します。
 
-![iOS Identifier Config](../../../static/img/v5/docs/guides/deep-links/ios-config.png)
+![iOS Identifier Config](../../../static/img/v6/docs/guides/deep-links/ios-config.png)
 
 次に、サイトアソシエーションファイル（`apple-app-site-association`）を作成します。
 
@@ -226,7 +226,7 @@ iOS の設定には、サイトアソシエーションファイルの作成と�
 
 最後のステップは、iOSアプリが着信リンクを認識できるように設定することです。Xcodeを開き、[Signing & Capabilities]に移動します。+ Capability "をクリックし、"Associated Domains "を選択します。表示されたDomainsのエントリで、`applinks:yourdomain.com`のフォーマットで編集します。
 
-![Xcode Associated Domain](../../../static/img/v5/docs/guides/deep-links/xcode-associated-domain.png)
+![Xcode Associated Domain](../../../static/img/v6/docs/guides/deep-links/xcode-associated-domain.png)
 
 ## Androidの設定
 
@@ -250,11 +250,11 @@ keytool -list -v -keystore my-release-key.keystore
 
 SHA256フィンガープリントが出力されます。
 
-![Keytool output](../../../static/img/v5/docs/guides/deep-links/keystore-sha256.png)
+![Keytool output](../../../static/img/v6/docs/guides/deep-links/keystore-sha256.png)
 
 次に、Googleの [Asset Links tool](https://developers.google.com/digital-asset-links/tools/generator) を使用して、Site Associationファイルを作成します。ウェブサイトのドメイン、アプリのパッケージ名、SHA256フィンガープリントを記入し、[Generate statement]をクリックします。
 
-![Android Identifier Config](../../../static/img/v5/docs/guides/deep-links/android-config.png)
+![Android Identifier Config](../../../static/img/v6/docs/guides/deep-links/android-config.png)
 
 JSON出力を `.well-known/assetlinks.json` の下にある新しいローカルファイルにコピーします。
 

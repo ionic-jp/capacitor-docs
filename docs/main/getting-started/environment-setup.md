@@ -14,13 +14,13 @@ Capacitorは3つのアプリケーションターゲットを公式にサポー�
 
 ## 要件
 
-Capacitorでアプリケーションを開発するためには、NodeJS 16以上のインストールが必要です。Nodeのインストールは、[Nodeのウェブサイト](https://nodejs.org)のインストーラを使用するか、JavaScriptツールマネージャの[Volta](https://volta.sh/)を使用するか、[homebrew](https://brew.sh/)、[Chocolatey](https://chocolatey.org/)などのパッケージマネージャでインストールすることができます。
+Capacitorでアプリケーションを開発するには、NodeJS 18以上がインストールされている必要があります。Nodeをインストールするには、[Nodeのウェブサイト](https://nodejs.org)のインストーラを使用するか、JavaScriptツールマネージャの [Volta](https://volta.sh/) を使用するか、[homebrew](https://brew.sh/)や[Chocolatey](https://chocolatey.org/)のようなパッケージマネージャを使用します。
 
 Nodeをインストールしたら、ターミナルを開いて以下のコマンドを入力し、nodeが正しくインストールされていることを確認します。
 
 ```bash
 node --version
-# v18.3.0
+# v20.9.0
 ```
 
 Nodeをインストールしたら、CapacitorでProgressive Web Application (PWA)の作成を始めることができます。
@@ -40,7 +40,7 @@ Xcode、Xcode Command Line Tools、Cocoapodsをインストールすると、iOS
 
 ### Xcode
 
-Xcode is Apple's IDE for creating native macOS, iOS, and iPadOS applications. You can install Xcode by [using the Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) on your Mac. Capacitor 5 requires a minimum of Xcode 14.1.
+Xcode is Apple's IDE for creating native macOS, iOS, and iPadOS applications. You can install Xcode by [using the Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) on your Mac. Capacitor 6 requires a minimum of Xcode 15.0.
 
 ### Xcodeのコマンドラインツール
 
@@ -124,7 +124,7 @@ Android StudioでAndroid SDKをインストールし、コア要件を満たせ�
 
 ### Android Studio
 
-Android Studioは、Googleが提供するAndroidネイティブアプリケーションを作成するためのIDEです。Android Studioは、[Android Studioダウンロードページ](https://developer.android.com/studio)からインストールすることができます。Capacitor5では、最低でもAndroid Studio 2022.2.1が必要です。
+Android Studioは、ネイティブAndroidアプリケーションを作成するためのGoogleのIDEです。Android Studioは [Android Studio download page](https://developer.android.com/studio) からインストールできます。Capacitor 6には、最低でもAndroid Studio 2023.1.1が必要です。
 
 ### Android SDK
 
@@ -134,6 +134,6 @@ Androidアプリを開発するには、いくつかのAndroid SDKパッケー�
 
 Android Studioのメニューから **Tools -> SDK Manager** を開き、**SDK Platforms** タブにテストしたいプラットフォームのバージョンをインストールします。
 
-![SDK Platforms](/img/v5/docs/android/sdk-platforms.png)
+![SDK Platforms](/img/v6/docs/android/sdk-platforms.png)
 
-まずは、1つのAPIバージョンをインストールするだけです。上の画像では、Android 10 (API 30)とAndroid 11 (API 31)のSDKがインストールされています。最新の安定版は、Android 13（API 33）です。
+使い始めるには、1つのAPIバージョンをインストールするだけでよい。上の画像では、Android 10（API 30）とAndroid 11（API 31）のSDKがインストールされている。最新の安定バージョンはAndroid 14（API 34）です。

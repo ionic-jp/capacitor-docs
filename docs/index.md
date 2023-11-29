@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 Capacitorはクロスプラットフォームのネイティブランタイムで、最新のWebツールを使用して、iOS、Androidなどでネイティブに動作するパフォーマンスの高いモバイルアプリケーションを簡単に構築することができます。ハイブリッドアプリの次の進化として、Capacitorは**Webネイティブアプリ**を作成し、必要なときにネイティブSDKへのフルアクセスを犠牲にすることなく、Webファーストで構築したいチームに最新のネイティブコンテナアプローチを提供します。
 
 <img
-  src={require('/img/v5/docs/capacitor-index.png').default}
+  src={require('/img/v6/docs/capacitor-index.png').default}
   loading="eager"
 />
 

@@ -11,7 +11,7 @@ slug: /web/pwa-elements
 
 Capacitor のプラグインの中には、`Camera`や`Toast`のように、ネイティブで動作していないときにウェブベースの UI を利用できるものがあります。例えば、`Camera.getPhoto()`を呼び出すと、ウェブ上で動作しているときに、レスポンシブな写真撮影エクスペリエンスをロードします:
 
-<img src={require('/img/v5/docs/pwa-elements.png').default} style={{height: "200px"}} />
+<img src={require('/img/v6/docs/pwa-elements.png').default} style={{height: "200px"}} />
 
 この UI は、Web コンポーネントを使って実装されています。[Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) の魔法により、これらのコンポーネントは、あなた自身の UI と
 あなた自身の UI と衝突しないようにします。

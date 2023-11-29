@@ -64,7 +64,7 @@ npx cap run android
 
 Android Studio では、まずデバイスやエミュレータを選択し、実行またはデバッグボタンをクリックしてアプリを実行します。Java や Kotlin のコードをデバッグするのでなければ、実行ボタンが好ましいでしょう。
 
-![Running App](../../../static/img/v5/docs/android/running.png)
+![Running App](../../../static/img/v6/docs/android/running.png)
 
 ## トラブルシューティング
 
