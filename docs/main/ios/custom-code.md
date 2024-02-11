@@ -11,7 +11,7 @@ slug: /ios/custom-code
 
 Capacitorでは、アプリに必要なネイティブ機能を実装するためにSwiftやObjective-Cのコードを書くことが推奨されています。
 
-[Capacitorプラグイン](/docs/plugins)が全てに対応するわけではありませんが、それでも構いません! アプリの中で WebView にアクセス可能なネイティブコードを書くことができます。
+[Capacitorプラグイン](/plugins.md) が全てに対応するわけではありませんが、それでも構いません! アプリの中で WebView にアクセス可能なネイティブコードを書くことができます。
 
 ## WebView にアクセス可能なネイティブコード
 
@@ -19,7 +19,7 @@ JavaScript とネイティブ コード間の通信を行う最も簡単な方�
 
 ### `EchoPlugin.swift`
 
-まず、`EchoPlugin.swift`ファイルを作成します。[Xcode](/docs/ios#opening-the-ios-project) を開き、**App** グループ (**App** ターゲットの下) を右クリックしてコンテキストメニューから **New File...** を選び、ウィンドウで **Swift File** を選択してファイルを作成します。
+まず、`EchoPlugin.swift`ファイルを作成します。[Xcode](/main/ios/index.md#opening-the-ios-project) を開き、**App** グループ (**App** ターゲットの下) を右クリックしてコンテキストメニューから **New File...** を選び、ウィンドウで **Swift File** を選択してファイルを作成します。
 
 ![New Swift File in Xcode](../../../static/img/v6/docs/ios/xcode-new-swift-file.png)
 
@@ -109,4 +109,4 @@ console.log('Response from native:', value);
 
 ### 次のステップ
 
-[iOS Plugin Guide を読む &#8250;](/docs/plugins/ios)
+[iOS Plugin Guide を読む &#8250;](/plugins/creating-plugins/ios-guide.md)

@@ -44,6 +44,7 @@ module.exports = {
       label: 'アップグレードガイド',
       collapsed: false,
       items: [
+        'main/updating/6-0',
         'main/updating/5-0',
         'main/updating/plugins/5-0',
         'main/updating/4-0',
@@ -100,6 +101,7 @@ module.exports = {
         'main/ios/deploying-to-app-store',
         'main/ios/viewcontroller',
         'main/ios/troubleshooting',
+        'main/ios/spm'
       ],
     },
     {

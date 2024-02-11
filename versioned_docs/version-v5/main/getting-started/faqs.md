@@ -42,9 +42,13 @@ No! You don't! Capacitor works with **any** web application, not just ones built
 
 To find plugins for your project, you should check the following places in this order.
 
+### Capacitor Official Plugins ⚡
+
+The [Capacitor Official Plugins](https://github.com/ionic-team/capacitor-plugins) are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs. If you need a plugin, this should be one of the first places you look.
+
 ### Capacitor Community GitHub ⚡
 
-The [Capacitor Community GitHub organization](https://github.com/capacitor-community) lists plugins that our excellent community of developers creates. They are Capacitor first plugins that are actively developed and should work in any Capacitor 3+ project. If you need a plugin, this should be one of the first places you look.
+The [Capacitor Community GitHub organization](https://github.com/capacitor-community) lists plugins that our excellent community of developers creates. They are Capacitor first plugins that are actively developed and should work in any Capacitor 3+ project. If you can't find an official plugin, this should be places you look.
 
 ### Awesome Capacitor 😎
 
@@ -79,7 +83,7 @@ If you installed CocoaPods with `sudo gem install cocoapods` and you're using an
 ```
 
 This is a CocoaPods bug related to `ffi` not installing on Apple Silicon computers.
-We recommend using [Homebrew to installl CocoaPods](/docs/getting-started/environment-setup#homebrew).
+We recommend using [Homebrew to installl CocoaPods](/main/getting-started/environment-setup.md#homebrew).
 Alternatively, if you have Rosetta installed, you can install `ffi` on a `x86_64` architecture and run `pod install` using the simulated Intel architecture for the first time.
 
 ```

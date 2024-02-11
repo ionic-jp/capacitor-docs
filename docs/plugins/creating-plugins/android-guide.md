@@ -14,7 +14,7 @@ Android 用の Capacitor プラグインを構築するには、Android SDK と�
 
 ## はじめかた
 
-まず、プラグインガイドの [はじめかた](/docs/plugins) にあるように、プラグインを生成してください。
+まず、プラグインガイドの [はじめかた](/plugins/tutorial/getting-started.md) にあるように、プラグインを生成してください。
 
 次に、Android Studio で `echo/android/` を開きます。このファイルは、プラグインを作成するときに使用したプラグイン ID とプラグインクラス名によって変化します。
 
@@ -116,7 +116,7 @@ call.reject(exception.getLocalizedMessage(), null, exception);
 
 ほとんどの場合、プラグインメソッドはタスクを実行するために呼び出され、すぐに終了することができます。しかし、後でアクセスできるようにプラグインの呼び出しを有効にしておく必要がある場合もあります。例えば、位置情報データのライブストリーミングのようなデータを定期的に返したり、非同期タスクを実行したりする場合です。
 
-プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/docs/v3/core-apis/saving-calls)を参照してください。
+プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/main/reference/core-apis/saving-calls.md) を参照してください。
 
 ### プラグイン読み込み時にコードを実行する
 
@@ -134,11 +134,11 @@ public void load() {
 
 もしあなたのプラグインが Android 上でエンドユーザーからのパーミッションを必要とする機能を持つ場合、パーミッション・パターンを実装する必要があります。
 
-このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスを設定したことを確認してください。まだの場合は、 [Web ガイドのパーミッションのセクション](/docs/plugins/web#permissions) を参照してください。
+このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスを設定したことを確認してください。まだの場合は、 [Web ガイドのパーミッションのセクション](/plugins/creating-plugins/web-guide.md#permissions) を参照してください。
 
 ### アノテーションの変更
 
-> まだ `@NativePlugin` をお使いですか？ [アップグレードガイド](/docs/updating/plugins/3-0#use-the-new-capacitorplugin-annotation) を参照して、`@CapacitorPlugin` に切り替えてください。
+> まだ `@NativePlugin` をお使いですか？ [アップグレードガイド](/main/updating/plugins/3-0.md#use-the-new-capacitorplugin-annotation) を参照して、`@CapacitorPlugin` に切り替えてください。
 
 ```diff
  @CapacitorPlugin(
@@ -342,7 +342,7 @@ const myPluginEventListener = await MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-> `window` のグローバルイベントをトリガーすることも可能です。詳しくは [`triggerJSEvent`](/docs/core-apis/android#triggerjsevent) のドキュメントを参照してください。
+> `window` のグローバルイベントをトリガーすることも可能です。詳しくは [`triggerJSEvent`](/main/reference/core-apis/android.md#triggerjsevent) のドキュメントを参照してください。
 
 ## ナビゲーションのオーバーライド
 

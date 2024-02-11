@@ -102,8 +102,8 @@ If the device has entered [Doze](https://developer.android.com/training/monitori
 * [`listChannels()`](#listchannels)
 * [`checkPermissions()`](#checkpermissions)
 * [`requestPermissions()`](#requestpermissions)
-* [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived)
-* [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed)
+* [`addListener('localNotificationReceived', ...)`](#addlistenerlocalnotificationreceived-)
+* [`addListener('localNotificationActionPerformed', ...)`](#addlistenerlocalnotificationactionperformed-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
@@ -275,7 +275,7 @@ Only available for Android.
 
 | Param      | Type                         |
 | ---------- | ---------------------------- |
-| **`args`** | <code>{ id: string; }</code> |
+| **`args`** | <code>&#123; id: string; }</code> |
 
 **Since:** 1.0.0
 

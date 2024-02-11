@@ -13,8 +13,8 @@ slug: /core-apis
 
 このドキュメントは、プラットフォーム別に構成されています。
 
-- [iOS](/docs/core-apis/ios)
-- [Android](/docs/core-apis/android)
-- [Web](/docs/core-apis/web)
-- [Data Types](/docs/core-apis/data-types)
-- [Saving Calls](/docs/core-apis/saving-calls)
+- [iOS](/main/reference/core-apis/ios.md)
+- [Android](/main/reference/core-apis/android.md)
+- [Web](/main/reference/core-apis/web.md)
+- [Data Types](/main/reference/core-apis/data-types.md)
+- [Saving Calls](/main/reference/core-apis/saving-calls.md)

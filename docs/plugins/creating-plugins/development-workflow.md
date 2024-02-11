@@ -79,9 +79,9 @@ public void openMap(PluginCall call) {
 }
 ```
 
-> `.m` ファイルに [プラグインメソッドの登録](/docs/plugins/ios#export-to-capacitor) を忘れずに行ってください。
+> `.m` ファイルに [プラグインメソッドの登録](/plugins/creating-plugins/ios-guide.md#export-to-capacitor) を忘れずに行ってください。
 
-この例はプラグインで最も一般的なタイプのメソッドを含んでいますが、サポートされているすべてのタイプの詳細は [ここで見つけることができます](/docs/plugins/method-types) 。
+この例はプラグインで最も一般的なタイプのメソッドを含んでいますが、サポートされているすべてのタイプの詳細は [ここで見つけることができます](/plugins/creating-plugins/method-types.md) 。
 
 ## ローカルでのテスト
 

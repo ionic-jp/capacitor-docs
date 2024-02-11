@@ -84,12 +84,12 @@ const checkAppLaunchUrl = async () => {
 * [`getState()`](#getstate)
 * [`getLaunchUrl()`](#getlaunchurl)
 * [`minimizeApp()`](#minimizeapp)
-* [`addListener('appStateChange', ...)`](#addlistenerappstatechange)
-* [`addListener('pause', ...)`](#addlistenerpause)
-* [`addListener('resume', ...)`](#addlistenerresume)
-* [`addListener('appUrlOpen', ...)`](#addlistenerappurlopen)
-* [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult)
-* [`addListener('backButton', ...)`](#addlistenerbackbutton)
+* [`addListener('appStateChange', ...)`](#addlistenerappstatechange-)
+* [`addListener('pause', ...)`](#addlistenerpause-)
+* [`addListener('resume', ...)`](#addlistenerresume-)
+* [`addListener('appUrlOpen', ...)`](#addlistenerappurlopen-)
+* [`addListener('appRestoredResult', ...)`](#addlistenerapprestoredresult-)
+* [`addListener('backButton', ...)`](#addlistenerbackbutton-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
@@ -396,7 +396,7 @@ Remove all native listeners for this plugin
 | **`methodName`** | <code>string</code>               | The methodName this result corresponds to. For example, `getPhoto`                                                                                | 1.0.0 |
 | **`data`**       | <code>any</code>                  | The result data passed from the plugin. This would be the result you'd expect from normally calling the plugin method. For example, `CameraPhoto` | 1.0.0 |
 | **`success`**    | <code>boolean</code>              | Boolean indicating if the plugin call succeeded.                                                                                                  | 1.0.0 |
-| **`error`**      | <code>{ message: string; }</code> | If the plugin call didn't succeed, it will contain the error message.                                                                             | 1.0.0 |
+| **`error`**      | <code>&#123; message: string; }</code> | If the plugin call didn't succeed, it will contain the error message.                                                                             | 1.0.0 |
 
 
 #### BackButtonListenerEvent

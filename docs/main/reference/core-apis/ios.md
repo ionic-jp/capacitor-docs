@@ -68,7 +68,7 @@ func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-`window` や `document` などの JavaScript の [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) でイベントを発生させます。可能であれば、代わりに [Plugin Events](/docs/plugins/ios#plugin-events) を使用することをお勧めします。
+`window` や `document` などの JavaScript の [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) でイベントを発生させます。可能であれば、代わりに [Plugin Events](/plugins/creating-plugins/ios-guide.md#plugin-events) を使用することをお勧めします。
 
 例:
 
@@ -108,10 +108,10 @@ func portablePath(fromLocalURL localURL: URL?) -> URL?
 
 ## データの受け渡し
 
-環境間で渡されるデータの扱い方については、[こちら](/docs/core-apis/data-types#ios)を参照してください。
+環境間で渡されるデータの扱い方については、[こちら](/main/reference/core-apis/data-types.md#ios) を参照してください。
 
 ---
 
 ## CAPPluginCall の保存
 
-非同期の操作や繰り返し行われる操作のためのプラグインの呼び出しを持続させるための注意点は[こちら](/docs/core-apis/saving-calls)にあります。
+非同期の操作や繰り返し行われる操作のためのプラグインの呼び出しを持続させるための注意点は[こちら](/main/reference/core-apis/saving-calls.md) にあります。

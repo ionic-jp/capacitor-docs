@@ -24,7 +24,7 @@ Cordova の歴史と仕組みの詳細については、 [こちらをご覧く�
 
 Capacitor は、各プラットフォーム・プロジェクトを _build time asset_ ではなく _source asset_ と見なします。つまり、Xcode と Android Studio プロジェクトをソース・コントロールに導入し、プラットフォーム固有の構成や実行/テストに必要な場合にはこれらの IDE を使用します。
 
-このアプローチの変化にはいくつかの意味がります。まず、Capacitor は `config.xml` または同様のカスタム構成を使用しません。代わりに、 適切なプラットフォーム固有の構成ファイルを直接編集することによって、構成変更が行われます。これは、Android の場合は、`AndroidManifest.xml`、Xcode の場合は `Info.plist` です。Capacitor には、`capacitor.config.json` で設定することのできる、いくつかの [high level configuration options](/docs/basics/configuring-your-app)があります。これらは通常、本来の機能を変更するのではなく、Capacitor のツールを制御します。
+このアプローチの変化にはいくつかの意味がります。まず、Capacitor は `config.xml` または同様のカスタム構成を使用しません。代わりに、 適切なプラットフォーム固有の構成ファイルを直接編集することによって、構成変更が行われます。これは、Android の場合は、`AndroidManifest.xml`、Xcode の場合は `Info.plist` です。Capacitor には、`capacitor.config.json` で設定することのできる、いくつかの [high level configuration options](/main/basics/configuring-your-app.md) があります。これらは通常、本来の機能を変更するのではなく、Capacitor のツールを制御します。
 
 また、Capacitor はコマンドラインを使用して「デバイス上で実行」またはエミュレートしません。その代わりに、そのような操作はプラットフォーム固有の IDE を通じて行われ、そのプラットフォーム用のアプリケーション開発の標準に従った、より高速で典型的なエクスペリエンスを提供します。例えば、コマンドラインから iOS アプリを実行することは、Apple によって公式にはサポートされていないので、Xcode の方が好ましいです。
 
@@ -51,8 +51,8 @@ Cordova とは異なり、Capacitor はグローバル CLI を使用せず、Cap
 
 したがって、 `capacitor` ディレクトリから直接コマンドラインを実行するのではなくく、アプリケーションのディレクトリで`npx cap`を呼び出すことによって Capacitor が呼び出されます。
 
-[Learn more about the Capacitor CLI &#8250;](/docs/cli)
+[Learn more about the Capacitor CLI &#8250;](/cli/index.md)
 
 ## マイグレーションをはじめる
 
-[移行プロセス](/docs/cordova/migration-strategy) や [移行を開始する](/docs/cordova/migrating-from-cordova-to-capacitor) をご覧ください。
+[移行プロセス](/main/cordova/migration-strategy.md) や [移行を開始する](/main/cordova/migrating-from-cordova-to-capacitor.md) をご覧ください。

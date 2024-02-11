@@ -13,7 +13,7 @@ Capacitorを使用するアプリを開発する場合、CordovaとIonic Native�
 
 Capacitorプラグインは、通常のパッケージマネージャを使用してインストールされ、その後ネイティブプロジェクトに同期されます（複数可）。CapacitorのCordovaプラグインもインストール方法は同じです。
 
-プラグインをインストールし、同期し、必要なネイティブプロジェクトの設定を完了します([Variables and Hooks](/docs/plugins/cordova#variables-and-hooks) を参照)。
+プラグインをインストールし、同期し、必要なネイティブプロジェクトの設定を完了します([Variables and Hooks](/plugins/cordova.md#variables-and-hooks) を参照)。
 
 ```bash
 npm install cordova-plugin-name
@@ -45,7 +45,7 @@ npx cap ls
 
 ## 互換性の問題
 
-Capacitor と一部の Cordova プラグインには互換性の問題がある可能性があります。多くの公式 Cordova プラグインは使用しないでください。Capacitor は [代替となる公式プラグイン](/docs/apis) を提供しています。変数やフックを使用する Cordova プラグインは、部分的に互換性がある場合があります。一部の Cordova プラグインは完全に互換性がありません [このリスト](/docs/plugins/cordova#known-incompatible-plugins) を参照してください)。
+Capacitor と一部の Cordova プラグインには互換性の問題がある可能性があります。多くの公式 Cordova プラグインは使用しないでください。Capacitor は [代替となる公式プラグイン](/plugins/official.md) を提供しています。変数やフックを使用する Cordova プラグインは、部分的に互換性がある場合があります。一部の Cordova プラグインは完全に互換性がありません [このリスト](/plugins/cordova.md#known-incompatible-plugins) を参照してください)。
 
 もし既存の Cordova プラグインに問題を発見した場合は、問題の詳細とプラグイン情報を提供して [let us know](https://github.com/ionic-team/capacitor/issues/new) してください。
 
@@ -53,7 +53,7 @@ Capacitor と一部の Cordova プラグインには互換性の問題がある�
 
 Capacitor は Cordova のインストール変数、自動設定、フックをサポートしていません。これは、ネイティブプロジェクトのソースコードをコントロールさせるという我々の哲学によるものです（つまり、フックのようなものは不要です）。プラグインに変数や設定が必要な場合は、プラグインの `plugin.xml` と iOS や Android で必要な設定を対応させ、手動でそれらの設定を適用する必要があります。
 
-[iOS](/docs/ios/configuration) と [Android](/docs/android/configuration) の設定ガイドで、それぞれのプラットフォームの設定方法について参照してください。
+[iOS](/main/ios/configuration.md) と [Android](/main/android/configuration.md) の設定ガイドで、それぞれのプラットフォームの設定方法について参照してください。
 
 ### 既知の非互換プラグイン
 

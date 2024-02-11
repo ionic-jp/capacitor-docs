@@ -18,7 +18,7 @@ Firebase からのプッシュ通知の登録とモニタリングを行うた�
 
 ## 要件
 
-Capacitor を使用して iOS および Android アプリケーションを構築およびデプロイするには、少しばかりのセットアップが必要です。先に進む前に、 [指示に従って必要な Capacitor の依存関係をここにインストールしてください](/docs/getting-started/environment-setup) 。
+Capacitor を使用して iOS および Android アプリケーションを構築およびデプロイするには、少しばかりのセットアップが必要です。先に進む前に、 [指示に従って必要な Capacitor の依存関係をここにインストールしてください](/main/getting-started/environment-setup.md) 。
 
 iOS でプッシュ通知をテストするためには、Apple は、 [有料の Apple Developer Account](https://developer.apple.com/) と、_physical_ iOS デバイスを持っていることを要求しています。
 
@@ -257,7 +257,7 @@ iOS push notifications are significantly more complicated to set up than Android
 1. [Setup the proper Development or Production certificates & provisioning profiles](https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7) for your iOS application in the Apple Developer Portal
 2. [Create an APNS certificate or key](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns) for either Development or Production in the Apple Developer Portal
 3. [Ensure Push Notification capabilities have been enabled](https://help.apple.com/xcode/mac/current/#/dev88ff319e7) in your application in Xcode
-4. Have a physical iOS device as per the guidelines in the [Environment Setup](/docs/getting-started/environment-setup) documentation
+4. Have a physical iOS device as per the guidelines in the [Environment Setup](/main/getting-started/environment-setup.md) documentation
 
 ### Integrating Firebase with our native iOS app
 

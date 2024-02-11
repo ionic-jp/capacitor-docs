@@ -6,7 +6,7 @@ sidebar_label: run
 
 # Capacitor CLI - cap run
 
-このコマンドは、まず[`sync`](/docs/cli/commands/sync)を実行し、その後、ネイティブアプリをビルドして、選択したターゲットデバイスにデプロイします。
+このコマンドは、まず[`sync`](/cli/commands/sync.md)を実行し、その後、ネイティブアプリをビルドして、選択したターゲットデバイスにデプロイします。
 
 ```bash
 npx cap run [options] <platform>

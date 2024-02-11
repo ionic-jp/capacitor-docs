@@ -20,7 +20,7 @@ Capacitorの設定ファイルは、Capacitorツールおよびプラグイン�
 
 iOSとAndroidの両方のプラットフォームが追加されたCapacitorアプリが必要です。両方のプラットフォームが追加された既存のCapacitorアプリをお持ちの場合は、このセクションをスキップしてください。
 
-お好みに応じて、[既存のWebアプリケーションにCapacitorを追加する](/docs/getting-started)か、[Ionic Frameworkで新しいCapacitorアプリケーションを作成する](/docs/getting-started/with-ionic)かのどちらかを選択できます。
+お好みに応じて、[既存のWebアプリケーションにCapacitorを追加する](/main/getting-started/installation.md) か、[Ionic Frameworkで新しいCapacitorアプリケーションを作成する](/main/getting-started/with-ionic.md) かのどちらかを選択できます。
 
 Capacitorアプリは、設定にTypeScriptを使用する必要があります。このガイドでは、`capacitor.config.ts`を使用して、さまざまな設定を動的にエクスポートします。
 
@@ -112,7 +112,7 @@ Android プロジェクトには複数の `build.gradle` ファイルがあり�
 Android/app/build.gradle` を開き、`android` ブロック内に以下のコードを追加します。
 
 ```groovy
-flavorDimensions "environment"
+flavorDimensions = ["environment"]
 productFlavors {
   dev {
       dimension "environment"

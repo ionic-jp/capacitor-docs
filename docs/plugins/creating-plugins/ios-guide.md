@@ -14,7 +14,7 @@ iOS 用の Capacitor プラグインを構築するには、Apple の iOS SDK �
 
 ## はじめに
 
-まず、プラグインガイドの [はじめかた](/docs/plugins/creating-plugins) にあるように、プラグインを生成します。
+まず、プラグインガイドの [はじめかた](/plugins/creating-plugins/overview.md) にあるように、プラグインを生成します。
 
 次に、Xcode で `echo/ios/Plugin.xcworkspace` を開いてください。次に、プラグイン用の.swift ファイルに移動します。
 
@@ -53,7 +53,7 @@ public class EchoPlugin: CAPPlugin {
 各プラグインメソッドは、クライアントからプラグインメソッドの呼び出しに関するすべての情報を含む `CAPPluginCall` のインスタンスを受け取ります。
 
 クライアントは、number、text、booleans、オブジェクト、配列など、JSON でシリアライズ可能な任意のデータを送信することができます。このデータ には、コールインスタンスの `options` フィールド、または `getString` や `getObject` などの便利なメソッドでアクセスすることができます。
-これらの値を渡したり、アクセスしたりする際には、 [別途説明するように](/docs/core-apis/data-types#ios) 注意しなければならない点があります。
+これらの値を渡したり、アクセスしたりする際には、 [別途説明するように](/main/reference/core-apis/data-types.md#ios) 注意しなければならない点があります。
 
 例えば、メソッドに渡されるデータを取得する方法は以下の通りだとします:
 
@@ -132,7 +132,7 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
 もしあなたのプラグインが iOS 上でエンドユーザーの許可を必要とする機能を持つなら、permissions パターンを実装する必要があります。
 
-このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスが設定されていることを確認してください。もしまだなら、Web ガイドの [permissions のセクション](/docs/plugins/web#permissions) を参照してください。
+このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスが設定されていることを確認してください。もしまだなら、Web ガイドの [permissions のセクション](/plugins/creating-plugins/web-guide.md#permissions) を参照してください。
 
 ### Permissions の設定
 
@@ -157,7 +157,7 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 
 #### `checkPermissions()`
 
-このメソッドは、あなたのプラグインにおけるパーミッションの現在の状態を返すべきです。それは、あなたが定義した [permission status definition](/docs/plugins/web#permission-status-definitions) の構造に一致する辞書であるべきです。一般的に、この情報はあなたが使っているフレームワーク上で直接利用できます。
+このメソッドは、あなたのプラグインにおけるパーミッションの現在の状態を返すべきです。それは、あなたが定義した [permission status definition](/plugins/creating-plugins/web-guide.md#permission-status-definitions) の構造に一致する辞書であるべきです。一般的に、この情報はあなたが使っているフレームワーク上で直接利用できます。
 
 以下の例では、ロケーションサービスから ` authorizationStatus`` を  `locationState``にマップし、その状態に`location` というエイリアスを関連付けています。
 
@@ -263,7 +263,7 @@ let store = CNContactStore()
 
 ほとんどの場合、プラグインメソッドはタスクを実行するために呼び出され、すぐに終了することができます。しかし、後でアクセスできるようにプラグインの呼び出しを有効にしておく必要がある場合もあります。例えば、位置情報データのライブストリーミングのようなデータを定期的に返したり、非同期タスクを実行したりする場合です。
 
-プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/docs/v3/core-apis/saving-calls)を参照してください。
+プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/main/reference/core-apis/saving-calls.md) を参照してください。
 
 ## エラーハンドリング
 
@@ -326,11 +326,11 @@ const myPluginEventListener = await MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-> `window` でのグローバルオブジェクトをトリガーにすることもできます。　詳細は [`triggerJSEvent`](/docs/core-apis/ios#triggerjsevent) をご確認ください。
+> `window` でのグローバルオブジェクトをトリガーにすることもできます。　詳細は [`triggerJSEvent`](/main/reference/core-apis/ios.md#triggerjsevent) をご確認ください。
 
 ## ネイティブ画面を表示する
 
-Capacitor の [`UIViewController`](/docs/core-apis/ios#viewcontroller) を使用すると、アプリ上でネイティブ画面を表示することができます。
+Capacitor の [`UIViewController`](/main/reference/core-apis/ios.md#viewcontroller) を使用すると、アプリ上でネイティブ画面を表示することができます。
 
 ## ナビゲーションをオーバーライドする
 

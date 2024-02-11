@@ -20,7 +20,7 @@ Capacitorアプリは主にWebビューまたはブラウザで実行される�
 
 ## Capacitor プリファレンス API
 
-Capacitorにはネイティブの [Preferences API](/docs/apis/preferences) があり、上記の立ち退き問題を回避できますが、これは少量のデータ向けのものです。
+Capacitorにはネイティブの [Preferences API](/apis/preferences.md) があり、上記の立ち退き問題を回避できますが、これは少量のデータ向けのものです。
 
 Preferences APIはシンプルなキー/バリューAPIを提供し、高度なクエリサポートはありません。
 

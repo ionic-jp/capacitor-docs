@@ -10,7 +10,7 @@ slug: /ios/deploying-to-app-store
 
 Capacitor アプリは結局のところ通常の Native アプリなので、App Store へのデプロイ方法は他の Native アプリと同じです。
 
-まず、App Store へのアプリの提出に関する [Apple の公式ドキュメント](https://developer.apple.com/app-store/submissions/) を参照してください。あなたのアプリのスプラッシュ画面とアイコンの生成についての [詳細はこちら](/docs/guides/splash-screens-and-icons) をご覧ください。
+まず、App Store へのアプリの提出に関する [Apple の公式ドキュメント](https://developer.apple.com/app-store/submissions/) を参照してください。あなたのアプリのスプラッシュ画面とアイコンの生成についての [詳細はこちら](/main/guides/splash-screens-and-icons.md) をご覧ください。
 
 Capacitor 特有の考慮事項についてのガイドは、[Josh Morony の素晴らしいガイド](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)を参照してください。
 
@@ -18,4 +18,4 @@ Capacitor 特有の考慮事項についてのガイドは、[Josh Morony の素
 
 App Store (および Google Play Store)への提出を合理化したり、 CI/CD ワークフローへの統合によって自動化さえしたいチームのために、 Capacitor の提供会社である Ionic は、エンドツーエンドのアプリ開発とデプロイ機能を提供する、 [Appflow](https://useappflow.com/)という強力な Mobile DevOps サービスを提供しています。
 
-興味ありますか? この [手引書を読んで](/docs/guides/deploying-updates) 、どのように動作するのか、またどのように現在の Capacitor で使用できるのかを知るか、または公式の[Appflow ドキュメント](https://ionicframework.com/docs/appflow/) をご覧ください。
+興味ありますか? この [手引書を読んで](/main/guides/deploying-updates.md) 、どのように動作するのか、またどのように現在の Capacitor で使用できるのかを知るか、または公式の[Appflow ドキュメント](https://ionicframework.com/docs/appflow/) をご覧ください。

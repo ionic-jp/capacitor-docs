@@ -13,7 +13,7 @@ slug: /ios/configuration
 
 iOS 開発者は、自分のアプリの主な設定ファイルである `Info.plist` ファイルを使いこなすことに慣れておくべきです。このファイルは、Capacitor プラグインが必要とする可能性のある新しい設定、アプリの追加設定、およびアプリが要求する権限のために頻繁に更新されます。
 
-これを修正するには、 [Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、**Info**タブをクリックします。
+これを修正するには、 [Xcode でプロジェクトを開き](/main/ios/index.md#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、**Info**タブをクリックします。
 
 ![Xcode info editor](../../../static/img/v6/docs/ios/xcode-info-editor.png)
 
@@ -35,7 +35,7 @@ Capabilities は、アプリが必要とする主要な機能を有効にする�
 
 他の設定オプションや使い方の説明とは異なり、ケイパビリティは `Info.plist` で設定することはできません。
 
-新しいケイパビリティを追加するには、 [Xcode でアプリを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、タブバーの**Signing & Capabilities**をクリックして、**+ Capability**ボタンをクリックします。iOS の機能については、 [本記事](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) をご参照ください。
+新しいケイパビリティを追加するには、 [Xcode でアプリを開き](/main/ios/index.md#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、タブバーの**Signing & Capabilities**をクリックして、**+ Capability**ボタンをクリックします。iOS の機能については、 [本記事](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) をご参照ください。
 
 ![Xcode Capabilities](../../../static/img/v6/docs/ios/xcode-capabilities.png)
 
@@ -43,7 +43,7 @@ Capabilities は、アプリが必要とする主要な機能を有効にする�
 
 App`ディレクトリの名前を変更することはできませんが、**App**ターゲットの名前を変更することで、アプリの名前を設定することができます。
 
-**App** ターゲットの名前を変更するには、[Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project)、**App**プロジェクトを選択して、**App\*\*ターゲットをダブルクリックします。
+**App** ターゲットの名前を変更するには、[Xcode でプロジェクトを開き](/main/ios/index.md#opening-the-ios-project) 、**App**プロジェクトを選択して、**App\*\*ターゲットをダブルクリックします。
 
 ![Xcode Target](../../../static/img/v6/docs/ios/xcode-target.png)
 
@@ -57,8 +57,8 @@ App`ディレクトリの名前を変更することはできませんが、**Ap
  end
 ```
 
-Finally, add the `scheme` attribute inside the `ios` object in the [Capacitor configuration file](/docs/config#schema).
+Finally, add the `scheme` attribute inside the `ios` object in the [Capacitor configuration file](/main/reference/config.md#schema).
 
 ## ディープリンク (別名 ユニバーサルリンク)
 
-ディープリンクのガイドは、[こちら](/docs/guides/deep-links)をご覧ください。
+ディープリンクのガイドは、[こちら](/main/guides/deep-links.md)をご覧ください。

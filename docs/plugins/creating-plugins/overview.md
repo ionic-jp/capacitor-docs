@@ -13,7 +13,7 @@ slug: /plugins/creating-plugins
 
 Capacitor のプラグインは、JavaScript が Native API と直接通信することを可能にします。
 
-このガイドでは、npm で公開される共有可能な Capacitor プラグインの作成を開始するのに役立つ情報を提供します。また、あなたのアプリにローカルな Capacitor プラグインを作成することもできます。 [iOS](/docs/ios/custom-code) と [Android](/docs/android/custom-code) のカスタムネイティブコードのガイドを参照してください。
+このガイドでは、npm で公開される共有可能な Capacitor プラグインの作成を開始するのに役立つ情報を提供します。また、あなたのアプリにローカルな Capacitor プラグインを作成することもできます。 [iOS](/main/ios/custom-code.md) と [Android](/main/android/custom-code.md) のカスタムネイティブコードのガイドを参照してください。
 
 ## 理念
 
@@ -57,10 +57,10 @@ npm init @capacitor/plugin@latest
 
 ## 次のステップ
 
-[Capacitor プラグイン開発のワークフローについて &#8250;](/docs/plugins/workflow)
+[Capacitor プラグイン開発のワークフローについて &#8250;](/plugins/creating-plugins/development-workflow.md)
 
-[Capacitor 用 Android プラグインの構築について &#8250;](/docs/plugins/android)
+[Capacitor 用 Android プラグインの構築について &#8250;](/plugins/creating-plugins/android-guide.md)
 
-[Capacitor 用 iOS プラグインの構築について &#8250;](/docs/plugins/ios)
+[Capacitor 用 iOS プラグインの構築について &#8250;](/plugins/creating-plugins/ios-guide.md)
 
-[Capacitor の Web/PWA プラグイン構築について &#8250;](/docs/plugins/web)
+[Capacitor の Web/PWA プラグイン構築について &#8250;](/plugins/creating-plugins/web-guide.md)

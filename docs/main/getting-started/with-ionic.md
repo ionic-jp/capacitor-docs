@@ -30,10 +30,10 @@ ionic integrations enable capacitor
 
 Ionic Frameworkは、以下のCapacitorプラグインのAPIを利用します。
 
-- [`@capacitor/app`](/docs/plugins/apis/app)
-- [`@capacitor/haptics`](/docs/plugins/apis/haptics)
-- [`@capacitor/keyboard`](/docs/plugins/apis/keyboard)
-- [`@capacitor/status-bar`](/docs/plugins/apis/status-bar)
+- [`@capacitor/app`](/apis/app.md)
+- [`@capacitor/haptics`](/apis/haptics.md)
+- [`@capacitor/keyboard`](/apis/keyboard.md)
+- [`@capacitor/status-bar`](/apis/status-bar.md)
 
 最高のユーザーエクスペリエンスを得るために、アプリにインポートしない場合でも、これらのプラグインがインストールされていることを確認する必要があります。これらのプラグインをインストールするには、プロジェクトのルートで以下のコマンドを実行してください。
 
@@ -50,10 +50,10 @@ ionic capacitor add android
 ionic capacitor add ios
 ```
 
-これで、プロジェクトのルートにネイティブプラットフォーム用の新しいディレクトリが作成されます。このディレクトリはネイティブプロジェクトであり、ソースアーティファクトとみなされるべきものです。 [ネイティブプロジェクトマネジメント](/docs/cordova#native-project-management) について詳しくはこちら。
+これで、プロジェクトのルートにネイティブプラットフォーム用の新しいディレクトリが作成されます。このディレクトリはネイティブプロジェクトであり、ソースアーティファクトとみなされるべきものです。 [ネイティブプロジェクトマネジメント](/main/cordova/index.md#native-project-management) について詳しくはこちら。
 
 :::info
-IonicアプリでCordovaを使用している場合、[CordovaからCapacitorへの移行](/docs/cordova/migrating-from-cordova-to-capacitor)の方法についてもご案内しています。
+IonicアプリでCordovaを使用している場合、[CordovaからCapacitorへの移行](/main/cordova/migrating-from-cordova-to-capacitor.md) の方法についてもご案内しています。
 :::
 
 ## Ionic CLI Capacitor Commands

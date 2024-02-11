@@ -181,8 +181,13 @@ if (Capacitor.getPlatform() === 'ios') {
 }
 ```
 
+<<<<<<< HEAD
 ## Web向けの設定
-Webを対象とする場合は、[ディープリンクスガイド](deep-links#details-website-configuration)に従ってください。
+Webを対象とする場合は、[ディープリンクスガイド](deep-links#website-configuration) に従ってください。
+=======
+## Configuration for Web
+Follow the [Deep Links Guide](deep-links#website-configuration) if you are targeting the web.
+>>>>>>> ee8d334a1b3ff977d5ca55b9477c18810bf6273c
 
 デバイスにアプリをインストールしている場合、iOSのSafariでWebサイトにアクセスすると、上部にアプリを開くためのオプションが表示されます。この動作を回避したい場合は、アプリケーション用に別のサブドメインを用意することを検討してください。
 

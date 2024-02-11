@@ -34,12 +34,12 @@ The [Ionic VS Code Extension](https://marketplace.visualstudio.com/items?itemNam
 
 まず、既存の Cordova プラグインの監査を行います。不要になったプラグインは削除できる可能性があります。
 
-次に、Capacitor の [official plugins](/docs/apis) と [community plugins](/docs/plugins/community) の全てを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
+次に、Capacitor の [official plugins](/plugins/official.md) と [community plugins](/plugins/community.md) の全てを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
 
 プラグインによっては機能が完全に一致しないものもありますが、必要な機能を考えれば問題ないでしょう。
 
 ### 必要に応じて Cordova や Ionic Native を使い続ける
 
-Cordova や Ionic Native のプラグインを Capacitor アプリで活用するには、 [こちら](/docs/plugins/cordova) を参照してください。代替プラグインが存在しない場合は、Cordova プラグインをそのまま使用してください。もし、サポートしてほしいプラグインがあれば、 [plugin proposal](https://github.com/capacitor-community/proposals) を公開してください。
+Cordova や Ionic Native のプラグインを Capacitor アプリで活用するには、 [こちら](/plugins/cordova.md) を参照してください。代替プラグインが存在しない場合は、Cordova プラグインをそのまま使用してください。もし、サポートしてほしいプラグインがあれば、 [plugin proposal](https://github.com/capacitor-community/proposals) を公開してください。
 
-[Capacitor への移行](/docs/cordova/migrating-from-cordova-to-capacitor)の準備はできましたか？
+[Capacitor への移行]((/main/cordova/migrating-from-cordova-to-capacitor.md) の準備はできましたか？

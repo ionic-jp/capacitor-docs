@@ -15,7 +15,7 @@ Capacitor の iOS アプリは、Xcode と　[CocoaPods](https://cocoapods.org/)
 
 ## iOS サポート
 
-iOS 13+に対応しています。Xcode 15.0+が必要です（[環境セットアップ](/docs/getting-started/environment-setup#ios-development)を参照）。Capacitorは非推奨の[UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)ではなく、[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)を使用します。
+iOS 13+に対応しています。Xcode 15.0+が必要です（[環境セットアップ](/main/getting-started/environment-setup.md#ios-requirements) を参照）。Capacitorは非推奨の[UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)ではなく、[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)を使用します。
 
 ## iOS プラットフォームの追加
 
@@ -57,7 +57,7 @@ open ios/App/App.xcworkspace
 npx cap run ios
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/docs/cli/commands/run).
+コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/cli/commands/run.md).
 
 ### Xcode での実行
 
@@ -67,7 +67,7 @@ Xcode では、まずデバイスやシミュレータを選択し、再生ボ�
 
 ## トラブルシューティング
 
-使い始めてから何か問題が発生した場合は、 [iOS トラブルシューティングガイド](/docs/ios/troubleshooting) を参考にしてください。ヘルプが必要な場合は、お気軽に [ディスカッションを開いてください](https://github.com/ionic-team/capacitor/discussions/) をご利用ください。
+使い始めてから何か問題が発生した場合は、 [iOS トラブルシューティングガイド](/main/ios/troubleshooting.md)  を参考にしてください。ヘルプが必要な場合は、お気軽に [ディスカッションを開いてください](https://github.com/ionic-team/capacitor/discussions/) をご利用ください。
 
 ## 次のステップ
 
@@ -77,6 +77,6 @@ Xcode では、まずデバイスやシミュレータを選択し、再生ボ�
 
 各トピックの詳細については、以下のガイドを参照してください。
 
-[iOS の設定とパーミッションの設定 &#8250;](/docs/ios/configuration)
+[iOS の設定とパーミッションの設定 &#8250;](/main/ios/configuration.md)
 
-[iOS 用のネイティブプラグインの構築 &#8250;](/docs/plugins)
+[iOS 用のネイティブプラグインの構築 &#8250;](/plugins/creating-plugins/ios-guide.md)

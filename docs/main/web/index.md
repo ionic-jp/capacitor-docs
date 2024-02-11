@@ -21,7 +21,7 @@ Web サポート付きのプラグインは、機能検出を行い、ブラウ�
 
 すでに Capacitor for iOS または Android で構築している場合は、追加のインストール手順はありません。
 
-そうでない場合は、 [Installation](/docs/getting-started/) ガイドを参照してください。
+そうでない場合は、 [Installation](/main/getting-started/installation.md) ガイドを参照してください。
 
 ### Capacitor のモジュール化
 
@@ -31,7 +31,7 @@ Web サポート付きのプラグインは、機能検出を行い、ブラウ�
 
 ビルドシステムやバンドルラ/モジュールローダーを使用していない Web アプリで Capacitor ランタイムを使用するには、以下のようにします。
 
-1. Capacitor の設定ファイル(/docs/v3/config)で、`bundledWebRuntime`を`true`に設定する。
+1. Capacitor の設定ファイル(/main/reference/config.md) で、`bundledWebRuntime`を`true`に設定する。
 
 ```json
 "bundledWebRuntime": true

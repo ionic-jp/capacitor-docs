@@ -29,14 +29,14 @@ slug: /guides/deep-links
 
 ## 前提条件
 
-- 設定済みの [Capacitor app](/docs/getting-started) があること。
+- 設定済みの [Capacitor app](/main/getting-started/installation.md) があること。
 - iOS の場合、Apple Developer Program に登録していること。
 
 例示のため、ウェブアプリのリンクとして https://beerswift.app を使用します。
 
 ## Capacitor App API によるディープリンクルーティング
 
-ディープリンクがクリックされた後にネイティブアプリが開かれた場合、モバイル OS は自動的にユーザーをどこに誘導すればよいかを知りません。これは、アプリの起動時に Capacitor [App API](/docs/apis/app) を使用して、アプリ自体に実装する必要があります。
+ディープリンクがクリックされた後にネイティブアプリが開かれた場合、モバイル OS は自動的にユーザーをどこに誘導すればよいかを知りません。これは、アプリの起動時に Capacitor [App API](/apis/app.md) を使用して、アプリ自体に実装する必要があります。
 
 Web サイトとアプリのパスが一致しない場合は、より高度な URL パターンマッチングを実装する必要があります（例は [本ガイド](https://devdactic.com/universal-links-ionic/) を参照）。モバイルアプリとウェブアプリが同じコードベースを使用している場合は、同じ URL にリダイレクトするだけなので、非常に簡単です。以下の例はこれを前提としています。
 

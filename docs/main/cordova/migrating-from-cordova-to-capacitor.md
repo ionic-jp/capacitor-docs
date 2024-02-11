@@ -14,7 +14,7 @@ Cordova を使用して Web アプリケーションを完全に Capacitor に�
 
 ## Capacitor を追加する
 
-ターミナルでプロジェクトを開き、 [ウェブアプリへの Capacitor の追加](/docs/getting-started#adding-capacitor-to-your-app) 、または [Ionic アプリへの Capacitor の追加](/docs/getting-started/with-ionic#existing-ionic-project) のガイドに従います。
+ターミナルでプロジェクトを開き、 [ウェブアプリへの Capacitor の追加](/main/getting-started/installation.md#add-capacitor-to-your-web-app) 、または [Ionic アプリへの Capacitor の追加](/main/getting-started/with-ionic.md#installing-capacitor-to-an-existing-ionic-project) のガイドに従います。
 
 アプリを Capacitor で初期化します。アプリの初期化に必要な情報は、Cordova の `config.xml` ファイルに記載されています:
 
@@ -33,7 +33,7 @@ npx cap init
 npm run build
 ```
 
-これにより、Capacitor の設定ファイルでは、Capacitor が`webDir`として使用する`www`フォルダが [自動的に設定](/docs/basics/configuring-your-app) されていることが確認できます。
+これにより、Capacitor の設定ファイルでは、Capacitor が`webDir`として使用する`www`フォルダが [自動的に設定](/main/basics/configuring-your-app.md) されていることが確認できます。
 
 ### Platforms の追加
 
@@ -44,7 +44,7 @@ npx cap add ios
 npx cap add android
 ```
 
-プロジェクトのルートに android と ios の両フォルダが作成されます。これらは全く別のネイティブプロジェクトの成果物であり、アプリの一部と考えるべきものです（つまり、ソースコントロールにチェックを入れたり、独自の IDE で編集したりするなど）。さらに、`package.json` の `dependencies` にある Cordova プラグインは、Capacitor によって自動的に新しいネイティブプロジェクトにインストールされます（ただし、[incompatible ones](/docs/plugins/cordova#known-incompatible-plugins)は除きます）。
+プロジェクトのルートに android と ios の両フォルダが作成されます。これらは全く別のネイティブプロジェクトの成果物であり、アプリの一部と考えるべきものです（つまり、ソースコントロールにチェックを入れたり、独自の IDE で編集したりするなど）。さらに、`package.json` の `dependencies` にある Cordova プラグインは、Capacitor によって自動的に新しいネイティブプロジェクトにインストールされます（ただし、[incompatible ones](/plugins/cordova.md#known-incompatible-plugins) は除きます）。
 
 ```json
 "dependencies": {
@@ -81,11 +81,11 @@ cordova-res android --skip-config --copy
 
 まず、既存の Cordova プラグインを確認します。不要なプラグインを削除できる可能性があります。
 
-次に、Capacitor の [official plugins](/docs/apis) と [community plugins](/docs/plugins/community) のすべてを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
+次に、Capacitor の [official plugins](/plugins/official.md) と [community plugins](/plugins/community.md) のすべてを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
 
 プラグインによっては機能が完全に一致しないものもありますが、必要な機能を考えれば問題ないでしょう。
 
-なお、 [incompatible or cause build issues](/docs/plugins/cordova#known-incompatible-plugins) となっているプラグインは自動的にスキップされます。
+なお、 [incompatible or cause build issues](/plugins/cordova.md#known-incompatible-plugins) となっているプラグインは自動的にスキップされます。
 
 ### Cordova プラグインの削除
 
@@ -98,11 +98,11 @@ npx cap sync
 
 ## パーミッションの設定
 
-デフォルトでは、Capacitor の最新バージョンに要求されるすべての初期パーミッションが、iOS と Android の両方のデフォルトのネイティブプロジェクトに設定されています。しかし、追加のパーミッションを手動で適用する必要がある場合は、`plugin.xml`と iOS や Android の必要な設定をマッピングする必要があります。 [iOS](/docs/ios/configuration) と [Android](/docs/android/configuration) の設定ガイドを参照してください。
+デフォルトでは、Capacitor の最新バージョンに要求されるすべての初期パーミッションが、iOS と Android の両方のデフォルトのネイティブプロジェクトに設定されています。しかし、追加のパーミッションを手動で適用する必要がある場合は、`plugin.xml`と iOS や Android の必要な設定をマッピングする必要があります。 [iOS](/main/ios/configuration.md) と [Android](/main/android/configuration.md) の設定ガイドを参照してください。
 
 ## Cordova プラグインの環境設定
 
-Capacitorは、`npx cap init` の実行時に、 `config.xml` に記述されている全てのプリファレンスを読み込んで、 [Caoacutir 設定ファイル](/docs/config) に移植します。また、`cordova.preferences`オブジェクトに手動でプリファレンスを追加することもできます。
+Capacitorは、`npx cap init` の実行時に、 `config.xml` に記述されている全てのプリファレンスを読み込んで、 [Caoacutir 設定ファイル](/main/reference/config.md) に移植します。また、`cordova.preferences`オブジェクトに手動でプリファレンスを追加することもできます。
 
 ```json
 {
@@ -125,7 +125,7 @@ Author 要素は`package.json` で設定できます。ただし、Capacitor や
 <author email="email@test.com" href="http://ionicframework.com/">Ionic Framework Team</author>
 ```
 
-`allow-intent`値のほとんどは使用されませんが、Capacitor に[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。
+`allow-intent`値のほとんどは使用されませんが、Capacitor に[構成可能な代替手段](/main/basics/configuring-your-app.md) の設定があります。
 
 ```xml
 <allow-intent href="http://*/*" />
@@ -136,7 +136,7 @@ Author 要素は`package.json` で設定できます。ただし、Capacitor や
 <allow-intent href="geo:*" />
 ```
 
-iOS の`edit-config` 要素は [configured in Info.plist](/docs/ios/configuration) を必要とします。
+iOS の`edit-config` 要素は [configured in Info.plist](/main/ios/configuration.md) を必要とします。
 
 ```xml
 <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
@@ -164,4 +164,4 @@ Cordova で Ionic を使用すると、アプリはデフォルトで `cordova-p
 
 ## 次のステップ
 
-これは、あなたの Capacitor の旅の始まりに過ぎません。Capacitor プロジェクトでの [Cordova プラグインの使用方法](/docs/plugins/cordova) や、 [Capacitor の開発ワークフロー](/docs/basics/workflow)の詳細もご覧ください。
+これは、あなたの Capacitor の旅の始まりに過ぎません。Capacitor プロジェクトでの [Cordova プラグインの使用方法](/plugins/cordova.md) や、 [Capacitor の開発ワークフロー](/main/basics/workflow.md) の詳細もご覧ください。

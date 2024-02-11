@@ -108,10 +108,10 @@ the following events also work with `window.addEventListener`:
 * [`setStyle(...)`](#setstyle)
 * [`setResizeMode(...)`](#setresizemode)
 * [`getResizeMode()`](#getresizemode)
-* [`addListener('keyboardWillShow', ...)`](#addlistenerkeyboardwillshow)
-* [`addListener('keyboardDidShow', ...)`](#addlistenerkeyboarddidshow)
-* [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide)
-* [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide)
+* [`addListener('keyboardWillShow', ...)`](#addlistenerkeyboardwillshow-)
+* [`addListener('keyboardDidShow', ...)`](#addlistenerkeyboarddidshow-)
+* [`addListener('keyboardWillHide', ...)`](#addlistenerkeyboardwillhide-)
+* [`addListener('keyboardDidHide', ...)`](#addlistenerkeyboarddidhide-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Enums](#enums)
@@ -162,7 +162,7 @@ This method is only supported on iPhone devices.
 
 | Param         | Type                                 |
 | ------------- | ------------------------------------ |
-| **`options`** | <code>{ isVisible: boolean; }</code> |
+| **`options`** | <code>&#123; isVisible: boolean; }</code> |
 
 **Since:** 1.0.0
 
@@ -181,7 +181,7 @@ This method is only supported on iOS.
 
 | Param         | Type                                  |
 | ------------- | ------------------------------------- |
-| **`options`** | <code>{ isDisabled: boolean; }</code> |
+| **`options`** | <code>&#123; isDisabled: boolean; }</code> |
 
 **Since:** 1.0.0
 

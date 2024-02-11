@@ -25,6 +25,6 @@ slug: /plugins/community
 
 ## Cordova エコシステム
 
-Capacitor はほとんどの Cordova プラグインをサポートしているので、開発者は Capacitor アプリで[数百の既存の Cordova プラグイン](https://cordova.apache.org/plugins/)を使用することができます。特定の Cordova プラグインは Capacitor と [互換性がない](/docs/plugins/cordova#known-incompatible-plugins) のですが、ほとんどは互換性があるので、既存の Capacitor 固有のプラグインがない場合は試してみる価値があります。
+Capacitor はほとんどの Cordova プラグインをサポートしているので、開発者は Capacitor アプリで[数百の既存の Cordova プラグイン](https://cordova.apache.org/plugins/)を使用することができます。特定の Cordova プラグインは Capacitor と [互換性がない](/plugins/cordova.md#known-incompatible-plugins)  のですが、ほとんどは互換性があるので、既存の Capacitor 固有のプラグインがない場合は試してみる価値があります。
 
 また、[`@awesome-cordova-plugins` Community](https://github.com/danielsogl/awesome-cordova-plugins) pluginsでは、主にCordovaプラグインをアプリで使いやすくするためのラッパーを掲載しています。また、`@awesome-cordova-plugins` Communityのラッパーを使用したり、単にこのリストを質の高いCordovaプラグインのリファレンスとして使用したりすることもできますので、ご自由にお使いください。

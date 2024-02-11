@@ -175,7 +175,7 @@ Request location permissions.  Will throw if system location services are disabl
 | Prop            | Type                                                                                                                                                                                | Description                                             | Since |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----- |
 | **`timestamp`** | <code>number</code>                                                                                                                                                                 | Creation timestamp for coords                           | 1.0.0 |
-| **`coords`**    | <code>{ latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | The GPS coordinates along with the accuracy of the data | 1.0.0 |
+| **`coords`**    | <code>&#123; latitude: number; longitude: number; accuracy: number; altitudeAccuracy: number \| null; altitude: number \| null; speed: number \| null; heading: number \| null; }</code> | The GPS coordinates along with the accuracy of the data | 1.0.0 |
 
 
 #### PositionOptions
@@ -210,6 +210,17 @@ Request location permissions.  Will throw if system location services are disabl
 
 
 ### Type Aliases
+
+
+#### Position
+
+A <a href="#position">Position</a> is an array of coordinates.
+https://tools.ietf.org/html/rfc7946#section-3.1.1
+Array should contain between two and three elements.
+The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),
+but the current specification only allows X, Y, and (optionally) Z to be defined.
+
+<code>number[]</code>
 
 
 #### WatchPositionCallback

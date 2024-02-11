@@ -44,11 +44,11 @@ defaultConfig {
 
 ## ディープリンク（別名：Android アプリリンク）
 
-> Deep Links の詳しいガイドは [こちら](/docs/guides/deep-links) をご覧ください。
+> Deep Links の詳しいガイドは [こちら](/main/guides/deep-links.md) をご覧ください。
 
 Android App Links で Deeplinks を有効にするには、公式 Android ガイドの [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing) を参照してください。Android Studio には、App Links を設定するための便利なウィザードが付属しています。
 
-設定が完了すると、[App API の getLaunchUrl](/docs/apis/app#method-getLaunchUrl-0) はアプリが起動された URL を提供し、[appUrlOpen イベント](/docs/apis/app#method-addListener-1) はアプリが新しい App Link ディープリンクを受信すると起動します。
+設定が完了すると、[App API の getLaunchUrl](/apis/app.md#getlaunchurl) はアプリが起動された URL を提供し、[appUrlOpen イベント](/apis/app.md#addlistenerpause-) はアプリが新しい App Link ディープリンクを受信すると起動します。
 
 ## URL Schemes
 

@@ -22,7 +22,7 @@ npx cap sync
 ```typescript
 import { ScreenReader } from '@capacitor/screen-reader';
 
-ScreenReader.addListener('screenReaderStateChange', ({ value }) => {
+ScreenReader.addListener('stateChange', ({ value }) => {
   console.log(`Screen reader is now ${value ? 'on' : 'off'}`);
 });
 
@@ -43,7 +43,7 @@ const sayHello = async () => {
 
 * [`isEnabled()`](#isenabled)
 * [`speak(...)`](#speak)
-* [`addListener('stateChange', ...)`](#addlistenerstatechange)
+* [`addListener('stateChange', ...)`](#addlistenerstatechange-)
 * [`removeAllListeners()`](#removealllisteners)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
@@ -64,7 +64,7 @@ Whether a Screen Reader is currently active.
 This method is not supported on web (it is not possible to detect Screen
 Readers).
 
-**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
+**Returns:** <code>Promise&lt;&#123; value: boolean; }&gt;</code>
 
 **Since:** 1.0.0
 

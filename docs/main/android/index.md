@@ -56,7 +56,7 @@ npx cap open android
 npx cap run android
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [`run`](/docs/cli/commands/run) をご覧ください。
+コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [`run`](/cli/commands/run.md) をご覧ください。
 
 > `run` コマンドを使用するには、物理的なAndroidデバイスか、ダウンロードしたエミュレータのシステムイメージのどちらかが必要です。Android Studio でのエミュレータデバイスの作成とシステムイメージのダウンロードについては、 [こちらのドキュメント](https://developer.android.com/studio/run/managing-avds) を参照してください。
 
@@ -68,7 +68,7 @@ Android Studio では、まずデバイスやエミュレータを選択し、�
 
 ## トラブルシューティング
 
-使い始めてすぐに何か問題が発生した場合は、 [Android トラブルシューティングガイド](/docs/android/troubleshooting) を参考にしてください。お困りの方は、お気軽に [ディスカッションを開いて](https://github.com/ionic-team/capacitor/discussions/) までご連絡ください。
+使い始めてすぐに何か問題が発生した場合は、 [Android トラブルシューティングガイド](/main/android/troubleshooting.md) を参考にしてください。お困りの方は、お気軽に [ディスカッションを開いて](https://github.com/ionic-team/capacitor/discussions/) までご連絡ください。
 
 ## 次のステップ
 
@@ -78,6 +78,6 @@ Android Studio では、まずデバイスやエミュレータを選択し、�
 
 アプリのパーミッションの設定、依存関係の更新、プラグインの構築などの詳細については、以下の Android 固有のガイドを参照してください。
 
-[Android の設定とパーミッションの設定 &#8250;](/docs/android/configuration)
+[Android の設定とパーミッションの設定 &#8250;](/main/android/configuration.md)
 
-[Android 用のネイティブプラグインを作る &#8250;](/docs/plugins)
+[Android 用のネイティブプラグインを作る &#8250;](/plugins/creating-plugins/android-guide.md)

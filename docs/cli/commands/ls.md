@@ -3,12 +3,12 @@ title: CLI Command - cap ls
 description: Capacitor CLI - cap ls
 contributors:
   - dotNetkow
-sidebar_label: list
+sidebar_label: ls
 ---
 
 # Capacitor CLI - cap ls
 
-List all installed Cordova and Capacitor plugins.
+インストールされているすべての Cordova プラグインと Capacitor プラグインを一覧表示します。
 
 ```bash
 npx cap ls [<platform>]

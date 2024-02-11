@@ -15,7 +15,7 @@ Capacitor は、Web/Native 互換レイヤーを利用しており、Web 上の 
 
 ## はじめかた
 
-まず、プラグインガイドの [はじめかた](/docs/plugins/creating-plugins#plugin-generator) の項目にあるように、プラグインを生成してください。
+まず、プラグインガイドの [はじめかた](/plugins/creating-plugins/overview.md#plugin-generator) の項目にあるように、プラグインを生成してください。
 
 つづいて、`echo/src/web.ts` を好きなエディタで開きます。
 
@@ -53,7 +53,7 @@ export class EchoWeb extends WebPlugin implements EchoPlugin {
 
 これらは `@capacitor/core` からエクスポートされた `PermissionState` 型で表現されます。
 
-必要であれば、エイリアスのためにカスタムの状態を定義することも可能です。例えば、公式の [Camera plugin](/docs/apis/camera) では、 `camera` と `photos` のエイリアスに対して `limited` ステート を定義しています。
+必要であれば、エイリアスのためにカスタムの状態を定義することも可能です。例えば、公式の [Camera plugin](/apis/camera.md) では、 `camera` と `photos` のエイリアスに対して `limited` ステート を定義しています。
 
 エイリアスはクロスプラットフォームなので、プラグインのエイリアスを決定する際には、iOS、Android、Web のパーミッションを考慮するようにしてください。
 
