@@ -66,7 +66,7 @@ npx cap open ios
 npx cap open android
 ```
 
-ネイティブプロジェクトを開くと、アプリケーションのネイティブランタイムを完全に制御することができます。 [プラグインの作成](/plugins.md)、 [カスタムネイティブコードの追加](/main/ios/custom-code.md) 、[アプリケーションのコンパイル](#compiling-your-native-binary) でリリースすることが可能です。
+ネイティブプロジェクトを開くと、アプリケーションのネイティブランタイムを完全に制御することができます。 [プラグインの作成](/plugins.mdx)、 [カスタムネイティブコードの追加](/main/ios/custom-code.md) 、[アプリケーションのコンパイル](#compiling-your-native-binary) でリリースすることが可能です。
 
 ## ネイティブバイナリのコンパイル
 

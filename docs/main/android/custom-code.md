@@ -13,7 +13,7 @@ slug: /android/custom-code
 
 Capacitorでは、アプリが必要とするネイティブ機能を実装するためにJavaやKotlinのコードを書くことが推奨されています。
 
-[Capacitorプラグイン](/plugins.md) が全てに対応するわけではないかもしれませんが、それはそれで構いません! アプリの中でWebViewにアクセスできるネイティブコードを書くことは可能です。
+[Capacitorプラグイン](/plugins.mdx) が全てに対応するわけではないかもしれませんが、それはそれで構いません! アプリの中でWebViewにアクセスできるネイティブコードを書くことは可能です。
 
 ## WebView から Native コードにアクセス
 

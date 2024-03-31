@@ -60,22 +60,16 @@ npx cap add android
 
 ## スプラッシュスクリーンとアイコン
 
-アイコンとスプラッシュスクリーンのイメージは、プロジェクトのトップレベルの `resources` フォルダに保存されています。これらの画像があれば、`cordova-res`ツールを使って、Capacitor ベースの iOS や Android プロジェクトのアイコンやスプラッシュスクリーンを生成することができます。
+以前にアイコンやスプラッシュスクリーンの画像を作成した場合、それらはプロジェクトのトップレベルの `resources` フォルダにあります。これらの画像があれば、`@capacitor/assets`ツールを使ってCapacitorベースのiOSとAndroidプロジェクトのアイコンとスプラッシュスクリーンを生成できます。
 
-まず、`cordova-res`をインストールします:
-
-```bash
-npm install -g cordova-res
-```
-
-次に、以下を実行してイメージを再生成し、ネイティブプロジェクトにコピーします:
+以下を実行して画像を再生成し、ネイティブプロジェクトにコピーしてください：
 
 ```bash
-cordova-res ios --skip-config --copy
-cordova-res android --skip-config --copy
+npx @capacitor/assets generate --ios
+npx @capacitor/assets generate --android
 ```
 
-[詳細はこちら](https://github.com/ionic-team/cordova-res#capacitor).
+[詳細はこちら](https://github.com/ionic-team/capacitor-assets).
 
 ## プラグインの移行
 

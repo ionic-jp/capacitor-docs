@@ -19,7 +19,10 @@ module.exports = {
       ja: { label: '日本語' },
     },
   },
-  onBrokenAnchors: 'warn',
+  markdown: {
+    format: 'detect'
+  },
+  onBrokenAnchors: 'throw',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/meta/favicon.png',

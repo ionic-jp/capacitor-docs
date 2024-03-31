@@ -40,24 +40,26 @@ Android では、 `AndroidManifest.xml` を修正して、メインアプリの�
 
 多くのアプリでは、複数の方向性をサポートする必要があり、コンテンツに応じて方向性をロックすることもあります。
 
-Capacitor では、 `cordova-plugin-screen-orientation` プラグインでこの機能をサポートしています:
+Capacitor では、 `@capacitor/screen-orientation` プラグインでこの機能をサポートしています:
 
 ```shell
-npm install cordova-plugin-screen-orientation
-npx cap update
+npm install @capacitor/screen-orientation
+npx cap sync
 ```
 
-そして、 `window.screen.orientation` に用意されている `lock` と `unlock` のメソッドを使います:
+そして、 `lock` と `unlock` のメソッドを使います:
 
 ```typescript
-window.screen.orientation.lock('portrait');
-window.screen.orientation.lock('landscape');
+import { ScreenOrientation } from '@capacitor/screen-orientation';
+...
+await ScreenOrientation.lock({ orientation: 'portrait' });
+await ScreenOrientation.lock({ orientation: 'landscape' });
 
 // To unlock orientation which will default back to the global setting:
-window.screen.orientation.unlock();
+await ScreenOrientation.unlock();
 ```
 
-使用可能な向きの値や設定オプションについては、 [Orientation Plugin Docs](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-screen-orientation/) を参照してください。
+使用可能な向きの値と設定オプションの全てについては、[Orientation Plugin Docs](https://capacitorjs.com/docs/apis/screen-orientation)を参照してください。
 
 ### iPadの方向ロック
 

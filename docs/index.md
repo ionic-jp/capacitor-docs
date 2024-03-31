@@ -1,18 +1,9 @@
 ---
-<<<<<<< HEAD
 title: Capacitor - Web アプリをクロスプラットフォーム化する Native ライブラリ
 sidebar_label: 紹介
 description: iOS、Android、およびそれ以降向けのNative Progressive Web Appsを構築するためのクロスプラットフォーム・ネイティブ・ランタイム
-slug: /
-=======
-title: Capacitor - Cross-platform Native Runtime for Web Apps
-sidebar_label: Introduction
-description: A cross-platform native runtime for building Native Progressive Web Apps for iOS, Android, and beyond
->>>>>>> ee8d334a1b3ff977d5ca55b9477c18810bf6273c
 hide_table_of_contents: true
 ---
-
-import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Capacitor: Web アプリをクロスプラットフォーム化する Native ライブラリ
 
@@ -28,10 +19,4 @@ Capacitor は、 [Apache Cordova](https://cordova.apache.org/) と [Adobe PhoneG
 
 ## はじめ方
 
-<<<<<<< HEAD
-Capacitor を使い始めるのは簡単です！Capacitor は、既存の最新の JavaScript プロジェクトに組み込むことも、新しい Capacitor プロジェクトをゼロから作成することもできます。
-
 [インストールガイド](/docs/getting-started)に従って、アプリの構築を開始してください。
-=======
-Follow the [Installation guide](/main/getting-started/installation.md) to get started building your app.
->>>>>>> ee8d334a1b3ff977d5ca55b9477c18810bf6273c

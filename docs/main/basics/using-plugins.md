@@ -12,7 +12,7 @@ WebViewとCapacitorランタイムは、**Capacitor Plugins**の使用を通じ�
 
 Capacitorチームは、よく使われるAPIのための [Capacitorプラグインのセット](/plugins/official.md) を管理しています。また、[Capacitor Community](https://github.com/capacitor-community/) から利用可能なCapacitorプラグインの大規模なセットも存在します。Capacitorプラグインの提案がある場合は、[Capacitor Community proposals repo](https://github.com/capacitor-community/proposals/) を利用することができます。
 
-[Capacitorプラグインについての詳細はこちら &#8250;](/plugins.md)
+[Capacitorプラグインについての詳細はこちら &#8250;](/plugins.mdx)
 
 :::info
 Capacitorのプラグインを**作りたい**ですか？提案レポを見て、[プラグイン作成ガイドに従って](/plugins/creating-plugins/overview.md) 作ってみてください!
