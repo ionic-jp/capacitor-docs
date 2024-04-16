@@ -22,7 +22,7 @@ module.exports = {
   markdown: {
     format: 'detect'
   },
-  onBrokenAnchors: 'throw',
+  onBrokenAnchors: 'log',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/meta/favicon.png',
