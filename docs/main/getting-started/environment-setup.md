@@ -136,4 +136,4 @@ Android Studioのメニューから **Tools -> SDK Manager** を開き、**SDK P
 
 ![SDK Platforms](/img/v6/docs/android/sdk-platforms.png)
 
-使い始めるには、1つのAPIバージョンをインストールするだけでよい。上の画像では、Android 10（API 30）とAndroid 11（API 31）のSDKがインストールされている。最新の安定バージョンはAndroid 14（API 34）です。
+使い始めるには、1つのAPIバージョンをインストールするだけでよい。上の画像では、Android 9（API 28）とAndroid 10（API 29）のSDKがインストールされている。最新の安定バージョンはAndroid 14（API 34）です。
