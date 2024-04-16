@@ -19,11 +19,11 @@ jobs:
         run: git clone --depth 1 https://github.com/ionic-jp/capacitor-site.git site
 
       # capacitor-siteのビルド
-      - name: capacitor-site build
-        run: |
-          npm install
-          npm run build
-        working-directory: site
+#      - name: capacitor-site build
+#        run: |
+#          npm install
+#          npm run build
+#        working-directory: site
 
       # Docsのビルド
       - name: npm install, build
