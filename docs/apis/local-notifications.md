@@ -1,7 +1,7 @@
 ---
 title: Local Notifications Capacitor Plugin API
 description: ローカル通知APIは、デバイスの通知をローカルにスケジューリングする方法を提供します（サーバーがプッシュ通知を送信しない場合）。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/src/definitions.ts
 sidebar_label: Local Notifications
 ---

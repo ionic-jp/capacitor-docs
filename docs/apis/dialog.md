@@ -1,7 +1,7 @@
 ---
 title: Dialog Capacitor Plugin API
 description: ダイアログAPIは、アラート、確認、および入力プロンプト用のネイティブダイアログウィンドウをトリガーするためのメソッドを提供します。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/src/definitions.ts
 sidebar_label: Dialog
 ---

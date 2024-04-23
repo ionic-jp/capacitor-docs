@@ -1,7 +1,7 @@
 ---
 title: Motion Capacitor Plugin API
 description: モーションAPIは、加速度計とデバイスの向き（コンパスの方位など）をトラッキングします。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/src/definitions.ts
 sidebar_label: Motion
 ---

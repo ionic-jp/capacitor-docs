@@ -1,7 +1,7 @@
 ---
 title: App Capacitor Plugin API
 description: アプリAPIは、ハイレベルなアプリの状態とイベントを処理します。例えば、このAPIは、アプリがフォアグラウンドに入ったり出たりしたときにイベントを発行したり、ディープリンクを処理したり、他のアプリを開いたり、永続化されたプラグインの状態を管理したりします。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/app/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app/src/definitions.ts
 sidebar_label: App
 ---

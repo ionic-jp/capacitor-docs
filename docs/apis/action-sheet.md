@@ -1,7 +1,7 @@
 ---
 title: Action Sheet Capacitor Plugin API
 description: アクションシートAPIは、ネイティブなアクションシートへのアクセスを提供します。アクションシートは、画面の下部に表示され、ユーザーが取ることのできるアクションを表示します。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/src/definitions.ts
 sidebar_label: Action Sheet
 ---

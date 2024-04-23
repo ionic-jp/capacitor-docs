@@ -1,7 +1,7 @@
 ---
 title: Splash Screen Capacitor Plugin API
 description: スプラッシュスクリーンAPIでは、Splash画像の表示/非表示を切り替えることができます。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
 sidebar_label: Splash Screen
 ---

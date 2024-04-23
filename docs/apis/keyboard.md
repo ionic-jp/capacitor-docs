@@ -1,7 +1,7 @@
 ---
 title: Keyboard Capacitor Plugin API
 description: キーボードAPIは、キーボードの表示・非表示の制御、およびキーボードの表示・非表示時のイベントトラッキングを行います。
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/src/definitions.ts
 sidebar_label: Keyboard
 ---

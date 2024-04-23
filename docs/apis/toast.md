@@ -1,7 +1,7 @@
 ---
 title: Toast Capacitor Plugin API
 description: トーストAPIは、ユーザーに重要な情報を表示するための通知ポップアップを提供します。まるで本物のトーストのように！
-editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/README.md
+custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/toast/src/definitions.ts
 sidebar_label: Toast
 ---
