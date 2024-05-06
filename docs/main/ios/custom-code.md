@@ -29,7 +29,13 @@ JavaScript とネイティブ コード間の通信を行う最も簡単な方�
 import Capacitor
 
 @objc(EchoPlugin)
-public class EchoPlugin: CAPPlugin {
+public class EchoPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "EchoPlugin"
+    public let jsName = "Echo"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+    ]
+
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
         call.resolve(["value": value])
@@ -43,25 +49,17 @@ public class EchoPlugin: CAPPlugin {
 
 CapacitorがSwiftとJavaScriptの間を橋渡しできるように、iOSとWebの両方でカスタムプラグインを登録する必要があります。
 
-#### `EchoPlugin.m` を作成します。
+#### `MyViewController.swift`
 
-次に、Xcodeで同じようにEchoPlugin.m`ファイルを作成しますが、ウィンドウで**Objective-C**を選択します。File Type** は **Empty File** のままにしておきます。XcodeからBridging Headerの作成を促されたら、**Create Bridging Header**をクリックします。
+[カスタム`MyViewController.swift`を作成する](../ios/viewcontroller.md)。
 
-> Xcodeを使用してネイティブファイルを作成することは、プロジェクトに適切にリファレンスが追加されるため、推奨されています。
->
-> プロジェクトファイルへのこれらの変更は、新しいファイル自体と共にプロジェクトにコミットされるべきです。
+次に、`capacitorDidLoad()`メソッドをオーバーライドしてプラグインを登録します：
 
-以下の Swift コードを `EchoPlugin.m` にコピーしてください。
-
-```objectivec
-#import <Capacitor/Capacitor.h>
-
-CAP_PLUGIN(EchoPlugin, "Echo",
-    CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
-)
+```swift
+override open func capacitorDidLoad() {
+    bridge?.registerPluginInstance(EchoPlugin())
+}
 ```
-
-> これらの Objective-C マクロは、あなたのプラグインを Capacitor に登録し、`EchoPlugin` とその `echo` メソッドを JavaScript から利用できるようにします。EchoPlugin.swift` のメソッドを追加または削除するたびに、このファイルは更新されなければなりません。
 
 #### JavaScript
 

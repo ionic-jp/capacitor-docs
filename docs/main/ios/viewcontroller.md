@@ -13,7 +13,7 @@ Capacitor 3.0 では、アプリケーション内で `CAPBridgeViewController` 
 
 ## サブクラスを作成する場合
 
-サブクラス化が必要になる例としては、実行時に Capacitor の設定値をオーバーライドしたり、 [`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) のプロパティを変更したり、Capacitor が使用するために [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview) のカスタムサブクラスをサブクラス化したり、 [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) にコードを追加することを提案するサードパーティの SDK を統合したり、画面に表示される前のネイティブビューを操作したりする場合があります。
+サブクラス化が必要になる例としては、実行時にCapacitorの設定値をオーバーライドしたり、[`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration)のプロパティをしたり、[`WKWebView`](https://developer.apple. com/documentation/webkit/wkwebview))を使用したり、[`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload)にコードを追加することを提案するサードパーティSDKを統合する、画面に表示される前にネイティブビューを操作する、または [カスタムプラグインを登録する](../ios/custom-code.md) 場合があります。
 
 カスタムサブクラスを作成する必要がある場合は、いくつかの手順があります。
 
