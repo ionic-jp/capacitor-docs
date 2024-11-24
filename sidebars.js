@@ -114,6 +114,7 @@ module.exports = {
         'main/android/index',
         'main/android/configuration',
         'main/android/custom-code',
+        'main/android/setting-target-sdk',
         'main/android/deploying-to-google-play',
         'main/android/troubleshooting',
       ],
@@ -191,6 +192,7 @@ module.exports = {
         'plugins/creating-plugins/web-guide',
         'plugins/creating-plugins/method-types',
         'plugins/creating-plugins/configuration-values',
+        'plugins/creating-plugins/plugin-hooks',
       ],
     },
     {
@@ -215,7 +217,7 @@ module.exports = {
       type: 'category',
       label: 'CLIドキュメンテーション',
       collapsed: false,
-      items: ['cli/index', 'cli/hooks'],
+      items: ['cli/index', 'cli/hooks', 'cli/telemetry'],
     },
     {
       type: 'category',

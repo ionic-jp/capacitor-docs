@@ -70,9 +70,15 @@ npx cap open android
 
 ## ネイティブバイナリのコンパイル
 
-Capacitorには `build` や `compile` というコマンドはありませんし、今後もないでしょう。 `async` の後、ターゲットプラットフォームのIDEを開くことが推奨されます。iOSの場合はXcode、Androidの場合はAndroid Studioを開いて、ネイティブアプリをコンパイルすることをお勧めします。
+`sync` の後、ターゲット・プラットフォームのIDEを開くことをお勧めします： iOSの場合はXcode、Androidの場合はAndroid Studioを開き、ネイティブアプリをコンパイルします。
 
-ターミナルや CI 環境でアプリをコンパイルするには、`gradle` や `xcodebuild` を直接使用することができます。また、これらのプロセスを自動化するために、 [Fastlane](https://fastlane.tools) やクラウドビルドツール [Appflow](https://useappflow.com) などのツールを使用することをお勧めします。アプリケーションごとに異なりますが、Capacitorプロジェクトの一般的なリリースプロセスの例があります。Apple App StoreやGoogle Play Storeへのデプロイ方法の詳細については、 [iOS](/main/ios/deploying-to-app-store.md) と [Android](/main/android/deploying-to-google-play.md) の公開ガイドを読んでみて下さい。
+また、ターミナルやCI環境でアプリをコンパイルするには、[cap build command](/cli/commands/build) を使ってネイティブプロジェクトをビルドし、デバイスやエンドユーザーに配布できる署名済みのAAB、APK、またはIPAファイルを出力することもできます。
+
+```
+npx cap build android
+```
+
+また、これらのプロセスを自動化するために、[Fastlane](https://fastlane.tools) や [Appflow](https://useappflow.com) のようなクラウドビルドツールを使用することをお勧めします。アプリケーションはそれぞれ異なりますが、Capacitorプロジェクトの一般的なリリースプロセスの例があります。 [iOS](/main/ios/deploying-to-app-store.md)  [Android](/main/android/deploying-to-google-play.md)のパブリッシングガイドを読んで、Apple App StoreやGoogle Play Storeへのデプロイ方法の詳細を確認してください。
 
 ## Capacitorのアップデート
 

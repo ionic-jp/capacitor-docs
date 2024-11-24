@@ -16,14 +16,13 @@ iOS 用の Capacitor プラグインを構築するには、Apple の iOS SDK �
 
 まず、プラグインガイドの [はじめかた](/plugins/creating-plugins/overview.md) にあるように、プラグインを生成します。
 
-次に、Xcode で `echo/ios/Plugin.xcworkspace` を開いてください。次に、プラグイン用の.swift ファイルに移動します。
+次に、Xcodeで`Package.swift`を開きます。次に、プラグインの .swift ファイルに移動します。
 
-例えば、Plugin Class Name が `Echo` のプラグインの場合、 `EchoPlugin.swift` を開く必要があります。
+例えば、プラグインクラス名`EchoPlugin`のプラグインの場合、`ios/Sources/EchoPlugin/EchoPlugin.swift` と `ios/Sources/EchoPlugin/Echo.swift`を開きます。
 
 ## プラグインの基本
 
-iOS 用の Capacitor プラグインは、`CAPPlugin`を継承したシンプルな Swift クラスで、
-JavaScript から呼び出し可能ないくつかのエクスポートされたメソッドを持っています。
+iOS向けのCapacitorプラグインには、シンプルなSwiftクラスが2つあります。一つは `NSObject` を継承した実装クラスで、ここにプラグインロジックを置く必要があります。もう一つは `CAPPlugin` と `CAPBridgedPlugin` を継承し、JavaScript から呼び出し可能ないくつかのエクスポートメソッドを持ち、実装メソッドをラップします。
 
 ### 簡単な例
 
@@ -32,19 +31,40 @@ JavaScript から呼び出し可能ないくつかのエクスポートされた
 この例では、Capacitor プラグインのいくつかのコアコンポーネントを紹介します:
 プラグインコールからデータを受け取り、呼び出し元にデータを返します:
 
+`Echo.swift`
+
+```swift
+import Foundation
+
+@objc public class Echo: NSObject {
+    @objc public func echo(_ value: String) -> String {
+        print(value)
+        return value
+    }
+}
+```
+
 `EchoPlugin.swift`
 
 ```swift
+import Foundation
 import Capacitor
 
 @objc(EchoPlugin)
-public class EchoPlugin: CAPPlugin {
-  @objc func echo(_ call: CAPPluginCall) {
-    let value = call.getString("value") ?? ""
-    call.resolve([
-        "value": value
-    ])
-  }
+public class EchoPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "EchoPlugin"
+    public let jsName = "Echo"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+    ]
+    private let implementation = Echo()
+
+    @objc func echo(_ call: CAPPluginCall) {
+        let value = call.getString("value") ?? ""
+        call.resolve([
+            "value": implementation.echo(value)
+        ])
+    }
 }
 ```
 
@@ -110,23 +130,21 @@ override public func load() {
 
 ### Capacitor へのエクスポート
 
-Capacitor があなたのプラグインを見ることができるようにするために、プラグイン・ジェネレータは 2 つのことをします: Swift クラスを Objective-C にエクスポートし、提供された Capacitor Objective-C マクロを使用してそれを登録することです。
+Capacitorがあなたのプラグインを見ることができることを確認するために、プラグイン・ジェネレータは2つのことを行います：あなたのSwiftクラスをObjective-Cにエクスポートし、プラグインメソッドを登録します。
 
 Swift のクラスを Objective-C にエクスポートするために、プラグインジェネレータは Swift のクラスの上に `@objc(EchoPlugin)` を追加し、`echo` メソッドの前に `@objc` を追加します。
 
-プラグインを登録するには、プラグインジェネレータはプラグインに対応する `.m` 拡張子のファイル (例えば `EchoPlugin.m`) を作成し、`CAP_PLUGIN` マクロを使用してプラグインを登録し、`CAP_PLUGIN_METHOD` マクロを使用して `echo` メソッドを登録します。
+プラグインメソッドを登録するために、プラグインジェネレータは `CAPPluginMethod` の `pluginMethods` 配列を作成し、`echo` メソッドを登録します。
 
-```objectivec
-#import <Capacitor/Capacitor.h>
-
-CAP_PLUGIN(EchoPlugin, "Echo",
-  CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
-)
+```swift
+public let pluginMethods: [CAPPluginMethod] = [
+    CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+]
 ```
 
-これにより、`Echo` プラグインと `echo` メソッドが Capacitor Web ランタイムで利用可能になり、echo メソッドが Promise を返すことが Capacitor に示されます。
+これにより、Capacitor の Web ランタイムで `echo` メソッドを使用できるようになり、Capacitor に対して echo メソッドが Promise を返すことを示すようになります。
 
-プラグインに他のメソッドを追加するには、 `.swift` プラグインクラスで `func` キーワードの前に `@objc` を付けてメソッドを作成し、 `.m` ファイルに新しい `CAP_PLUGIN_METHOD` エントリを追加してください。
+プラグインにさらにメソッドを追加するには、`.swift` プラグインクラスで `func` キーワードの前に `@objc` を付けてメソッドを作成し、`pluginMethods` 配列に新しい `CAPPluginMethod` エントリを追加します。
 
 ## パーミッション
 

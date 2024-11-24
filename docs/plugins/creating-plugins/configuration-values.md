@@ -84,17 +84,17 @@ export default config;
 
 ## 設定値へのアクセス
 
-Capacitor APIには、プラグインのネイティブ実装からプラグインの設定値にアクセスするためのユーティリティメソッドが含まれています。
+Capacitor API には、プラグインのネイティブ実装からプラグインの設定値にアクセスするための `getConfig()` ユーティリティメソッドが含まれています。
 
-iOS では、`getConfigValue()` メソッドを使用します。
+iOS:
 
 ```swift
-if let style = getConfigValue("style") as? String {
+if let style = getConfig().getString("style") {
   // Set the style
 }
 ```
 
-Androidの場合は、`getConfig()` メソッドを使用します。
+Android:
 
 ```Java
 String style = getConfig().getString("style");
