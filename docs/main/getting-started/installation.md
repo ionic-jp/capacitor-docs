@@ -77,15 +77,7 @@ npx cap add ios
 npx cap sync
 ```
 
-<<<<<<< HEAD
-npx cap sync` はビルドしたウェブアプリケーション(デフォルトは `www`) をネイティブプロジェクトにコピーし、ネイティブプロジェクトの依存関係をインストールします。
-
-:::info
-どのフォルダをコピーするかは、`npx cap init`で作成される[Capacitor Config](/main/reference/config.md) ファイル内の `webDir` 変数を変更することでカスタマイズすることができます。
-:::
-=======
-`npx cap sync` will copy your built web bundle expected to be found in `webDir` of the [Capacitor Config](/docs/config) file to your native project and install the native project's dependencies.
->>>>>>> 27dcaf2f73d1846019a95c8ef6fab387915ae674
+`npx cap sync` コマンドは、[Capacitor Config](/docs/config) ファイルの `webDir` にあるビルドされた Web バンドルをネイティブプロジェクトにコピーし、ネイティブプロジェクトの依存関係をインストールします。
 
 ## 次に進むべき道
 
