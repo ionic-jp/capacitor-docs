@@ -48,7 +48,11 @@ npm i -D @capacitor/cli
 npx cap init
 ```
 
-CLIは、アプリ名やアプリに使用するパッケージIDなどから、いくつかの質問をします。
+CLIは、アプリ名とアプリに使用するパッケージIDから始まり、いくつかの質問をします。そして、capacitor-config ファイルを作成します。capacitor-config ファイルには、bundler のビルドプロセスで出力されるディレクトリ（例：Angular の場合は `www`、React の場合は `build`、Vue の場合は `public`など）を指定します。
+
+:::info
+Capacitor が使用するフォルダは、`npx cap init` 中に作成される [Capacitor Config](/docs/config) ファイルの `webDir` 変数を変更することでカスタマイズできます。Capacitorは使用しているフレームワークをチェックすることで、Webプロジェクトのデフォルトを検出しようとすることに注意してください。それでも、最初のビルドの同期に問題がある場合は、この設定変数をクロスチェックすることをお勧めします。
+:::
 
 ### AndroidとiOSのプロジェクトを作成する
 
@@ -73,11 +77,7 @@ npx cap add ios
 npx cap sync
 ```
 
-npx cap sync` はビルドしたウェブアプリケーション(デフォルトは `www`) をネイティブプロジェクトにコピーし、ネイティブプロジェクトの依存関係をインストールします。
-
-:::info
-どのフォルダをコピーするかは、`npx cap init`で作成される[Capacitor Config](/main/reference/config.md) ファイル内の `webDir` 変数を変更することでカスタマイズすることができます。
-:::
+`npx cap sync` は、 [Capacitor Config](/docs/config) ファイルの `webDir` の値にあなたのWebバンドルをコピーし、ネイティブプロジェクトの依存関係をインストールします。
 
 ## 次に進むべき道
 

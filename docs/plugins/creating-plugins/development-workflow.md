@@ -66,7 +66,7 @@ public void openMap(PluginCall call) {
 }
 ```
 
-[iOS の機能](./ios) は `ios/Plugin/EchoPlugin.swift` に実装します:
+[iOS の機能](./ios) は `ios/Sources/EchoPlugin/EchoPlugin.swift` に実装します:
 
 ```swift
 @objc func openMap(_ call: CAPPluginCall) {
@@ -79,7 +79,7 @@ public void openMap(PluginCall call) {
 }
 ```
 
-> `.m` ファイルに [プラグインメソッドの登録](/plugins/creating-plugins/ios-guide.md#export-to-capacitor) を忘れずに行ってください。
+> `.swift` ファイルに [プラグインメソッドの登録](/plugins/creating-plugins/ios-guide.md#export-to-capacitor) を忘れずに行ってください。
 
 この例はプラグインで最も一般的なタイプのメソッドを含んでいますが、サポートされているすべてのタイプの詳細は [ここで見つけることができます](/plugins/creating-plugins/method-types.md) 。
 

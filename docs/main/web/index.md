@@ -29,26 +29,7 @@ Web サポート付きのプラグインは、機能検出を行い、ブラウ�
 
 ### スクリプトを include して Capacitor を利用する
 
-ビルドシステムやバンドルラ/モジュールローダーを使用していない Web アプリで Capacitor ランタイムを使用するには、以下のようにします。
-
-1. Capacitor の設定ファイル(/main/reference/config.md) で、`bundledWebRuntime`を`true`に設定する。
-
-```json
-"bundledWebRuntime": true
-```
-
-2. Capacitor のランタイムバンドル（`capacitor.js`）を Web assets ディレクトリにコピーする。
-
-```bash
-npx cap sync web
-```
-
-3. index.html "に "capacitor.js "を他の JavaScript よりも先にインポートする。
-
-```html
-<script src="capacitor.js"></script>
-<script src="your/app.js"></script>
-```
+This option is no longer available, please, use a JavaScript module bundler.
 
 ## Going Live
 

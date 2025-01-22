@@ -15,7 +15,7 @@ Capacitor の iOS アプリは、Xcode と　[CocoaPods](https://cocoapods.org/)
 
 ## iOS サポート
 
-iOS 13+に対応しています。Xcode 15.0+が必要です（[環境セットアップ](/main/getting-started/environment-setup.md#ios-requirements) を参照）。Capacitorは非推奨の[UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)ではなく、[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)を使用します。
+iOS 14+に対応しています。Xcode 16.0+が必要です（[環境セットアップ](/main/getting-started/environment-setup.md#ios-requirements) を参照）。Capacitorは非推奨の[UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)ではなく、[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)を使用します。
 
 ## iOS プラットフォームの追加
 
