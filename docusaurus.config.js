@@ -3,7 +3,7 @@ const prismic = require('@prismicio/client');
 const fetch = require('node-fetch');
 const { themes } = require('prism-react-renderer');
 
-const HOSTNAME = 'capacitorjs.com';
+const HOSTNAME = 'capacitorjs.jp';
 const BASE_URL = '/docs';
 
 module.exports = {
