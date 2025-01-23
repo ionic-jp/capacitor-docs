@@ -14,9 +14,9 @@ import DocsCards from '@components/global/DocsCards';
   />
 </head>
 
-Because Ionic Apps are built with web technologies, they can run just as well as a Progressive Web App as they can a native app. Not sure what PWAs are? Check out Ionic's <a href="https://ionicframework.com/pwa" target="_blank">PWA Overview</a> page for more info.
+Ionicアプリはウェブ技術で構築されているため、ネイティブアプリと同様にProgressive Web Appとしても動作します。PWAとは何かよくわからない場合は、Ionicの<a href="https://ionicframework.com/pwa" target="_blank">PWA概要</a>ページをチェックしてください。
 
-For the frameworks Ionic supports, we've created dedicated guides that go into more detail. Below are links for Angular and React.
+Ionicがサポートするフレームワークについて、より詳細に説明した専用のガイドを作成しました。以下はAngularとReactのリンクです。
 
 <DocsCards>
   <DocsCard header="Angular" href="../angular/pwa" img="/img/frameworks/angular.svg"></DocsCard>

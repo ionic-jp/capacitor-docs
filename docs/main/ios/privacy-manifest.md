@@ -1,61 +1,61 @@
 ---
-title: Privacy Manifest
-description: Adding a Privacy Manifest to your iOS app
+title: プライバシーマニフェスト
+description: iOSアプリにプライバシーマニフェストを追加する
 slug: /ios/privacy-manifest
 ---
 
-Apple recently introduced new [privacy protocols for third-party SDKs](https://developer.apple.com/news/?id=3d8a9yyh) at WWDC23, requiring SDK authors to declare approved reasons for API usage within their SDKs to enhance transparency and user privacy.
+Appleは最近、WWDC23で新しい[サードパーティSDKのプライバシープロトコル](https://developer.apple.com/news/?id=3d8a9yyh)を導入し、SDKの作成者がSDK内でのAPI使用の承認された理由を宣言することを要求しました。これにより、透明性とユーザープライバシーが向上します。
 
-Starting March 13th, 2024, App Store Connect will notify users when a new or updated app is uploaded without approved reasons to access certain APIs.
+2024年3月13日から、App Store Connectは、特定のAPIにアクセスするための承認された理由がない新しいまたは更新されたアプリがアップロードされた場合にユーザーに通知します。
 
-**Starting May 1st, 2024, you will be required to include approved reasons when submitting a new or updated app to App Store Connect.**
+**2024年5月1日から、新しいまたは更新されたアプリをApp Store Connectに提出する際に、承認された理由を含める必要があります。**
 
-## Steps to Meet Requirements
+## 要件を満たすための手順
 
-Not all Applications will be flagged but certain plugins such as `@capacitor/filesystem` and `@capacitor/preferences` may necessitate a Privacy Manifest File. If you have received a notification:
+すべてのアプリケーションがフラグされるわけではありませんが、`@capacitor/filesystem`や`@capacitor/preferences`などの特定のプラグインにはプライバシーマニフェストファイルが必要になる場合があります。通知を受け取った場合は次の手順を実行してください：
 
-1. Update Capacitor to:
-a. `>= 6.0.0` for Capacitor 6
-b. `>= 5.7.4` for Capacitor 5
-c. `>= 4.8.2` for Capacitor 4
-d. Capacitor <= 3 is not supported
-2. Use either the VS Code Extension to create the privacy manifest file for your app or create it manually.
+1. Capacitorを更新します：
+a. Capacitor 6の場合は`>= 6.0.0`
+b. Capacitor 5の場合は`>= 5.7.4`
+c. Capacitor 4の場合は`>= 4.8.2`
+d. Capacitor 3以下はサポートされていません
+2. VS Code拡張機能を使用してアプリのプライバシーマニフェストファイルを作成するか、手動で作成します。
 
-### VS Code Extension
+### VS Code拡張機能
 
-Make sure you have the [Ionic VS Code extension](https://ionic.link/vscode) installed and open your project.
+[Ionic VS Code拡張機能](https://ionic.link/vscode)がインストールされていることを確認し、プロジェクトを開きます。
 
-Under recommendations you will see *Add Privacy Manifest* if your application is using a plugin that uses certain APIs.
+推奨事項の下に、アプリケーションが特定のAPIを使用するプラグインを使用している場合は*Add Privacy Manifest*が表示されます。
 
 ![No Manifest](/img/v6/docs/ios/no-manifest.png)
 
-Choose Yes to create the bare minimum privacy manifest file.
+最小限のプライバシーマニフェストファイルを作成するには、Yesを選択します。
 
-The extension will then list all changes needed as recommendations titled *Missing Privacy Manifest Category*. For example:
+拡張機能は、*Missing Privacy Manifest Category*というタイトルの推奨事項として必要なすべての変更を一覧表示します。例えば：
 
 ![Privacy Change](/img/v6/docs/ios/privacy-change.png)
 
-You must select one of the reason codes to explain how you use the plugin. If you are unsure, click *Docs* to go to the Apple’s documentation on the explanations of each reason code.
+プラグインの使用方法を説明する理由コードのいずれかを選択する必要があります。わからない場合は、*Docs*をクリックしてAppleの各理由コードの説明に関するドキュメントを参照してください。
 
-Please note that the VS Code extension has a set of rules for known plugins to help you. If you are still being rejected by Apple for missing privacy manifest reasons it may be that you are using a plugin that the extension does not know. You can open an issue on the [VS Code extension issue tracker](https://github.com/ionic-team/vscode-ionic/issues).
+VS Code拡張機能には、既知のプラグインに関する一連のルールが含まれており、これを支援します。それでもAppleからプライバシーマニフェストの理由が不足しているために拒否される場合は、拡張機能が知らないプラグインを使用している可能性があります。[VS Code拡張機能の問題トラッカー](https://github.com/ionic-team/vscode-ionic/issues)で問題を報告できます。
 
-### Manual Steps
+### 手動手順
 
-If you would prefer to perform the steps for creating a Privacy Manifest file manually open Xcode then:
+プライバシーマニフェストファイルを手動で作成する手順を実行する場合は、Xcodeを開きます：
 
-Choose *File > New File*.
+*File > New File*を選択します。
 
-Scroll down to the *Resource* section and select *App Privacy File* type.
+*Resource*セクションまでスクロールし、*App Privacy File*タイプを選択します。
 
-Click *Next*.
+*Next*をクリックします。
 
-Check your app in the *Targets* list.
+*Targets*リストでアプリを確認します。
 
-Click *Create*.
+*Create*をクリックします。
 
-A filed called `PrivacyInfo.xcprivacy` will be created. This file is challenging to create interactively in the Xcode UI so it may be easier to edit it manually by right clicking it and choosing *Open with External Editor*.
+`PrivacyInfo.xcprivacy`というファイルが作成されます。このファイルはXcode UIで対話的に作成するのが難しいため、右クリックして*Open with External Editor*を選択して手動で編集する方が簡単です。
 
-As a sample file here is a `PrivacyInfo.xcprivacy` file that uses the UserDefaults API through its use of the `@capacitor/preferences` plugin.
+以下は、`@capacitor/preferences`プラグインを使用してUserDefaults APIを使用する`PrivacyInfo.xcprivacy`ファイルのサンプルです。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,10 +81,10 @@ As a sample file here is a `PrivacyInfo.xcprivacy` file that uses the UserDefaul
 </plist>
 ```
 
-To find code and plugins which may require privacy manifest changes you can use a script like [this one](https://github.com/Wooder/ios_17_required_reason_api_scanner) by running `sh required_reason_api_text_scanner.sh node_modules` .
+プライバシーマニフェストの変更が必要なコードやプラグインを見つけるには、[このスクリプト](https://github.com/Wooder/ios_17_required_reason_api_scanner)のようなものを使用して、`sh required_reason_api_text_scanner.sh node_modules`を実行できます。
 
-To choose the correct reason codes (like `CA92.1` in the above example) you will need to read [Apple’s documentation](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api).
+正しい理由コード（上記の例では`CA92.1`など）を選択するには、[Appleのドキュメント](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api)を読む必要があります。
 
-## Before Store Submission
+## ストア提出前
 
-Before App store submission you may need to disclose user tracking, tracking domains or collection of other data types that are unique for your application. See [Apple’s documentation](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files) for more information.
+App Store提出前に、ユーザートラッキング、トラッキングドメイン、またはアプリケーション固有の他のデータタイプの収集を開示する必要がある場合があります。詳細については、[Appleのドキュメント](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)を参照してください。

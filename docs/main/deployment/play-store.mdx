@@ -14,21 +14,21 @@ import TabItem from '@theme/TabItem';
   />
 </head>
 
-If you are using Capacitor, you can additionally refer to the Capacitor documentation for [Deploying to Google Play](https://capacitorjs.com/docs/android/deploying-to-google-play).
+Capacitorを使用している場合は、[Google Playへのデプロイ](https://capacitorjs.com/docs/android/deploying-to-google-play)に関するCapacitorのドキュメントも参照できます。
 
-## Generating a release build of an app
+## アプリのリリースビルドの生成
 
 <Tabs groupId="runtime">
 <TabItem value="capacitor" label="Capacitor" default>
-To generate a release build for Android, build your web app and then run the following cli command:
+Android用のリリースビルドを生成するには、ウェブアプリをビルドしてから次のCLIコマンドを実行します：
 
 ```shell
 npx cap copy && npx cap sync
 ```
 
-This will copy all web assets and sync any plugin changes.
+これにより、すべてのウェブアセットがコピーされ、プラグインの変更が同期されます。
 
-Next, open Android studio:
+次に、Android Studioを開きます：
 
 ```shell
 npx cap open android
@@ -36,124 +36,125 @@ npx cap open android
 
 </TabItem>
 <TabItem value="cordova" label="Cordova">
-To generate a release build for Android, run the following cli command:
+Android用のリリースビルドを生成するには、次のCLIコマンドを実行します：
 
 ```shell
 $ ionic cordova build android --prod --release
 ```
 
-This will generate a release build based on the settings in the `config.xml` in the `platforms/android/app/build/outputs/apk` directory of an app.
-An Ionic app will have preset default values in this file but this can be changed to customize builds.
+これにより、アプリの`config.xml`の設定に基づいてリリースビルドが生成されます。
+Ionicアプリにはこのファイルにデフォルト値が設定されていますが、ビルドをカスタマイズするために変更することができます。
 
 </TabItem>
 </Tabs>
 
-## Signing an APK
+## APKの署名
 
 <Tabs groupId="runtime">
 <TabItem value="capacitor" label="Capacitor" default>
-To create an AAB binary locally using Android Studio:
+Android Studioを使用してローカルでAABバイナリを作成するには：
 
-- Open the Build menu
-- Choose **Generate Signed Bundle / APK**
-- Follow the prompts to sign the AAB with your keystore file
+- ビルドメニューを開く
+- **Generate Signed Bundle / APK**を選択
+- キーストアファイルでAABに署名するためのプロンプトに従う
 
-For complete details, [view the Android documentation](https://developer.android.com/studio/publish/app-signing).
+詳細については、[Androidのドキュメント](https://developer.android.com/studio/publish/app-signing)を参照してください。
 
-### Google Play Signing
+### Google Play署名
 
-If you haven't made the switch to Android app bundles yet, you will need to opt into Play App Signing in the Google Play Console to be able to publish them.
+まだAndroidアプリバンドルに切り替えていない場合は、Google PlayコンソールでPlay App Signingにオプトインする必要があります。
 
-#### New Apps
+#### 新しいアプリ
 
-First, create a new app in the Google Play Console. In order to enable app signing, you'll need to navigate to the new release screen, on one of the Production, Open testing, closed testing, or internal testing pages.
-Select the Create new release button as seen below (it doesn't matter which release type, since you don't have to actually go through with creating a new release right now):
+まず、Google Playコンソールで新しいアプリを作成します。アプリ署名を有効にするには、プロダクション、オープンテスト、クローズドテスト、または内部テストページのいずれかの新しいリリース画面に移動する必要があります。
+以下のように新しいリリースボタンを選択します（リリースタイプは関係ありません。今すぐ新しいリリースを作成する必要はありません）：
 
 ![Select create new release in Google Play Console's Production tab](https://blog.ionicframework.com/wp-content/uploads/2021/12/newapps-release-1024x561.png)
 
-Under the App integrity section, click the **Change app signing key** button:
+アプリの整合性セクションで、**Change app signing key**ボタンをクリックします：
 
 ![Select change app signing key in Google Play Console's Production tab](https://blog.ionicframework.com/wp-content/uploads/2021/12/newapps-signingkey.png)
 
-Next, select the **Export and upload a key from Java Keystore** option. This is the only way in which you can retain the key and have Google Play use it for signing. If you're using Appflow to build Android apps in the cloud, this is also the required option so you can upload the keystore file to Appflow.
+次に、**Export and upload a key from Java Keystore**オプションを選択します。これが、キーを保持し、Google Playがそれを使用して署名する唯一の方法です。Appflowを使用してクラウドでAndroidアプリをビルドする場合も、このオプションが必要です。キーストアファイルをAppflowにアップロードできます。
 
 ![Uploading a keystore file to Google Play Console](https://blog.ionicframework.com/wp-content/uploads/2021/12/newapps-export-1024x564.png)
 
-Follow the instructions on the screen to generate the Keystore and you can use the same Keystore file to sign your app in the Appflow dashboard as well. If you need any help generating the Keystore file, you can refer to our docs [here](https://ionic.io/docs/appflow/package/credentials#android-certificates).
-Once the generated zip file has been uploaded, you're all set! Build an AAB binary signed with the keystore file then upload it to Google Play.
+画面の指示に従ってキーストアを生成し、同じキーストアファイルをAppflowダッシュボードでアプリに署名するために使用できます。キーストアファイルの生成に関するヘルプが必要な場合は、[こちら](https://ionic.io/docs/appflow/package/credentials#android-certificates)のドキュメントを参照してください。
+生成されたzipファイルをアップロードすると、準備完了です！キーストアファイルで署名されたAABバイナリをビルドし、それをGoogle Playにアップロードします。
 
-#### Existing Apps
+#### 既存のアプリ
 
-As of now, existing apps aren't required to use the AAB format, but you can still enroll them using Play App signing.
+現在のところ、既存のアプリはAAB形式を使用する必要はありませんが、Play App Signingに登録することはできます。
 
-To opt into app signing, you'll need to upload the app signing key used to sign previous releases of the app. Navigate to Setup -> App integrity, then choose one of the two methods seen in the screenshot below. Once the key has been uploaded, you can enroll in Play App Signing.
+アプリ署名にオプトインするには、アプリの以前のリリースに署名するために使用されたアプリ署名キーをアップロードする必要があります。セットアップ -> アプリの整合性に移動し、以下のスクリーンショットに示されている2つの方法のいずれかを選択します。キーがアップロードされると、Play App Signingに登録できます。
 
 ![App integrity setup in Google Play Console](https://blog.ionicframework.com/wp-content/uploads/2021/12/existingapps-optin.png)
 
 :::tip
-With smaller app sizes, improved performance, and enhanced security, the AAB binary format is a win for app developers and users alike. If you have an existing Android app using the APK format, consider migrating to AAB to take advantage of all the great features it provides.
+アプリサイズの縮小、パフォーマンスの向上、セキュリティの強化により、AABバイナリ形式はアプリ開発者とユーザーの両方にとってメリットがあります。APK形式を使用している既存のAndroidアプリがある場合は、AABに移行して提供されるすべての優れた機能を活用することを検討してください。
 :::
 
 </TabItem>
 <TabItem value="cordova" label="Cordova">
-First, the unsigned APK must be signed. If a signing key has already been generated, skip these steps and use that one instead.
-Generate a private key using the keytool command that comes with the Android SDK:
+まず、未署名のAPKに署名する必要があります。署名キーが既に生成されている場合は、これらの手順をスキップしてそれを使用します。
+Android SDKに付属のkeytoolコマンドを使用してプライベートキーを生成します：
 
 ```shell
 $ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-Once that command has been ran and its prompts have been answered a file called `my-release-key.keystore` will be created in the current directory.
+このコマンドを実行し、プロンプトに回答すると、現在のディレクトリに`my-release-key.keystore`というファイルが作成されます。
 
 :::caution
-Save this file and keep it somewhere safe. If it is lost the Google Play Store will not accept updates for this app!
+このファイルを保存し、安全な場所に保管してください。紛失した場合、Google Playストアはこのアプリの更新を受け付けません！
 :::
 
-To sign the unsigned APK, run the jarsigner tool which is also included in the Android SDK:
+未署名のAPKに署名するには、Android SDKに含まれているjarsignerツールを実行します：
 
 ```shell
 $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
 ```
 
-Finally, the zip align tool must be ran to optimize the APK.
-The `zipalign` tool can be found in `/path/to/Android/sdk/build-tools/VERSION/zipalign`.
-For example, on macOS with Android Studio installed, `zipalign` is in `~/Library/Android/sdk/build-tools/VERSION/zipalign`:
+最後に、zip alignツールを実行してAPKを最適化する必要があります。
+`zipalign`ツールは`/path/to/Android/sdk/build-tools/VERSION/zipalign`にあります。
+例えば、macOSでAndroid Studioがインストールされている場合、`zipalign`は`~/Library/Android/sdk/build-tools/VERSION/zipalign`にあります：
 
 ```shell
 $ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
 ```
 
-This generates a final release binary called HelloWorld.apk that can be accepted into the Google Play Store.
+これにより、Google Playストアに受け入れられる最終リリースバイナリHelloWorld.apkが生成されます。
 
 </TabItem>
 </Tabs>
 
-## Submitting an app to the Google Play Store
+## Google Playストアへのアプリの提出
 
-Now that a release AAB/APK has been generated, a Play Store listing can be written and the AAB/APK can be uploaded.
+リリースAAB/APKが生成されたら、Playストアのリストを作成し、AAB/APKをアップロードできます。
 
-To start, visit the [Google Play Store Developer Console](https://play.google.com/apps/publish) and create a new developer account.
+まず、[Google Playストアデベロッパーコンソール](https://play.google.com/apps/publish)にアクセスし、新しいデベロッパーアカウントを作成します。
 
 :::note
-Making a developer account with Google Play costs $25 USD.
+Google Playでデベロッパーアカウントを作成するには、25米ドルの費用がかかります。
 :::
 
-Once a developer account has been created, go ahead and click the `Create an Application`
+デベロッパーアカウントが作成されたら、`Create an Application`をクリックします。
 
 ![Create an App button](/img/v4/publishing/newAppGPlay.png)
 
-Be sure to fill out the description for the app along with providing screenshots and additional info.
-When ready, upload the signed release AAB/APK that was generated and publish the app.
+アプリの説明を記入し、スクリーンショットや追加情報を提供してください。
+準備ができたら、生成された署名済みリリースAAB/APKをアップロードし、アプリを公開します。
 
-## Updating an app
+## アプリの更新
 
-As an app evolves, it will need to be updated with new features and fixes. An app can be updated by either submitting a new version to the Google Play Store, or by using a live update service like Appflow's Live Update feature. Using Live Updates, changes can be pushed directly to users from the Appflow dashboard, without submitting changes to the Play Store. Learn more about Live Updates <a href="https://ionic.io/docs/appflow/deploy/intro" target="_blank">here</a>.
+アプリが成長するにつれて、新機能や修正を加える必要があります。
+アプリは、新しいバージョンをAppleに提出するか、Appflowの<a href="https://ionic.io/docs/appflow/deploy/intro" target="_blank">ライブアップデート機能</a>を使用して更新できます。
 
 <Tabs groupId="runtime">
 <TabItem value="capacitor" label="Capacitor" default>
 
 :::note
-In order for the Google Play Store to accept updated AAB/APK, the `android/app/build.gradle` file will need to be edited to increment the `versionCode` value, then rebuild the app for release following the instructions above.
+iOS App Storeが更新されたビルドを受け入れるためには、config.xmlファイルを編集してバージョン値を増やし、上記の手順に従ってリリース用にアプリを再ビルドする必要があります。
 :::
 
 </TabItem>

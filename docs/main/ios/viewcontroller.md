@@ -17,22 +17,22 @@ Capacitor 3.0 では、アプリケーション内で `CAPBridgeViewController` 
 
 カスタムサブクラスを作成する必要がある場合は、いくつかの手順があります。
 
-### Create `MyViewController.swift`
+### `MyViewController.swift` を作成する
 
-First, create a `MyViewController.swift` file by [opening Xcode](/main/ios/index.md#opening-the-ios-project), right-clicking on the **App** group (under the **App** target), selecting **New File...** from the context menu, choosing **Cocoa Touch Class** in the window, set the **Subclass of:** to `UIViewController` in the next screen, and save the file.
+まず、[Xcodeを開いて](/main/ios/index.md#opening-the-ios-project)、**App**グループ（**App**ターゲットの下）を右クリックし、コンテキストメニューから**New File...**を選択し、ウィンドウで**Cocoa Touch Class**を選択し、次の画面で**Subclass of:**を`UIViewController`に設定し、ファイルを保存します。
 
 ![New ViewController in Xcode](../../../static/img/v6/docs/ios/xcode-create-viewcontroller.png)
 ![Name ViewController in Xcode](../../../static/img/v6/docs/ios/xcode-name-viewcontroller.png)
 
-### Edit `Main.storyboard`
+### `Main.storyboard` を編集する
 
-Next, select the `Main.storyboard` file in the Project Navigator, select the **Bridge View Controller** in the **Bridge View Controller Scene**, select the **Identity Inspector** on the right, and change the name of the custom class to `MyViewController`.
+次に、プロジェクトナビゲータで`Main.storyboard`ファイルを選択し、**Bridge View Controller**シーンの**Bridge View Controller**を選択し、右側の**Identity Inspector**を選択し、カスタムクラスの名前を`MyViewController`に変更します。
 
 ![Editing Storyboard in Xcode](../../../static/img/v6/docs/ios/xcode-edit-storyboard.png)
 
-### Edit `MyViewController.swift`
+### `MyViewController.swift` を編集する
 
-Finally, select the `MyViewController.swift` file in the Project Navigator and edit it to import Capacitor and change the parent class:
+最後に、プロジェクトナビゲータで`MyViewController.swift`ファイルを選択し、Capacitorをインポートし、親クラスを変更します。
 
 ```swift
 import UIKit
@@ -43,8 +43,8 @@ class MyViewController: CAPBridgeViewController {
 }
 ```
 
-You're done!
+これで完了です！
 
-### Next Steps
+### 次のステップ
 
-Xcode should have already created a `viewDidLoad()` method for you when it generated the file but look over the inline documentation in [`CAPBridgeViewController`](https://github.com/ionic-team/capacitor/blob/main/ios/Capacitor/Capacitor/CAPBridgeViewController.swift) to find the Capacitor-specific methods you might need. Anything marked `open` is explicitly exposed for subclasses to override.
+Xcodeはファイルを生成したときに`viewDidLoad()`メソッドを既に作成しているはずですが、[`CAPBridgeViewController`](https://github.com/ionic-team/capacitor/blob/main/ios/Capacitor/Capacitor/CAPBridgeViewController.swift)のインラインドキュメントを確認して、必要なCapacitor固有のメソッドを見つけてください。`open`とマークされているものは、サブクラスがオーバーライドするために明示的に公開されています。
