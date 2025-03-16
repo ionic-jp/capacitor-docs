@@ -32,7 +32,7 @@ module.exports = {
     announcementBar: {
       id: 'announcement-bar',
       content:
-        '<a href="https://www.outsystems.com/?utm_source=ionic&utm_medium=referral&utm_campaign=ionic-referral&utm_term=none&utm_content=other&utm_campaignteam=digital-mktg&utm_partner=none" target="_blank" rel="noopener"><span>An <strong>OutSystems</strong> Company →</span></a>',
+        '<a href="https://nishinomiya.connpass.com/event/344917/" target="_blank" rel="noopener">[ほろ酔いLT大会] 2025年に役立つWeb制作と事業トピック / 3月22日（土）開催</a>',
       isCloseable: false,
     },
     colorMode: {
