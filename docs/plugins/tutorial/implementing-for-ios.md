@@ -23,24 +23,6 @@ Xcode で `npx cap open ios` を実行して、Capacitor アプリケーショ�
 
 `ScreenOrientation.swift`
 `ScreenOrientationPlugin.swift`
-`ScreenOrientationPlugin.m`
-
-Xcode から Bridging Header の作成を求められたら、 **Create Bridging Header** をクリックします。
-
-以下のコードを `ScreenOrientationPlugin.m` にコピーします:
-
-```objc
-#import <Foundation/Foundation.h>
-#import <Capacitor/Capacitor.h>
-
-CAP_PLUGIN(ScreenOrientationPlugin, "ScreenOrientation",
-  CAP_PLUGIN_METHOD(orientation, CAPPluginReturnPromise);
-  CAP_PLUGIN_METHOD(lock, CAPPluginReturnPromise);
-  CAP_PLUGIN_METHOD(unlock, CAPPluginReturnPromise);
-)
-```
-
-これらの Objective-C マクロは、プラグインを Capacitor に登録し、`ScreenOrientationPlugin` とそのメソッドを JavaScript で利用できるようにします。
 
 次のコードを `ScreenOrientationPlugin.swift` にコピーしてください:
 
@@ -49,7 +31,14 @@ import Foundation
 import Capacitor
 
 @objc(ScreenOrientationPlugin)
-public class ScreenOrientationPlugin: CAPPlugin {
+public class ScreenOrientationPlugin: CAPPlugin, CAPBridgedPlugin {
+  public let identifier = "ScreenOrientationPlugin"
+  public let jsName = "ScreenOrientation"
+  public let pluginMethods: [CAPPluginMethod] = [
+      CAPPluginMethod(name: "orientation", returnType: CAPPluginReturnPromise),
+      CAPPluginMethod(name: "lock", returnType: CAPPluginReturnPromise),
+      CAPPluginMethod(name: "unlock", returnType: CAPPluginReturnPromise)
+  ]
 
   @objc public func orientation(_ call: CAPPluginCall) {
     call.resolve()
@@ -74,6 +63,7 @@ public class ScreenOrientationPlugin: CAPPlugin {
 ```swift
 import Foundation
 import UIKit
+import Capacitor
 
 public class ScreenOrientation: NSObject {
 
@@ -103,12 +93,19 @@ public class ScreenOrientation: NSObject {
 
 ```Swift
 @objc(ScreenOrientationPlugin)
-public class ScreenOrientationPlugin: CAPPlugin {
+public class ScreenOrientationPlugin: CAPPlugin, CAPBridgedPlugin {
+  public let identifier = "ScreenOrientationPlugin"
+  public let jsName = "ScreenOrientation"
+  public let pluginMethods: [CAPPluginMethod] = [
+      CAPPluginMethod(name: "orientation", returnType: CAPPluginReturnPromise),
+      CAPPluginMethod(name: "lock", returnType: CAPPluginReturnPromise),
+      CAPPluginMethod(name: "unlock", returnType: CAPPluginReturnPromise)
+  ]
 
   private let implementation = ScreenOrientation()
 
   @objc public func orientation(_ call: CAPPluginCall) {
-    let orientationType = implementation.getCurrentOrientationType();
+    let orientationType = implementation.getCurrentOrientationType()
     call.resolve(["type": orientationType])
   }
 
@@ -144,6 +141,9 @@ override public func load() {
     selector: #selector(self.orientationDidChange),
     name: UIDevice.orientationDidChangeNotification,
     object: nil)
+  if let viewController = (self.bridge?.viewController as? CAPBridgeViewController) {
+    implementation.setCapacitorViewController(viewController)
+  }
 }
 
 deinit {
@@ -152,7 +152,7 @@ deinit {
 
 @objc private func orientationDidChange() {
   // Ignore changes in orientation if unknown, face up, or face down
-  if(UIDevice.current.orientation.isValidInterfaceOrientation) {
+  if UIDevice.current.orientation.isValidInterfaceOrientation {
     let orientation = implementation.getCurrentOrientationType()
     notifyListeners("screenOrientationChange", data: ["type": orientation])
   }
@@ -163,14 +163,13 @@ iOS は 3 次元の方向の変化を検出します。コードのコメント�
 
 ## 画面の向きをロックする、ロックを解除する
 
-iOS には、画面の向きを「ロック」したり「アンロック」したりする仕組みはありません。その代わり、プログラムによってどの向きを許可するかを設定することができます。
-
-これを実現するために、`AppDelegate.swift` で `AppDelegate` クラスにメソッドを追加する必要があります:
+画面の向きをロックするのは、Capacitorビューコントローラに対してのみ機能し、他のビューコントローラ（ブラウザプラグインによって提示されるものなど）に対しては機能しません。
+提示されたビューコントローラーもロックするには、このコードをアプリの `AppDelegate.swift` ファイルに追加します：
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-    return ScreenOrientationPlugin.supportedOrientations
-  }
+  return UIInterfaceOrientationMask(rawValue: (self.window!.rootViewController as! CAPBridgeViewController).supportedInterfaceOrientations.rawValue)
+}
 ```
 
 この関数は `ScreenOrientationPlugin.supportedOrientations` を返すことに注意してください。このプロパティはまだ存在しないので、プライベートな静的クラスメンバーとして `ScreenOrientationPlugin` クラスに追加してあげましょう。
@@ -220,36 +219,50 @@ private func fromOrientationTypeToInt(_ orientationType: String) -> Int {
 これですべての設定が終わったので、`lock()` メソッドを実装することができます。以下のメソッドを `ScreenOrientation` クラスに追加してください。:
 
 ```swift
-public func lock(_ orientationType: String, completion: @escaping (UIInterfaceOrientationMask) -> Void) {
+public func lock(_ orientationType: String, completion: @escaping (Error?) -> Void) {
   DispatchQueue.main.async {
-    let mask = self.fromOrientationTypeToMask(orientationType)
     let orientation = self.fromOrientationTypeToInt(orientationType)
-    UIDevice.current.setValue(orientation, forKey: "orientation")
-    UINavigationController.attemptRotationToDeviceOrientation()
-    completion(mask)
+    self.capViewController?.supportedOrientations = [orientation]
+    let mask = self.fromOrientationTypeToMask(orientationType)
+    if #available(iOS 16.0, *) {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        windowScene.keyWindow?.rootViewController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: mask)) { error in
+          completion(error)
+        }
+      } else {
+        completion(ScreenOrientationError.noWindowScene)
+      }
+    } else {
+      UIDevice.current.setValue(orientation, forKey: "orientation")
+      UINavigationController.attemptRotationToDeviceOrientation()
+    }
+    completion(nil)
   }
 }
 ```
 
 このメソッドは複雑なので、本質的な部分を説明しましょう:
 
-1. `completion: (UIInterfaceOrientationMask) -> Void` は、このメソッドの呼び出し元に、このメソッドの実行が終了したときに呼び出される関数を提供しなければならないことを伝えます。そして、 `completion(mask)` を用いて、その関数に `UIInterfaceOrientationMask` 値を渡します。
-2. `UIDevice.current.setValue(orientation, forKey: "orientation")` はデバイスの画面の向きを設定しますが、それに合わせて画面を回転させることはありません。
-3. `UINavigationController.attemptRotationToDeviceOrientation()` は前の行で設定された画面の向きに合わせてアプリケーションを回転させようと試みます。
-4. UI スレッドがブロックされないように、コードを `DispatchQueue.main.async` でラップしています。
+1. `completion: @escaping (Error?) -> Void` このメソッドの呼び出し元に、メソッドの実行が終了したときに呼び出される関数を提供しなければならないことを伝えます。
+2.  iOS 16以降では、まず`UIApplication.shared.connectedScenes.first`でウィンドウシーンの取得を試みます。次にルートビューコントローラーで `setNeedsUpdateOfSupportedInterfaceOrientations` を呼び出します。最後に、`requestGeometryUpdate`を呼び出して、希望の方向を指定します。
+3. iOS 15以前では、`UIDevice.current.setValue(orientation, forKey: 「orientation」)`はデバイスの画面の向きを設定しますが、画面を回転させません。すると `UINavigationController.attemptRotationToDeviceOrientation()` は前のコードで設定した画面の向きにアプリケーションを回転させようとします。
+4. UIスレッドがブロックされるのを防ぐために、このコードを`DispatchQueue.main.async`でラップしています。
 
-このメソッドは `ScreenOrientationPlugin` クラスから呼び出される必要があり、その後で `ScreenOrientationPlugin.supportedOrientations` を更新して、現時点では特定の画面の向きだけをサポートしたいことを iOS が認識できるようにします。
+This method needs to get called from the `ScreenOrientationPlugin` class:
 
 ```swift
-​​@objc public func lock(_ call: CAPPluginCall) {
+@objc public func lock(_ call: CAPPluginCall) {
   guard let lockToOrientation = call.getString("orientation") else {
     call.reject("Input option 'orientation' must be provided.")
     return
   }
-  implementation.lock(lockToOrientation, completion: { (mask) -> Void in
-    ScreenOrientationPlugin.supportedOrientations = mask;
+  implementation.lock(lockToOrientation) { error in
+    if let error = error {
+      call.reject(error.localizedDescription)
+    }
     call.resolve()
-  })
+  }
 }
 ```
 
@@ -258,22 +271,34 @@ public func lock(_ orientationType: String, completion: @escaping (UIInterfaceOr
 画面の向きをロックしないようにするには、ロックしたときの手順を元に戻します。以下のメソッドを `ScreenOrientation` クラスに追加してください。
 
 ```swift
-public func unlock(completion: @escaping () -> Void) {
+public func unlock(completion: @escaping (Error?) -> Void) {
   DispatchQueue.main.async {
-    let unknownOrientation = UIInterfaceOrientation.unknown.rawValue
-    UIDevice.current.setValue(unknownOrientation, forKey: "orientation")
-    UINavigationController.attemptRotationToDeviceOrientation()
-    completion()
+    self.capViewController?.supportedOrientations = self.supportedOrientations
+    if #available(iOS 16.0, *) {
+      if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        windowScene.keyWindow?.rootViewController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .all)) { error in
+          completion(error)
+        }
+      } else {
+        completion(ScreenOrientationError.noWindowScene)
+      }
+    } else {
+      UINavigationController.attemptRotationToDeviceOrientation()
+    }
+    completion(nil)
   }
 }
 ```
 
-現在の Orientation の値を `UIInterfaceOrientation.unknown` に設定することで、iOS はその方向を自動修正しようとするのです。 `ScreenOrientationPlugin` クラスでは、`supportedOrientations` を `UIInterfaceOrientationMask.all` に返すことにします:
+`ScreenOrientationPlugin`クラスでは、実装の`unlock`メソッドを呼び出して解決します：
 
 ```swift
 @objc public func unlock(_ call: CAPPluginCall) {
-  implementation.unlock {
-    ScreenOrientationPlugin.supportedOrientations = UIInterfaceOrientationMask.all
+  implementation.unlock { error in
+    if let error = error {
+      call.reject(error.localizedDescription)
+    }
     call.resolve()
   }
 }

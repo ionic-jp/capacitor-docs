@@ -8,7 +8,7 @@ slug: /ios/spm
 
 # Swift Package Manager
 
-Swift Packagesは、Appleの新しいファーストパーティツールで、ソフトウェア依存関係を管理します。従来、Capacitorは内部およびプラグインの依存関係を管理するためにCocoapodsを使用していましたが、今こそサポートされているソリューションに移行する時です。
+Swift Packagesは、ソフトウェアの依存関係のためのAppleの新しいファーストパーティツールです。従来、Capacitorは内部およびプラグインの依存関係を管理するためにCocoaPodsを使用していましたが、今こそサポートされたソリューションに移行する時です。
 
 Capacitor 6では、CocoapodsまたはSwift Package Manager（SPM）のどちらかを選択できるようになりました。現在のほとんどのcapacitor-teamサポートプラグインはSPMをサポートしており、特に<a href="https://github.com/ionic-team/capacitor-plugins">capacitor-plugins</a>のプラグインが該当します。
 
@@ -16,7 +16,7 @@ SPMを使用するためにCapacitorの作業方法を大きく変更する必�
 
 ### 仕組み
 
-CapacitorプロジェクトがSPMを使用している場合、すべてのプロジェクト依存関係を参照する場所として「Base SPM」パッケージを使用します。
+CapacitorプロジェクトがSPMを使用している場合、プロジェクトのすべての依存関係を参照する場所として機能する「ベースSPM」パッケージを使用します：
 
 ![Base SPM Picture](../../../static/img/v6/docs/ios/spm/base-spm.png)
 
@@ -24,7 +24,7 @@ Capacitor CLIは、新しいプラグインを同期するときにCapAPP-SPMパ
 
 ### 新しいCapacitorプロジェクトでSPMを使用する
 
-まず、通常の`npm init @capacitor/app`から始めます。
+まず、通常の`npm init @capacitor/app@latest`から始めます。
 
 ![Demo Step 1](../../../static/img/v6/docs/ios/spm/demo-step1.png)
 

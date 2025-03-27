@@ -124,7 +124,7 @@ Android StudioでAndroid SDKをインストールし、コア要件を満たせ�
 
 ### Android Studio
 
-Android Studioは、ネイティブAndroidアプリケーションを作成するためのGoogleのIDEです。Android Studioは [Android Studio download page](https://developer.android.com/studio) からインストールできます。Capacitor 6には、最低でもAndroid Studio 2024.2.1. が必要です。
+Android Studioは、ネイティブAndroidアプリケーションを作成するためのGoogleのIDEです。Android Studioは [Android Studio download page](https://developer.android.com/studio) からインストールできます。Capacitor 7には、最低でもAndroid Studio 2024.2.1. が必要です。
 
 ### Android SDK
 

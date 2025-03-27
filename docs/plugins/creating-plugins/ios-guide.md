@@ -359,4 +359,38 @@ Capacitor プラグインはウェブビューのナビゲーションをオー�
 
 ## 高度な設定
 
-Capacitor iOS プラグインは CocoaPods ライブラリなので、依存関係や必要なフレームワーク、その他の高度な設定を追加するには、プラグインジェネレータによって作成された `.podspec` ファイルを編集する必要があります。可能なすべてのオプションを確認するには、[podspec reference](https://guides.cocoapods.org/syntax/podspec.html) をチェックしてください。
+Capacitor iOSプラグインはCocoaPodsとSwift Package Managerの両方のライブラリなので、依存関係や必要なフレームワーク、その他の高度な設定を追加するには、CocoaPodsの場合は`.podspec`を、SPMの場合は`Package.swift`を編集する必要があります。これらのファイルはプラグイン・ジェネレーターによって作成されます。
+[Podspecリファレンス](https://guides.cocoapods.org/syntax/podspec.html)をチェックして、CocoaPodsで可能なすべてのオプションを確認してください。
+SPMで使用可能なすべてのオプションを見るには、[Package Description](https://docs.swift.org/package-manager/PackageDescription/PackageDescription.html)をチェックしてください。
+
+Example `.podspec` dependency to add `FirebaseFirestore` version `11.8.0` or newer but lower than `12.0.0`.
+
+```
+  s.dependency 'Capacitor'
+  s.dependency 'FirebaseFirestore', '~> 11.8'
+```
+
+Example `Package.swift` dependency to add `FirebaseFirestore` version `11.8.0` or newer but lower than `12.0.0`.
+
+```swift
+...
+let package = Package(
+...
+    dependencies: [
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "7.0.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git",  from: "11.8.0")
+    ],
+    targets: [
+        .target(
+            name: "FirebaseFirestorePlugin",
+            dependencies: [
+                .product(name: "Capacitor", package: "capacitor-swift-pm"),
+                .product(name: "Cordova", package: "capacitor-swift-pm"),
+                .product(name: "FirebaseCore", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk")
+            ],
+            path: "ios/Plugin")
+    ]
+...
+)
+```

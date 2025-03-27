@@ -15,10 +15,11 @@ Appleは最近、WWDC23で新しい[サードパーティSDKのプライバシ�
 すべてのアプリケーションがフラグされるわけではありませんが、`@capacitor/filesystem`や`@capacitor/preferences`などの特定のプラグインにはプライバシーマニフェストファイルが必要になる場合があります。通知を受け取った場合は次の手順を実行してください：
 
 1. Capacitorを更新します：
-a. Capacitor 6の場合は`>= 6.0.0`
-b. Capacitor 5の場合は`>= 5.7.4`
-c. Capacitor 4の場合は`>= 4.8.2`
-d. Capacitor 3以下はサポートされていません
+a. Capacitor 7の場合は`>= 7.0.0`
+b. Capacitor 6の場合は`>= 6.0.0`
+c. Capacitor 5の場合は`>= 5.7.4`
+d. Capacitor 4の場合は`>= 4.8.2`
+2. Capacitor 3以下はサポートされていません
 2. VS Code拡張機能を使用してアプリのプライバシーマニフェストファイルを作成するか、手動で作成します。
 
 ### VS Code拡張機能
@@ -53,7 +54,7 @@ VS Code拡張機能には、既知のプラグインに関する一連のルー�
 
 *Create*をクリックします。
 
-`PrivacyInfo.xcprivacy`というファイルが作成されます。このファイルはXcode UIで対話的に作成するのが難しいため、右クリックして*Open with External Editor*を選択して手動で編集する方が簡単です。
+`PrivacyInfo.xcprivacy`というファイルが作成されます。このファイルはXcode UIで対話的に作成するのが難しいため、右クリックして *Open with External Editor* を選択して手動で編集する方が簡単です。
 
 以下は、`@capacitor/preferences`プラグインを使用してUserDefaults APIを使用する`PrivacyInfo.xcprivacy`ファイルのサンプルです。
 

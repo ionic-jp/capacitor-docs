@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 // @ts-ignore
 const API_DIR = new URL('../docs/apis/', import.meta.url);
 
-const tag = 'next';
+const tag = 'latest';
 
 /**
  * @typedef {Object} PluginApi
@@ -125,8 +125,10 @@ const pluginApis = [
     isCore: false,
     isExperimental: false,
     npmScope: '@capacitor',
-    editUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/README.md',
-    editApiUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/src/definitions.ts',
+    description: 'The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.',
+    editUrl: 'https://github.com/ionic-team/capacitor-geolocation/blob/main/README.md',
+    editApiUrl: 'https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/src/definitions.ts',
+    tag: 'latest'
   },
   {
     id: 'google-maps',
@@ -203,6 +205,14 @@ const pluginApis = [
     npmScope: '@capacitor',
     editUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/README.md',
     editApiUrl: 'https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/src/definitions.ts',
+  },
+  {
+    id: 'privacy-screen',
+    isCore: false,
+    isExperimental: false,
+    npmScope: '@capacitor',
+    editUrl: 'https://github.com/ionic-team/capacitor-privacy-screen/blob/main/README.md',
+    editApiUrl: 'https://github.com/ionic-team/capacitor-privacy-screen/blob/main/src/definitions.ts',
   },
   {
     id: 'push-notifications',

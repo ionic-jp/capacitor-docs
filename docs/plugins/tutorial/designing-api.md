@@ -27,13 +27,13 @@ Screen Orientation Web API をそのまま使用することはできないか�
 
 | Method Name        | Input Parameters                            | Return Value                                           |
 | ------------------ | ------------------------------------------- | ------------------------------------------------------ |
-| orientation        |                                             | `Promise<{ type: OrientationType }>`                   |
-| lock               | `{ orientation: OrientationLockType }`      | `Promise<void>`                                        |
+| orientation        |                                             | `Promise<ScreenOrientationResult>`                   |
+| lock               | `options: OrientationLockOptions`      | `Promise<void>`                                        |
 | unlock             |                                             | `Promise<void>`                                        |
-| addListener        | `(orientation: { type: OrientationType }) ` | `Promise<PluginListenerHandle> & PluginListenerHandle` |
+| addListener        | `(orientation: ScreenOrientationResult)` | `Promise<PluginListenerHandle>` |
 | removeAllListeners |                                             | `Promise<void>`                                        |
 
-ここにはさらに利点があります: TypeScript の既存の DOM 型付けによって利用可能な`OrientationType`型と`OrientationLockType`型を使用することができます。
+TypeScriptの既存のDOM型付けで利用可能な `OrientationType` 型を利用できます。OrientationLockType`はTypescript 5.2以降では利用できなくなったので、その定義を提供することになる。
 
 プラグイン API を格納するディレクトリを設定します。新しいサブフォルダ`src/plugins/screen-orientation`を作成し、その中に次のファイルを追加します。
 
@@ -45,16 +45,37 @@ Screen Orientation Web API をそのまま使用することはできないか�
 ```typescript
 import type { PluginListenerHandle } from '@capacitor/core';
 
+export interface OrientationLockOptions {
+  /**
+   * Note: Typescript v5.2+ users should import OrientationLockType from @capacitor/screen-orientation.
+   */
+  orientation: OrientationLockType;
+}
+
+export type OrientationLockType =
+  | 'any'
+  | 'natural'
+  | 'landscape'
+  | 'portrait'
+  | 'portrait-primary'
+  | 'portrait-secondary'
+  | 'landscape-primary'
+  | 'landscape-secondary';
+
+export interface ScreenOrientationResult {
+  type: OrientationType;
+}
+
 export interface ScreenOrientationPlugin {
   /**
    * Returns the screen's current orientation.
    */
-  orientation(): Promise<{ type: OrientationType }>;
+  orientation(): Promise<ScreenOrientationResult>;
 
   /**
    * Locks the screen orientation.
    */
-  lock(opts: { orientation: OrientationLockType }): Promise<void>;
+  lock(options: OrientationLockOptions): Promise<void>;
 
   /**
    * Unlocks the screen's orientation.
@@ -66,8 +87,8 @@ export interface ScreenOrientationPlugin {
    */
   addListener(
     eventName: 'screenOrientationChange',
-    listenerFunc: (orientation: { type: OrientationType }) => void,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
+    listenerFunc: (orientation: ScreenOrientationResult) => void,
+  ): Promise<PluginListenerHandle>;
 
   /**
    * Removes all listeners
@@ -89,6 +110,9 @@ import type { ScreenOrientationPlugin } from './definitions';
 
 const ScreenOrientation = registerPlugin<ScreenOrientationPlugin>(
   'ScreenOrientation',
+  {
+    web: () => import('./web').then(m => new m.ScreenOrientationWeb()),
+  },
 );
 
 export * from './definitions';

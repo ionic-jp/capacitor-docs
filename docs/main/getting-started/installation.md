@@ -15,7 +15,7 @@ slug: /getting-started
 capacitor/create-app` パッケージを使うと、Capacitor アプリケーションを素早く作成することができます。空のディレクトリで以下のコマンドを実行すると、新しい Capacitor アプリケーションの足場ができます。
 
 ```bash
-npm init @capacitor/app
+npm init @capacitor/app@latest
 ```
 
 ## 既存のウェブアプリケーションにCapacitorを追加する
