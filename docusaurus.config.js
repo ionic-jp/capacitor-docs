@@ -32,7 +32,7 @@ module.exports = {
     announcementBar: { // toggle display:** at src/styles/custom.scss
       id: 'announcement-bar',
       content:
-        '<a href="https://nishinomiya.connpass.com/event/344917/" target="_blank" rel="noopener">[ほろ酔いLT大会] 2025年に役立つWeb制作と事業トピック / 3月22日（土）開催</a>',
+        '<a href="https://nishinomiya.connpass.com/event/351893/" target="_blank" rel="noopener">「そのリファクタ、なぜ必要？理由付きで見せます！」 / 4月29日（火）開催</a>',
       isCloseable: false,
     },
     colorMode: {
