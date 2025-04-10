@@ -290,9 +290,9 @@ module.exports = {
             },
           },
         },
-        googleTagManager: {
-          containerId: 'GTM-TKMGCBC',
-        },
+        // googleTagManager: {
+        //   containerId: 'GTM-TKMGCBC',
+        // },
         theme: {
           customCss: [require.resolve('./src/styles/custom.scss')],
         },
