@@ -113,7 +113,13 @@ public class ScreenOrientationPlugin: CAPPlugin, CAPBridgedPlugin {
 }
 ```
 
-Xcode から、実機または iOS シミュレーターでアプリを実行してみてください。読み込みが完了すると、コンソールに以下のようなログが出力されるはずです。
+最後に、<a href="https://capacitorjs.com/docs/ios/custom-code#register-the-plugin" _target="blank">こちらの手順</a>に従ってください：
+
+- カスタムのView Controllerを作成する
+
+- プラグインインスタンスを登録する
+
+その後、Xcodeからアプリを実行してみましょう。実機またはiOSシミュレーターのどちらでも構いません。アプリの読み込みが完了すると、次のようなログがコンソールに表示されるはずです：
 
 ```bash
 ⚡️  To Native ->  ScreenOrientation orientation 115962915
@@ -141,9 +147,6 @@ override public func load() {
     selector: #selector(self.orientationDidChange),
     name: UIDevice.orientationDidChangeNotification,
     object: nil)
-  if let viewController = (self.bridge?.viewController as? CAPBridgeViewController) {
-    implementation.setCapacitorViewController(viewController)
-  }
 }
 
 deinit {
@@ -163,8 +166,36 @@ iOS は 3 次元の方向の変化を検出します。コードのコメント�
 
 ## 画面の向きをロックする、ロックを解除する
 
-画面の向きをロックするのは、Capacitorビューコントローラに対してのみ機能し、他のビューコントローラ（ブラウザプラグインによって提示されるものなど）に対しては機能しません。
-提示されたビューコントローラーもロックするには、このコードをアプリの `AppDelegate.swift` ファイルに追加します：
+When locking the Screen Orientation, we will limit the View Controller's `supportedOrientations` to the requested orientation. When unlocking the Screen Orientation, we need to restore the originally
+set `supportOrientations`. Modify the code to save the current View Controller as well as its current `supportedOrientations`. Add the following code to the `ScreenOrientation` class.
+
+```swift
+    private var supportedOrientations: [Int] = []
+    private var capViewController: CAPBridgeViewController?
+
+    public func setCapacitorViewController(_ viewController: CAPBridgeViewController) {
+        self.capViewController = viewController
+        self.supportedOrientations =  viewController.supportedOrientations
+    }
+```
+
+Update the `load()` function that we just added to the `ScreenOrientationPlugin` class to call `setCapacitorViewController()`.
+
+```swift
+override public func load() {
+  NotificationCenter.default.addObserver(
+    self,
+    selector: #selector(self.orientationDidChange),
+    name: UIDevice.orientationDidChangeNotification,
+    object: nil)
+  if let viewController = (self.bridge?.viewController as? CAPBridgeViewController) {
+    implementation.setCapacitorViewController(viewController)
+  }
+}
+```
+
+Locking the Screen Orientation only works for the Capacitor View Controller, but not other View Controllers being presented (such as the one presented by Browser plugin).
+To also lock presented View Controllers, this code can be added to the app's `AppDelegate.swift` file:
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -172,13 +203,7 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 }
 ```
 
-この関数は `ScreenOrientationPlugin.supportedOrientations` を返すことに注意してください。このプロパティはまだ存在しないので、プライベートな静的クラスメンバーとして `ScreenOrientationPlugin` クラスに追加してあげましょう。
-
-```swift
-public static var supportedOrientations = UIInterfaceOrientationMask.all
-```
-
-上記のコードを設定することで、iOS に `ScreenOrientationPlugin.supportedOrientations` の値で定義されたオリエンテーションのみをサポートしたいことを伝えています。想像通りだと思いますが、`UIInterfaceOrientationMask.all` の列挙値はすべてのオリエンテーションをサポートします。画面の向きを固定するコードを書くときには、より限定的な列挙値を選択することになります。
+By setting up the code above, we tell iOS that we only want to support orientations defined by the View Controller.
 
 OrientationType を対応する UIInterfaceOrientationMask の列挙値にマップする関数が必要になるでしょう。以下のメソッドを `ScreenOrientation` クラスに追加してください:
 
@@ -216,7 +241,16 @@ private func fromOrientationTypeToInt(_ orientationType: String) -> Int {
 }
 ```
 
-これですべての設定が終わったので、`lock()` メソッドを実装することができます。以下のメソッドを `ScreenOrientation` クラスに追加してください。:
+When we implement the `lock()` and `unlock()` methods, we have a situation where we may not be able to get the window scene. Create an error enumeration in the `ScreenOrientation` class to
+represent this condition.
+
+```swift
+    enum ScreenOrientationError: Error {
+        case noWindowScene
+    }
+```
+
+Now that all the setup is out of the way, we can implement the `lock()` method. Add the following method to the `ScreenOrientation` class:
 
 ```swift
 public func lock(_ orientationType: String, completion: @escaping (Error?) -> Void) {

@@ -9,7 +9,8 @@ slug: /plugins/tutorial/web
 
 # Web/PWAs のために実装する
 
-プラグインの API を設計しているときに、ウェブではすでに画面の向きに関する機能がサポートされていることがわかりました（もちろん、モバイルデバイスは除きます）。ユーザーがウェブ上にいるかどうかをプログラム的に検出し、まず <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a> を使用して、使用できなければプラグインを使用することはできなかったのでしょうか？
+プラグインのAPIを設計しているときに、すでにWebでは画面の向き（スクリーンオリエンテーション）機能がサポートされていることが分かりました（もちろん、モバイルデバイスでは完全ではありませんが）。
+ここで、こう思うかもしれません：「そもそも、プラグインにWeb実装が必要なんですか？Web上なら <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a> を使えばいいし、それ以外の環境ならプラグインを使えばよいのでは？」
 
 Web Native アプリケーションの背後にある重要な理念は、"write once, run anywhere "です。Capacitor プラグインを使用する開発者は、同じプラグインクラスとメソッドを使用して、すべてのプラットフォームでそれらを実装することができるはずです。
 
@@ -70,17 +71,18 @@ export class ScreenOrientationWeb
   }
 
  async lock(options: OrientationLockOptions): Promise<void> {
+    // See https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1615
     if (
       typeof screen === 'undefined' ||
       !screen.orientation ||
-      !screen.orientation.lock
+      !(screen.orientation as any).lock
     ) {
       throw this.unavailable(
         'ScreenOrientation API not available in this browser',
       );
     }
     try {
-      await screen.orientation.lock(options.orientation);
+      await (screen.orientation as any).lock(options.orientation);
     } catch {
       throw this.unavailable(
         'ScreenOrientation API not available in this browser',

@@ -15,7 +15,8 @@ slug: /plugins/tutorial/android-implementation
 
 > **前提条件:** 続ける前に <a href="https://capacitorjs.com/docs/android/custom-code" target="_blank">Capacitor Custom Native Android Code documentation</a> のドキュメントをよく理解してください。
 
-Android Studio で `npx cap open android` を実行し、Capacitor アプリケーションの Android プロジェクトを開いてください。 **app** モジュールと **java** フォルダーを展開し、アプリの Java パッケージを右クリックします。コンテキストメニューから **New -> Package** を選択し、**plugins** という名前のサブパッケージを作成します。 **plugins** パッケージを右クリックし、前述のプロセスを繰り返して、**ScreenOrientation**という名前のサブパッケージを作成します。
+`npx cap open android`を実行して、Android StudioでCapacitorアプリケーションのAndroidプロジェクトを開きます。**app**モジュールと**java**フォルダを展開し、アプリのJavaパッケージ（`io.ionic.cap.plugin`パッケージ）を右クリックします。
+コンテキストメニューから **New -> Package** を選択し、**plugins** という名前のサブパッケージを作成します。**plugins**パッケージを右クリックし、前述のプロセスを繰り返して、**ScreenOrientation**という名前のサブパッケージを作成します。
 
 次に、 **ScreenOrientation** パッケージを右クリックし、コンテキストメニューから **New -> Java File** を選択して、新しい Java ファイルを追加します。このファイルの名前を `ScreenOrientationPlugin.java` とします。また、同様にこの作業を行い、`ScreenOrientation.java`という名前の新しいファイルを作成します。
 

@@ -73,7 +73,7 @@ const Echo = registerPlugin('Echo');
 export default Echo;
 ```
 
-> `registerPlugin()` の最初のパラメータはプラグイン名で、これは `EchoPlugin.m` の `CAP_PLUGIN` マクロの2番目のパラメータと一致していなければなりません。
+> `registerPlugin()` の最初のパラメータはプラグイン名で、これは `EchoPlugin.swift` の `jsName` マクロの2番目のパラメータと一致していなければなりません。
 
 **TypeScript**
 
