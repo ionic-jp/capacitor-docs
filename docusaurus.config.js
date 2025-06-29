@@ -32,8 +32,8 @@ module.exports = {
     announcementBar: { // toggle display:** at src/styles/custom.scss
       id: 'announcement-bar',
       content:
-        '<a href="https://nishinomiya.connpass.com/event/356978/" target="_blank" rel="noopener">「フロントエンドのためのセキュリティ入門 - 初心者向け」 / 6月15日（日）開催</a>',
-      isCloseable: true,
+        '<a href="https://nishinomiya.connpass.com/event/351893/" target="_blank" rel="noopener">「そのリファクタ、なぜ必要？理由付きで見せます！」 / 4月29日（火）開催</a>',
+      isCloseable: false,
     },
     colorMode: {
       defaultMode: 'light',
