@@ -6,7 +6,7 @@ slug: /getting-started
 
 # Capacitor のインストール
 
-新しいCapacitorアプリケーションを作成したり、既存のWebプロジェクトにCapacitorを追加することができます。これはCLIまたは[VS Code extension](vscode/getting-started) を使用して行うことができます。
+新しいCapacitorアプリケーションを作成するか、既存のウェブプロジェクトにCapacitorを追加できます。これらはCLI経由またはコミュニティが維持管理する [VS Code拡張機能](/main/getting-started/vscode-extension.mdx) を使用して行うことができます。
 
 ビルドするプラットフォームの[環境設定](/main/getting-started/environment-setup.md) を確認するのを忘れないようにしましょう。
 
