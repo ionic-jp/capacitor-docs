@@ -8,10 +8,6 @@ slug: /getting-started/environment-setup
 
 Capacitorは3つのアプリケーションターゲットを公式にサポートしています。Android、iOS、そしてWebです。3つのプラットフォームすべてに対応したアプリケーションを作成するためには、以下の依存関係をすべてインストールする必要があります。ネイティブモバイルターゲットのいずれかをターゲットにしていない場合は、関連するセクションをスキップすることができます。
 
-:::info
-デスクトップのサポートが必要ですか？Capacitorを使用して[Windows](https://ionic.io/docs/windows/usage)または[Electron](https://github.com/capacitor-community/electron)アプリをビルドすることも可能です!
-:::
-
 ## 要件
 
 Capacitorでアプリケーションを開発するには、NodeJS 20以上がインストールされている必要があります。Nodeをインストールするには、[Nodeのウェブサイト](https://nodejs.org)のインストーラを使用するか、JavaScriptツールマネージャの [Volta](https://volta.sh/) を使用するか、[homebrew](https://brew.sh/)や[Chocolatey](https://chocolatey.org/)のようなパッケージマネージャを使用します。
@@ -95,18 +91,7 @@ CocoaPodsはRuby Gemで直接インストールすることができます。イ
 sudo gem install cocoapods
 ```
 
-しかし、この方法でCocoaPodsをインストールすると、Apple Silicon Macでは**うまくいきません**。Rosettaを有効にしてCocoaPodsを実行する必要があります。これを行うには、以下のコマンドを実行します。
-
-```bash
-sudo arch -x86_64 gem install ffi
-```
-
-それから、新しいバージョンのWebコードを使用するためにアプリケーションを更新したいときはいつでも、次のコマンドを実行する必要があります。
-
-```bash
-npx cap copy
-arch -x86_64 pod install
-```
+For running without sudo see [CocoaPods sudo-less installation docs](https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation)
 
 ## Androidの要件
 

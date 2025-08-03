@@ -16,8 +16,8 @@ Capacitorは公式プラットフォームとコミュニティプラットフ�
 ### 公式プラットフォーム
 
 Capacitorは以下のプラットフォームを公式にサポートしています。
-- iOS 13+
-- Android 5.1+
+- iOS 14+
+- Android 6+
   - Requires Chrome WebView 60+
 - Modern Web Browsers
   - Chrome
@@ -30,9 +30,6 @@ Capacitorは以下のプラットフォームを公式にサポートしてい�
 Capacitorは、クロスプラットフォームのデスクトップフレームワークをターゲットにしたコミュニティプラットフォームも用意しています。現在、コミュニティで対象としているのは以下の通りです。
 - Electron
   - https://github.com/capacitor-community/electron
-- Tauri (alpha)
-  - https://github.com/capacitor-community/tauri
-
 
 ## CapacitorでIonic Frameworkを使う必要があるのでしょうか？
 
@@ -66,25 +63,5 @@ CapacitorがCordovaプラグインをサポートしていることをご存知�
 
 ## Androidエミュレータで実行すると、なぜ空白の画面が表示されるのですか？
 
-CapacitorはAndroid 5.1およびWebViewのバージョン60以上を必要とします。例えばAndroid 6や7のエミュレータを作成した場合、最新バージョンのWebViewがインストールされないため、真っ白な画面が表示されます。これを回避するには、アプリケーションのテスト用に、より新しいAndroidエミュレータをインストールすることができます。
+Capacitor requires Android 6 as well as a WebView version of 60 or higher. If you create an Android 6 or 7 emulator for example, the newest version of the WebView won't be installed, and you'll get a blank white screen. To get around this, you can install a newer Android emulator for testing your application.
 
-## なぜApple Silicon DeviceでCocoaPodsのエラーが発生するのでしょうか？
-
-If you installed CocoaPods with `sudo gem install cocoapods` and you're using an Apple Silicon-powered Mac, you might encounter something like this when running `npx cap update`:
-
-```
-[error] Analyzing dependencies
-        /Library/Ruby/Gems/2.6.0/gems/ffi-1.15.3/lib/ffi/library.rb:275: [BUG] Bus Error at 0x0000000000000000
-        ruby 2.6.3p62 (2019-04-16 revision 67580) [universal.arm64e-darwin20]
-```
-
-This is a CocoaPods bug related to `ffi` not installing on Apple Silicon computers.
-We recommend using [Homebrew to install CocoaPods](/main/getting-started/environment-setup.md#homebrew).
-Alternatively, if you have Rosetta installed, you can install `ffi` on a `x86_64` architecture and run `pod install` using the simulated Intel architecture for the first time.
-
-```
-$ sudo arch -x86_64 gem install ffi
-$ arch -x86_64 pod install
-```
-
-After that, running Capacitor should work as expected.

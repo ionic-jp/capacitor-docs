@@ -67,27 +67,6 @@ Xcode は時々、永遠にインデックス作成に行き詰まることが�
 
 唯一の解決策は、アクティビティモニタを使って Xcode を強制終了し、再度起動させることです。
 
-## Apple Silicon: `ffi` Bus Error
-
-If you installed CocoaPods with `sudo gem install cocoapods` and you're using an Apple Silicon-powered Mac, you might encounter something like this when running `npx cap update`:
-
-```
-[error] Analyzing dependencies
-        /Library/Ruby/Gems/2.6.0/gems/ffi-1.15.3/lib/ffi/library.rb:275: [BUG] Bus Error at 0x0000000000000000
-        ruby 2.6.3p62 (2019-04-16 revision 67580) [universal.arm64e-darwin20]
-```
-
-This is a CocoaPods bug related to `ffi` not installing on Apple Silicon computers.
-We recommend using [Homebrew to install CocoaPods](/main/getting-started/environment-setup.md#homebrew).
-Alternatively, if you have Rosetta installed, you can install `ffi` on a `x86_64` architecture and run `pod install` using the simulated Intel architecture for the first time.
-
-```
-$ sudo arch -x86_64 gem install ffi
-$ arch -x86_64 pod install
-```
-
-After that, running Capacitor should work as expected.
-
 ## CocoaPods: Failed to connect to GitHub
 
 このエラーは、古いバージョンの openssl と ruby がインストールされた Mac で発生する可能性があります。
