@@ -146,6 +146,12 @@ module.exports = {
               target: '_blank',
               rel: null,
             },
+            {
+              to: 'https://capacitor.xuxo.top/docs',
+              label: '简体中文',
+              target: '_blank',
+              rel: null,
+            },
           ],
           className: 'icon-link language navbar__item',
         },
