@@ -32,7 +32,7 @@ module.exports = {
     announcementBar: { // toggle display:** at src/styles/custom.scss
       id: 'announcement-bar',
       content:
-        '<a href="https://nishinomiya.connpass.com/event/367811/" target="_blank" rel="noopener">イベント「ユーザ認証再入門。ログイン機構を見直そう」 / 9月21日（日）開催</a>',
+        '<a href="https://nishinomiya.connpass.com/event/351893/" target="_blank" rel="noopener">「そのリファクタ、なぜ必要？理由付きで見せます！」 / 4月29日（火）開催</a>',
       isCloseable: false,
     },
     colorMode: {
