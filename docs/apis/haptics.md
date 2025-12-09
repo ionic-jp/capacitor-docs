@@ -1,16 +1,16 @@
 ---
 title: Haptics Capacitor Plugin API
-description: Haptics APIは、タッチやバイブレーションによる物理的なフィードバックをユーザーに提供します。
-custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/haptics/README.md
-editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/haptics/src/definitions.ts
+description: The Haptics API provides physical feedback to the user through touch or vibration.
+custom_edit_url: https://github.com/ionic-team/capacitor-haptics/blob/main/README.md
+editApiUrl: https://github.com/ionic-team/capacitor-haptics/blob/main/src/definitions.ts
 sidebar_label: Haptics
 ---
 
 # @capacitor/haptics
 
-Haptics APIは、タッチやバイブレーションによる物理的なフィードバックをユーザーに提供します。
+The Haptics API provides physical feedback to the user through touch or vibration.
 
-Taptic EngineやVibratorを搭載していないデバイスでは、APIの呼び出しは何も実行されずに解決されます。
+On devices that don't have Taptic Engine or Vibrator, the API calls will resolve without performing any action.
 
 ## Install
 
