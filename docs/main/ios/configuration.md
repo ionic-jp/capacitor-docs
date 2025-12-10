@@ -57,7 +57,7 @@ App`ディレクトリの名前を変更することはできませんが、**Ap
  end
 ```
 
-Finally, add the `scheme` attribute inside the `ios` object in the [Capacitor configuration file](/main/reference/config.md#schema).
+最後に、[Capacitor設定ファイル](/main/reference/config.md#schema)の`ios`オブジェクト内に`scheme`属性を追加します。
 
 ## ディープリンク (別名 ユニバーサルリンク)
 

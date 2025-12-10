@@ -63,5 +63,5 @@ CapacitorがCordovaプラグインをサポートしていることをご存知�
 
 ## Androidエミュレータで実行すると、なぜ空白の画面が表示されるのですか？
 
-Capacitor requires Android 6 as well as a WebView version of 60 or higher. If you create an Android 6 or 7 emulator for example, the newest version of the WebView won't be installed, and you'll get a blank white screen. To get around this, you can install a newer Android emulator for testing your application.
+CapacitorにはAndroid 6とWebViewバージョン60以上が必要です。例えば、Android 6または7のエミュレータを作成した場合、最新バージョンのWebViewがインストールされておらず、空白の白い画面が表示されます。これを回避するには、アプリケーションをテストするために新しいAndroidエミュレータをインストールしてください。
 

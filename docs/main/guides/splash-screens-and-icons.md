@@ -6,15 +6,15 @@ contributors:
 slug: /guides/splash-screens-and-icons
 ---
 
-You can generate Splash Screens and Icons for your iOS, Android or Progressive Web Application using the [@capacitor/assets](https://github.com/ionic-team/capacitor-assets) tool.
+[@capacitor/assets](https://github.com/ionic-team/capacitor-assets)ツールを使用して、iOS、Android、またはProgressive Web Applicationのスプラッシュ画面とアイコンを生成できます。
 
-First, install `@capacitor/assets`:
+まず、`@capacitor/assets`をインストールします：
 
 ```bash
 npm install @capacitor/assets --save-dev
 ```
 
-Provide icon and splash screen source images using this folder/filename structure:
+以下のフォルダ/ファイル名構造を使用してアイコンとスプラッシュ画面のソース画像を用意します：
 ```
 assets/
 ├── icon-only.png
@@ -23,20 +23,20 @@ assets/
 ├── splash.png
 └── splash-dark.png
 ```
-- Icon files should be at least `1024px` x `1024px`. 
-- Splash screen files should be at least `2732px` x `2732px`. 
-- The format can be `jpg` or `png`.
+- アイコンファイルは最低`1024px` x `1024px`にしてください。
+- スプラッシュ画面ファイルは最低`2732px` x `2732px`にしてください。
+- フォーマットは`jpg`または`png`が使用できます。
 
-Then generate (which applies to your native projects or generates a PWA manifest file):
+その後、生成を実行します（ネイティブプロジェクトに適用するか、PWAマニフェストファイルを生成します）：
 ```shell
 npx capacitor-assets generate
 ```
 
-Alternatively you can generate for a specific platform with `--ios`, `--android` or `--pwa`.
+または、`--ios`、`--android`、`--pwa`を使用して特定のプラットフォーム向けに生成することもできます。
 
 :::note
-The community-maintained [VS Code Extension](../getting-started/vscode-extension.mdx) can also generate Splash Screen and Icon assets.
+コミュニティで管理されている[VS Code拡張機能](../getting-started/vscode-extension.mdx)でもスプラッシュ画面とアイコンのアセットを生成できます。
 :::
 
-## Android 12+
-In Android 12 and above Google changed the way Splash Screens are displayed, using a smaller icon with colored background instead of a full screen image that was possible with Android 11 and below. Additional documentation about this change can be found at [developer.android.com](https://developer.android.com/develop/ui/views/launch/splash-screen).
+## Android 12以降
+Android 12以降、GoogleはスプラッシュスクリーンのAndroid 11以下で可能だったフルスクリーン画像の代わりに、色付きの背景と小さなアイコンを使用するように表示方法を変更しました。この変更に関する追加ドキュメントは[developer.android.com](https://developer.android.com/develop/ui/views/launch/splash-screen)で確認できます。

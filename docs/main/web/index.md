@@ -29,9 +29,9 @@ Web サポート付きのプラグインは、機能検出を行い、ブラウ�
 
 ### スクリプトを include して Capacitor を利用する
 
-This option is no longer available, please, use a JavaScript module bundler.
+このオプションは利用できなくなりました。JavaScriptモジュールバンドラーを使用してください。
 
-## Going Live
+## 公開する
 
 Progressive Web App を公開する準備ができたら、Web アセットディレクトリの内容をアップロードします。
 

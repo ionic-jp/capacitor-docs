@@ -106,33 +106,33 @@ Capacitor では、自分の Android プロジェクトを管理することが�
 4. Capacitor からアンドロイドアプリを再作成します：`npx cap add android`。
 5. 保存したソースファイルをプロジェクトにコピーして戻す
 
-## Plugin Not Implemented
+## プラグインが実装されていない
 
-On Android, this can happen if Capacitor doesn't find the plugins or can't inject its code into the WebView.
+Androidでは、Capacitorがプラグインを見つけられない場合やWebViewにコードを注入できない場合にこのエラーが発生する可能性があります。
 
-First of all, make sure the plugin is installed and appears in the `package.json`.
+まず、プラグインがインストールされており、`package.json`に表示されていることを確認してください。
 
-Then, run `npx cap sync android`.
+次に、`npx cap sync android`を実行します。
 
-Finally, use the "Sync Project with Gradle Files" button in the top right of Android Studio (the icon looks like an elephant). This will re-sync your native Android code to include the new plugin code and should allow use of your new plugin.
+最後に、Android Studioの右上にある「Sync Project with Gradle Files」ボタン（象のようなアイコン）を使用します。これにより、ネイティブAndroidコードが新しいプラグインコードを含むように再同期され、新しいプラグインを使用できるようになります。
 
-Also, if you are migrating from Capacitor 1 or 2, make sure you enabled the [automatic plugin loading](https://capacitorjs.com/docs/updating/3-0#switch-to-automatic-android-plugin-loading).
+また、Capacitor 1または2から移行する場合は、[自動プラグイン読み込み](https://capacitorjs.com/docs/updating/3-0#switch-to-automatic-android-plugin-loading)を有効にしていることを確認してください。
 
-If still getting the "Plugin not implemented" error, make sure you are not using service workers, that prevents Capacitor's and Plugins code from injecting. Or if you want to use them, you can use [this workaround](https://github.com/ionic-team/capacitor/issues/1655#issuecomment-579229390) for making the injection work.
+それでも「Plugin not implemented」エラーが発生する場合は、Service Workerを使用していないことを確認してください。Service WorkerはCapacitorとプラグインのコードの注入を妨げます。Service Workerを使用したい場合は、[この回避策](https://github.com/ionic-team/capacitor/issues/1655#issuecomment-579229390)を使用して注入を機能させることができます。
 
-## Using Proguard
+## ProGuardの使用
 
-ProGuard is a tool used to shrink, obfuscate, and reduce the size of your app. It is enabled by setting the `minifyEnabled` option in `build.gradle` to `true`. This process can sometimes lead to issues in Capacitor when using a plugin or some custom native code that relies on its code being being readable at run time, such as code reflection. ProGuard scans code to try and optimize and shink the size of an app and sometimes this process can remove classes or methods that are important for the functionality of a plugin.
+ProGuardは、アプリを縮小、難読化、およびサイズ削減するために使用されるツールです。`build.gradle`の`minifyEnabled`オプションを`true`に設定することで有効になります。このプロセスは、コードリフレクションなど実行時にコードが読み取り可能であることに依存するプラグインやカスタムネイティブコードを使用する場合、Capacitorで問題を引き起こすことがあります。ProGuardはコードをスキャンしてアプリのサイズを最適化・縮小しようとしますが、このプロセスでプラグインの機能に重要なクラスやメソッドが削除されることがあります。
 
-As of Capacitor v3.2.3 there are ProGuard rules included in Capacitor that cover the core functionality of Capacitor plugins, permissions, and activity results. If you are using an earlier version of Capacitor than v3.2.3, add [the following rules](https://github.com/ionic-team/capacitor/blob/main/android/capacitor/proguard-rules.pro) to your Android project's `proguard-rules.pro` file. Those rules should resolve problems with any of the core Capacitor features and core plugins.
+Capacitor v3.2.3以降、Capacitorプラグイン、パーミッション、およびアクティビティ結果のコア機能をカバーするProGuardルールがCapacitorに含まれています。v3.2.3より前のバージョンのCapacitorを使用している場合は、[以下のルール](https://github.com/ionic-team/capacitor/blob/main/android/capacitor/proguard-rules.pro)をAndroidプロジェクトの`proguard-rules.pro`ファイルに追加してください。これらのルールは、Capacitorのコア機能とコアプラグインの問題を解決するはずです。
 
-If you still encounter any issues after adding those rules, try to identify the source plugin or native code and add a rule to cover the specific plugin code, for example:
+それらのルールを追加しても問題が発生する場合は、ソースプラグインまたはネイティブコードを特定し、特定のプラグインコードをカバーするルールを追加してみてください。例：
 
 ```
 -keep class com.mythirdpartyplugin.** { *; }
 ```
 
-If you are certain a Capacitor plugin is causing the ProGuard issue the following ProGuard rule will cover any plugin class code, if you don't mind all plugins being exempt from ProGuard processing:
+CapacitorプラグインがProGuardの問題を引き起こしていることが確実で、すべてのプラグインをProGuard処理から除外しても構わない場合は、以下のProGuardルールですべてのプラグインクラスコードをカバーできます：
 
 ```
 -keep public class * extends com.getcapacitor.Plugin

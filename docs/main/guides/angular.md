@@ -1,6 +1,6 @@
 ---
 title: Angular
-description: Using Angular with Capacitor
+description: CapacitorでAngularを使用する
 slug: /guides/angular
 ---
 

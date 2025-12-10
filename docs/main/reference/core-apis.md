@@ -1,11 +1,11 @@
 ---
 title: Capacitor API
-description: Capacitor core API
-sidebar_label: Core API
+description: Capacitorコア API
+sidebar_label: コア API
 slug: /core-apis
 ---
 
-# Capacitor APIs
+# Capacitor API
 
 アプリやプラグインの開発において、Capacitor API は重要なツールベルトとなります。
 

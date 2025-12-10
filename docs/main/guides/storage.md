@@ -6,7 +6,7 @@ contributors:
 slug: /guides/storage
 ---
 
-# Data Storage in Capacitor
+# Capacitorでのデータストレージ
 
 ほとんどのアプリは、ローカルデータの永続化と読み込みが必要です。特定のユースケースに応じて、いくつかのアプローチを取ることができます。
 

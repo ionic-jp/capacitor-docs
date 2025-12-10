@@ -1,25 +1,25 @@
 ---
-title: Setting Android Target SDK
-sidebar_label: Setting Target SDK
-description: Setting Android Target SDK
+title: Android Target SDKの設定
+sidebar_label: Target SDKの設定
+description: Android Target SDKの設定
 slug: /android/setting-target-sdk
 ---
 
-All Android applications must specify a target SDK version, or the version of Android that the application is designed to run on. Each year, Google releases updates to the Android operating system and subsequently bumps the version number that applications are required to target. Typically, [this date is August 31st](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en) of each year. Because of this, it is important to keep your application up to date with the latest version of Android. In a Capacitor application, this is done by specifying your target SDK in the `/android/variables.gradle` file.
+すべてのAndroidアプリケーションは、ターゲットSDKバージョン、つまりアプリケーションが実行されるように設計されたAndroidのバージョンを指定する必要があります。毎年、GoogleはAndroidオペレーティングシステムのアップデートをリリースし、その後アプリケーションがターゲットにする必要があるバージョン番号を引き上げます。通常、[この日付は毎年8月31日](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en)です。このため、アプリケーションを最新バージョンのAndroidで最新の状態に保つことが重要です。Capacitorアプリケーションでは、`/android/variables.gradle`ファイルでターゲットSDKを指定することでこれを行います。
 
 ```groovy
 targetSdkVersion = 35
 ```
 
-## Capacitor Android Requirements
+## Capacitor Androidの要件
 
-In Capacitor, the Android target SDK version is strongly tied to the major version of Capacitor. This means that while you could change the target SDK to a higher version and rebuild your application, there's a very strong likelihood that your application will experience issues not otherwise present. The Capacitor team releases a new major version of Capacitor every year that includes support for the new target SDK version to ensure that applications remain compliant with Google's requirements. For this reason, it is important to keep your application up to date with the latest major version of Capacitor.
+Capacitorでは、AndroidターゲットSDKバージョンはCapacitorのメジャーバージョンと強く結びついています。これは、ターゲットSDKをより高いバージョンに変更してアプリケーションを再ビルドすることは可能ですが、そうでなければ発生しない問題がアプリケーションで発生する可能性が非常に高いことを意味します。Capacitorチームは、アプリケーションがGoogleの要件に準拠し続けることを保証するために、新しいターゲットSDKバージョンのサポートを含むCapacitorの新しいメジャーバージョンを毎年リリースしています。このため、アプリケーションをCapacitorの最新メジャーバージョンで最新の状態に保つことが重要です。
 
-## Android Target SDK Matrix
+## Android Target SDKマトリックス
 
-The following table shows the target SDK versions that are supported by Capacitor Android.
+以下の表は、Capacitor Androidでサポートされているターゲットバージョンを示しています。
 
-| Capacitor Android | Target SDK Version |
+| Capacitor Android | ターゲットSDKバージョン |
 | ----------------- | ------------------ |
 | 7.x               | 35                 |
 | 6.x               | 34                 |
@@ -29,6 +29,6 @@ The following table shows the target SDK versions that are supported by Capacito
 | 2.x               | 29                 |
 | 1.x               | 28                 |
 
-## Custom Target SDK Versions
+## カスタムTarget SDKバージョン
 
-Capacitor Android does not support custom target SDK versions. Each version of Capacitor Android requires a specific target SDK version and support is only provided for that matching version.
+Capacitor Androidはカスタムターゲットを SDKバージョンをサポートしていません。Capacitor Androidの各バージョンには特定のターゲットSDKバージョンが必要であり、その一致するバージョンのみがサポートされます。

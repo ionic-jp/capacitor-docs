@@ -14,14 +14,14 @@ Capacitorは、同じコードベースで複数のプラットフォームで�
 以下のコードでグローバルなCapacitorオブジェクトをインポートすることができます。
 
 ```typescript
-インポート { Capacitor } from '@capacitor/core';
+import { Capacitor } from '@capacitor/core';
 ```
 
-Capacitor` オブジェクトには、Capacitor アプリの開発で直面する可能性のある WebView to Native の最も一般的な問題を解決するための関数がいくつかあります。
+`Capacitor`オブジェクトには、Capacitorアプリの開発で直面する可能性のあるWebViewからネイティブへの最も一般的な問題を解決するための関数がいくつかあります。
 
 ### Capacitor.convertFileSrc
 
-`convertFileSrc: (filePath: string) => string;` （ファイルパス：文字列）。
+`convertFileSrc: (filePath: string) => string;`
 
 デバイスのファイルパスをWeb Viewに適したパスに変換します。
 

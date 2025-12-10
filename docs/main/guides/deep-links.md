@@ -1,6 +1,6 @@
 ---
-title: Deep Links
-description: Implement deep linking functionality in an iOS and Android app
+title: ディープリンク
+description: iOSおよびAndroidアプリにディープリンク機能を実装する
 contributors:
   - dotNetkow
   - jaydrogers
@@ -42,7 +42,7 @@ Web サイトとアプリのパスが一致しない場合は、より高度な 
 
 ### Angular
 
-Routing should be implemented in `app.component.ts`. Start by importing `NgZone` and `Router` from Angular, then `App` from Capacitor:
+ルーティングは`app.component.ts`で実装する必要があります。まず、Angularから`NgZone`と`Router`をインポートし、次にCapacitorから`App`をインポートします：
 
 ```typescript
 import { Component, NgZone } from '@angular/core';
@@ -50,7 +50,7 @@ import { Router } from '@angular/router';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 ```
 
-Next, add `Router` and `NgZone` to the constructor:
+次に、コンストラクタに`Router`と`NgZone`を追加します：
 
 ```typescript
 constructor(private router: Router, private zone: NgZone) {
@@ -58,7 +58,7 @@ constructor(private router: Router, private zone: NgZone) {
 }
 ```
 
-Last, listen for the `appUrlOpen` event, and redirect when a deep link is found:
+最後に、`appUrlOpen`イベントをリッスンし、ディープリンクが見つかったときにリダイレクトします：
 
 ```typescript
 initializeApp() {
@@ -79,7 +79,7 @@ initializeApp() {
 
 ### React
 
-There's a variety of options for React. One approach is to wrap the App API listener functionality in a new component, then add it inside of `App.tsx`. Start by creating `AppUrlListener.tsx` then import the React Router `useHistory` hook as well as the Capacitor App API:
+Reactにはさまざまなオプションがあります。1つのアプローチは、App APIリスナー機能を新しいコンポーネントにラップし、`App.tsx`内に追加することです。まず`AppUrlListener.tsx`を作成し、次にReact Routerの`useHistory`フックとCapacitor App APIをインポートします：
 
 ```typescript
 import React, { useEffect } from 'react';
@@ -87,7 +87,7 @@ import { useHistory } from 'react-router-dom';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 ```
 
-Next, define the AppUrlListener component, listening for the `appUrlOpen` event then redirecting when a deep link is found:
+次に、AppUrlListenerコンポーネントを定義し、`appUrlOpen`イベントをリッスンして、ディープリンクが見つかったときにリダイレクトします：
 
 ```typescript
 const AppUrlListener: React.FC<any> = () => {
@@ -111,13 +111,13 @@ const AppUrlListener: React.FC<any> = () => {
 export default AppUrlListener;
 ```
 
-Over in `App.tsx`, import the new component:
+`App.tsx`で、新しいコンポーネントをインポートします：
 
 ```typescript
 import AppUrlListener from './pages/AppUrlListener';
 ```
 
-Then add it inside of `IonReactRouter` (or wherever your app is bootstrapped, just ensure that the History hook is available):
+次に、`IonReactRouter`内（またはアプリがブートストラップされる場所、Historyフックが利用可能であることを確認してください）に追加します：
 
 ```tsx
 const App: React.FC = () => {
@@ -137,9 +137,9 @@ const App: React.FC = () => {
 
 ### Vue
 
-VueJS offers a first party routing system that integrates natively with Vue called Vue Router. To set up deep linking with Vue Router, start in the file that you used to configure all of your routes (usually `routes.js` or something similar).
+VueJSは、Vueにネイティブに統合されるVue Routerと呼ばれるファーストパーティのルーティングシステムを提供しています。Vue Routerでディープリンクを設定するには、すべてのルートを設定するために使用したファイル（通常は`routes.js`または類似のファイル）から始めます。
 
-First we import the capacitor `App` from plugins along with `Vue` and `VueRouter`.
+まず、`Vue`と`VueRouter`と一緒に、プラグインからCapacitorの`App`をインポートします。
 
 ```typescript
 import { App, URLOpenListenerEvent } from '@capacitor/app';
@@ -147,7 +147,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 ```
 
-Next, configure your routes using the Vue Router (more information on [Getting Started with Vue Router](https://router.vuejs.org/guide/#javascript)).
+次に、Vue Routerを使用してルートを設定します（詳細は[Vue Routerの入門](https://router.vuejs.org/guide/#javascript)を参照）。
 
 ```typescript
 const router = new VueRouter({
@@ -155,9 +155,9 @@ const router = new VueRouter({
 });
 ```
 
-It's recommended to use `mode: history` so you don't have to deal with the `#`.
+`#`を扱う必要がないように、`mode: history`を使用することをお勧めします。
 
-Let Vue know that you are using Vue Router and register the router within Vue:
+Vue RouterをVueに登録し、使用していることをVueに伝えます：
 
 ```typescript
 const VueApp = new Vue({
@@ -165,7 +165,7 @@ const VueApp = new Vue({
 }).$mount('#app');
 ```
 
-Finally, we need to register our app for deep linking. To do that, we add an event listener to the `appUrlOpen` event on the Capacitor App. Capacitor will pick this up, then we hand it off to Vue Router to navigate to the page requested.
+最後に、ディープリンク用にアプリを登録する必要があります。そのためには、Capacitor Appの`appUrlOpen`イベントにイベントリスナーを追加します。Capacitorがこれを検出し、Vue Routerに渡して要求されたページにナビゲートします。
 
 ```typescript
 App.addListener('appUrlOpen', function (event: URLOpenListenerEvent) {
@@ -349,7 +349,7 @@ WordPressの手順については、[こちら](https://devdactic.com/universal-
 
 デバイスをコンピューターに接続し、ネイティブアプリをビルドしてデプロイし、Webサイトのリンクをタップしてテストします。ネイティブアプリが開けば、すべての手順が正しく実装されています。
 
-## Resources
+## リソース
 
 - Branch.io: [What is Deep Linking?](https://branch.io/what-is-deep-linking/)
 - Android: [App Links](https://developer.android.com/training/app-links)

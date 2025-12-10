@@ -66,7 +66,7 @@ URL を変更するには、`strings.xml`のこの行を検索します。これ
 
 ## 権限の設定
 
-In Android, permissions your app will need are defined in `AndroidManifest.xml` inside of the `<manifest>` tag, generally at the bottom of the file.
+Androidでは、アプリに必要な権限は`AndroidManifest.xml`の`<manifest>`タグ内で定義されます。通常はファイルの下部にあります。
 
 たとえば、ネットワークのアクセス許可を追加すると次のようになります:
 

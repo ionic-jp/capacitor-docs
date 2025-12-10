@@ -27,13 +27,13 @@ export const Storage = {
 };
 ```
 
-Since this is a plain JavaScript object and not a proxy object, it is very easy to spy on. Also, since it is a mock it does not try to make any native calls. This makes the use of manual mocks an ideal choice to use when testing code that uses Capacitor plugins.
+これはプロキシオブジェクトではなくプレーンなJavaScriptオブジェクトなので、スパイするのは非常に簡単です。また、モックであるため、ネイティブ呼び出しを試みません。これにより、Capacitorプラグインを使用するコードをテストする際に、手動モックの使用が理想的な選択となります。
 
 ### Jest
 
-The Jest testing framework has <a href="https://jestjs.io/docs/manual-mocks" _target="blank">manual mocks</a> built in to it. Create a `__mocks__/@capacitor` folder at the root of your project, and Jest will automatically load files from there rather than from `node_modules`.
+Jestテストフレームワークには<a href="https://jestjs.io/docs/manual-mocks" _target="blank">手動モック</a>が組み込まれています。プロジェクトのルートに`__mocks__/@capacitor`フォルダを作成すると、Jestは`node_modules`からではなくそこからファイルを自動的に読み込みます。
 
-For example, let's say you have the following directory structure:
+たとえば、次のディレクトリ構造があるとします：
 
 ```
 .
@@ -48,17 +48,17 @@ For example, let's say you have the following directory structure:
 +- src
 ```
 
-Your tests will use the stubs defined in `storage.ts` and `toast.ts` rather than the real `@capacitor/storage` and `@capacitor/toast` plugins from `node_modules`.
+テストでは、`node_modules`の実際の`@capacitor/storage`および`@capacitor/toast`プラグインではなく、`storage.ts`と`toast.ts`で定義されたスタブが使用されます。
 
 ### Jasmine
 
-The Jasmine testing framework does not include the concept of "manual mocks" but we can easily simulate this through the use of TypeScript path mapping.
+Jasmineテストフレームワークには「手動モック」の概念は含まれていませんが、TypeScriptのパスマッピングを使用することで簡単にシミュレートできます。
 
-First, create the same directory structure at the root level of your project just like you would for the Jest example.
+まず、Jestの例と同様に、プロジェクトのルートレベルに同じディレクトリ構造を作成します。
 
-Angular projects (the most common scenario in which you would be using Jasmine as a testing framework) include a `tsconfig.spec.json` file that extends the `tsconfig.json` base configuration when unit tests are being executed. Modify this file to extend any `paths` mapping you may have at the base level.
+Angularプロジェクト（テストフレームワークとしてJasmineを使用する最も一般的なシナリオ）には、ユニットテストが実行されるときに`tsconfig.json`ベース設定を拡張する`tsconfig.spec.json`ファイルが含まれています。ベースレベルで持っている可能性のある`paths`マッピングを拡張するようにこのファイルを変更します。
 
-For example, if your `tsconfig.json` file contains the following `paths` mapping:
+たとえば、`tsconfig.json`ファイルに次の`paths`マッピングが含まれている場合：
 
 ```JSON
     "paths": {
@@ -67,7 +67,7 @@ For example, if your `tsconfig.json` file contains the following `paths` mapping
     },
 ```
 
-Then update your `tsconfig.spec.json` file to include those paths plus any you would like to use for the unit tests:
+次に、`tsconfig.spec.json`ファイルを更新して、それらのパスとユニットテストに使用したいパスを含めます：
 
 ```JSON
     "paths": {
@@ -78,13 +78,13 @@ Then update your `tsconfig.spec.json` file to include those paths plus any you w
     }
 ```
 
-Now when the unit tests are compiled, `import { Storage } from '@capacitor/storage';` will use the stub file under `__mocks__/@capacitor` rather than the real one in `node_modules`.
+これで、ユニットテストがコンパイルされるとき、`import { Storage } from '@capacitor/storage';`は`node_modules`の実際のものではなく、`__mocks__/@capacitor`の下のスタブファイルを使用します。
 
-**Note:** the `paths` object is replaced entirely rather than being merged, so if you have any paths defined at in `tsconfig.json` they _must_ also be included in `tsconfig.spec.json`.
+**注意：** `paths`オブジェクトはマージされるのではなく完全に置き換えられるため、`tsconfig.json`で定義されているパスがある場合は、`tsconfig.spec.json`にも含める_必要があります_。
 
-## Mocking the Stubs
+## スタブのモック
 
-With the manual mocks in place, the tests can now be written to mock and spy on the method calls in all of the usual ways.
+手動モックが配置されたら、通常の方法でメソッド呼び出しをモックおよびスパイするテストを作成できます。
 
 ### Jest
 
@@ -140,7 +140,7 @@ With the manual mocks in place, the tests can now be written to mock and spy on 
   });
 ```
 
-## Examples
+## 例
 
-- [Mocking Capacitor Plugins in Jasmine](https://github.com/ionic-team/cap-plugin-mock-jasmine)
-- [Mocking Capacitor Plugins in Jest](https://github.com/ionic-team/cap-plugin-mock-jest)
+- [JasmineでのCapacitorプラグインのモック](https://github.com/ionic-team/cap-plugin-mock-jasmine)
+- [JestでのCapacitorプラグインのモック](https://github.com/ionic-team/cap-plugin-mock-jest)

@@ -57,99 +57,99 @@ Capacitor CLIは、新しいプラグインを同期するときにCapApp-SPMパ
 
 `npx cap sync`
 
-You can now use the App plugin normally.
+これでAppプラグインを通常通り使用できます。
 
-## Using SPM in an existing Capacitor Project
+## 既存のCapacitorプロジェクトでSPMを使用する
 
-First, ensure you have a backup of the current state of your project, either in source control or elsewhere.
+まず、ソース管理または他の場所でプロジェクトの現在の状態のバックアップがあることを確認してください。
 
-### Deleting your iOS Directory
+### iOSディレクトリの削除
 
-If you **have not manually changed your Xcode Project at all**, one option to migrate is to delete the `ios` directory and then run `npx cap add ios --packagemanager SPM`. This will remove the CocoaPods template project and replace it with the SPM template project.  
+**Xcodeプロジェクトをまったく手動で変更していない**場合、移行するための1つのオプションは`ios`ディレクトリを削除してから`npx cap add ios --packagemanager SPM`を実行することです。これによりCocoaPodsテンプレートプロジェクトが削除され、SPMテンプレートプロジェクトに置き換えられます。
 
-### Using our migration tool
+### 移行ツールの使用
 
-The Capacitor CLI has a command to help migrate from CocoaPods to Swift Package Manager. However, two manual steps are still required. Some things to note are: Projects with Cordova plugins should work, but some plugins may not work correctly as we have to generate a `Package.swift` file for them. In addition, projects that use capacitor plugins that do not have SPM versions available, will fail to work properly and will show a warning about the incompatible plugins during migration and when running `npx cap sync`.
+Capacitor CLIには、CocoaPodsからSwift Package Managerへの移行を支援するコマンドがあります。ただし、2つの手動ステップがまだ必要です。注意すべき点として：Cordovaプラグインを使用するプロジェクトは動作するはずですが、`Package.swift`ファイルを生成する必要があるため、一部のプラグインは正しく動作しない場合があります。また、SPMバージョンが利用できないCapacitorプラグインを使用するプロジェクトは、正しく動作せず、移行中および`npx cap sync`の実行時に互換性のないプラグインについての警告が表示されます。
 
-To start, run `npx cap spm-migration-assistant` in the root of your project.
+開始するには、プロジェクトのルートで`npx cap spm-migration-assistant`を実行します。
 
-This tool will:
-  - Run `pod deintegrate` removing CocoaPods
-  - Delete the `Podfile`, `App.xcworkspace`, and `Podfile.lock`
-  - Create a `CapApp-SPM` directory with the needed files
-  - Generate a `Package.swift` from your plugins, and warn you if any can't be included.
-  - Add a `debug.xcconfig` to your ios project directory
+このツールは以下を行います：
+  - `pod deintegrate`を実行してCocoaPodsを削除
+  - `Podfile`、`App.xcworkspace`、`Podfile.lock`を削除
+  - 必要なファイルを含む`CapApp-SPM`ディレクトリを作成
+  - プラグインから`Package.swift`を生成し、含められないものがあれば警告
+  - iOSプロジェクトディレクトリに`debug.xcconfig`を追加
 
-Then run `npx cap open ios` and you should see something similar to this:
+次に`npx cap open ios`を実行すると、以下のような画面が表示されるはずです：
 
-![Migrate Step 1](../../../static/img/spm/xcode-step-1.png)
+![移行ステップ1](../../../static/img/spm/xcode-step-1.png)
 
-Highlight App, and Select the Package Dependencies tab, and on this page press the + symbol to add a dependency:
+Appをハイライトし、Package Dependenciesタブを選択し、このページで+記号を押して依存関係を追加します：
 
-![Migrate Step 2](../../../static/img/spm/xcode-step-2.png)
+![移行ステップ2](../../../static/img/spm/xcode-step-2.png)
 
-You should see something similar to the below - select Add Local... from the dialog:
+以下のような画面が表示されるはずです - ダイアログからAdd Local...を選択します：
 
-![Migrate Step 3](../../../static/img/spm/xcode-step-3.png)
+![移行ステップ3](../../../static/img/spm/xcode-step-3.png)
 
-Select CapApp-SPM in this dialog and click Add Package:
+このダイアログでCapApp-SPMを選択し、Add Packageをクリックします：
 
-![Migrate Step 4](../../../static/img/spm/xcode-step-4.png)
+![移行ステップ4](../../../static/img/spm/xcode-step-4.png)
 
-Click Add Package again when this screen shows up: 
+この画面が表示されたらAdd Packageを再度クリックします：
 
-![Migrate Step 5](../../../static/img/spm/xcode-step-5.png)
+![移行ステップ5](../../../static/img/spm/xcode-step-5.png)
 
-When you are done, you should see a screen like this. Now, move onto the next section about Adding `debug.xconfig`
+完了すると、このような画面が表示されるはずです。次に、`debug.xconfig`の追加に関する次のセクションに進みます
 
-![Migrate Step 6](../../../static/img/spm/xcode-step-6.png)
+![移行ステップ6](../../../static/img/spm/xcode-step-6.png)
 
-#### Adding debug.xcconfig to project 
+#### debug.xcconfigをプロジェクトに追加
 
-From the app info tab, select Add Configuration file...
+アプリ情報タブから、Add Configuration file...を選択します
 
-![XCConfig Step 1](../../../static/img/spm/xcconfig-step1.png)
+![XCConfigステップ1](../../../static/img/spm/xcconfig-step1.png)
 
-Then select the file called `debug.xcconfig`
+次に`debug.xcconfig`というファイルを選択します
 
-![XCConfig Step 2](../../../static/img/spm/xcconfig-step2.png)
+![XCConfigステップ2](../../../static/img/spm/xcconfig-step2.png)
 
-Finally select xcconfig as your selection
+最後にxcconfigを選択します
 
-![XCConfig Step 3](../../../static/img/spm/xcconfig-step3.png)
+![XCConfigステップ3](../../../static/img/spm/xcconfig-step3.png)
 
-At this point you're done and can build and work as normal.
+この時点で完了であり、通常通りビルドして作業できます。
 
-### Converting existing plugins to SPM
+### 既存のプラグインをSPMに変換する
 
-If your plugin only contains Swift aside from the required `[Name]Plugin.m` and `[Name]Plugin.h` you can use the [capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter).
+プラグインに必要な`[Name]Plugin.m`と`[Name]Plugin.h`以外のSwiftのみが含まれている場合、[capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter)を使用できます。
 
-This tool will do the following changes:
+このツールは以下の変更を行います：
 
-- Add the following required things to your main swift plugin file, `[Name]Plugin.swift`:
-  - Add Conformance to the `CAPBridgedPlugin` protocol to your class.
-  - Add 3 variables to your class. `identifier`, `jsName`, and `pluginMethods`:
-    - `identifier` will correspond to the first argument to the `CAP_PLUGIN` macro.
-    - `jsName` will correspond to the second argument to the `CAP_PLUGIN` macro.
-    - `pluginMethods` will be an array of the methods passed to the `CAP_PLUGIN` macro.
-- A `Package.swift` file will be created at the root of your plugin folder.
-- The following files will be removed as they are no longer needed:
+- メインのSwiftプラグインファイル`[Name]Plugin.swift`に以下の必要なものを追加：
+  - クラスに`CAPBridgedPlugin`プロトコルへの準拠を追加
+  - クラスに3つの変数を追加：`identifier`、`jsName`、`pluginMethods`：
+    - `identifier`は`CAP_PLUGIN`マクロの最初の引数に対応
+    - `jsName`は`CAP_PLUGIN`マクロの2番目の引数に対応
+    - `pluginMethods`は`CAP_PLUGIN`マクロに渡されたメソッドの配列
+- プラグインフォルダのルートに`Package.swift`ファイルが作成されます
+- 以下のファイルは不要になったため削除されます：
   - `Plugin.xcodeproj`
   - `Plugin.xcworkspace`
   - `Plugin/Info.plist`
   - `PluginTests/Info.plist`
   - `Podfile`
-- To fit SPM best practices, the Project files will be moved to `Sources` and `Tests` directories.
-- The plugins `package.json` will get the following changes:
-  - The files array will add these files or directories:
+- SPMのベストプラクティスに合わせて、プロジェクトファイルは`Sources`と`Tests`ディレクトリに移動されます
+- プラグインの`package.json`には以下の変更が加えられます：
+  - filesArrayにこれらのファイルまたはディレクトリが追加されます：
     - `ios/Sources`
     - `ios/Tests`
     - `Package.swift`
-  - `verify:ios` will be changed to `xcodebuild -scheme YourPluginName -destination generic/platform=iOS` to allow it to continue to work as you expect.
-- Your plugin podspec will be changed so that `s.source_files` now points to the `Sources` directory rather than the `Plugin` directory.
+  - `verify:ios`は、期待通りに動作し続けるように`xcodebuild -scheme YourPluginName -destination generic/platform=iOS`に変更されます
+- プラグインのpodspecは、`s.source_files`が`Plugin`ディレクトリではなく`Sources`ディレクトリを指すように変更されます
 
 
-See the documentation in the repository at [capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter) for more.
+詳細については、[capacitor-plugin-converter](https://github.com/ionic-team/capacitor-plugin-converter)のリポジトリのドキュメントを参照してください。
 
 ### トラブルシューティング
 

@@ -85,14 +85,14 @@ brew link --overwrite ruby
 
 この問題に対する他の可能な解決策については、 [この StackOverflow の問題](https://stackoverflow.com/questions/38993527/cocoapods-failed-to-connect-to-github-to-update-the-cocoapods-specs-specs-repo/48996424#48996424) を参照してください。
 
-## Plugin Not Implemented
+## プラグインが実装されていない
 
-On iOS, this can happen if Capacitor doesn't find the plugins or can't inject its code into the WebView.
+iOSでは、Capacitorがプラグインを見つけられない場合やWebViewにコードを注入できない場合にこのエラーが発生する可能性があります。
 
-First of all, make sure the plugin is installed and appears in the `package.json`.
+まず、プラグインがインストールされており、`package.json`に表示されていることを確認してください。
 
-Then, run `npx cap sync ios`.
+次に、`npx cap sync ios`を実行します。
 
-Finally, check that the plugin is in `ios/App/Podfile`. If the plugin is not listed, make sure your Podfile looks like [this one](https://github.com/ionic-team/capacitor/blob/main/ios-pods-template/App/Podfile) and run `npx cap sync` again.
+最後に、プラグインが`ios/App/Podfile`に含まれていることを確認してください。プラグインがリストに表示されていない場合は、Podfileが[このファイル](https://github.com/ionic-team/capacitor/blob/main/ios-pods-template/App/Podfile)のようになっていることを確認し、`npx cap sync`を再度実行してください。
 
-If still getting the "Plugin not implemented" error, make sure you don't have `WKAppBoundDomains` key in `ios/App/App/Info.plist`, that prevents Capacitor's and Plugins code from injecting. Remove the key if not needed, or if it can't be removed, add `limitsNavigationsToAppBoundDomains` to your capacitor config file with `true` value inside the `ios` object.
+それでも「Plugin not implemented」エラーが発生する場合は、`ios/App/App/Info.plist`に`WKAppBoundDomains`キーがないことを確認してください。このキーはCapacitorとプラグインのコードの注入を妨げます。不要な場合はキーを削除するか、削除できない場合は、Capacitor設定ファイルの`ios`オブジェクト内に`limitsNavigationsToAppBoundDomains`を`true`の値で追加してください。
