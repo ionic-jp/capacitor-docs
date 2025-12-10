@@ -1,6 +1,6 @@
 ---
 title: Screen Orientation Capacitor Plugin API
-description: The Screen Orientation API provides methods to lock and unlock the screen orientation.
+description: Screen Orientation APIは、画面の向きをロックおよびロック解除するメソッドを提供します。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-orientation/src/definitions.ts
 sidebar_label: Screen Orientation
@@ -8,7 +8,7 @@ sidebar_label: Screen Orientation
 
 # @capacitor/screen-orientation
 
-The Screen Orientation API provides information and functionality related to the orientation of the screen.
+Screen Orientation APIは、画面の向きに関する情報と機能を提供します。
 
 ## Install
 
@@ -19,8 +19,8 @@ npx cap sync
 
 ## iOS
 
-Locking the Screen Orientation only works for the Capacitor View Controller only, but not other View Controllers being presented (such as the one presented by Browser plugin).
-For also lock presented View Controllers, this code can be added to the app's `AppDelegate.swift` file:
+画面の向きのロックはCapacitor View Controllerのみで機能し、表示されている他のView Controller（Browserプラグインによって表示されるものなど）では機能しません。
+表示されているView Controllerもロックするには、アプリの`AppDelegate.swift`ファイルに以下のコードを追加します：
 
 ```swift
 func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -28,9 +28,9 @@ func application(_ application: UIApplication, supportedInterfaceOrientationsFor
 }
 ```
 
-### iPad Orientation Lock
+### iPadの向きのロック
 
-By default, an iPad allows Multitasking and its orientation cannot be locked. If you need to lock orientation on an iPad set the option `Requires Full Screen` to `YES` by adding the following to `Info.plist`:
+デフォルトでは、iPadはマルチタスクを許可しており、向きをロックすることはできません。iPadで向きをロックする必要がある場合は、`Info.plist`に以下を追加して`Requires Full Screen`オプションを`YES`に設定します：
 
 ```
   <key>UIRequiresFullScreen</key>

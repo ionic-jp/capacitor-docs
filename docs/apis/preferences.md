@@ -1,6 +1,6 @@
 ---
 title: Preferences Capacitor Plugin API
-description: The Preferences API provides a simple key/value persistent store for lightweight data.
+description: Preferences APIは、軽量なデータのためのシンプルなキー/バリューの永続ストアを提供します。
 custom_edit_url: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/preferences/src/definitions.ts
 sidebar_label: Preferences
@@ -31,17 +31,17 @@ npm install @capacitor/preferences
 npx cap sync
 ```
 
-## Apple Privacy Manifest Requirements
+## Apple プライバシーマニフェストの要件
 
-Apple mandates that app developers now specify approved reasons for API usage to enhance user privacy. By May 1st, 2024, it's required to include these reasons when submitting apps to the App Store Connect.
+Appleは、ユーザーのプライバシーを向上させるために、アプリ開発者がAPI使用の承認された理由を指定することを義務付けています。2024年5月1日までに、App Store Connectにアプリを提出する際にこれらの理由を含める必要があります。
 
-When using this specific plugin in your app, you must create a `PrivacyInfo.xcprivacy` file in `/ios/App` or use the VS Code Extension to generate it, specifying the usage reasons.
+このプラグインをアプリで使用する場合、`/ios/App`に`PrivacyInfo.xcprivacy`ファイルを作成するか、VS Code拡張機能を使用して生成し、使用理由を指定する必要があります。
 
-For detailed steps on how to do this, please see the [Capacitor Docs](https://capacitorjs.com/docs/ios/privacy-manifest).
+詳細な手順については、[Capacitorドキュメント](https://capacitorjs.com/docs/ios/privacy-manifest)を参照してください。
 
-**For this plugin, the required dictionary key is [NSPrivacyAccessedAPICategoryUserDefaults](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401) and the recommended reason is [CA92.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401).**
+**このプラグインで必要な辞書キーは[NSPrivacyAccessedAPICategoryUserDefaults](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401)で、推奨される理由は[CA92.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278401)です。**
 
-### Example PrivacyInfo.xcprivacy
+### PrivacyInfo.xcprivacyの例
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -64,7 +64,7 @@ For detailed steps on how to do this, please see the [Capacitor Docs](https://ca
 </plist>
 ```
 
-## Example Plugin Usage
+## プラグインの使用例
 
 ```typescript
 import { Preferences } from '@capacitor/preferences';
@@ -87,11 +87,11 @@ const removeName = async () => {
 };
 ```
 
-## Working with JSON
+## JSONの使用
 
-The Preferences API only supports string values. You can, however, use JSON if you `JSON.stringify` the object before calling `set()`, then `JSON.parse` the value returned from `get()`.
+Preferences APIは文字列値のみをサポートしています。ただし、`set()`を呼び出す前にオブジェクトを`JSON.stringify`し、`get()`から返された値を`JSON.parse`することでJSONを使用できます。
 
-This method can also be used to store non-string values, such as numbers and booleans.
+この方法は、数値やブール値などの文字列以外の値を保存するためにも使用できます。
 
 ## API
 

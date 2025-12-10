@@ -19,22 +19,22 @@ npx cap sync
 
 ## iOS
 
-iOS requires the following usage description be added and filled out for your app in `Info.plist`:
+iOSでは、`Info.plist`にアプリ用の以下の使用説明を追加して記入する必要があります：
 
-- `NSCameraUsageDescription` (`Privacy - Camera Usage Description`)
-- `NSPhotoLibraryAddUsageDescription` (`Privacy - Photo Library Additions Usage Description`)
-- `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`)
+- `NSCameraUsageDescription`（`Privacy - Camera Usage Description`）
+- `NSPhotoLibraryAddUsageDescription`（`Privacy - Photo Library Additions Usage Description`）
+- `NSPhotoLibraryUsageDescription`（`Privacy - Photo Library Usage Description`）
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
+XcodeでのiOSパーミッションの設定については、[iOSガイド](https://capacitorjs.com/docs/ios)の[`Info.plist`の設定](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist)を参照してください。
 
 ## Android
 
-When picking existing images from the device gallery, the Android Photo Picker component is now used. The Photo Picker is available on devices that meet the following criteria:
+デバイスギャラリーから既存の画像を選択する際、AndroidフォトピッカーコンポーネントがAndroidでは使用されるようになりました。フォトピッカーは以下の条件を満たすデバイスで利用できます：
 
-- Run Android 11 (API level 30) or higher
-- Receive changes to Modular System Components through Google System Updates
+- Android 11（APIレベル30）以上を実行している
+- Google Systemアップデートを通じてモジュラーシステムコンポーネントの変更を受信している
 
-Older devices and Android Go devices running Android 11 or 12 that support Google Play services can install a backported version of the photo picker. To enable the automatic installation of the backported photo picker module through Google Play services, add the following entry to the `<application>` tag in your `AndroidManifest.xml` file:
+Android 11または12を実行しているGoogle Playサービスをサポートする古いデバイスやAndroid Goデバイスでは、バックポートされたフォトピッカーをインストールできます。Google Playサービスを通じてバックポートされたフォトピッカーモジュールの自動インストールを有効にするには、`AndroidManifest.xml`ファイルの`<application>`タグに以下のエントリを追加します：
 
 ```xml
 <!-- Trigger Google Play services to install the backported photo picker module. -->
@@ -50,38 +50,38 @@ Older devices and Android Go devices running Android 11 or 12 that support Googl
 </service>
 ```
 
-If that entry is not added, the devices that don't support the Photo Picker, the Photo Picker component fallbacks to `Intent.ACTION_OPEN_DOCUMENT`.
+そのエントリが追加されていない場合、フォトピッカーをサポートしていないデバイスでは、フォトピッカーコンポーネントは`Intent.ACTION_OPEN_DOCUMENT`にフォールバックします。
 
-The Camera plugin requires no permissions, unless using `saveToGallery: true`, in that case the following permissions should be added to your `AndroidManifest.xml`:
+Cameraプラグインは、`saveToGallery: true`を使用しない限りパーミッションは不要です。その場合、以下のパーミッションを`AndroidManifest.xml`に追加する必要があります：
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-You can also specify those permissions only for the Android versions where they will be requested:
+これらのパーミッションは、リクエストされるAndroidバージョンに対してのみ指定することもできます：
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/>
 ```
 
-The storage permissions are for reading/saving photo files.
+ストレージパーミッションは、写真ファイルの読み取り/保存のためのものです。
 
-Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+Androidパーミッションの設定の詳細については、[Androidガイド](https://capacitorjs.com/docs/android)の[パーミッションの設定](https://capacitorjs.com/docs/android/configuration#setting-permissions)を参照してください。
 
-Additionally, because the Camera API launches a separate Activity to handle taking the photo, you should listen for `appRestoredResult` in the `App` plugin to handle any camera data that was sent in the case your app was terminated by the operating system while the Activity was running.
+また、Camera APIは写真を撮影するために別のActivityを起動するため、Activityの実行中にOSによってアプリが終了された場合に送信されたカメラデータを処理するために、`App`プラグインの`appRestoredResult`をリッスンする必要があります。
 
 ### Variables
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+このプラグインは以下のプロジェクト変数（アプリの `variables.gradle` ファイルで定義）を使用します：
 
-- `androidxExifInterfaceVersion`: version of `androidx.exifinterface:exifinterface` (default: `1.4.1`)
-- `androidxMaterialVersion`: version of `com.google.android.material:material` (default: `1.13.0`)
+- `androidxExifInterfaceVersion`: `androidx.exifinterface:exifinterface` のバージョン（デフォルト: `1.4.1`）
+- `androidxMaterialVersion`: `com.google.android.material:material` のバージョン（デフォルト: `1.13.0`）
 
-## PWA Notes
+## PWAに関する注意事項
 
-[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) are required for Camera plugin to work.
+Cameraプラグインが動作するには[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements)が必要です。
 
 ## Example
 

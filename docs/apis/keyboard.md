@@ -1,6 +1,6 @@
 ---
 title: Keyboard Capacitor Plugin API
-description: The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+description: Keyboard APIは、キーボードの表示と可視性の制御、およびキーボードの表示・非表示時のイベントトラッキングを提供します。
 custom_edit_url: https://github.com/ionic-team/capacitor-keyboard/blob/main/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-keyboard/blob/main/src/definitions.ts
 sidebar_label: Keyboard
@@ -8,7 +8,7 @@ sidebar_label: Keyboard
 
 # @capacitor/keyboard
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+Keyboard APIは、キーボードの表示と可視性の制御、およびキーボードの表示・非表示時のイベントトラッキングを提供します。
 
 ## Install
 
@@ -39,19 +39,19 @@ Keyboard.addListener('keyboardDidHide', () => {
 });
 ```
 
-## Configuration
+## 設定
 
-On iOS, the keyboard can be configured with the following options:
+iOSでは、キーボードは以下のオプションで設定できます：
 
-| Prop                     | Type                                                      | Description                                                                                                                                                                                                                                                                                                       | Default             | Since |
+| プロパティ                     | 型                                                      | 説明                                                                                                                                                                                                                                                                                                       | デフォルト             | Since |
 | ------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
-| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | Configure the way the app is resized when the Keyboard appears. Only available on iOS.                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
-| **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | Override the keyboard style if your app doesn't support dark/light theme changes. If not set, the keyboard style will depend on the device appearance. Only available on iOS.                                                                                                                                     |                     | 1.0.0 |
-| **`resizeOnFullScreen`** | <code>boolean</code>                                      | There is an Android bug that prevents the keyboard from resizing the WebView when the app is in full screen (i.e. if StatusBar plugin is used to overlay the status bar). This setting, if set to true, add a workaround that resizes the WebView even when the app is in full screen. Only available for Android |                     | 1.1.0 |
+| **`resize`**             | <code><a href="#keyboardresize">KeyboardResize</a></code> | キーボードが表示されたときのアプリのリサイズ方法を設定します。iOSのみで使用可能です。                                                                                                                                                                                                                            | <code>native</code> | 1.0.0 |
+| **`style`**              | <code><a href="#keyboardstyle">KeyboardStyle</a></code>   | アプリがダーク/ライトテーマの変更をサポートしていない場合、キーボードスタイルを上書きします。設定されていない場合、キーボードスタイルはデバイスの外観に依存します。iOSのみで使用可能です。                                                                                                                                     |                     | 1.0.0 |
+| **`resizeOnFullScreen`** | <code>boolean</code>                                      | アプリがフルスクリーンの場合（例：StatusBarプラグインを使用してステータスバーをオーバーレイしている場合）、キーボードがWebViewをリサイズできないAndroidのバグがあります。この設定をtrueに設定すると、アプリがフルスクリーンでもWebViewをリサイズするワークアラウンドが追加されます。Androidのみで使用可能です。 |                     | 1.1.0 |
 
-### Examples
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -65,7 +65,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 /// <reference types="@capacitor/keyboard" />

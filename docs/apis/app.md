@@ -19,7 +19,7 @@ npx cap sync
 
 ## iOS
 
-For being able to open the app from a custom scheme you need to register the scheme first. You can do it by editing the [`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) file and adding this lines.
+カスタムスキームからアプリを開けるようにするには、まずスキームを登録する必要があります。[`Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist)ファイルを編集して以下の行を追加することで設定できます。
 
 
 ```xml
@@ -38,7 +38,7 @@ For being able to open the app from a custom scheme you need to register the sch
 
 ## Android
 
-For being able to open the app from a custom scheme you need to register the scheme first. You can do it by adding this lines inside the `activity` section of the `AndroidManifest.xml`.
+カスタムスキームからアプリを開けるようにするには、まずスキームを登録する必要があります。`AndroidManifest.xml`の`activity`セクション内に以下の行を追加することで設定できます。
 
 ```xml
 <intent-filter>
@@ -49,7 +49,7 @@ For being able to open the app from a custom scheme you need to register the sch
 </intent-filter>
 ```
 
-`custom_url_scheme` value is stored in `strings.xml`. When the Android platform is added, `@capacitor/cli` adds the app's package name as default value, but can be replaced by editing the `strings.xml` file.
+`custom_url_scheme`の値は`strings.xml`に保存されます。Androidプラットフォームを追加すると、`@capacitor/cli`はアプリのパッケージ名をデフォルト値として追加しますが、`strings.xml`ファイルを編集することで変更できます。
 
 ## Example
 
@@ -75,18 +75,18 @@ const checkAppLaunchUrl = async () => {
 };
 ```
 
-## Configuration
+## 設定
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-| Prop                           | Type                 | Description                                                                    | Default            | Since |
+| プロパティ                           | 型                 | 説明                                                                    | デフォルト            | Since |
 | ------------------------------ | -------------------- | ------------------------------------------------------------------------------ | ------------------ | ----- |
-| **`disableBackButtonHandler`** | <code>boolean</code> | Disable the plugin's default back button handling. Only available for Android. | <code>false</code> | 7.1.0 |
+| **`disableBackButtonHandler`** | <code>boolean</code> | プラグインのデフォルトの戻るボタン処理を無効にします。Androidのみで使用可能です。 | <code>false</code> | 7.1.0 |
 
-### Examples
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -98,7 +98,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 /// <reference types="@capacitor/app" />

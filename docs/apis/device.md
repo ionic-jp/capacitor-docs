@@ -17,7 +17,7 @@ npm install @capacitor/device
 npx cap sync
 ```
 
-## Example Plugin Usage
+## プラグインの使用例
 
 ```typescript
 import { Device } from '@capacitor/device';

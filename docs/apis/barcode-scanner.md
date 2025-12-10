@@ -19,7 +19,7 @@ npx cap sync
 
 #### Android
 
-The barcode scanner plugin requires a minimum Android SDK target of 26. This is higher than the default that comes with your Capacitor application. You can update this value in your `android/variables.gradle` file.
+バーコードスキャナープラグインは、最小Android SDKターゲットが26である必要があります。これは、Capacitorアプリケーションに付属するデフォルトよりも高い値です。この値は`android/variables.gradle`ファイルで更新できます。
 
 ```gradle
 ext {
@@ -27,13 +27,13 @@ ext {
 }
 ```
 
-Note: Android with `ZXING` scanning library supports all formats, while `MLKIT` supports all except `MAXICODE`, `RSS_14`, `RSS_EXPANDED` and `UPC_EAN_EXTENSION` - using one of these in `hint` will default to scanning any format.
+注意: `ZXING`スキャンライブラリを使用するAndroidはすべてのフォーマットをサポートしますが、`MLKIT`は`MAXICODE`、`RSS_14`、`RSS_EXPANDED`、`UPC_EAN_EXTENSION`を除くすべてをサポートします - `hint`でこれらのいずれかを使用すると、デフォルトで任意のフォーマットをスキャンします。
 
 #### iOS
 
-The barcode scanner uses the camera on the device. Ensure you configure the Privacy - Camera Usage Description in your Info.plist file so that your application can access the device's camera.
+バーコードスキャナーはデバイスのカメラを使用します。アプリケーションがデバイスのカメラにアクセスできるように、Info.plistファイルでPrivacy - Camera Usage Descriptionを設定してください。
 
-Note: iOS supports all formats except `MAXICODE` and `UPC_EAN_EXTENSION` - using them in `hint` will default to scanning any format. Also, Apple Vision does not distinguish between `UPC_A` and `EAN_13`, so specifying one of these in `hint` will allow to scan both.
+注意: iOSは`MAXICODE`と`UPC_EAN_EXTENSION`を除くすべてのフォーマットをサポートします - `hint`でこれらを使用すると、デフォルトで任意のフォーマットをスキャンします。また、Apple Visionは`UPC_A`と`EAN_13`を区別しないため、`hint`でこれらのいずれかを指定すると両方をスキャンできます。
 
 ---
 

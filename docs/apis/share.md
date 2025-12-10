@@ -21,7 +21,7 @@ npx cap sync
 ```
 ## Android
 
-By default, Capacitor apps only allow to share files from caches folder. To make other Android folders shareable, they have to be added in `android/app/src/main/res/xml/file_paths.xml` file. Check the Specifying Available Files section in [FileProvider docs](https://developer.android.com/reference/androidx/core/content/FileProvider) for the available locations.
+デフォルトでは、Capacitorアプリはキャッシュフォルダからのファイルのみ共有できます。他のAndroidフォルダを共有可能にするには、`android/app/src/main/res/xml/file_paths.xml`ファイルに追加する必要があります。利用可能な場所については、[FileProviderドキュメント](https://developer.android.com/reference/androidx/core/content/FileProvider)のSpecifying Available Filesセクションを確認してください。
 
 ## Example
 
@@ -58,7 +58,7 @@ await Share.share({
 });
 ```
 
-Each platform uses a different set of fields, but you should supply them all.
+各プラットフォームは異なるフィールドセットを使用しますが、すべてを指定することをお勧めします。
 
 ## API
 

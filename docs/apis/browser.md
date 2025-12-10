@@ -23,9 +23,9 @@ npx cap sync
 
 ### Variables
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+このプラグインは以下のプロジェクト変数（アプリの `variables.gradle` ファイルで定義）を使用します：
 
-- `androidxBrowserVersion`: version of `androidx.browser:browser` (default: `1.9.0`)
+- `androidxBrowserVersion`: `androidx.browser:browser` のバージョン（デフォルト: `1.9.0`）
 
 ## Example
 

@@ -1,6 +1,6 @@
 ---
 title: Geolocation Capacitor Plugin API
-description: The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+description: Geolocation APIは、GPSを使用してデバイスの現在位置を取得および追跡するためのシンプルなメソッドを提供します。利用可能な場合は、高度、方位、速度の情報も含まれます。
 custom_edit_url: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-geolocation/blob/main/packages/capacitor-plugin/src/definitions.ts
 sidebar_label: Geolocation
@@ -8,7 +8,7 @@ sidebar_label: Geolocation
 
 # @capacitor/geolocation
 
-The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+Geolocation APIは、GPSを使用してデバイスの現在位置を取得および追跡するためのシンプルなメソッドを提供します。利用可能な場合は、高度、方位、速度の情報も含まれます。
 
 ## Install
 
@@ -19,24 +19,24 @@ npx cap sync
 
 ## iOS
 
-Apple requires privacy descriptions to be specified in `Info.plist` for location information:
+Appleは、位置情報のために`Info.plist`にプライバシー説明を指定することを要求しています：
 
-- `NSLocationAlwaysAndWhenInUseUsageDescription` (`Privacy - Location Always and When In Use Usage Description`)
-- `NSLocationWhenInUseUsageDescription` (`Privacy - Location When In Use Usage Description`)
+- `NSLocationAlwaysAndWhenInUseUsageDescription`（`Privacy - Location Always and When In Use Usage Description`）
+- `NSLocationWhenInUseUsageDescription`（`Privacy - Location When In Use Usage Description`）
 
 > [!NOTE]
-> This Capacitor plugin does not support background geolocation directly. However, it relies on
-> [`ion-ios-geolocation`](https://github.com/ionic-team/ion-ios-geolocation), which can report
-> location in the background. As a result, Apple requires you to include a
-> `NSLocationAlwaysAndWhenInUseUsageDescription` entry in your `Info.plist`. Since this permission
-> prompt won’t appear to users, you can safely use the same description string as for
-> `NSLocationWhenInUseUsageDescription`.
+> このCapacitorプラグインはバックグラウンドジオロケーションを直接サポートしていません。ただし、
+> [`ion-ios-geolocation`](https://github.com/ionic-team/ion-ios-geolocation)に依存しており、
+> バックグラウンドで位置を報告できます。そのため、Appleは`Info.plist`に
+> `NSLocationAlwaysAndWhenInUseUsageDescription`エントリを含めることを要求しています。この権限
+> プロンプトはユーザーには表示されないため、`NSLocationWhenInUseUsageDescription`と同じ
+> 説明文字列を安全に使用できます。
 
-Read about [Configuring `Info.plist`](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist) in the [iOS Guide](https://capacitorjs.com/docs/ios) for more information on setting iOS permissions in Xcode
+XcodeでのiOSパーミッションの設定については、[iOSガイド](https://capacitorjs.com/docs/ios)の[`Info.plist`の設定](https://capacitorjs.com/docs/ios/configuration#configuring-infoplist)を参照してください。
 
 ## Android
 
-This plugin requires the following permissions be added to your `AndroidManifest.xml`:
+このプラグインは、以下のパーミッションを`AndroidManifest.xml`に追加する必要があります：
 
 ```xml
 <!-- Geolocation Plugin -->
@@ -45,9 +45,9 @@ This plugin requires the following permissions be added to your `AndroidManifest
 <uses-feature android:name="android.hardware.location.gps" />
 ```
 
-The first two permissions ask for location data, both fine and coarse, and the last line is optional but necessary if your app _requires_ GPS to function. You may leave it out, though keep in mind that this may mean your app is installed on devices lacking GPS hardware.
+最初の2つのパーミッションは、大まかな位置と詳細な位置の両方の位置データを要求します。最後の行はオプションですが、アプリがGPSを必要とする場合は必要です。省略しても構いませんが、GPSハードウェアのないデバイスにアプリがインストールされる可能性があることに注意してください。
 
-Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+Androidパーミッションの設定の詳細については、[Androidガイド](https://capacitorjs.com/docs/android)の[パーミッションの設定](https://capacitorjs.com/docs/android/configuration#setting-permissions)を参照してください。
 
 
 ## API

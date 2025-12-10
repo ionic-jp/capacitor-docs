@@ -19,13 +19,13 @@ npx cap sync
 
 ### Variables
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+このプラグインは以下のプロジェクト変数（アプリの `variables.gradle` ファイルで定義）を使用します：
 
-- `androidxMaterialVersion`: version of `com.google.android.material:material` (default: `1.13.0`)
+- `androidxMaterialVersion`: `com.google.android.material:material` のバージョン（デフォルト: `1.13.0`）
 
-## PWA Notes
+## PWAに関する注意事項
 
-[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) are required for Action Sheet plugin to work.
+Action Sheetプラグインが動作するには[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements)が必要です。
 
 ## Example
 

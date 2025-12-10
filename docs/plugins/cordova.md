@@ -35,7 +35,7 @@ npm install cordova-plugin-name@version
 npx cap sync
 ```
 
-## インストールされているプラグインのバージョンを確認する
+## Installされているプラグインのバージョンを確認する
 
 次のコマンドで、プロジェクトにインストールされている Capacitor および Cordova プラグインのリスト (および正確なバージョン番号) を確認します:
 
@@ -49,7 +49,7 @@ Capacitor と一部の Cordova プラグインには互換性の問題がある�
 
 もし既存の Cordova プラグインに問題を発見した場合は、問題の詳細とプラグイン情報を提供して [let us know](https://github.com/ionic-team/capacitor/issues/new) してください。
 
-### 変数とフック
+### Variablesとフック
 
 Capacitor は Cordova のインストール変数、自動設定、フックをサポートしていません。これは、ネイティブプロジェクトのソースコードをコントロールさせるという我々の哲学によるものです（つまり、フックのようなものは不要です）。プラグインに変数や設定が必要な場合は、プラグインの `plugin.xml` と iOS や Android で必要な設定を対応させ、手動でそれらの設定を適用する必要があります。
 

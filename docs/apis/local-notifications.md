@@ -19,42 +19,42 @@ npx cap sync
 
 ## Android
 
-Android 13 requires a permission check in order to send notifications.  You are required to call `checkPermissions()` and `requestPermissions()` accordingly.
+Android 13では、通知を送信するためにパーミッションチェックが必要です。`checkPermissions()`と`requestPermissions()`を適切に呼び出す必要があります。
 
-On Android 12 and older it won't show a prompt and will just return as granted.
+Android 12以前では、プロンプトは表示されず、許可されたものとして返されます。
 
-Starting on Android 12, scheduled notifications won't be exact unless this permission is added to your `AndroidManifest.xml`:
+Android 12以降、以下のパーミッションを`AndroidManifest.xml`に追加しない限り、スケジュールされた通知は正確になりません：
 
 ```xml
 <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 ```
 
-Note that even if the permission is present, users can still disable exact notifications from the app settings.  Use `checkExactNotificationSetting()` to check the the value of the setting.  If a user disables this setting, the app will restart and any notification scheduled with an exact alarm will be deleted.  If your application depends on exact alarms, be sure to check this setting on app launch (for example, in [`App.appStateChange`](https://capacitorjs.com/docs/apis/app#addlistenerappstatechange-)) in order to provide fallbacks or alternative behavior.
+パーミッションが存在していても、ユーザーはアプリ設定から正確な通知を無効にできることに注意してください。`checkExactNotificationSetting()`を使用して設定の値を確認してください。ユーザーがこの設定を無効にすると、アプリは再起動し、正確なアラームでスケジュールされた通知は削除されます。アプリケーションが正確なアラームに依存している場合は、フォールバックまたは代替動作を提供するために、アプリ起動時（例：[`App.appStateChange`](https://capacitorjs.com/docs/apis/app#addlistenerappstatechange-)）にこの設定を確認してください。
 
-On Android 14, there is a new permission called `USE_EXACT_ALARM`.  Use this permission to use exact alarms without needing to request permission from the user.  This should only be used if the use of exact alarms is central to your app's functionality.  Read more about the implications of using this permission [here](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM).
+Android 14では、`USE_EXACT_ALARM`という新しいパーミッションがあります。このパーミッションを使用すると、ユーザーにパーミッションを要求せずに正確なアラームを使用できます。これは、正確なアラームの使用がアプリの機能の中心である場合にのみ使用してください。このパーミッションの使用の影響については[こちら](https://developer.android.com/reference/android/Manifest.permission#USE_EXACT_ALARM)を参照してください。
 
-From Android 15 onwards, users can install an app in the [Private space](https://developer.android.com/about/versions/15/features#private-space). Users can lock their private space at any time, which means that push notifications are not shown until the user unlocks it.
+Android 15以降、ユーザーは[プライベートスペース](https://developer.android.com/about/versions/15/features#private-space)にアプリをインストールできます。ユーザーはいつでもプライベートスペースをロックでき、ユーザーがロックを解除するまでプッシュ通知は表示されません。
 
-It is not possible to detect if an app is installed in the private space. Therefore, if your app shows any critical notifications, inform your users to avoid installing the app in the private space.
+アプリがプライベートスペースにインストールされているかどうかを検出することはできません。そのため、アプリが重要な通知を表示する場合は、プライベートスペースにアプリをインストールしないようユーザーに通知してください。
 
-For more information about the behavior changes of your app related to the private space, refer to [Android documentation](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes).
+プライベートスペースに関連するアプリの動作変更の詳細については、[Androidドキュメント](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes)を参照してください。
 
-## Configuration
+## 設定
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-On Android, the Local Notifications can be configured with the following options:
+Androidでは、ローカル通知は以下のオプションで設定できます：
 
-| Prop            | Type                | Description                                                                                                                                                                                                                                                                                                              | Since |
+| プロパティ            | 型                | 説明                                                                                                                                                                                                                                                                                                              | Since |
 | --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`smallIcon`** | <code>string</code> | Set the default status bar icon for notifications. Icons should be placed in your app's `res/drawable` folder. The value for this option should be the drawable resource ID, which is the filename without an extension. Only available for Android.                                                                     | 1.0.0 |
-| **`iconColor`** | <code>string</code> | Set the default color of status bar icons for notifications. Only available for Android.                                                                                                                                                                                                                                 | 1.0.0 |
-| **`sound`**     | <code>string</code> | Set the default notification sound for notifications. On Android 8+ it sets the default channel sound and can't be changed unless the app is uninstalled. If the audio file is not found, it will result in the default system sound being played on Android 7.x and no sound on Android 8+. Only available for Android. | 1.0.0 |
+| **`smallIcon`** | <code>string</code> | 通知のデフォルトのステータスバーアイコンを設定します。アイコンはアプリの`res/drawable`フォルダに配置する必要があります。このオプションの値は、拡張子なしのファイル名であるdrawableリソースIDです。Androidのみで使用可能です。                                                                     | 1.0.0 |
+| **`iconColor`** | <code>string</code> | 通知のステータスバーアイコンのデフォルトの色を設定します。Androidのみで使用可能です。                                                                                                                                                                                                                                 | 1.0.0 |
+| **`sound`**     | <code>string</code> | 通知のデフォルトの通知音を設定します。Android 8以降ではデフォルトのチャンネルサウンドを設定し、アプリがアンインストールされない限り変更できません。オーディオファイルが見つからない場合、Android 7.xではデフォルトのシステムサウンドが再生され、Android 8以降では音が鳴りません。Androidのみで使用可能です。 | 1.0.0 |
 
-### Examples
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -68,7 +68,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 /// <reference types="@capacitor/local-notifications" />
@@ -92,7 +92,7 @@ export default config;
 
 ## Doze
 
-If the device has entered [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) mode, your application may have restricted capabilities. If you need your notification to fire even during Doze, schedule your notification by using `allowWhileIdle: true`. Make use of `allowWhileIdle` judiciously, as these notifications [can only fire once per 9 minutes, per app.](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)
+デバイスが[Doze](https://developer.android.com/training/monitoring-device-state/doze-standby)モードに入った場合、アプリケーションの機能が制限される可能性があります。Doze中でも通知を発火させる必要がある場合は、`allowWhileIdle: true`を使用して通知をスケジュールしてください。これらの通知は[アプリごとに9分に1回しか発火できない](https://developer.android.com/training/monitoring-device-state/doze-standby#assessing_your_app)ため、`allowWhileIdle`は慎重に使用してください。
 
 ## API
 

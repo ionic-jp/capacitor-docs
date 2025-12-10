@@ -19,9 +19,9 @@ npx cap sync
 
 ## iOS
 
-On iOS you must enable the Push Notifications capability. See [Setting Capabilities](https://capacitorjs.com/docs/v3/ios/configuration#setting-capabilities) for instructions on how to enable the capability.
+iOSでは、Push Notificationsケイパビリティを有効にする必要があります。ケイパビリティを有効にする方法については[ケイパビリティの設定](https://capacitorjs.com/docs/v3/ios/configuration#setting-capabilities)を参照してください。
 
-After enabling the Push Notifications capability, add the following to your app's `AppDelegate.swift`:
+Push Notificationsケイパビリティを有効にした後、アプリの`AppDelegate.swift`に以下を追加します：
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -35,44 +35,44 @@ func application(_ application: UIApplication, didFailToRegisterForRemoteNotific
 
 ## Android
 
-The Push Notification API uses [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) SDK for handling notifications.  See [Set up a Firebase Cloud Messaging client app on Android](https://firebase.google.com/docs/cloud-messaging/android/client) and follow the instructions for creating a Firebase project and registering your application.  There is no need to add the Firebase SDK to your app or edit your app manifest - the Push Notifications provides that for you.  All that is required is your Firebase project's `google-services.json` file added to the module (app-level) directory of your app.
+Push Notification APIは通知を処理するために[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) SDKを使用します。[AndroidでFirebase Cloud Messagingクライアントアプリをセットアップする](https://firebase.google.com/docs/cloud-messaging/android/client)を参照し、Firebaseプロジェクトの作成とアプリケーションの登録の手順に従ってください。Firebase SDKをアプリに追加したり、アプリマニフェストを編集したりする必要はありません - Push Notificationsがそれを提供します。必要なのは、Firebaseプロジェクトの`google-services.json`ファイルをアプリのモジュール（アプリレベル）ディレクトリに追加することだけです。
 
-Android 13 requires a permission check in order to receive push notifications.  You are required to call `checkPermissions()` and `requestPermissions()` accordingly, when targeting SDK 33.
+Android 13では、プッシュ通知を受信するためにパーミッションチェックが必要です。SDK 33をターゲットにする場合は、`checkPermissions()`と`requestPermissions()`を適切に呼び出す必要があります。
 
-From Android 15 onwards, users can install an app in the [Private space](https://developer.android.com/about/versions/15/features#private-space). Users can lock their private space at any time, which means that push notifications are not shown until the user unlocks it.
+Android 15以降、ユーザーは[プライベートスペース](https://developer.android.com/about/versions/15/features#private-space)にアプリをインストールできます。ユーザーはいつでもプライベートスペースをロックでき、ユーザーがロックを解除するまでプッシュ通知は表示されません。
 
-It is not possible to detect if an app is installed in the private space. Therefore, if your app shows any critical notifications, inform your users to avoid installing the app in the private space.
+アプリがプライベートスペースにインストールされているかどうかを検出することはできません。そのため、アプリが重要な通知を表示する場合は、プライベートスペースにアプリをインストールしないようユーザーに通知してください。
 
-For more information about the behavior changes of your app related to the private space, refer to [Android documentation](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes).
+プライベートスペースに関連するアプリの動作変更の詳細については、[Androidドキュメント](https://developer.android.com/about/versions/15/behavior-changes-all#private-space-changes)を参照してください。
 
 ### Variables
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+このプラグインは以下のプロジェクト変数（アプリの `variables.gradle` ファイルで定義）を使用します：
 
-- `firebaseMessagingVersion` version of `com.google.firebase:firebase-messaging` (default: `25.0.1`)
+- `firebaseMessagingVersion`: `com.google.firebase:firebase-messaging` のバージョン（デフォルト: `25.0.1`）
 
 ---
 
-## Push Notifications icon
+## プッシュ通知アイコン
 
-On Android, the Push Notifications icon with the appropriate name should be added to the `AndroidManifest.xml` file:
+Androidでは、適切な名前のプッシュ通知アイコンを`AndroidManifest.xml`ファイルに追加する必要があります：
 
 ```xml
 <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/push_icon_name" />
 ```
 
-If no icon is specified Android will use the application icon, but push icon should be white pixels on a transparent backdrop. As the application icon is not usually like that, it will show a white square or circle. So it's recommended to provide the separate icon for Push Notifications.
+アイコンが指定されていない場合、Androidはアプリケーションアイコンを使用しますが、プッシュアイコンは透明な背景に白いピクセルである必要があります。アプリケーションアイコンは通常そのようになっていないため、白い正方形または円が表示されます。そのため、プッシュ通知用に別のアイコンを提供することをお勧めします。
 
-Android Studio has an icon generator you can use to create your Push Notifications icon.
+Android Studioにはプッシュ通知アイコンを作成するために使用できるアイコンジェネレーターがあります。
 
-## Push Notification channel
+## プッシュ通知チャンネル
 
-From Android 8.0 (API level 26) and higher, notification channels are supported and recommended. The SDK will derive the `channelId` for incoming push notifications in the following order:
+Android 8.0（APIレベル26）以降では、通知チャンネルがサポートされ、推奨されています。SDKは以下の順序で受信プッシュ通知の`channelId`を決定します：
 
-1. **Firstly it will check if the incoming notification has a `channelId` set.**
-   When sending a push notification from either the FCM dashboard, or through their API, it's possible to specify a `channelId`.
-2. **Then it will check for a possible given value in the `AndroidManifest.xml`.**
-   If you prefer to create and use your own default channel, set `default_notification_channel_id` to the ID of your notification channel object as shown; FCM will use this value whenever incoming messages do not explicitly set a notification channel.
+1. **まず、受信通知に`channelId`が設定されているかどうかを確認します。**
+   FCMダッシュボードまたはAPIからプッシュ通知を送信する際に、`channelId`を指定できます。
+2. **次に、`AndroidManifest.xml`で指定された値があるかどうかを確認します。**
+   独自のデフォルトチャンネルを作成して使用する場合は、`default_notification_channel_id`を通知チャンネルオブジェクトのIDに設定します。FCMは受信メッセージで通知チャンネルが明示的に設定されていない場合にこの値を使用します。
 
 ```xml
 <meta-data
@@ -80,26 +80,26 @@ From Android 8.0 (API level 26) and higher, notification channels are supported 
     android:value="@string/default_notification_channel_id" />
 ```
 
-3. **Lastly it will use the fallback `channelId` that the Firebase SDK provides for us.**
-   FCM provides a default notification channel with basic settings out of the box. This channel will be created by the Firebase SDK upon receiving the first push message.
+3. **最後に、Firebase SDKが提供するフォールバック`channelId`を使用します。**
+   FCMは基本設定のデフォルト通知チャンネルをすぐに使用できるように提供します。このチャンネルは、最初のプッシュメッセージを受信したときにFirebase SDKによって作成されます。
 
-> **Warning**
-> When using option 1 or 2, you are still required to create a notification channel in code with an ID that matches the one used the chosen option. You can use [`createChannel(...)`](#createchannel) for this. If you don't do this, the SDK will fallback to option 3.
+> **警告**
+> オプション1または2を使用する場合でも、選択したオプションで使用されるIDと一致するIDを持つ通知チャンネルをコードで作成する必要があります。これには[`createChannel(...)`](#createchannel)を使用できます。これを行わないと、SDKはオプション3にフォールバックします。
 
-## Push notifications appearance in foreground
+## フォアグラウンドでのプッシュ通知の表示
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-You can configure the way the push notifications are displayed when the app is in foreground.
+アプリがフォアグラウンドにあるときのプッシュ通知の表示方法を設定できます。
 
-| Prop                      | Type                              | Description                                                                                                                                                                                                                                                                                                                                                                                          | Since |
+| プロパティ                      | 型                              | 説明                                                                                                                                                                                                                                                                                                                                                                                          | Since |
 | ------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **`presentationOptions`** | <code>PresentationOption[]</code> | This is an array of strings you can combine. Possible values in the array are: - `badge`: badge count on the app icon is updated (default value) - `sound`: the device will ring/vibrate when the push notification is received - `alert`: the push notification is displayed in a native dialog An empty array can be provided if none of the options are desired. badge is only available for iOS. | 1.0.0 |
+| **`presentationOptions`** | <code>PresentationOption[]</code> | 組み合わせ可能な文字列の配列です。配列の可能な値: - `badge`: アプリアイコンのバッジカウントが更新されます（デフォルト値） - `sound`: プッシュ通知を受信するとデバイスが鳴動/振動します - `alert`: プッシュ通知がネイティブダイアログで表示されます。オプションが不要な場合は空の配列を指定できます。badgeはiOSのみで使用可能です。 | 1.0.0 |
 
-### Examples
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -111,7 +111,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 /// <reference types="@capacitor/push-notifications" />
@@ -131,18 +131,18 @@ export default config;
 
 </docgen-config>
 
-## Silent Push Notifications / Data-only Notifications
+## サイレントプッシュ通知 / データのみの通知
 #### iOS
-This plugin does not support iOS Silent Push (Remote Notifications). We recommend using native code solutions for handling these types of notifications, see [Pushing Background Updates to Your App](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app).
+このプラグインはiOSサイレントプッシュ（リモート通知）をサポートしていません。これらのタイプの通知を処理するには、ネイティブコードソリューションを使用することをお勧めします。[アプリへのバックグラウンド更新のプッシュ](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)を参照してください。
 
 #### Android
-This plugin does support data-only notifications, but will NOT call `pushNotificationReceived` if the app has been killed. To handle this scenario, you will need to create a service that extends `FirebaseMessagingService`, see [Handling FCM Messages](https://firebase.google.com/docs/cloud-messaging/android/receive). 
+このプラグインはデータのみの通知をサポートしていますが、アプリが強制終了されている場合は`pushNotificationReceived`を呼び出しません。このシナリオを処理するには、`FirebaseMessagingService`を拡張するサービスを作成する必要があります。[FCMメッセージの処理](https://firebase.google.com/docs/cloud-messaging/android/receive)を参照してください。
 
-## Common Issues
-On Android, there are various system and app states that can affect the delivery of push notifications:
+## よくある問題
+Androidでは、プッシュ通知の配信に影響を与える可能性のある様々なシステムとアプリの状態があります：
 
-* If the device has entered [Doze](https://developer.android.com/training/monitoring-device-state/doze-standby) mode, your application may have restricted capabilities. To increase the chance of your notification being received, consider using [FCM high priority messages](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message).
-* There are differences in behavior between development and production. Try testing your app outside of being launched by Android Studio. Read more [here](https://stackoverflow.com/a/50238790/1351469).
+* デバイスが[Doze](https://developer.android.com/training/monitoring-device-state/doze-standby)モードに入った場合、アプリケーションの機能が制限される可能性があります。通知が受信される可能性を高めるには、[FCM高優先度メッセージ](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message)の使用を検討してください。
+* 開発と本番では動作に違いがあります。Android Studioから起動せずにアプリをテストしてみてください。詳細は[こちら](https://stackoverflow.com/a/50238790/1351469)をご覧ください。
 
 ---
 

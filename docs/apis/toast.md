@@ -17,9 +17,9 @@ npm install @capacitor/toast
 npx cap sync
 ```
 
-## PWA Notes
+## PWAに関する注意事項
 
-[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements) are required for the Toast plugin to work.
+Toastプラグインが動作するには[PWA Elements](https://capacitorjs.com/docs/web/pwa-elements)が必要です。
 
 ## Example
 

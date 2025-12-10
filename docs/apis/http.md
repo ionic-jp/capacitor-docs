@@ -1,6 +1,6 @@
 ---
 title: Http Capacitor Plugin API
-description: The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries.
+description: Capacitor Http APIは、`fetch`と`XMLHttpRequest`をネイティブライブラリを使用するようにパッチすることでネイティブのHTTPサポートを提供します。
 custom_edit_url: https://github.com/ionic-team/capacitor/blob/main/core/http.md
 editApiUrl: https://github.com/ionic-team/capacitor/blob/main/core/src/core-plugins.ts
 sidebar_label: Http
@@ -8,20 +8,20 @@ sidebar_label: Http
 
 # CapacitorHttp
 
-The Capacitor Http API provides native http support via patching `fetch` and `XMLHttpRequest` to use native libraries. It also provides helper methods for native http requests without the use of `fetch` and `XMLHttpRequest`. This plugin is bundled with `@capacitor/core`.
+Capacitor Http APIは、`fetch`と`XMLHttpRequest`をネイティブライブラリを使用するようにパッチすることでネイティブのHTTPサポートを提供します。`fetch`や`XMLHttpRequest`を使用せずにネイティブHTTPリクエストを行うためのヘルパーメソッドも提供します。このプラグインは`@capacitor/core`にバンドルされています。
 
-## Configuration
+## 設定
 
-By default, the patching of `window.fetch` and `XMLHttpRequest` to use native libraries is disabled.
-If you would like to enable this feature, modify the configuration below in the `capacitor.config` file.
+デフォルトでは、`window.fetch`と`XMLHttpRequest`をネイティブライブラリを使用するようにパッチする機能は無効になっています。
+この機能を有効にしたい場合は、`capacitor.config`ファイルで以下の設定を変更してください。
 
-| Prop          | Type                 | Description                                                                          | Default            |
+| プロパティ          | 型                 | 説明                                                                          | デフォルト            |
 | ------------- | -------------------- | ------------------------------------------------------------------------------------ | ------------------ |
-| **`enabled`** | <code>boolean</code> | Enable the patching of `fetch` and `XMLHttpRequest` to use native libraries instead. | <code>false</code> |
+| **`enabled`** | <code>boolean</code> | `fetch`と`XMLHttpRequest`をネイティブライブラリを使用するようにパッチする機能を有効にします。 | <code>false</code> |
 
-### Example Configuration
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -33,7 +33,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 import { CapacitorConfig } from '@capacitor/cli';
@@ -84,9 +84,9 @@ const doPost = () => {
 };
 ```
 
-## Large File Support
+## 大きなファイルのサポート
 
-Due to the nature of the bridge, parsing and transferring large amount of data from native to the web can cause issues. Support for downloading and uploading files has been added to the [`@capacitor/file-transfer`](https://capacitorjs.com/docs/apis/file-transfer) plugin. In many cases, you may also need [`@capacitor/filesystem`](https://capacitorjs.com/docs/apis/filesystem) to generate a valid [file URI](https://capacitorjs.com/docs/apis/filesystem#geturi).
+ブリッジの性質上、ネイティブからWebに大量のデータをパースして転送すると問題が発生する可能性があります。ファイルのダウンロードとアップロードのサポートは[`@capacitor/file-transfer`](https://capacitorjs.com/docs/apis/file-transfer)プラグインに追加されました。多くの場合、有効な[ファイルURI](https://capacitorjs.com/docs/apis/filesystem#geturi)を生成するために[`@capacitor/filesystem`](https://capacitorjs.com/docs/apis/filesystem)も必要になる場合があります。
 
 ## API
 
@@ -664,7 +664,9 @@ This Fetch API interface allows you to perform various actions on HTTP request a
 
 Construct a type with a set of properties K of type T
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### RequestMode

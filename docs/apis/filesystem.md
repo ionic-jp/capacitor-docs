@@ -17,17 +17,17 @@ npm install @capacitor/filesystem
 npx cap sync
 ```
 
-## Apple Privacy Manifest Requirements
+## Apple プライバシーマニフェストの要件
 
-Apple mandates that app developers now specify approved reasons for API usage to enhance user privacy. By May 1st, 2024, it's required to include these reasons when submitting apps to the App Store Connect.
+Appleは、ユーザーのプライバシーを向上させるために、アプリ開発者がAPI使用の承認された理由を指定することを義務付けています。2024年5月1日までに、App Store Connectにアプリを提出する際にこれらの理由を含める必要があります。
 
-When using this specific plugin in your app, you must create a `PrivacyInfo.xcprivacy` file in `/ios/App` or use the VS Code Extension to generate it, specifying the usage reasons.
+このプラグインをアプリで使用する場合、`/ios/App`に`PrivacyInfo.xcprivacy`ファイルを作成するか、VS Code拡張機能を使用して生成し、使用理由を指定する必要があります。
 
-For detailed steps on how to do this, please see the [Capacitor Docs](https://capacitorjs.com/docs/ios/privacy-manifest).
+詳細な手順については、[Capacitorドキュメント](https://capacitorjs.com/docs/ios/privacy-manifest)を参照してください。
 
-**For this plugin, the required dictionary key is [NSPrivacyAccessedAPICategoryFileTimestamp](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393) and the recommended reason is [C617.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393).**
+**このプラグインで必要な辞書キーは[NSPrivacyAccessedAPICategoryFileTimestamp](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393)で、推奨される理由は[C617.1](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api#4278393)です。**
 
-### Example PrivacyInfo.xcprivacy
+### PrivacyInfo.xcprivacyの例
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,20 +50,20 @@ For detailed steps on how to do this, please see the [Capacitor Docs](https://ca
 </plist>
 ```
 
-## Migrating from downloadFile to File Transfer plugin
+## downloadFileからFile Transferプラグインへの移行
 
-As of version 7.1.0, the `downloadFile` functionality in the Filesystem plugin has been deprecated in favor of the new [@capacitor/file-transfer](https://capacitorjs.com/docs/apis/file-transfer) plugin.
+バージョン7.1.0以降、Filesystemプラグインの`downloadFile`機能は非推奨となり、新しい[@capacitor/file-transfer](https://capacitorjs.com/docs/apis/file-transfer)プラグインの使用が推奨されています。
 
-### Installing the File Transfer plugin
+### File Transferプラグインのインストール
 
 ```bash
 npm install @capacitor/file-transfer
 npx cap sync
 ```
 
-### Migration example
+### 移行の例
 
-Before (using Filesystem plugin):
+変更前（Filesystemプラグインを使用）：
 
 ```typescript
 import { Filesystem, Directory } from '@capacitor/filesystem';
@@ -81,7 +81,7 @@ Filesystem.addListener('progress', (progress) => {
 });
 ```
 
-After (using File Transfer plugin):
+変更後（File Transferプラグインを使用）：
 
 ```typescript
 import { FileTransfer } from '@capacitor/file-transfer';
@@ -106,37 +106,37 @@ FileTransfer.addListener('progress', (progress) => {
 });
 ```
 
-The File Transfer plugin offers improved reliability, better error handling with specific error codes, and also adds upload functionality.
+File Transferプラグインは、信頼性の向上、特定のエラーコードによるエラーハンドリングの改善に加え、アップロード機能も追加されています。
 
 ## iOS
 
-To have files appear in the Files app, you must also set the following keys to `YES` in `Info.plist`:
+ファイルアプリにファイルを表示させるには、`Info.plist`で以下のキーを`YES`に設定する必要があります：
 
-- `UIFileSharingEnabled` (`Application supports iTunes file sharing`)
-- `LSSupportsOpeningDocumentsInPlace` (`Supports opening documents in place`)
+- `UIFileSharingEnabled`（`Application supports iTunes file sharing`）
+- `LSSupportsOpeningDocumentsInPlace`（`Supports opening documents in place`）
 
-Read about [Configuring iOS](https://capacitorjs.com/docs/ios/configuration) for help.
+設定については[iOSの設定](https://capacitorjs.com/docs/ios/configuration)を参照してください。
 
 ## Android
 
-If using <a href="#directory">`Directory.Documents`</a> or <a href="#directory">`Directory.ExternalStorage`</a>, in Android 10 and older, this API requires the following permissions be added to your `AndroidManifest.xml`:
+<a href="#directory">`Directory.Documents`</a>または<a href="#directory">`Directory.ExternalStorage`</a>を使用する場合、Android 10以前では、このAPIには以下のパーミッションを`AndroidManifest.xml`に追加する必要があります：
 
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-Read about [Setting Permissions](https://capacitorjs.com/docs/android/configuration#setting-permissions) in the [Android Guide](https://capacitorjs.com/docs/android) for more information on setting Android permissions.
+Androidパーミッションの設定の詳細については、[Androidガイド](https://capacitorjs.com/docs/android)の[パーミッションの設定](https://capacitorjs.com/docs/android/configuration#setting-permissions)を参照してください。
 
-Note that <a href="#directory">`Directory.ExternalStorage`</a> is only available on Android 9 or older and <a href="#directory">`Directory.Documents`</a> only allows to access the files/folders created by your app on Android on Android 11 and newer.
+<a href="#directory">`Directory.ExternalStorage`</a>はAndroid 9以前でのみ利用可能で、<a href="#directory">`Directory.Documents`</a>はAndroid 11以降ではアプリが作成したファイル/フォルダにのみアクセスできます。
 
-Working with large files may require you to add `android:largeHeap="true"` to the `<application>` tag in `AndroidManifest.xml`.
+大きなファイルを扱う場合は、`AndroidManifest.xml`の`<application>`タグに`android:largeHeap="true"`を追加する必要があるかもしれません。
 
-## Understanding Directories and Files
+## ディレクトリとファイルの理解
 
-iOS and Android have additional layers of separation between files, such as special directories that are backed up to the Cloud, or ones for storing Documents. The Filesystem API offers a simple way to scope each operation to a specific special directory on the device.
+iOSとAndroidには、クラウドにバックアップされる特別なディレクトリや、ドキュメントを保存するためのディレクトリなど、ファイル間に追加の分離層があります。Filesystem APIは、各操作をデバイス上の特定の特別なディレクトリにスコープする簡単な方法を提供します。
 
-Additionally, the Filesystem API supports using full `file://` paths, or reading `content://` files on Android. Simply leave out the `directory` param to use a full file path.
+さらに、Filesystem APIは完全な`file://`パスの使用や、Androidでの`content://`ファイルの読み取りをサポートしています。完全なファイルパスを使用するには、`directory`パラメータを省略するだけです。
 
 ## Example
 

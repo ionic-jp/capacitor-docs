@@ -16,7 +16,7 @@ Androidでは、アプリのURLスキームがわかっているか、公開さ�
 
 **注意:** [Android 11](https://developer.android.com/about/versions/11/privacy/package-visibility) 以降では、`AndroidManifest.xml` の `queries` タグ内に、照会したいアプリのパッケージ名を追加する必要があります。
 
-Example:
+例：
 ```xml
 <queries>
   <package android:name="com.getcapacitor.myapp" />

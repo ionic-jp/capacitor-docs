@@ -17,14 +17,14 @@ npm install @capacitor/splash-screen
 npx cap sync
 ```
 
-### Android 12 Splash Screen API
+### Android 12 スプラッシュスクリーンAPI
 
-_**This only affects the launch splash screen and is not used when utilizing the programmatic `show()` method.**_
+_**これは起動時のスプラッシュスクリーンにのみ影響し、プログラムで`show()`メソッドを使用する場合には使用されません。**_
 
-Capacitor 4 uses the **[Android 12 Splash Screen API](https://developer.android.com/guide/topics/ui/splash-screen)** and the `androidx.core:core-splashscreen` compatibility library to make it work on Android 11 and below.
+Capacitor 4は**[Android 12 スプラッシュスクリーンAPI](https://developer.android.com/guide/topics/ui/splash-screen)**と`androidx.core:core-splashscreen`互換性ライブラリを使用して、Android 11以下でも動作するようにしています。
 
-The compatibility library can be disabled by changing the parent of `AppTheme.NoActionBarLaunch` from `Theme.SplashScreen` to `AppTheme.NoActionBar` in `android/app/src/main/res/values/styles.xml`.
-The Android 12 Splash Screen API can't be disabled on Android 12+ as it's part of the Android OS.
+互換性ライブラリは、`android/app/src/main/res/values/styles.xml`で`AppTheme.NoActionBarLaunch`の親を`Theme.SplashScreen`から`AppTheme.NoActionBar`に変更することで無効にできます。
+Android 12 スプラッシュスクリーンAPIはAndroid OSの一部であるため、Android 12以降では無効にできません。
 
 ```xml
 <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
@@ -32,12 +32,12 @@ The Android 12 Splash Screen API can't be disabled on Android 12+ as it's part o
 </style>
 ```
 
-**NOTE**: On Android 12 and Android 12L devices the Splash Screen image is not showing when launched from third party launchers such as Nova Launcher, MIUI, Realme Launcher, OPPO Launcher, etc., from app info in Settings App, or from IDEs such as Android Studio.
+**注意**: Android 12およびAndroid 12Lデバイスでは、Nova Launcher、MIUI、Realme Launcher、OPPO Launcherなどのサードパーティランチャー、設定アプリのアプリ情報、またはAndroid StudioなどのIDEから起動した場合、スプラッシュスクリーン画像が表示されません。
 **[Google Issue Tracker](https://issuetracker.google.com/issues/205021357)**
 **[Google Issue Tracker](https://issuetracker.google.com/issues/207386164)**
-Google has fixed those problems on Android 13 but they won't backport the fixes to Android 12 and Android 12L.
-Launcher related issues might get fixed by a launcher update.
-If you still find issues related to the Splash Screen on Android 13, please, report them to [Google](https://issuetracker.google.com/).
+Googleはこれらの問題をAndroid 13で修正しましたが、Android 12およびAndroid 12Lへの修正のバックポートは行いません。
+ランチャー関連の問題はランチャーのアップデートで修正される可能性があります。
+Android 13でスプラッシュスクリーンに関連する問題が見つかった場合は、[Google](https://issuetracker.google.com/)に報告してください。
 
 ## Example
 
@@ -59,48 +59,48 @@ await SplashScreen.show({
 });
 ```
 
-## Hiding the Splash Screen
+## スプラッシュスクリーンの非表示
 
-By default, the Splash Screen is set to automatically hide after 500 ms.
+デフォルトでは、スプラッシュスクリーンは500ms後に自動的に非表示になるように設定されています。
 
-If you want to be sure the splash screen never disappears before your app is ready, set `launchAutoHide` to `false`; the splash screen will then stay visible until manually hidden. For the best user experience, your app should call `hide()` as soon as possible.
+アプリの準備ができる前にスプラッシュスクリーンが消えないようにしたい場合は、`launchAutoHide`を`false`に設定します。スプラッシュスクリーンは手動で非表示にするまで表示されたままになります。最高のユーザーエクスペリエンスのために、アプリはできるだけ早く`hide()`を呼び出すべきです。
 
-If, instead, you want to show the splash screen for a fixed amount of time, set `launchShowDuration` in your [Capacitor configuration file](https://capacitorjs.com/docs/config).
+代わりに、スプラッシュスクリーンを一定時間表示したい場合は、[Capacitor設定ファイル](https://capacitorjs.com/docs/config)で`launchShowDuration`を設定します。
 
-## Background Color
+## 背景色
 
-In certain conditions, especially if the splash screen does not fully cover the device screen, it might happen that the app screen is visible around the corners (due to transparency). Instead of showing a transparent color, you can set a `backgroundColor` to cover those areas.
+特定の条件下、特にスプラッシュスクリーンがデバイス画面を完全にカバーしていない場合、（透明性のため）角の周りにアプリ画面が見えることがあります。透明色を表示する代わりに、`backgroundColor`を設定してそれらの領域をカバーできます。
 
-Possible values for `backgroundColor` are either `#RRGGBB` or `#RRGGBBAA`.
+`backgroundColor`の可能な値は`#RRGGBB`または`#RRGGBBAA`です。
 
-## Spinner
+## スピナー
 
-If you want to show a spinner on top of the splash screen, set `showSpinner` to `true` in your [Capacitor configuration file](https://capacitorjs.com/docs/config).
+スプラッシュスクリーンの上にスピナーを表示したい場合は、[Capacitor設定ファイル](https://capacitorjs.com/docs/config)で`showSpinner`を`true`に設定します。
 
-You can customize the appearance of the spinner with the following configuration.
+以下の設定でスピナーの外観をカスタマイズできます。
 
-For Android, `androidSpinnerStyle` has the following options:
+Androidの場合、`androidSpinnerStyle`には以下のオプションがあります：
 
 - `horizontal`
 - `small`
-- `large` (default)
+- `large`（デフォルト）
 - `inverse`
 - `smallInverse`
 - `largeInverse`
 
-For iOS, `iosSpinnerStyle` has the following options:
+iOSの場合、`iosSpinnerStyle`には以下のオプションがあります：
 
-- `large` (default)
+- `large`（デフォルト）
 - `small`
 
-To set the color of the spinner use `spinnerColor`, values are either `#RRGGBB` or `#RRGGBBAA`.
+スピナーの色を設定するには`spinnerColor`を使用します。値は`#RRGGBB`または`#RRGGBBAA`です。
 
-## Configuration
+## 設定
 
 <docgen-config>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-These config values are available:
+以下の設定値が利用可能です：
 
 | Prop                            | Type                                                                                                                          | Description                                                                                                                                                                                                                                             | Default             | Since |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----- |
@@ -119,9 +119,9 @@ These config values are available:
 | **`layoutName`**                | <code>string</code>                                                                                                           | If `useDialog` is set to true, configure the Dialog layout. If `useDialog` is not set or false, use a layout instead of the ImageView. Doesn't work on launch when using the Android 12 API. Only available on Android.                                 |                     | 1.1.0 |
 | **`useDialog`**                 | <code>boolean</code>                                                                                                          | Use a Dialog instead of an ImageView. If `layoutName` is not configured, it will use a layout that uses the splash image as background. Doesn't work on launch when using the Android 12 API. Only available on Android.                                |                     | 1.1.0 |
 
-### Examples
+### 設定例
 
-In `capacitor.config.json`:
+`capacitor.config.json`での設定：
 
 ```json
 {
@@ -146,7 +146,7 @@ In `capacitor.config.json`:
 }
 ```
 
-In `capacitor.config.ts`:
+`capacitor.config.ts`での設定：
 
 ```ts
 /// <reference types="@capacitor/splash-screen" />
@@ -181,7 +181,7 @@ export default config;
 
 ### Android
 
-To use splash screen images named something other than `splash.png`, set `androidSplashResourceName` to the new resource name. Additionally, in `android/app/src/main/res/values/styles.xml`, change the resource name in the following block:
+`splash.png`以外の名前のスプラッシュスクリーン画像を使用するには、`androidSplashResourceName`を新しいリソース名に設定します。さらに、`android/app/src/main/res/values/styles.xml`で、以下のブロック内のリソース名を変更します：
 
 ```xml
 <style name="AppTheme.NoActionBarLaunch" parent="AppTheme.NoActionBar">
@@ -191,15 +191,15 @@ To use splash screen images named something other than `splash.png`, set `androi
 
 ### Variables
 
-This plugin will use the following project variables (defined in your app's `variables.gradle` file):
+このプラグインは以下のプロジェクト変数（アプリの `variables.gradle` ファイルで定義）を使用します：
 
-- `coreSplashScreenVersion` version of `androidx.core:core-splashscreen` (default: `1.2.0`)
+- `coreSplashScreenVersion`: `androidx.core:core-splashscreen` のバージョン（デフォルト: `1.2.0`）
 
-## Example Guides
+## ガイド例
 
-[Adding Your Own Icons and Splash Screen Images &#8250;](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)
+[独自のアイコンとスプラッシュスクリーン画像の追加 &#8250;](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)
 
-[Creating a Dynamic/Adaptable Splash Screen for Capacitor (Android) &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
+[Capacitor用の動的/適応可能なスプラッシュスクリーンの作成（Android） &#8250;](https://www.joshmorony.com/creating-a-dynamic-universal-splash-screen-for-capacitor-android/)
 
 ## API
 

@@ -8,7 +8,7 @@ sidebar_label: Background Runner
 
 # @capacitor/background-runner
 
-Background Runner provides an event-based standalone JavaScript environment for executing your Javascript code outside of the web view.
+Background Runnerは、Webビューの外でJavaScriptコードを実行するためのイベントベースのスタンドアロンJavaScript環境を提供します。
 
 ## Install
 
@@ -17,7 +17,7 @@ npm install @capacitor/background-runner
 npx cap sync
 ```
 
-Background Runner has support for various device APIs that require permission from the user prior to use.
+Background Runnerは、使用前にユーザーからのパーミッションが必要な様々なデバイスAPIをサポートしています。
 
 ## iOS
 
