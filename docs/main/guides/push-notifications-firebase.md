@@ -1,6 +1,6 @@
 ---
-title: プッシュ通知 - Firebase
-description: IonicアプリでFirebase Cloud MessagingをiOSとAndroidで動作させる方法について説明します。
+title: Push Notifications - Firebase
+description: Learn how to get Firebase Cloud Messaging working on iOS and Android in an Ionic app
 contributors:
   - bryplano
   - javebratt
@@ -8,46 +8,46 @@ contributors:
 slug: /guides/push-notifications-firebase
 ---
 
-# Push通知をIonic + Angularアプリ上でFirebaseとともに使う
+# Using Push Notifications with Firebase in an Ionic + Angular App
 
-**Webフレームワーク**: Angular
-**プラットフォーム**: iOS, Android
+**Web Framework**: Angular
+**Platforms**: iOS, Android
 
-アプリケーション開発者がユーザーに提供する最も一般的な機能の 1 つは、プッシュ通知です。このチュートリアルでは、 [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) を iOS と Android で動作させるために必要なすべての手順について説明します。
+One of the most common features provided by application developers to their users is push notifications. In this tutorial, we'll walk through all the steps needed to get [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) working on iOS and Android.
 
-Firebase からのプッシュ通知の登録とモニタリングを行うために、Ionic+Angular アプリケーションで [Push Notification API for Capacitor](https://capacitorjs.jp/docs/apis/push-notifications) を利用します。
+For the purposes of registering and monitoring for push notifications from Firebase, we'll make use of the [Push Notification API for Capacitor](https://capacitorjs.com/docs/apis/push-notifications) in an Ionic + Angular application.
 
-## 要件
+## Required Dependencies
 
-Capacitor を使用して iOS および Android アプリケーションを構築およびデプロイするには、少しばかりのセットアップが必要です。先に進む前に、 [指示に従って必要な Capacitor の依存関係をここにインストールしてください](/main/getting-started/environment-setup.md) 。
+Building and deploying iOS and Android applications using Capacitor requires a bit of setup. Please [follow the instructions to install the necessary Capacitor dependencies here](/main/getting-started/environment-setup.md) before continuing.
 
-iOS でプッシュ通知をテストするためには、Apple は、 [有料の Apple Developer Account](https://developer.apple.com/) を要求します。
+To test push notifications on iOS, Apple requires that you have [a paid Apple Developer account](https://developer.apple.com/).
 
-また、プッシュ通知には Firebase を使用していますので、Firebase SDK を使用している他の Cordova プラグインを使用している場合は、それらが最新バージョンであることを確認してください。
+Also, we're using Firebase for push notifications, so if you're using other Cordova plugins that use the Firebase SDK make sure they're using the latest versions.
 
-## Ionic Capacitorアプリの準備
+## Prepare an Ionic Capacitor App
 
-既存のIonicアプリがある場合は、このセクションをスキップしてください。ない場合は、まずIonicアプリを作成しましょう。
+If you have an existing Ionic app, skip this section. If not, let's create an Ionic app first.
 
-お好みのターミナルで、最新バージョンのIonic CLIをインストールします：
+In your preferred terminal, install the latest version of the Ionic CLI:
 
 ```bash
 npm install -g @ionic/cli
 ```
 
-次に、CLIを使用して**blank**スタータープロジェクトに基づいた新しいIonic Angularアプリを作成し、**capApp**と呼びます：
+Next, let's use the CLI to create a new Ionic Angular app based on the **blank** starter project and call it **capApp**:
 
 ```bash
 ionic start capApp blank --type=angular
 ```
 
-アプリケーションが正常に作成されたら、新しく作成されたプロジェクトディレクトリに移動します：
+Once the application has been created successfully, switch to the newly created project directory:
 
 ```bash
 cd capApp/
 ```
 
-最後に、`capacitor.config.ts`の`appId`を編集します。
+Finish up by editing the `appId` in `capacitor.config.ts`.
 
 ```diff
 const config: CapacitorConfig = {
@@ -58,35 +58,35 @@ const config: CapacitorConfig = {
 };
 ```
 
-## アプリのビルドとプラットフォームの追加
+## Building the App & Adding Platforms
 
-このプロジェクトにネイティブプラットフォームを追加する前に、アプリを少なくとも1回ビルドする必要があります。Webビルドにより、Capacitorが必要とするWebアセットディレクトリ（Ionic Angularプロジェクトでは`www`フォルダ）が作成されます。
+Before adding any native platforms to this project, the app must be built at least once. A web build creates the web assets directory that Capacitor needs (`www` folder in Ionic Angular projects).
 
 ```bash
 ionic build
 ```
 
-次に、iOSとAndroidプラットフォームをアプリに追加しましょう。
+Next, let's add the iOS and Android platforms to our app.
 
 ```bash
 ionic cap add ios
 ionic cap add android
 ```
 
-これらのコマンドを実行すると、プロジェクトのルートに`android`と`ios`の両方のフォルダが作成されます。これらは完全に独立したネイティブプロジェクトの成果物であり、Ionicアプリの一部と見なす必要があります（つまり、ソース管理にチェックインします）。
+Upon running these commands, both `android` and `ios` folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your Ionic app (i.e., check them into source control).
 
-## Capacitorプッシュ通知APIの使用
+## Using the Capacitor Push Notification API
 
-まず、Capacitorプッシュ通知プラグインをインストールする必要があります
+First of all, we need to install the Capacitor Push Notifications Plugin
 
 ```bash
 npm install @capacitor/push-notifications
 npx cap sync
 ```
 
-次に、Firebaseに進む前に、Capacitor Push Notification APIを使用してアプリケーションがプッシュ通知に登録できることを確認する必要があります。また、通知が届いてアプリがデバイスで開いているときに通知のペイロードを表示する`alert`を追加します（代わりに`console.log`文を使用することもできます）。
+Then, before we get to Firebase, we'll need to ensure that our application can register for push notifications by making use of the Capacitor Push Notification API. We'll also add an `alert` (you could use `console.log` statements instead) to show us the payload for a notification when it arrives and the app is open on our device.
 
-アプリで`home.page.ts`ファイルに移動し、`import`文と`const`を追加してCapacitor Push APIを使用します：
+In your app, head to the `home.page.ts` file and add an `import` statement and a `const` to make use of the Capacitor Push API:
 
 ```typescript
 import {
@@ -97,47 +97,47 @@ import {
 } from '@capacitor/push-notifications';
 ```
 
-次に、プッシュ通知の登録と監視のためのAPIメソッドを含む`ngOnInit()`メソッドを追加します。また、何が起きているかを監視するために、いくつかのイベントに`alert()`を追加します：
+Then, add the `ngOnInit()` method with some API methods to register and monitor for push notifications. We will also add an `alert()` a few of the events to monitor what is happening:
 
 ```typescript
 export class HomePage implements OnInit {
   ngOnInit() {
     console.log('Initializing HomePage');
 
-    // プッシュ通知の使用許可を要求
-    // iOSはユーザーに許可を求め、許可されたかどうかを返す
-    // Androidは許可を求めずにそのまま許可する
+    // Request permission to use push notifications
+    // iOS will prompt user and return if they granted permission or not
+    // Android will just grant without prompting
     PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
-        // Apple / Googleに登録してAPNS/FCM経由でプッシュを受信
+        // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
       } else {
-        // エラーを表示
+        // Show some error
       }
     });
 
-    // 成功した場合、通知を受信できるはず
+    // On success, we should be able to receive notifications
     PushNotifications.addListener('registration',
       (token: Token) => {
         alert('Push registration success, token: ' + token.value);
       }
     );
 
-    // セットアップに問題があり、プッシュが動作しない
+    // Some issue with our setup and push will not work
     PushNotifications.addListener('registrationError',
       (error: any) => {
         alert('Error on registration: ' + JSON.stringify(error));
       }
     );
 
-    // アプリがデバイスで開いている場合、通知ペイロードを表示
+    // Show us the notification payload if the app is open on our device
     PushNotifications.addListener('pushNotificationReceived',
       (notification: PushNotificationSchema) => {
         alert('Push received: ' + JSON.stringify(notification));
       }
     );
 
-    // 通知をタップしたときに呼び出されるメソッド
+    // Method called when tapping on a notification
     PushNotifications.addListener('pushNotificationActionPerformed',
       (notification: ActionPerformed) => {
         alert('Push action performed: ' + JSON.stringify(notification));
@@ -147,7 +147,7 @@ export class HomePage implements OnInit {
 }
 ```
 
-`home.page.ts`の完全な実装は以下の通りです：
+Here is the full implementation of `home.page.ts`:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -168,15 +168,15 @@ export class HomePage implements OnInit {
   ngOnInit() {
     console.log('Initializing HomePage');
 
-    // プッシュ通知の使用許可を要求
-    // iOSはユーザーに許可を求め、許可されたかどうかを返す
-    // Androidは許可を求めずにそのまま許可する
+    // Request permission to use push notifications
+    // iOS will prompt user and return if they granted permission or not
+    // Android will just grant without prompting
     PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
-        // Apple / Googleに登録してAPNS/FCM経由でプッシュを受信
+        // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
       } else {
-        // エラーを表示
+        // Show some error
       }
     });
 
@@ -205,139 +205,139 @@ export class HomePage implements OnInit {
 }
 ```
 
-この後、新しいビルドを生成し、Capacitorに変更を知らせます。以下で行えます：
+After this, you'll want to generate a new build and let Capacitor know about the changes. You can do that with:
 
 ```bash
 ionic build
 npx cap copy
 ```
 
-## FirebaseでアプリのプロジェクトCreate作成
+## Creating a Project for your App on Firebase
 
-Firebase Cloud Messagingをアプリケーションに接続してプッシュ通知を送信する前に、Firebaseでプロジェクトを開始する必要があります。
+Before we can connect Firebase Cloud Messaging to your application and send push notifications, you'll need to start a project in Firebase.
 
-[Firebaseコンソール](https://console.firebase.google.com/)に移動し、**Add project**ボタンをクリックします。
+Go to the [Firebase Console](https://console.firebase.google.com/) and click the **Add project** button.
 
-プロジェクトに名前を付け、Firebase利用規約に同意し、**Create project**をクリックして続行します。プロジェクトIDは自動的に生成されます。
+Name the project, accept the Firebase ToS and click **Create project** to continue. A Project ID should be automatically generated for you.
 
 ## Android
 
-### AndroidアプリとFirebaseの統合
+### Integrating Firebase with the Android app
 
-このセクションは、[Firebaseコンソールを使用したFirebaseのセットアップドキュメント](https://firebase.google.com/docs/android/setup?authuser=0)とほぼ同じ内容です。Capacitor固有の注意事項については以下を参照してください。
+This section more-or-less mirrors the [setting up Firebase using the Firebase console documentation](https://firebase.google.com/docs/android/setup?authuser=0). See below for specific Capacitor-related notes.
 
-Firebaseプロジェクトのプロジェクト概要ページに移動し、上部の**Android**アイコンをクリックして新しいAndroidアプリケーションを追加します。
+Go to the Project Overview page for your Firebase project and at the top, click on the **Android** icon to add a new android application.
 
-![FirebaseコンソールでAndroidアプリを追加](../../../static/img/v6/docs/guides/firebase-push-notifications/add-android-app.png)
+![Add new Android Application in Firebase Console](../../../static/img/v6/docs/guides/firebase-push-notifications/add-android-app.png)
 
-次の画面では、アプリケーションに関するいくつかの情報が求められます。
+The next screen will ask you for some information about your application.
 
-- **Androidパッケージ名**は`capacitor.config.ts`ファイルの**appId**と一致する必要があります
-- このCapacitorアプリIDには`com.mydomain.myappname`を使用したため、このエントリにもそれを使用します
-- ニックネームとデバッグ署名証明書はオプションです
+- Your **Android package name** should match the **appId** from your `capacitor.config.ts` file
+- We used `com.mydomain.myappname` for this Capacitor app ID, so that is what we'll use for this entry.
+- Nickname and Debug Signing Certificate are optional
 
-次に**Register app**ボタンをクリックします。
+Then click the **Register app** button.
 
-### `google-services.json`ファイルのダウンロードと使用
+### Download and Use the `google-services.json` file
 
-次のプロンプトで`google-services.json`ファイルのダウンロードが求められます。このファイルには、CapacitorアプリがAndroidからFirebaseに接続するために必要な情報が含まれています。
+The next prompt will ask you to download a `google-services.json` file. This file contains the information your Capacitor app needs to connect to Firebase from Android.
 
-`google-services.json`ファイルをローカルマシンにダウンロードします。次に、ファイルをCapacitor Androidプロジェクトディレクトリ、具体的には`android/app/`の下に移動します。
+Download the `google-services.json` file to your local machine. Then move the file into your Capacitor Android project directory, specifically under `android/app/`.
 
-![AndroidのGoogle Services JSONの場所](../../../static/img/v6/docs/guides/firebase-push-notifications/google-services-location-android.png)
+![Google Services JSON Location for Android](../../../static/img/v6/docs/guides/firebase-push-notifications/google-services-location-android.png)
 
-`@capacitor/push-notifications`は`build.gradle`ファイルに`firebase-messaging`のバージョンを自動的に含めるため、プロジェクトに依存関係を追加する必要はありません。
+We don't need to _add_ any dependencies to our project because `@capacitor/push-notifications` automatically include a version of `firebase-messaging` in it's `build.gradle` file.
 
 ## iOS
 
-### 前提条件
+### Prerequisites
 
-iOSプッシュ通知は、Androidよりも設定がかなり複雑です。iOSアプリケーションでプッシュ通知をテストできるようになる前に、[有料のApple Developerアカウント](https://developer.apple.com/)を持ち、以下の項目を処理する必要があります：
+iOS push notifications are significantly more complicated to set up than Android. You must have a [paid Apple Developer account](https://developer.apple.com/) _and_ take care of the following items prior to being able to test push notifications with your iOS application:
 
-1. Apple Developer PortalでiOSアプリケーションの[適切な開発または本番証明書とプロビジョニングプロファイルをセットアップする](https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7)
-2. Apple Developer Portalで開発または本番用の[APNS証明書またはキーを作成する](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns)
-3. Xcodeでアプリケーションの[プッシュ通知機能が有効になっていることを確認する](https://help.apple.com/xcode/mac/current/#/dev88ff319e7)
+1. [Setup the proper Development or Production certificates & provisioning profiles](https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7) for your iOS application in the Apple Developer Portal
+2. [Create an APNS certificate or key](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns) for either Development or Production in the Apple Developer Portal
+3. [Ensure Push Notification capabilities have been enabled](https://help.apple.com/xcode/mac/current/#/dev88ff319e7) in your application in Xcode
 
-### ネイティブiOSアプリとFirebaseの統合
+### Integrating Firebase with our native iOS app
 
-この部分は上記のAndroidセクションと非常に似ていますが、いくつかの重要な違いがあります。
+This part is very similar to the Android section above, with a few key differences.
 
-まず、Firebaseプロジェクトの**プロジェクト概要**ページに移動します。このガイドに従っている場合、ページの上部にAndroidアプリケーションがすでにリストされているはずです。
+First, go to the **Project Overview** page for your Firebase project. If you've been following this guide, you'll already have an Android application listed at the top of the page.
 
-FirebaseプロジェクトにiOSを追加するには、**Add App**ボタンをクリックし、**iOS**プラットフォームを選択します。
+To add iOS to your Firebase project, click the **Add App** button and select the **iOS** platform.
 
-次の画面では、アプリケーションに関するいくつかの情報が求められます。
+The next screen will ask you for some information about your application.
 
-- **iOSバンドルID**は`capacitor.config.ts`ファイルの**appId**と一致する必要があります
-- このCapacitorアプリIDには`com.mydomain.myappname`を使用したため、このエントリにもそれを使用します
-- アプリニックネームとApp Store IDはオプションです
+- Your **iOS bundle ID** should match the **appId** from your `capacitor.config.ts` file
+- We used `com.mydomain.myappname` for this Capacitor app ID, so that is what we'll use for this entry.
+- App Nickname and App Store ID are optional
 
-次に**Register app**ボタンをクリックします。
+Then click the **Register app** button.
 
-### iOSアプリに`GoogleService-Info.plist`ファイルを追加
+### Add the `GoogleService-Info.plist` file to your iOS app
 
-_注：これはAndroidアプリに使用したファイルと**同じではありません**。_
+_Note: This is **not** the same file used for your Android app._
 
-提供された`GoogleService-Info.plist`をローカルマシンにダウンロードします。
+Download the `GoogleService-Info.plist` provided to your local machine.
 
-次にXcodeを開きます...
+You'll then want to open Xcode...
 
 ```bash
 npx cap open ios
 ```
 
-...そして、Firebaseの指示に従って`.plist`ファイルをXcodeプロジェクトに移動し、すべてのターゲットに追加することを確認してください。
+... and move the `.plist` file into your Xcode project as instructed by Firebase, ensuring to add it to all targets.
 
-![iOS向けGoogle Service Info Plistの場所](../../../static/img/v6/docs/guides/firebase-push-notifications/google-plist-location-ios.png)
+![Google Service Info Plist Location for iOS](../../../static/img/v6/docs/guides/firebase-push-notifications/google-plist-location-ios.png)
 
 
-### Firebase SDKの追加
+### Add the Firebase SDK
 
-iOSのPush Notification APIは、依存関係管理にSwift Package ManagerまたはCocoaPodsを使用します。Firebaseを使用するように設定する必要があります。
+The Push Notification API on iOS makes use of either Swift Package Manager or CocoaPods for dependency management. We need to tell them to make use of Firebase.
 
-#### Swift Package Manager（SPM）を使用する場合
+#### Using Swift Package Manager (SPM)
 
-SPMを使用してSDKを追加するには、`ios/App/App.xcodeproj`を変更する必要があります
+To add the SDK using SPM, you'll need to make a modification to your `ios/App/App.xcodeproj`
 
-まず、`npx cap open ios`を実行するか、Finderでファイルをダブルクリックして`ios/App/App.xcodeproj`をXcodeで開きます。
+First, open `ios/App/App.xcodeproj` in Xcode by running `npx cap open ios` or double click the file in finder.
 
-以下のように、左側でAppを選択し、右側でパッケージ依存関係を選択します。
+Select your App on the left side and select package dependencies on the right, as shown below.
 
 ![SPM-FB-Step1](../../../static/img/spm/firebase/firebase-spm-step1.png)
 
-次に、プラスアイコンを選択して新しいパッケージを追加すると、以下のようなものが表示されるはずです。
+Then, select the plus icon to add a new package, something like the below should be shown.
 
 ![SPM-FB-Step2a](../../../static/img/spm/firebase/firebase-spm-step2a.png)
 
-検索ボックスに`https://github.com/firebase/firebase-ios-sdk`と入力し、「Add Package」を選択します。
+In the search box, enter `https://github.com/firebase/firebase-ios-sdk`, then select "Add Package."
 
 ![SPM-FB-Step2b](../../../static/img/spm/firebase/firebase-spm-step2b.png)
 
-スクロールして、AppターゲットにFirebase Messagingを追加します。
+Now scroll and add Firebase Messaging to the App target.
 
 ![SPM-FB-Step3](../../../static/img/spm/firebase/firebase-spm-step3.png)
 
-「Add Package」をクリックし、処理が完了するまで待ちます。完了すると、この画像のようなものが表示されるはずです。
+Click "Add Package", and wait for processing to finish. When it has you should see something similar to this image.
 
 ![SPM-FB-Step4](../../../static/img/spm/firebase/firebase-spm-step4.png)
 
-#### CocoaPodsを使用する場合
+#### Using CocoaPods
 
-これを行うには、Xcodeの`Pods`の下にある`Podfile`を変更する必要があります：
+To do this, we need to modify the `Podfile`, which can be found in Xcode under `Pods`:
 
-![iOS Podfileの場所](../../../static/img/v6/docs/guides/firebase-push-notifications/podfile-location-ios.png)
+![Podfile Location iOS](../../../static/img/v6/docs/guides/firebase-push-notifications/podfile-location-ios.png)
 
-Appターゲット用に提供されたCocoaPodsにFirebaseを追加する必要があります。そのためには、`target 'App'`セクションに`pod FirebaseMessaging`を追加します：
+We need to add Firebase to the CocoaPods provided for our App target. To do that, add `pod FirebaseMessaging` to your `target 'App'` section, like so:
 
 ```ruby
 target 'App' do
   capacitor_pods
-  # ここにPodを追加
-  pod 'FirebaseMessaging' # この行を追加
+  # Add your Pods here
+  pod 'FirebaseMessaging' # Add this line
 end
 ```
 
-`Podfile`は以下のようになるはずです：
+Your `Podfile` should look something like this:
 
 ```ruby
 require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
@@ -345,9 +345,9 @@ require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
 platform :ios, '14.0'
 use_frameworks!
 
-# 新しいCordovaプラグインがインストールされた後に
-# Product -> Clean Build Folderが必要なPodsのXcodeキャッシュを回避するための回避策
-# CocoaPods 1.6以降が必要
+# workaround to avoid Xcode caching of Pods that requires
+# Product -> Clean Build Folder after new Cordova plugins installed
+# Requires CocoaPods 1.6 or newer
 install! 'cocoapods', :disable_input_output_paths => true
 
 def capacitor_pods
@@ -362,7 +362,7 @@ end
 
 target 'App' do
   capacitor_pods
-  # ここにPodを追加
+  # Add your Pods here
   pod 'FirebaseMessaging'
 end
 
@@ -371,34 +371,34 @@ post_install do |installer|
 end
 ```
 
-### プロジェクトの更新
+### Update the Project
 
-次に、適切なFirebase CocoaPodがインストールされたiOSプロジェクトを更新する必要があります。
+Now we'll need to ensure that our iOS project is updated with the proper Firebase CocoaPod installed.
 
-_注：CocoaPodsが適切なファイル/依存関係をすべてダウンロードする必要があるため、この部分には時間がかかることがあります。_
+_Note: This part can take a while as CocoaPods needs to download all the appropriate files/dependencies._
 
 ```bash
 npx cap update ios
 ```
 
-### 初期化コードの追加
+### Add Initialization Code
 
-iOSアプリの起動時にFirebaseに接続するには、`AppDelegate.swift`ファイルに以下を追加する必要があります。
+To connect to Firebase when your iOS app starts up, you need to add the following to your `AppDelegate.swift` file.
 
-まず、ファイルの先頭に`import`を追加します：
+First, add an `import` at the top of the file:
 
 ```swift
 import FirebaseCore
 import FirebaseMessaging
 ```
 
-...次に、`AppDelegate.swift`ファイルの`application(didFinishLaunchingWithOptions)`メソッドに、Firebase用の設定メソッドを初期化コードに追加します。
+... and then add the configuration method for Firebase to initialization code to your `AppDelegate.swift` file, in the `application(didFinishLaunchingWithOptions)` method.
 
 ```swift
 FirebaseApp.configure()
 ```
 
-次に、プッシュ登録イベントを正しく処理するために、以下の2つのメソッドを追加する必要があります：
+Then you need to add the following two methods to correctly handle the push registration events:
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -417,7 +417,7 @@ func application(_ application: UIApplication, didFailToRegisterForRemoteNotific
 }
 ```
 
-完成した`AppDelegate.swift`ファイルは以下のようになるはずです：
+Your completed `AppDelegate.swift` file should look something like this:
 
 ```swift
 import UIKit
@@ -432,7 +432,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // アプリケーション起動後のカスタマイズのためのオーバーライドポイント
+    // Override point for customization after application launch.
     FirebaseApp.configure()
     return true
   }
@@ -453,109 +453,117 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 ```
 
-### APNS証明書またはキーをFirebaseにアップロード
+### Upload the APNS Certificate or Key to Firebase
 
-最初から手順に従っている場合、Apple Developer PortalでApple APNS証明書またはAPNS認証キーを作成しているはずです。FirebaseがAPNSと通信してアプリケーションにプッシュ通知を送信できるようになる前に、これらのいずれかをFirebaseにアップロードする必要があります。
+If you followed the instructions from the beginning, you'll have created an Apple APNS Certificate or an APNS Auth Key in the Apple Developer portal. You need to upload one of these to Firebase before Firebase can talk to APNS and send push notifications to your application.
 
-証明書または認証キーをアップロードするには、**プロジェクト概要**ページから：
+To upload your certificate or auth key, from the **Project Overview** page:
 
-1. iOSアプリケーションをクリックし、**Settings**歯車アイコンをクリックします。
-2. 設定ページで、**Cloud Messaging**タブをクリックします。
-3. **iOS app configuration**ヘッダーの下で、提供された**Upload**ボタンを使用して認証キーまたは証明書をアップロードします。
+1. Click on your iOS application and then the **Settings** gear icon.
+2. On the Settings page, click on the **Cloud Messaging** tab.
+3. Under the **iOS app configuration** header, upload your Auth Key or Certificate(s) using the provided **Upload** button.
 
-## テスト通知の送信
+## Sending a Test Notification
 
-さて、楽しい部分です - FirebaseからのプッシュがAndroidとiOSで動作していることを確認しましょう！
+Now for the fun part - let's verify that push notifications from Firebase are working on Android and iOS!
 
-`home.page.ts`ページが通知を登録して受信できるように、AndroidまたはiOSでアプリケーションを起動する必要があります。
+We need to fire up our application on Android or iOS so that our `home.page.ts` page can register and receive notifications.
 
-AndroidプロジェクトをAndroid Studioで開くには：
+To open your Android project in Android Studio:
 
 ```bash
 npx cap open android
 ```
 
-iOSプロジェクトをXcodeで開くには：
+To open your iOS project in Xcode:
 
 ```bash
 npx cap open ios
 ```
 
-プロジェクトが開いたら、Android StudioまたはXcodeのRun機能を使用してデバイスにアプリケーションをサイドロードします。アプリはホームページで起動するはずです。
+Once the project is open, side-load the application on your device using the Run feature of either Android Studio or Xcode. The app should start up on the home page.
 
-_注：iOSでは、アプリの通知を許可するかどうかを尋ねるポップアップが表示されます - **Allow notifications**を選択してください！_
+_Note: On iOS, you will see a popup asking you to allow notifications for your app - make sure you choose to **Allow notifications**!_
 
-アプリが正常に登録され、上記のコードに従っている場合、成功メッセージを含むアラートが表示されるはずです！
+If your app successfully registers and you followed the code above, you should see an alert with a success message!
 
-次に、通知がデバイスで受信されるかどうかをテストします。通知を送信するには、Firebaseで、プロジェクトペインのGrowヘッダーの下にある**Cloud Messaging**セクションに移動します。
+Now we'll test to see if the notifications are received by our device. To send a notification, in Firebase, go to the **Cloud Messaging** section under the Grow header in the project pane.
 
-次に、**New Notification**ボタンを選択します。
+Next, select the **New Notification** button.
 
-通知を作成する際には、以下の情報のみを指定する必要があります：
+When creating the notification, you only need to specify the following information:
 
-1. 通知のテキスト
-2. タイトル（Androidのみ、iOSではオプション）
-3. ターゲット（ユーザーセグメントまたはトピック；iOSまたはAndroidアプリ自体をターゲットにすることをお勧めします、以下を参照）
+1. The text of the notification
+2. The title (Android only, optional for iOS)
+3. The Target (either a user segment or topic; I recommend just targeting the iOS or Android app itself, see below)
 
-![FirebaseでPushターゲットを変更](../../../static/img/v6/docs/guides/firebase-push-notifications/change-push-target-firebase.png)
+![Change Push Target Firebase](../../../static/img/v6/docs/guides/firebase-push-notifications/change-push-target-firebase.png)
 
-4. スケジュール（これは「Now」のままにしておく）
+4. The Scheduling (leave this to "Now")
 
-その時点で、作成した通知を**Review**し、**Publish**を選択して通知を送信できます。
+At that point, you can **Review** the notification you've put together and select **Publish** to send the notification out.
 
-アプリケーションを正しくセットアップしていれば、Firebaseで作成したプッシュ通知を含むアラートがホーム画面にポップアップ表示されます。その後、通知をタップすると、上記のコードに従って`pushActionPerformed`イベントの`alert`が表示されるはずです。
+If you've setup your application correctly, you'll see an alert pop up on your home screen with the push notification you composed in Firebase. You can then tap on the notification and you should get an `alert` for the `pushActionPerformed` event, per our code above.
 
-![Androidでのプッシュテスト](../../../static/img/v6/docs/guides/firebase-push-notifications/push-test-android.png)
+![Push Test Android](../../../static/img/v6/docs/guides/firebase-push-notifications/push-test-android.png)
 
-![iOSでのプッシュテスト](../../../static/img/v6/docs/guides/firebase-push-notifications/push-test-ios.png)
+![Push Test iOS](../../../static/img/v6/docs/guides/firebase-push-notifications/push-test-ios.png)
 
-## プッシュ通知の画像
+## Images in Push Notifications
 
-以下のガイドに従って、オプションでプッシュ通知の一部として画像を含めることができます。
+You can optionally include Images as part of push notification by following the guide below.
 
 :::tip
-Firebase Messaging SDKは、ペイロードの一部として`ImageUrl`プロパティを含めて表示できます。URLは`https://`である必要があり、サイズは300kb未満である必要があります。
+The Firebase Messaging SDK can include an `ImageUrl` property as part of its payload and will display it. The url must be `https://` and be sized under 300kb.
 :::
 
-### Androidでの画像
-`@capacitor/push-notifications`を使用すると、Androidは自動的に画像を表示します。[Firebaseコンソール](https://console.firebase.google.com/)で`Notification image`を設定してテストすると、プッシュ通知は以下のスクリーンショットのようにAndroidデバイスに表示されます：
+### Images with Android
+Android will automatically display images when using `@capacitor/push-notifications`. If you test this in [Firebase Console](https://console.firebase.google.com/) by setting `Notification image` the push notification will appear on the Android device similar to the screenshot below:
 
-![Android用画像付きプッシュ通知](../../../static/img/v6/docs/guides/firebase-push-notifications/android-push-image.jpeg)
+![Push Notification with Image for Android](../../../static/img/v6/docs/guides/firebase-push-notifications/android-push-image.jpeg)
 
-### iOSでの画像
-iOSでは、プッシュ通知に画像を表示するためにプロジェクトに[Notification Service Extension](https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension)を追加する必要があります。
+### Images with iOS
+iOS requires a [Notification Service Extension](https://developer.apple.com/documentation/usernotifications/unnotificationserviceextension) to be added to your project in order to display images in push notifications.
 
-XCodeで：
-- `File` > `New` > `Target`をクリック
-- `Notification Service Extension`を選択して`Next`をクリック
-- `Product Name`を入力（例：`pushextension`）
-- Teamを選択
-- `Finish`をクリック
-- 確認されたら`Activate`をクリック
+In XCode:
+- Click `File` > `New` > `Target`
+- Choose `Notification Service Extension` and click `Next`
+- Enter a `Product Name` (for example `pushextension`)
+- Select your Team
+- Click `Finish`
+- When asked click `Activate`
 
-ターゲットのリストから`pushextension`を選択し、次に：
-- `Signing & Capabilities`をクリック
-- `+ Capability`をクリック
-- `Push Notifications`を選択
-- デプロイメントターゲットを`iOS 16.4`（またはXcodeが選択したもの）から`iOS 14.0`に変更
+Choose `pushextension` from the list of Targets then:
+- Click `Signing & Capabilities`
+- Click `+ Capability`
+- Choose `Push Notifications`
+- Change the Deployment target from `iOS 16.4` (or whatever Xcode chose) to `iOS 15.0`
 
 :::note
-拡張機能のデプロイメントターゲットを変更しないと、古いバージョンのiOSのデバイスでは画像が表示されません。
+ If you do not change the deployment target for your extension then images will not appear on devices on an older version of iOS.
 :::
 
-Firebase Messagingを拡張機能に追加するには、`Podfile`を開いて以下を追加します：
+To add Firebase Messaging to the extension:
+
+Using SPM:
+- Select the `pushextension` Target
+- Under `General`, `Frameworks and Libraries`, click the "Add items" button
+- Add `FirebaseMessaging`
+
+Using CocoaPods:
+Open your `Podfile` and add:
 ```ruby
 target 'pushextension' do
   pod 'FirebaseMessaging'
 end
 ```
 
-次にCocoaPodsを更新するために以下を実行します：
+Then update Cocoapods by running:
 ```bash
 npx cap update ios
 ```
 
-次に`NotificationService.swift`（`pushextension`という名前のフォルダにあります）を開き、内容を以下に置き換えます：
+Now open `NotificationService.swift` (it will be in the folder named `pushextension`) and replace the contents with the following:
 
 ```swift
 import UserNotifications
@@ -582,6 +590,6 @@ class NotificationService: UNNotificationServiceExtension {
 }
 ```
 
-これで[Firebaseコンソール](https://console.firebase.google.com/)からプッシュ通知をテストできます。`Notification image`を設定し、iOSアプリを選択することを忘れないでください。iOSデバイスに届くと、以下のように右側に表示されます：
+You should now test a push notification from the [Firebase Console](https://console.firebase.google.com/) remembering to set the `Notification image` and choose your iOS app. When it arrives on the iOS device it will appear on the right hand side as shown below:
 
-![iOS用画像付きプッシュ通知](../../../static/img/v6/docs/guides/firebase-push-notifications/ios-push-image.jpeg)
+![Push Notification with Image for iOS](../../../static/img/v6/docs/guides/firebase-push-notifications/ios-push-image.jpeg)

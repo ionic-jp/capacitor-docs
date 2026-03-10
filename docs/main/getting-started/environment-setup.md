@@ -1,135 +1,135 @@
 ---
-title: 環境のセットアップ
-description: Capacitorの開発環境のセットアップ
+title: Environment Setup
+description: Setting up a development environment for Capacitor
 slug: /getting-started/environment-setup
 ---
 
-# 環境のセットアップ
+# Environment Setup
 
-Capacitorには、公式にサポートされている3つのアプリケーションターゲットがあります：Android、iOS、およびWeb。3つのプラットフォームすべてのアプリケーションを作成するには、以下のすべての依存関係をインストールする必要があります。ネイティブモバイルターゲットのいずれかをターゲットにしない場合は、関連するセクションをスキップできます。
+Capacitor has three officially supported application targets: Android, iOS, and Web. In order to create applications for all three platforms, you'll need to install all of the following dependencies. If you are not targeting one of the native mobile targets, you can skip the associated section.
 
-## コア要件
+## Core Requirements
 
-Capacitorでアプリケーションを開発するには、NodeJS 20以上がインストールされている必要があります。[Nodeのウェブサイト](https://nodejs.org)にあるインストーラを使用するか、JavaScriptツールマネージャーである[Volta](https://volta.sh/)を使用するか、[homebrew](https://brew.sh/)や[Chocolatey](https://chocolatey.org/)などのパッケージマネージャーを使用してNodeをインストールできます。
+In order to develop any application with Capacitor, you will need NodeJS 22 or higher installed. You can install Node by using the installer on [the Node website](https://nodejs.org), using [Volta](https://volta.sh/): a JavaScript tools manager, or installing it with a package manager like [homebrew](https://brew.sh/), or [Chocolatey](https://chocolatey.org/).
 
-Nodeをインストールしたら、お好みのターミナルを開き、以下のコマンドを入力してnodeが正しくインストールされていることを確認してください
+Once you have installed Node, open your terminal of choice and type in the following command to make sure node is properly installed
 
 ```bash
 node --version
-# v20.9.0
+# v22.21.1
 ```
 
-Nodeがインストールされたら、CapacitorでProgressive Web Application（PWA）の作成を開始できます。
+With Node installed, you can get started with creating Progressive Web Applications (PWA) with Capacitor.
 
-## iOSの要件
+## iOS Requirements
 
-iOSアプリをビルドするには、**macOS**が必要です。Macを持っていない場合にiOSクラウドビルドを実行するために使用できる[Ionic Appflow](http://ionicframework.com/appflow)などのソリューションがありますが、Capacitorアプリケーションを適切にテストするために、ローカルでツールを利用できるようにしておくことを強くお勧めします。
+To build iOS apps, you will need **macOS**. While there are solutions like [Ionic Appflow](http://ionicframework.com/appflow) that can be used to perform iOS cloud builds if you don't have a Mac, it is highly recommended to have the tools available to you locally in order to properly test your Capacitor application.
 
-Capacitorを使用してiOSアプリケーションを開発するには、2つの追加の依存関係が必要です：
+In order to develop iOS applications using Capacitor, you will need two additional dependencies:
 
 - Xcode
 - Xcode Command Line Tools
 
-コア要件に加えてXcodeとXcode Command Line Toolsをインストールすると、iOSアプリケーションとPWAの両方を作成できるようになります。
+Once you've installed the core requirements, as well as Xcode, Xcode Command Line Tools, you'll be able to create both iOS applications and PWAs.
 
 ### Xcode
 
-Xcodeは、ネイティブのmacOS、iOS、およびiPadOSアプリケーションを作成するためのAppleのIDEです。Macの[Apple App Storeを使用して](https://apps.apple.com/us/app/xcode/id497799835?mt=12)Xcodeをインストールできます。Capacitor 7には、Xcode 16.0以上が必要です。
+Xcode is Apple's IDE for creating native macOS, iOS, and iPadOS applications. You can install Xcode by [using the Apple App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) on your Mac. Capacitor 8 requires a minimum of Xcode 26.0.
 
 ### Xcode Command Line Tools
 
-Xcode Command Line Toolsは、Xcodeのコアには含まれていない追加のツールで、アプリケーションのビルドとテストに必要です。Xcodeがインストールされたら、ターミナルで以下のコマンドを実行してXcode Command Line Toolsをインストールできます：
+The Xcode command line tools are additional tools not included with the core of Xcode that are required for building and testing your application. Once Xcode has been installed, you can install the Xcode Command Line Tools by running the following command in your terminal:
 
 ```bash
 xcode-select --install
 ```
 
-パスワードを入力し、パッケージのインストールを数分待った後、以下のコマンドを実行してツールがインストールされていることを確認できます：
+After inputting your password and waiting for a few minutes for the packages to install, you can verify that the tools are installed by running the following command:
 
 ```bash
 xcode-select -p
 # /Applications/Xcode.app/Contents/Developer
 ```
 
-### オプションの依存関係
+### Optional dependencies
 
-以下の依存関係は、iOSでCapacitorを使用する際のオプションです。
+The following dependencies are optional for using Capacitor on iOS.
 
-ネイティブiOSパッケージの依存関係マネージャーとしてCocoaPodsを使用する必要がある場合は、以下の2つのパッケージマネージャーをインストールする必要があります：
+If you need to use CocoaPods as a dependency manager for native iOS packages, then you should install these two package managers:
 
 - Homebrew
 - CocoaPods
 
-iOSの依存関係マネージャーとして[Swift Package Manager](https://docs.swift.org/swiftpm/documentation/packagemanagerdocs)（SPM）を使用することをお勧めします。CocoaPodsが必要ない場合は、SPMを使用してこれらの2つの依存関係のインストールをスキップできます。
+We recommend using [Swift Package Manager](https://docs.swift.org/swiftpm/documentation/packagemanagerdocs) (SPM) as the dependency manager for iOS. If you don't need CocoaPods, then you can use SPM and skip the install of those two dependencies.
 
 #### Homebrew
 
-HomebrewはmacOSパッケージ用のパッケージマネージャーです。Intel MacとApple Silicon Macの両方でCocoaPodsをインストールするためにインストールする必要があります。
+Homebrew is a package manager for macOS packages. You need to install it in order to install CocoaPods for both Intel and Apple Silicon Macs.
 
-Homebrewをインストールするには、以下のbashコマンドを実行します：
+To install Homebrew, run the following bash command:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 :::info
-私たちを信じるだけでなく、これは[brew.sh](https://brew.sh)がHomebrewのインストールを推奨している方法です。
+Don't just trust us! This is how [brew.sh](https://brew.sh) recommends installing Homebrew.
 :::
 
-Homebrewをインストールしたくない場合は、以下に代替の（推奨されない）手順があります。
+If you do not want to install Homebrew, alternative, but not recommended, instructions can be found below.
 
 #### CocoaPods
 
-CocoaPodsはCapacitor 7以前のデフォルトのiOS依存関係マネージャーでした。Capacitor 8以降、デフォルトはSPMに置き換えられましたが、プロジェクトで必要な場合は、`npx cap add ios`コマンドに`--packagemanager CocoaPods`を渡すことで、代わりにCocoaPodsを使用できます。
+CocoaPods was the default iOS dependency manager in Capacitor 7 and earlier. Since Capacitor 8, the default has been replaced with SPM, but you can still use CocoaPods as an alternative if your project needs it, by passing `--packagemanager CocoaPods` to `npx cap add ios` command.
 
-ターミナルで以下のコマンドを実行して[CocoaPods](https://cocoapods.org/)をインストールできます
+You can install [CocoaPods](https://cocoapods.org/) by running the following command in your terminal
 
 ```bash
 brew install cocoapods
 ```
 
-以下のコマンドを実行して、CocoaPodsが正しくインストールされていることを確認できます。
+You can verify that CocoaPods has installed correctly by running the following command.
 
 ```bash
 pod --version
 # 1.12.1
 ```
 
-##### HomebrewなしでのコcoaPodsのインストール
+##### Installing CocoaPods without Homebrew
 
-Ruby Gemで直接CocoaPodsをインストールできます。インストールするには、以下のコマンドを実行します。
+You can install CocoaPods directly with Ruby Gem. To install it, you can run the following command.
 ```
 sudo gem install cocoapods
 ```
 
-sudoなしで実行する方法については、[CocoaPodsのsudoなしインストールドキュメント](https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation)を参照してください
+For running without sudo see [CocoaPods sudo-less installation docs](https://guides.cocoapods.org/using/getting-started.html#sudo-less-installation)
 
-## Androidの要件
+## Android Requirements
 
-Capacitorを使用してAndroidアプリケーションを開発するには、2つの追加の依存関係が必要です：
+In order to develop Android applications using Capacitor, you will need two additional dependencies:
 
 - Android Studio
-- Android SDKのインストール
+- An Android SDK installation
 
 :::note
-Java Development Kit（JDK）を別途インストールする必要はありません。Android Studio
-が適切なJDKを自動的にインストールします。
+You do not need to separately install the Java Development Kit (JDK). Android Studio
+will automatically install the proper JDK for you.
 :::
 
-コア要件に加えてAndroid StudioでAndroid SDKをインストールすると、AndroidアプリケーションとPWAの両方を作成できるようになります。
+Once you've installed the core requirements, as well as an Android SDK with Android Studio, you'll be able to create both Android applications and PWAs.
 
 ### Android Studio
 
-Android Studioは、ネイティブAndroidアプリケーションを作成するためのGoogleのIDEです。[Android Studioのダウンロードページ](https://developer.android.com/studio)にアクセスしてAndroid Studioをインストールできます。Capacitor 7には、Android Studio 2024.2.1以上が必要です。
+Android Studio is Google's IDE for creating native Android applications. You can install Android Studio by going to the [Android Studio download page](https://developer.android.com/studio). Capacitor 8 requires a minimum of Android Studio 2025.2.1.
 
 ### Android SDK
 
-Android Studioがインストールされたら、Android SDKパッケージをインストールする必要があります。
+Once Android Studio has been installed, you need to install an Android SDK package.
 
-Androidアプリを開発するには、いくつかのAndroid SDKパッケージをインストールする必要があります。Android SDK Toolsと、API 23以上のAndroid SDKプラットフォームのバージョンをインストールしてください。
+Developing Android apps requires some Android SDK packages to be installed. Make sure to install the Android SDK Tools, and a version of the Android SDK Platforms for API 24 or greater.
 
-Android Studioで、メニューから**Tools -> SDK Manager**を開き、**SDK Platforms**タブでテストしたいプラットフォームバージョンをインストールします：
+In Android Studio, open **Tools -> SDK Manager** from the menu and install the platform versions you'd like to test with in the **SDK Platforms** tab:
 
 ![SDK Platforms](/img/v6/docs/android/sdk-platforms.png)
 
-始めるには、1つのAPIバージョンのみをインストールする必要があります。上の画像では、Android 9（API 28）とAndroid 10（API 29）のSDKがインストールされています。最新の安定バージョンはAndroid 15（API 35）です。
+To get started, you only need to install one API version. In the above image, the SDKs for Android 9 (API 28) and Android 10 (API 29) are installed. The latest stable version is Android 16 (API 36).

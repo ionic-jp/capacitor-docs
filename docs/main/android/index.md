@@ -1,83 +1,83 @@
 ---
-title: Capacitor Android ドキュメンテーション
-sidebar_label: はじめ方
+title: Capacitor Android Documentation
+sidebar_label: Getting Started
 slug: /android
-description: Capacitor Android ドキュメンテーション
+description: Capacitor Android Documentation
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor Android ドキュメンテーション
+# Capacitor Android Documentation
 
-Capacitor は Native の Android ランタイムを特徴としており、開発者は JavaScript と Native Java for Android コード間で通信することができます。
+Capacitor features a native Android runtime that enables developers to communicate between JavaScript and Native Java or Kotlin code.
 
-Capacitor の Android アプリは、Android Studio で設定・管理されています。
+Capacitor Android apps are configured and managed through Android Studio.
 
-## Androidサポート
+## Android Support
 
-API 23+ (Android 6以降) がサポートされており、 これは Android 市場の99%以上に相当します。Capacitorには、Chromeバージョン60以降のAndroid WebViewが必要です。Android 6、および10以上では、Capacitorは[Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview)を使用します。Android 7-9では、[Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome)がWebViewを提供します。
+API 24+ (Android 7 or later) is supported, which represents around 99% of the Android market. Capacitor requires an Android WebView with Chrome version 60 or later. On Android 7-9, [Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) provides the WebView. On Android 10+ Capacitor uses the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview).
 
-## Android プラットフォームの追加
+## Adding the Android Platform
 
-まず、`@capacitor/android` パッケージをインストールします。
+First, install the `@capacitor/android` package.
 
 ```bash
 npm install @capacitor/android
 ```
 
-次に、Androidのプラットフォームを追加します。
+Then, add the Android platform.
 
 ```bash
 npx cap add android
 ```
 
-## Android プロジェクトのオープン
+## Opening the Android Project
 
-Android Studio でプロジェクトを開くには、次のように実行します:
+To open the project in Android Studio, run:
 
 ```bash
 npx cap open android
 ```
 
-あるいは、Android Studio を開いて、 `android/` ディレクトリを Android Studio プロジェクトとしてインポートすることもできます。
+Alternatively, you can open Android Studio and import the `android/` directory as an Android Studio project.
 
 ## Running Your App
 
-作成したアプリは、コマンドラインまたは Android Studio で実行することができます。
+You can either run your app on the command-line or with Android Studio.
 
-> Androidエミュレータを使用するには、API 24+のシステムイメージを使用する必要があります。システムウェブビューはエミュレータ上では自動的に更新されません。物理デバイスは、System WebViewが更新されている限り、API 23以下でも動作するはずです。
+> To use an Android Emulator you must use an API 24+ system image. The System WebView does not automatically update on emulators. Physical devices should work as low as API 24 as long as their System WebView is updated.
 
-### コマンドラインでの実行
+### Running on the Command-Line
 
-物理デバイスやエミュレータでプロジェクトを実行するには、次のように実行します:
+To run the project on a device or emulator, run:
 
 ```bash
 npx cap run android
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [`run`](/cli/commands/run.md) をご覧ください。
+The command will prompt you to select a target. [Learn more about `run`](/cli/commands/run.md).
 
-> `run` コマンドを使用するには、物理的なAndroidデバイスか、ダウンロードしたエミュレータのシステムイメージのどちらかが必要です。Android Studio でのエミュレータデバイスの作成とシステムイメージのダウンロードについては、 [こちらのドキュメント](https://developer.android.com/studio/run/managing-avds) を参照してください。
+> Either a physical Android device or a downloaded emulator system image is required to use the `run` command. See the [documentation here for creating emulator devices and downloading system images in Android Studio](https://developer.android.com/studio/run/managing-avds).
 
-### Android Studio での実行
+### Running with Android Studio
 
-Android Studio では、まずデバイスやエミュレータを選択し、実行またはデバッグボタンをクリックしてアプリを実行します。Java や Kotlin のコードをデバッグするのでなければ、実行ボタンが好ましいでしょう。
+In Android Studio, first select the device or emulator and then click the run or debug button to run your app. Unless you're debugging Java or Kotlin code, the run button is preferred.
 
 ![Running App](../../../static/img/v6/docs/android/running.png)
 
-## トラブルシューティング
+## Troubleshooting
 
-使い始めてすぐに何か問題が発生した場合は、 [Android トラブルシューティングガイド](/main/android/troubleshooting.md) を参考にしてください。お困りの方は、お気軽に [ディスカッションを開いて](https://github.com/ionic-team/capacitor/discussions/) までご連絡ください。
+If you encountered any issues while getting started, you can consult the [Android Troubleshooting Guide](/main/android/troubleshooting.md). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
 
-## 次のステップ
+## Next Steps
 
-アプリが動作すれば、アプリの開発と構築を続ける準備が整いました。様々な API、Capacitor や Cordova のプラグイン、またはカスタムネイティブコードを使用して、アプリの残りの部分を構築してください。
+If your app ran you are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
 
 ## Further Reading
 
-アプリのパーミッションの設定、依存関係の更新、プラグインの構築などの詳細については、以下の Android 固有のガイドを参照してください。
+Follow these Android-specific guides for more information on setting permissions for your app, updating dependencies, building plugins, and more:
 
-[Android の設定とパーミッションの設定 &#8250;](/main/android/configuration.md)
+[Configuring and setting permissions for Android &#8250;](/main/android/configuration.md)
 
-[Android 用のネイティブプラグインを作る &#8250;](/plugins/creating-plugins/android-guide.md)
+[Building Native Plugins for Android &#8250;](/plugins/creating-plugins/android-guide.md)

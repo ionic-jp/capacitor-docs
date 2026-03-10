@@ -1,82 +1,90 @@
 ---
-title: はじめ方
-description: JavaScriptとSwiftまたはObjective-Cのネイティブコード間のコミュニケーション
+title: Getting Started
+description: Communicate between JavaScript and Native Swift or Objective-C code
 slug: /ios
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# Capacitor iOS ドキュメンテーション
+# Capacitor iOS Documentation
 
-Capacitor は Native の iOS ブリッジを特徴としており、開発者は JavaScript と Native Swift または Objective-C コードとの間で通信できます。
+Capacitor features a native iOS runtime that enables developers to communicate between JavaScript and Native Swift or Objective-C code.
 
-Capacitor の iOS アプリは、Xcode と　[CocoaPods](https://cocoapods.org/)　で設定・管理されています。
+Capacitor iOS apps are configured and managed with Xcode and [CocoaPods](https://cocoapods.org/).
 
-## iOS サポート
+## iOS Support
 
-iOS 14+に対応しています。Xcode 16.0+が必要です（[環境セットアップ](/main/getting-started/environment-setup.md#ios-requirements) を参照）。Capacitorは非推奨の[UIWebView](https://developer.apple.com/documentation/uikit/uiwebview)ではなく、[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)を使用します。
+iOS 15+ is supported. Xcode 26.0+ is required (see [Environment Setup](/main/getting-started/environment-setup.md#ios-requirements)). Capacitor uses [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), not the deprecated [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
 
-## iOS プラットフォームの追加
+## Adding the iOS Platform
 
-まず、 `@capacitor/ios` パッケージをインストールします。
+First, install the `@capacitor/ios` package.
 
 ```bash
 npm install @capacitor/ios
 ```
 
-そして iOS プラットフォームを追加します。
+Then, add the iOS platform.
 
 ```bash
 npx cap add ios
 ```
 
-## iOS プロジェクトを開く
+## Opening the iOS Project
 
-Xcode でプロジェクトを開くには、次のように実行します:
+To open the project in Xcode, run:
 
 ```bash
 npx cap open ios
 ```
 
-または、Xcode を手動で起動することもできます:
+Alternatively, you can open Xcode manually by running:
 
 ```bash
 open ios/App/App.xcworkspace
 ```
 
-## アプリの実行
+## Running Your App
 
-アプリを実行するには、コマンドラインで実行する方法と、Xcode で実行する方法があります。
+You can either run your app on the command-line or with Xcode.
 
-### コマンドラインでの実行
+### Running on the Command-Line
 
-デバイスやシミュレータでプロジェクトを実行するには、次のように実行します:
+To run the project on a device or simulator, run:
 
 ```bash
 npx cap run ios
 ```
 
-コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/cli/commands/run.md).
+The command will prompt you to select a target. [Learn more about `run`](/cli/commands/run.md).
 
-### Xcode での実行
+### Wireless iOS Devices
 
-Xcode では、まずデバイスやシミュレータを選択し、再生ボタンをクリックしてアプリを実行します。
+To enable running on wireless iOS devices, make sure your device is paired with Finder and select the "Show this iPhone when on Wi-Fi" option:
+
+![Enabling wireless iPhone debugging](../../../static/img/wireless-iphone.png)
+
+Your device should now show up in the list of available devices provided by `npx cap run ios --list`.
+
+### Running in Xcode
+
+In Xcode, first select the device or simulator and then click the play button to run your app.
 
 ![Running your app](../../../static/img/v6/docs/ios/running.png)
 
-## トラブルシューティング
+## Troubleshooting
 
-使い始めてから何か問題が発生した場合は、 [iOS トラブルシューティングガイド](/main/ios/troubleshooting.md)  を参考にしてください。ヘルプが必要な場合は、お気軽に [ディスカッションを開いてください](https://github.com/ionic-team/capacitor/discussions/) をご利用ください。
+If you encountered any issues while getting started, you can consult the [iOS Troubleshooting Guide](/main/ios/troubleshooting.md). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
 
-## 次のステップ
+## Next steps
 
-これで、アプリの開発と構築を続ける準備が整いました。利用可能な様々な API、Capacitor や Cordova のプラグイン、またはカスタムネイティブコードを使用して、アプリの残りの部分を構築してください。
+You are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
 
 ## Further Reading
 
-各トピックの詳細については、以下のガイドを参照してください。
+Follow these guides for more information on each topic:
 
-[iOS の設定とパーミッションの設定 &#8250;](/main/ios/configuration.md)
+[Configuring and setting permissions for iOS &#8250;](/main/ios/configuration.md)
 
-[iOS 用のネイティブプラグインの構築 &#8250;](/plugins/creating-plugins/ios-guide.md)
+[Building Native Plugins for iOS &#8250;](/plugins/creating-plugins/ios-guide.md)
