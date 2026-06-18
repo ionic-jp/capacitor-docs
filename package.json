@@ -1,7 +1,7 @@
 {
   "name": "capacitor-docs",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "npm run build:${VERCEL_ENV:-preview}",
     "build:preview": "docusaurus build --locale ja",
